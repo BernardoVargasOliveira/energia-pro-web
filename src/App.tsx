@@ -11,6 +11,7 @@ import Setores from "./pages/Setores";
 import Projetos from "./pages/Projetos";
 import Contato from "./pages/Contato";
 import Admin from "./pages/Admin";
+import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -35,6 +36,7 @@ const App = () => (
               <Route path="/projetos" element={<Projetos />} />
               <Route path="/contato" element={<Contato />} />
               <Route path="/admin" element={<Admin />} />
+              <Route path="/login" element={<Login />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
