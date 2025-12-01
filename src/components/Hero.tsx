@@ -62,49 +62,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Energy pulse effect */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <svg 
-          className="absolute bottom-0 right-0 w-full h-full opacity-15"
-          viewBox="0 0 1440 800" 
-          fill="none" 
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {/* Animated sine waves */}
-          <path 
-            d="M0 400 Q 180 300, 360 400 T 720 400 T 1080 400 T 1440 400" 
-            stroke="hsl(210, 100%, 70%)" 
-            strokeWidth="3" 
-            fill="none"
-            className="animate-pulse"
-            style={{ 
-              animation: 'pulse 4s ease-in-out infinite',
-              transformOrigin: 'center'
-            }}
-          />
-          <path 
-            d="M0 500 Q 180 400, 360 500 T 720 500 T 1080 500 T 1440 500" 
-            stroke="hsl(210, 100%, 75%)" 
-            strokeWidth="2" 
-            fill="none"
-            style={{ 
-              animation: 'pulse 5s ease-in-out infinite 0.5s',
-              transformOrigin: 'center'
-            }}
-          />
-          <path 
-            d="M0 600 Q 180 500, 360 600 T 720 600 T 1080 600 T 1440 600" 
-            stroke="hsl(210, 100%, 80%)" 
-            strokeWidth="2" 
-            fill="none"
-            style={{ 
-              animation: 'pulse 6s ease-in-out infinite 1s',
-              transformOrigin: 'center'
-            }}
-          />
-        </svg>
-      </div>
-
       {/* Decorative elements */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
