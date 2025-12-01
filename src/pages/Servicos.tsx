@@ -6,6 +6,12 @@ import { Link } from "react-router-dom";
 import geradoresTransporte from "@/assets/geradores-transporte.jpg";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Servicos = () => {
   useEffect(() => {
@@ -126,6 +132,94 @@ const Servicos = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <h2 className="text-3xl font-bold text-foreground mb-4 text-center">
+              Perguntas Frequentes
+            </h2>
+            <p className="text-muted-foreground text-center mb-10">
+              Respostas para as dúvidas mais comuns sobre nossos serviços
+            </p>
+            
+            <Accordion type="single" collapsible className="space-y-4">
+              <AccordionItem value="item-1" className="border border-border rounded-lg px-6 bg-card">
+                <AccordionTrigger className="text-left font-semibold hover:text-primary">
+                  Quais são os prazos disponíveis para locação?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Oferecemos locação de curta, média e longa duração, com flexibilidade total para atender suas necessidades. 
+                  Os prazos podem variar desde locações diárias para eventos até contratos de meses ou anos para projetos industriais. 
+                  Nossa equipe trabalha com você para definir o prazo ideal.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-2" className="border border-border rounded-lg px-6 bg-card">
+                <AccordionTrigger className="text-left font-semibold hover:text-primary">
+                  A instalação está incluída no serviço de locação?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Sim, nosso serviço inclui instalação e desinstalação completa dos equipamentos. 
+                  Contamos com uma equipe técnica especializada que realiza todo o processo de mobilização e desmobilização, 
+                  garantindo que o gerador esteja operacional e seguro desde o primeiro momento.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-3" className="border border-border rounded-lg px-6 bg-card">
+                <AccordionTrigger className="text-left font-semibold hover:text-primary">
+                  Vocês oferecem manutenção durante o período de locação?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Sim, a manutenção preventiva está inclusa em todos os nossos contratos de locação. 
+                  Além disso, oferecemos suporte técnico especializado durante todo o período da locação, 
+                  com diagnóstico remoto e atendimento presencial quando necessário em todo o Território de Minas Gerais.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-4" className="border border-border rounded-lg px-6 bg-card">
+                <AccordionTrigger className="text-left font-semibold hover:text-primary">
+                  Qual é a potência disponível dos geradores?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Disponibilizamos grupos geradores de 6 a 4000 kVA, com possibilidade de ligação em paralelo para 
+                  potências ainda maiores. Nossos equipamentos são de última geração e atendem desde pequenos estabelecimentos 
+                  comerciais até grandes complexos industriais.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-5" className="border border-border rounded-lg px-6 bg-card">
+                <AccordionTrigger className="text-left font-semibold hover:text-primary">
+                  Como funciona o processo de dimensionamento do gerador?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Nosso engenheiro eletricista responsável realiza uma análise completa da demanda energética do seu projeto. 
+                  Fazemos um estudo de viabilidade e dimensionamento adequado para garantir que o equipamento atenda 
+                  perfeitamente às suas necessidades, sem superdimensionamento ou subdimensionamento.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-6" className="border border-border rounded-lg px-6 bg-card">
+                <AccordionTrigger className="text-left font-semibold hover:text-primary">
+                  Qual é a área de cobertura dos serviços?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Atendemos em todo o Território de Minas Gerais com nossa frota moderna de equipamentos. 
+                  Nossa sede está localizada em Belo Horizonte - MG, e contamos com logística especializada 
+                  para entrega, instalação e suporte técnico em qualquer região do estado.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </motion.div>
         </div>
       </section>
 
