@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Battery, Zap, Users, Award, MapPin, BatteryCharging, Wrench, HardHat, Headphones, Phone, Mail, Factory, Building2, Hospital, PartyPopper, Building, Server } from "lucide-react";
+import { Battery, Zap, Users, Award, MapPin, BatteryCharging, Wrench, HardHat, Headphones, Phone, Mail, Factory, Store, Hospital, CalendarDays, Building, Server } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Hero from "@/components/Hero";
@@ -75,14 +75,16 @@ const Home = () => {
   };
 
   const getSectorIconComponent = (sectorName: string) => {
-    const name = sectorName.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-    if (name.includes('hospital') || name.includes('saude') || name.includes('clinica') || name.includes('medico')) return <Hospital className="h-10 w-10" />;
-    if (name.includes('evento') || name.includes('festa')) return <PartyPopper className="h-10 w-10" />;
-    if (name.includes('comercio') || name.includes('loja') || name.includes('varejo')) return <Building2 className="h-10 w-10" />;
-    if (name.includes('condominio') || name.includes('residencial') || name.includes('apartamento')) return <Building className="h-10 w-10" />;
-    if (name.includes('data center') || name.includes('datacenter') || name.includes('ti') || name.includes('servidor')) return <Server className="h-10 w-10" />;
-    if (name.includes('industria') || name.includes('fabrica') || name.includes('manufatura')) return <Factory className="h-10 w-10" />;
-    return <Factory className="h-10 w-10" />;
+    const iconMap: Record<string, JSX.Element> = {
+      "Indústria": <Factory className="h-10 w-10" />,
+      "Comércio": <Store className="h-10 w-10" />,
+      "Hospitais": <Hospital className="h-10 w-10" />,
+      "Eventos": <CalendarDays className="h-10 w-10" />,
+      "Condomínios": <Building className="h-10 w-10" />,
+      "Data Centers": <Server className="h-10 w-10" />,
+    };
+    
+    return iconMap[sectorName] || <Factory className="h-10 w-10" />;
   };
 
   return (
