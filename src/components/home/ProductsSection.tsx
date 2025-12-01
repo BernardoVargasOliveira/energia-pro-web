@@ -46,19 +46,19 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
   const displayProducts = products.slice(0, 3);
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-24 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-4">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6">
             Nossos Produtos
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Grupos geradores de 20 kVA a 2500+ kVA para todos os tipos de aplicação
           </p>
         </motion.div>
@@ -72,7 +72,7 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="group overflow-hidden border-2 h-full flex flex-col hover:border-accent hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
+              <Card className="group overflow-hidden border-2 shadow-sm h-full flex flex-col hover:border-accent hover:shadow-md hover:-translate-y-1 transition-all duration-200 rounded-xl">
                 <div className="relative h-64 overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5">
                   <img
                     src={getProductImage(product)}
