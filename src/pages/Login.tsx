@@ -100,18 +100,29 @@ const Login = () => {
       return;
     }
 
-    if (password.length < 6) {
-      toast({
-        title: "Senha muito curta",
-        description: "A senha deve ter pelo menos 6 caracteres.",
-        variant: "destructive",
-      });
-      return;
-    }
-
     setIsLoading(true);
 
     try {
+      // Validar senha antes de criar conta
+      const { data: validationData, error: validationError } = await supabase.functions.invoke(
+        'validate-password',
+        {
+          body: { password, email: email.trim() }
+        }
+      );
+
+      if (validationError || !validationData?.valid) {
+        const errors = validationData?.errors || ['Erro ao validar senha'];
+        toast({
+          title: "Senha não permitida",
+          description: errors.join(' '),
+          variant: "destructive",
+        });
+        setIsLoading(false);
+        return;
+      }
+
+      // Senha válida, criar conta
       const redirectUrl = `${window.location.origin}/admin`;
       
       const { error } = await supabase.auth.signUp({
@@ -227,9 +238,18 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     disabled={isLoading}
                     required
-                    minLength={6}
+                    minLength={12}
                   />
-                  <p className="text-xs text-muted-foreground">Mínimo 6 caracteres</p>
+                  <div className="text-xs text-muted-foreground space-y-1">
+                    <p className="font-medium">Requisitos de senha:</p>
+                    <ul className="list-disc list-inside space-y-0.5 ml-2">
+                      <li>Mínimo 12 caracteres</li>
+                      <li>Letras maiúsculas e minúsculas</li>
+                      <li>Pelo menos um número</li>
+                      <li>Pelo menos um caractere especial (!@#$%...)</li>
+                      <li>Não pode ser uma senha comum ou vazada</li>
+                    </ul>
+                  </div>
                 </div>
                 <Button type="submit" className="w-full" disabled={isLoading}>
                   {isLoading ? "Criando conta..." : "Criar Conta"}
