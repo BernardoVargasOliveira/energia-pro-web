@@ -1,6 +1,7 @@
 import { Factory, Store, Hospital, PartyPopper, Building2, Server } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { PageHero } from "@/components/PageHero";
 
 const Setores = () => {
   const sectors = [
@@ -73,30 +74,13 @@ const Setores = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Header Section */}
-      <section className="bg-gradient-primary py-12 md:py-16">
-        <div className="container mx-auto px-4">
-          <motion.h1 
-            className="text-4xl md:text-5xl font-bold tracking-tight text-white text-center mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            Setores Atendidos
-          </motion.h1>
-          <motion.p 
-            className="text-base md:text-lg text-primary-foreground/80 text-center max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          >
-            Soluções especializadas em energia para diversos segmentos
-          </motion.p>
-        </div>
-      </section>
+      <PageHero 
+        title="Setores Atendidos"
+        subtitle="Soluções especializadas em energia para diversos segmentos"
+      />
 
       {/* Sectors Grid */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-background mt-8 md:mt-10">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center mb-12"

@@ -1,34 +1,18 @@
 import { Award, Target, Eye, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { PageHero } from "@/components/PageHero";
 
 const Empresa = () => {
   return (
     <div className="min-h-screen">
-      {/* Header Section */}
-      <section className="bg-gradient-primary py-12 md:py-16">
-        <div className="container mx-auto px-4">
-          <motion.h1 
-            className="text-4xl md:text-5xl font-bold tracking-tight text-white text-center mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            A Empresa
-          </motion.h1>
-          <motion.p 
-            className="text-base md:text-lg text-primary-foreground/80 text-center max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          >
-            Especialistas em soluções de energia com grupos geradores
-          </motion.p>
-        </div>
-      </section>
+      <PageHero 
+        title="A Empresa"
+        subtitle="Especialistas em soluções de energia com grupos geradores"
+      />
 
       {/* About Section */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-background mt-8 md:mt-10">
         <div className="container mx-auto px-4">
           <motion.div 
             className="max-w-4xl mx-auto"
