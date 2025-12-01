@@ -30,16 +30,36 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
     "acima de 500": generatorAltaPotencia,
   };
 
-  const getProductImage = (product: Product) => {
+  const getProductImage = (product: Product, index: number) => {
     if (product.image_url) return product.image_url;
     
     // Detecta a categoria pelas keywords
     const category = product.category.toLowerCase();
-    if (category.includes("até 100") || category.includes("ate 100")) return generatorResidencial;
-    if (category.includes("100") && category.includes("300")) return generatorIndustrial;
-    if (category.includes("300") || category.includes("500") || category.includes("acima")) return generatorAltaPotencia;
     
-    return generatorResidencial; // fallback
+    // Residencial/Comercial (até 100 kVA)
+    if (category.includes("residencial") || category.includes("comercial") || 
+        category.includes("até 100") || category.includes("ate 100") ||
+        category.includes("6") || category.includes("20")) {
+      return generatorResidencial;
+    }
+    
+    // Industrial (100 a 500 kVA)
+    if (category.includes("industrial") || 
+        (category.includes("100") && category.includes("500")) ||
+        category.includes("200") || category.includes("300")) {
+      return generatorIndustrial;
+    }
+    
+    // Alta Potência (500 a 4000 kVA)
+    if (category.includes("alta") || category.includes("potência") || category.includes("potencia") ||
+        category.includes("500") || category.includes("1000") || category.includes("2000") ||
+        category.includes("acima")) {
+      return generatorAltaPotencia;
+    }
+    
+    // Fallback baseado no índice para garantir variedade
+    const images = [generatorResidencial, generatorIndustrial, generatorAltaPotencia];
+    return images[index % 3];
   };
 
   // Pega até 3 produtos para exibir
@@ -75,7 +95,7 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
               <Card className="group overflow-hidden border-2 shadow-md h-full flex flex-col hover:border-accent hover:shadow-lg hover:-translate-y-2 transition-all duration-300 rounded-xl">
                 <div className="relative h-64 overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5">
                   <img
-                    src={getProductImage(product)}
+                    src={getProductImage(product, index)}
                     alt={`Gerador Projemac ${product.category.toLowerCase().includes('residencial') || product.category.toLowerCase().includes('até 100') || product.category.toLowerCase().includes('ate 100') ? 'para uso residencial e comercial' : product.category.toLowerCase().includes('industrial') || (product.category.toLowerCase().includes('100') && product.category.toLowerCase().includes('500')) ? 'para uso industrial' : 'de alta potência'}`}
                     className="w-full h-full object-contain p-6 group-hover:scale-110 transition-transform duration-500"
                   />
