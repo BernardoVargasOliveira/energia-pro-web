@@ -27,7 +27,7 @@ const Empresa = () => {
                 atuando no mercado brasileiro com foco em excelência e comprometimento com nossos clientes.
               </p>
               <p>
-                Com anos de experiência no setor, oferecemos serviços de locação, venda, manutenção e 
+                Com anos de experiência no setor, oferecemos serviços de locação, manutenção e 
                 instalação de grupos geradores para diversos segmentos do mercado, sempre priorizando 
                 a qualidade e a confiabilidade de nossos equipamentos e serviços.
               </p>

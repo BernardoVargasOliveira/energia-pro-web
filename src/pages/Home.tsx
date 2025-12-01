@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Battery, Wrench, ShoppingCart, Zap, Clock, Users, Award, MapPin } from "lucide-react";
+import { Battery, Wrench, Zap, Clock, Users, Award, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Hero from "@/components/Hero";
@@ -10,11 +10,6 @@ const Home = () => {
       icon: <Battery className="h-12 w-12" />,
       title: "Locação de Geradores",
       description: "Grupos geradores de diversas potências para locação de curta e longa duração."
-    },
-    {
-      icon: <ShoppingCart className="h-12 w-12" />,
-      title: "Venda de Geradores",
-      description: "Equipamentos novos e seminovos das melhores marcas do mercado."
     },
     {
       icon: <Wrench className="h-12 w-12" />,
@@ -71,7 +66,7 @@ const Home = () => {
             Nossos Serviços
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
               <Card 
                 key={index} 

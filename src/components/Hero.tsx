@@ -31,7 +31,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Locação, venda, manutenção e projetos de geradores de energia para sua empresa. 
+            Locação, manutenção e projetos de geradores de energia para sua empresa. 
             Atendimento 24h em todo o Brasil com equipe técnica especializada.
           </p>
 

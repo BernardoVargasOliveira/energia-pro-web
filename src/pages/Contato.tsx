@@ -278,7 +278,6 @@ const Contato = () => {
                           </FormControl>
                           <SelectContent>
                             <SelectItem value="locacao">Locação de Geradores</SelectItem>
-                            <SelectItem value="compra">Compra de Geradores</SelectItem>
                             <SelectItem value="manutencao">Manutenção</SelectItem>
                             <SelectItem value="projeto">Projeto de Instalação</SelectItem>
                             <SelectItem value="outros">Outros</SelectItem>
