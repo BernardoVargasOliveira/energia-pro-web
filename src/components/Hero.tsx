@@ -16,8 +16,8 @@ const Hero = () => {
         backgroundRepeat: 'no-repeat'
       }}
     >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/65 to-secondary/60 z-10" />
+      {/* Dark overlay - reduced opacity for better image visibility */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/50 via-primary/45 to-secondary/40 z-10" />
 
       <div className="container mx-auto px-4 py-20 relative z-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
@@ -95,38 +95,38 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <div className="bg-primary/80 backdrop-blur-sm border border-white/10 rounded-lg p-6 hover:bg-primary/90 hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+          <div className="bg-gradient-to-br from-primary to-secondary backdrop-blur-sm border border-white/20 rounded-lg p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
             <div className="flex items-center gap-4">
               <div className="p-3 bg-accent/20 rounded-lg">
-                <Zap className="w-8 h-8 text-accent" />
+                <Zap className="w-8 h-8 text-white" />
               </div>
               <div>
-                <div className="text-4xl font-bold text-accent">15+</div>
-                <div className="text-white/80 text-sm">Anos de Experiência</div>
+                <div className="text-4xl font-bold text-accent">30+</div>
+                <div className="text-white text-sm font-medium">Anos de Experiência</div>
               </div>
             </div>
           </div>
 
-          <div className="bg-accent/90 backdrop-blur-sm border border-white/10 rounded-lg p-6 hover:bg-accent hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+          <div className="bg-gradient-to-br from-accent to-accent/80 backdrop-blur-sm border border-white/20 rounded-lg p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
             <div className="flex items-center gap-4">
               <div className="p-3 bg-primary/20 rounded-lg">
                 <Users className="w-8 h-8 text-primary" />
               </div>
               <div>
                 <div className="text-4xl font-bold text-primary">500+</div>
-                <div className="text-primary/80 text-sm">Projetos Atendidos</div>
+                <div className="text-primary text-sm font-medium">Projetos Atendidos</div>
               </div>
             </div>
           </div>
 
-          <div className="bg-secondary/80 backdrop-blur-sm border border-white/10 rounded-lg p-6 hover:bg-secondary/90 hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+          <div className="bg-gradient-to-br from-secondary to-primary backdrop-blur-sm border border-white/20 rounded-lg p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
             <div className="flex items-center gap-4">
               <div className="p-3 bg-white/20 rounded-lg">
                 <HeadphonesIcon className="w-8 h-8 text-white" />
               </div>
               <div>
-                <div className="text-4xl font-bold text-white">24/7</div>
-                <div className="text-white/80 text-sm">Suporte Técnico</div>
+                <div className="text-4xl font-bold text-white">Completo</div>
+                <div className="text-white text-sm font-medium">Suporte Técnico Especializado</div>
               </div>
             </div>
           </div>
