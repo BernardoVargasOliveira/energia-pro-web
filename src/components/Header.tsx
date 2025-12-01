@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoImage from "@/assets/logo-projemac-transparent.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,11 +38,12 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between py-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="text-2xl font-bold">
-              <span className="text-accent">PROJEMAC</span>
-              <span className="text-primary-foreground text-sm block">GERADORES</span>
-            </div>
+          <Link to="/" className="flex items-center">
+            <img 
+              src={logoImage} 
+              alt="PROJEMAC Geradores de Energia" 
+              className="h-12 md:h-14 w-auto"
+            />
           </Link>
 
           {/* Desktop menu */}
