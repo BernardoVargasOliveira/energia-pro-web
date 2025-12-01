@@ -46,7 +46,7 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
   const displayProducts = products.slice(0, 3);
 
   return (
-    <section className="py-24 bg-background">
+    <section className="py-28 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-20"
@@ -72,7 +72,7 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="group overflow-hidden border-2 shadow-sm h-full flex flex-col hover:border-accent hover:shadow-md hover:-translate-y-1 transition-all duration-200 rounded-xl">
+              <Card className="group overflow-hidden border-2 shadow-md h-full flex flex-col hover:border-accent hover:shadow-lg hover:-translate-y-2 transition-all duration-300 rounded-xl">
                 <div className="relative h-64 overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5">
                   <img
                     src={getProductImage(product)}

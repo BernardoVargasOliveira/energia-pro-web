@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Award, Zap, Users, HeadphonesIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
-import heroImage from "@/assets/hero-generator-facility.jpg";
+import heroImage from "@/assets/hero-industrial-generator.jpg";
 
 const Hero = () => {
   return (
@@ -17,7 +17,7 @@ const Hero = () => {
       }}
     >
       {/* Dark overlay - reduced opacity for better image visibility */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-primary/35 to-secondary/30 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/35 via-primary/30 to-secondary/25 z-10" />
 
       <div className="container mx-auto px-4 py-20 relative z-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
