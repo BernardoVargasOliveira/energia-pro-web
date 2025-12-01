@@ -82,7 +82,7 @@ const Home = () => {
       <ProductsSection products={products} />
 
       {/* Services Section */}
-      <section className="py-16 bg-gradient-to-b from-primary to-background">
+      <section className="py-20 bg-gradient-to-b from-muted/30 to-background">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-16"
@@ -91,7 +91,7 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-4">
               {content['home_services_title'] || 'Nossos Serviços'}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -108,15 +108,15 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
               >
-                <Card className="border-2 h-full group hover:border-primary transition-all duration-300">
+                <Card className="bg-card border h-full group hover:border-accent hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
                   <CardContent className="p-6 text-center">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-primary text-primary-foreground mb-4 group-hover:scale-110 transition-transform">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-primary text-white mb-4 group-hover:scale-110 transition-transform duration-200">
                       {getIconComponent(service.icon)}
                     </div>
-                    <h3 className="text-lg font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-bold mb-2 text-primary group-hover:text-accent transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       {service.description}
                     </p>
                   </CardContent>
@@ -147,7 +147,7 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-4">
               {content['home_sectors_title'] || 'Setores Atendidos'}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -164,10 +164,10 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
               >
-                <Card className="hover:border-primary cursor-pointer h-full group transition-all duration-300">
+                <Card className="hover:border-accent cursor-pointer h-full group hover:shadow-lg hover:scale-105 transition-all duration-200">
                   <CardContent className="p-6 text-center">
-                    <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">{sector.icon}</div>
-                    <h3 className="font-bold text-sm text-foreground group-hover:text-primary transition-colors">{sector.name}</h3>
+                    <div className="text-5xl mb-3 group-hover:scale-110 transition-transform duration-200">{sector.icon}</div>
+                    <h3 className="font-bold text-sm text-foreground group-hover:text-accent transition-colors">{sector.name}</h3>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -183,7 +183,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-b from-secondary/90 to-primary relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-b from-primary to-secondary relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             className="text-center mb-12"
@@ -192,7 +192,7 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
               {content['home_cta_title'] || 'Pronto para garantir energia para o seu negócio?'}
             </h2>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
@@ -209,7 +209,7 @@ const Home = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {/* Telefone Card */}
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/15 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+            <div className="bg-white/5 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:bg-white/10 hover:-translate-y-1 hover:shadow-lg transition-all duration-200">
               <div className="flex flex-col items-center text-center">
                 <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mb-4">
                   <Phone className="w-8 h-8 text-accent" />
@@ -225,7 +225,7 @@ const Home = () => {
             </div>
 
             {/* E-mail Card */}
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/15 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+            <div className="bg-white/5 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:bg-white/10 hover:-translate-y-1 hover:shadow-lg transition-all duration-200">
               <div className="flex flex-col items-center text-center">
                 <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mb-4">
                   <Mail className="w-8 h-8 text-accent" />
@@ -241,7 +241,7 @@ const Home = () => {
             </div>
 
             {/* Localização Card */}
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/15 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+            <div className="bg-white/5 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:bg-white/10 hover:-translate-y-1 hover:shadow-lg transition-all duration-200">
               <div className="flex flex-col items-center text-center">
                 <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mb-4">
                   <MapPin className="w-8 h-8 text-accent" />
@@ -263,7 +263,7 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold text-lg px-8 h-14 shadow-accent transition-all hover:scale-105">
+            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold text-lg px-10 h-16 shadow-lg hover:-translate-y-1 transition-all duration-200">
               <Link to="/contato">Solicitar Orçamento Agora</Link>
             </Button>
           </motion.div>

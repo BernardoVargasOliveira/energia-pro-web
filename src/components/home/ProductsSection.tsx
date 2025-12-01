@@ -55,7 +55,7 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-4">
             Nossos Produtos
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -72,7 +72,7 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="group overflow-hidden border-2 h-full flex flex-col hover:shadow-primary transition-all duration-300">
+              <Card className="group overflow-hidden border-2 h-full flex flex-col hover:border-accent hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
                 <div className="relative h-64 overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5">
                   <img
                     src={getProductImage(product)}
@@ -87,7 +87,7 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
                 </div>
                 
                 <CardContent className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
+                  <h3 className="text-2xl font-bold text-primary mb-4 group-hover:text-accent transition-colors">
                     {product.category}
                   </h3>
                   
@@ -95,7 +95,7 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
                     <div className="space-y-2 mb-6 flex-1">
                       {product.applications.slice(0, 4).map((app, idx) => (
                         <div key={idx} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                           <span className="text-muted-foreground text-sm">{app}</span>
                         </div>
                       ))}

@@ -34,9 +34,11 @@ const WhyChooseSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-primary to-background">
+    <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Premium White Box */}
+        <div className="bg-card rounded-2xl shadow-lg border border-border p-8 md:p-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Text content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -44,8 +46,8 @@ const WhyChooseSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Por que escolher a <span className="text-primary">PROJEMAC</span>?
+            <h2 className="text-5xl md:text-6xl font-bold text-primary mb-6">
+              Por que escolher a <span className="text-accent">PROJEMAC</span>?
             </h2>
             
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
@@ -64,8 +66,8 @@ const WhyChooseSection = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <CheckCircle2 className="w-6 h-6 text-secondary flex-shrink-0 mt-0.5" />
-                  <span className="text-foreground font-medium">{item}</span>
+                  <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground font-semibold">{item}</span>
                 </motion.div>
               ))}
             </div>
@@ -88,20 +90,21 @@ const WhyChooseSection = () => {
                 transition={{ duration: 0.5, delay: 0.1 * index }}
                 className={index === 2 ? "sm:col-span-2" : ""}
               >
-                <Card className="p-8 text-center hover:shadow-primary transition-all duration-300 border-2 h-full">
+                <Card className="p-8 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-200 border-2 hover:border-accent h-full bg-card">
                   <div className={`${metric.color} mb-4 flex justify-center`}>
                     {metric.icon}
                   </div>
                   <div className={`text-5xl font-bold ${metric.color} mb-2`}>
                     {metric.value}
                   </div>
-                  <div className="text-muted-foreground font-semibold">
+                  <div className="text-foreground font-semibold">
                     {metric.label}
                   </div>
                 </Card>
               </motion.div>
             ))}
           </motion.div>
+        </div>
         </div>
       </div>
     </section>
