@@ -8,7 +8,7 @@ const WhyChooseSection = () => {
     "Equipe técnica altamente qualificada e certificada",
     "Cobertura em todo estado de Minas Gerais",
     "Manutenção preventiva e corretiva inclusa",
-    "Suporte técnico especializado 24/7",
+    "Suporte técnico especializado",
     "Soluções personalizadas para cada cliente",
   ];
 
