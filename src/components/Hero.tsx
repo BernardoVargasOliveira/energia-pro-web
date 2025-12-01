@@ -3,13 +3,14 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Award, Zap, Users, HeadphonesIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
+import heroImage from "@/assets/hero-generator-facility.jpg";
 
 const Hero = () => {
   return (
     <section 
       className="relative min-h-screen flex items-center overflow-hidden"
       style={{
-        backgroundImage: "url('/assets/hero-generator-B4IQloyj.jpg')",
+        backgroundImage: `url(${heroImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
