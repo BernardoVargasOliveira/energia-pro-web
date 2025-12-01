@@ -164,8 +164,7 @@ const Contato = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Endereço</h3>
                     <p className="text-muted-foreground">
-                      Belo Horizonte - MG<br />
-                      Atendimento em todo Brasil
+                      Belo Horizonte - MG
                     </p>
                   </div>
                 </div>
