@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
+import { PageHero } from "@/components/PageHero";
 
 const formSchema = z.object({
   nome: z.string().min(3, "Nome deve ter pelo menos 3 caracteres").max(100),
@@ -111,19 +112,12 @@ const Contato = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Header Section */}
-      <section className="bg-gradient-primary py-16">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground text-center mb-6">
-            Entre em Contato
-          </h1>
-          <p className="text-xl text-primary-foreground/90 text-center max-w-3xl mx-auto">
-            Solicite um orçamento ou tire suas dúvidas com nossa equipe
-          </p>
-        </div>
-      </section>
+      <PageHero 
+        title="Entre em Contato"
+        subtitle="Solicite um orçamento ou tire suas dúvidas com nossa equipe"
+      />
 
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-background mt-8 md:mt-10">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Info */}
