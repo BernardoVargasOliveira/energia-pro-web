@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import Hero from "@/components/Hero";
+import { ServiceIcon } from "@/components/ServiceIcon";
 
 interface Service {
   id: string;
@@ -57,43 +58,6 @@ const Home = () => {
     <>
       <Hero />
 
-      {/* Services Section */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">
-            {content.home_servicos_titulo || "Nossos Serviços"}
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {services.map((service, index) => (
-              <Card 
-                key={service.id} 
-                className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-primary animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardContent className="p-6 text-center">
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4 text-5xl">
-                    {service.icon || "⚡"}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3 text-foreground">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {service.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold">
-              <Link to="/servicos">Ver Todos os Serviços</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Differentials Section */}
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
@@ -104,10 +68,10 @@ const Home = () => {
             {content.home_diferenciais_subtitulo || "Somos referência em soluções de energia"}
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-card p-6 rounded-lg shadow-lg hover:shadow-primary transition-all duration-300">
-              <div className="text-secondary mb-4">
-                <Users className="h-10 w-10" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-card p-6 rounded-lg border hover:shadow-lg transition-all duration-300">
+              <div className="text-primary mb-4">
+                <Users className="h-10 w-10" strokeWidth={1.5} />
               </div>
               <h3 className="text-lg font-semibold mb-2 text-card-foreground">
                 {content.home_diferencial_1_titulo || "Equipe Especializada"}
@@ -116,9 +80,9 @@ const Home = () => {
                 {content.home_diferencial_1_texto || "Profissionais qualificados"}
               </p>
             </div>
-            <div className="bg-card p-6 rounded-lg shadow-lg hover:shadow-primary transition-all duration-300">
-              <div className="text-secondary mb-4">
-                <MapPin className="h-10 w-10" />
+            <div className="bg-card p-6 rounded-lg border hover:shadow-lg transition-all duration-300">
+              <div className="text-primary mb-4">
+                <MapPin className="h-10 w-10" strokeWidth={1.5} />
               </div>
               <h3 className="text-lg font-semibold mb-2 text-card-foreground">
                 {content.home_diferencial_2_titulo || "Cobertura Regional"}
@@ -127,9 +91,9 @@ const Home = () => {
                 {content.home_diferencial_2_texto || "Atendimento em todo estado"}
               </p>
             </div>
-            <div className="bg-card p-6 rounded-lg shadow-lg hover:shadow-primary transition-all duration-300">
-              <div className="text-secondary mb-4">
-                <Award className="h-10 w-10" />
+            <div className="bg-card p-6 rounded-lg border hover:shadow-lg transition-all duration-300">
+              <div className="text-primary mb-4">
+                <Award className="h-10 w-10" strokeWidth={1.5} />
               </div>
               <h3 className="text-lg font-semibold mb-2 text-card-foreground">
                 {content.home_diferencial_3_titulo || "Equipamentos Modernos"}
@@ -142,23 +106,54 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Sectors Section */}
+      {/* Services Section */}
       <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">
+            {content.home_servicos_titulo || "Nossos Serviços"}
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <Card 
+                key={service.id} 
+                className="border hover:shadow-lg transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <CardHeader className="text-center">
+                  <ServiceIcon iconName={service.icon} />
+                  <CardTitle className="text-xl font-bold mb-2">{service.title}</CardTitle>
+                  <CardDescription className="text-sm">{service.description}</CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold">
+              <Link to="/servicos">Ver Todos os Serviços</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Sectors Section */}
+      <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">
             {content.home_setores_titulo || "Setores Atendidos"}
           </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {sectors.map((sector, index) => (
               <Card 
                 key={sector.id}
-                className="hover:border-secondary transition-all duration-300 cursor-pointer animate-fade-in"
+                className="border hover:shadow-lg transition-all duration-300 cursor-pointer animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-3">{sector.icon || "🏢"}</div>
-                  <h3 className="font-semibold text-foreground">{sector.name}</h3>
+                  <ServiceIcon iconName={sector.icon} className="h-8 w-8" />
+                  <h3 className="font-semibold text-sm text-foreground mt-2">{sector.name}</h3>
                 </CardContent>
               </Card>
             ))}
