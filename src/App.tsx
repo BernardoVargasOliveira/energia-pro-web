@@ -12,12 +12,13 @@ import Projetos from "./pages/Projetos";
 import Contato from "./pages/Contato";
 import Login from "./pages/Login";
 import Dashboard from "./pages/admin/Dashboard";
-import HomeContent from "./pages/admin/HomeContent";
-import About from "./pages/admin/About";
-import Services from "./pages/admin/Services";
-import Sectors from "./pages/admin/Sectors";
+import HomeAdmin from "./pages/admin/HomeAdmin";
+import AboutAdmin from "./pages/admin/AboutAdmin";
+import ServicesAdmin from "./pages/admin/ServicesAdmin";
+import SectorsAdmin from "./pages/admin/SectorsAdmin";
 import Banners from "./pages/admin/Banners";
 import Leads from "./pages/admin/Leads";
+import ContactAdmin from "./pages/admin/ContactAdmin";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -63,10 +64,11 @@ const App = () => (
               <AdminLayout>
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
-                  <Route path="/home-content" element={<HomeContent />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/services" element={<Services />} />
-                  <Route path="/sectors" element={<Sectors />} />
+                  <Route path="/home" element={<HomeAdmin />} />
+                  <Route path="/about" element={<AboutAdmin />} />
+                  <Route path="/services" element={<ServicesAdmin />} />
+                  <Route path="/sectors" element={<SectorsAdmin />} />
+                  <Route path="/contact" element={<ContactAdmin />} />
                   <Route path="/banners" element={<Banners />} />
                   <Route path="/leads" element={<Leads />} />
                 </Routes>

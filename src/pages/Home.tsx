@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Battery, Zap, Users, Award, MapPin } from "lucide-react";
+import { Users, Award, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useState } from "react";
@@ -22,45 +22,31 @@ interface Sector {
 const Home = () => {
   const [services, setServices] = useState<Service[]>([]);
   const [sectors, setSectors] = useState<Sector[]>([]);
-  const [servicesTitle, setServicesTitle] = useState("Nossos Serviços");
-  const [sectorsTitle, setSectorsTitle] = useState("Setores Atendidos");
+  const [content, setContent] = useState<Record<string, string>>({});
 
   useEffect(() => {
     const loadData = async () => {
-      // Load services
-      const { data: servicesData } = await supabase
-        .from("services")
-        .select("*")
-        .order("order_index")
-        .limit(4);
-      
-      if (servicesData) setServices(servicesData);
+      const [servicesRes, sectorsRes, contentRes] = await Promise.all([
+        supabase.from("services").select("*").order("order_index").limit(4),
+        supabase.from("sectors").select("*").order("order_index").limit(6),
+        supabase.from("site_content").select("*").in("key", [
+          'home_servicos_titulo', 'home_setores_titulo',
+          'home_diferenciais_titulo', 'home_diferenciais_subtitulo',
+          'home_diferencial_1_titulo', 'home_diferencial_1_texto',
+          'home_diferencial_2_titulo', 'home_diferencial_2_texto',
+          'home_diferencial_3_titulo', 'home_diferencial_3_texto',
+          'home_cta_titulo', 'home_cta_subtitulo', 'home_cta_botao'
+        ])
+      ]);
 
-      // Load sectors
-      const { data: sectorsData } = await supabase
-        .from("sectors")
-        .select("*")
-        .order("order_index")
-        .limit(6);
-      
-      if (sectorsData) setSectors(sectorsData);
+      if (servicesRes.data) setServices(servicesRes.data);
+      if (sectorsRes.data) setSectors(sectorsRes.data);
 
-      // Load section titles
-      const { data: contentData } = await supabase
-        .from("site_content")
-        .select("key, value_text")
-        .in("key", ["home_servicos_titulo", "home_setores_titulo"]);
-
-      if (contentData) {
-        contentData.forEach((item) => {
-          if (item.key === "home_servicos_titulo" && item.value_text) {
-            setServicesTitle(item.value_text);
-          }
-          if (item.key === "home_setores_titulo" && item.value_text) {
-            setSectorsTitle(item.value_text);
-          }
-        });
-      }
+      const contentMap: Record<string, string> = {};
+      contentRes.data?.forEach((item) => {
+        contentMap[item.key] = item.value_text || "";
+      });
+      setContent(contentMap);
     };
 
     loadData();
@@ -74,19 +60,19 @@ const Home = () => {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">
-            Nossos Serviços
+            {content.home_servicos_titulo || "Nossos Serviços"}
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((service, index) => (
               <Card 
-                key={index} 
+                key={service.id} 
                 className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-primary animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardContent className="p-6 text-center">
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4">
-                    {service.icon}
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4 text-5xl">
+                    {service.icon || "⚡"}
                   </div>
                   <h3 className="text-xl font-semibold mb-3 text-foreground">
                     {service.title}
@@ -111,10 +97,10 @@ const Home = () => {
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
-            Por Que Escolher a PROJEMAC?
+            {content.home_diferenciais_titulo || "Por Que Escolher a PROJEMAC?"}
           </h2>
           <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Somos referência em soluções de energia com anos de experiência no mercado
+            {content.home_diferenciais_subtitulo || "Somos referência em soluções de energia"}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -123,10 +109,10 @@ const Home = () => {
                 <Users className="h-10 w-10" />
               </div>
               <h3 className="text-lg font-semibold mb-2 text-card-foreground">
-                Equipe Especializada
+                {content.home_diferencial_1_titulo || "Equipe Especializada"}
               </h3>
               <p className="text-muted-foreground text-sm">
-                Profissionais qualificados e experientes em sistemas de energia.
+                {content.home_diferencial_1_texto || "Profissionais qualificados"}
               </p>
             </div>
             <div className="bg-card p-6 rounded-lg shadow-lg hover:shadow-primary transition-all duration-300">
@@ -134,10 +120,10 @@ const Home = () => {
                 <MapPin className="h-10 w-10" />
               </div>
               <h3 className="text-lg font-semibold mb-2 text-card-foreground">
-                Cobertura Regional
+                {content.home_diferencial_2_titulo || "Cobertura Regional"}
               </h3>
               <p className="text-muted-foreground text-sm">
-                Atendimento em todo estado de Minas Gerais.
+                {content.home_diferencial_2_texto || "Atendimento em todo estado"}
               </p>
             </div>
             <div className="bg-card p-6 rounded-lg shadow-lg hover:shadow-primary transition-all duration-300">
@@ -145,10 +131,10 @@ const Home = () => {
                 <Award className="h-10 w-10" />
               </div>
               <h3 className="text-lg font-semibold mb-2 text-card-foreground">
-                Equipamentos Modernos
+                {content.home_diferencial_3_titulo || "Equipamentos Modernos"}
               </h3>
               <p className="text-muted-foreground text-sm">
-                Geradores de última geração das melhores marcas.
+                {content.home_diferencial_3_texto || "Geradores de última geração"}
               </p>
             </div>
           </div>
@@ -159,18 +145,18 @@ const Home = () => {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">
-            Setores Atendidos
+            {content.home_setores_titulo || "Setores Atendidos"}
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {sectors.map((sector, index) => (
               <Card 
-                key={index}
+                key={sector.id}
                 className="hover:border-secondary transition-all duration-300 cursor-pointer animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-3">{sector.icon}</div>
+                  <div className="text-4xl mb-3">{sector.icon || "🏢"}</div>
                   <h3 className="font-semibold text-foreground">{sector.name}</h3>
                 </CardContent>
               </Card>
@@ -189,13 +175,13 @@ const Home = () => {
       <section className="py-16 bg-gradient-primary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
-            Precisa de uma Solução em Energia?
+            {content.home_cta_titulo || "Precisa de uma Solução em Energia?"}
           </h2>
           <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Entre em contato conosco e receba um orçamento personalizado para sua necessidade
+            {content.home_cta_subtitulo || "Entre em contato conosco"}
           </p>
           <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg shadow-accent">
-            <Link to="/contato">Solicitar Orçamento Agora</Link>
+            <Link to="/contato">{content.home_cta_botao || "Solicitar Orçamento Agora"}</Link>
           </Button>
         </div>
       </section>

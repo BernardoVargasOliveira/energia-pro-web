@@ -19,10 +19,11 @@ import { Button } from "@/components/ui/button";
 
 const menuItems = [
   { title: "Dashboard", url: "/admin", icon: LayoutDashboard },
-  { title: "Conteúdo Home", url: "/admin/home-content", icon: FileText },
+  { title: "Home", url: "/admin/home", icon: FileText },
   { title: "Sobre", url: "/admin/about", icon: FileText },
   { title: "Serviços", url: "/admin/services", icon: Briefcase },
   { title: "Setores", url: "/admin/sectors", icon: Building2 },
+  { title: "Contato", url: "/admin/contact", icon: FileText },
   { title: "Banners", url: "/admin/banners", icon: Image },
   { title: "Leads", url: "/admin/leads", icon: Mail },
 ];
