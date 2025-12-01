@@ -35,6 +35,7 @@ const Contato = () => {
   const [honeypot, setHoneypot] = useState("");
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     // Atualiza o timestamp quando o componente monta
     formLoadTimeRef.current = Date.now();
   }, []);
