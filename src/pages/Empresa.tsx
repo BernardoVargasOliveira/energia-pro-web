@@ -50,11 +50,11 @@ const Empresa = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="border-t-4 border-t-primary">
-              <CardContent className="p-8 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary text-primary-foreground mb-4">
+              <CardContent className="p-8">
+                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-primary text-primary-foreground mb-4 mx-auto">
                   <Target className="h-8 w-8" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4">Missão</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-4 text-center">Missão</h3>
                 <p className="text-muted-foreground">
                   Fornecer soluções confiáveis e eficientes em geração de energia, superando as 
                   expectativas de nossos clientes através de tecnologia de ponta e atendimento personalizado.
@@ -63,11 +63,11 @@ const Empresa = () => {
             </Card>
 
             <Card className="border-t-4 border-t-secondary">
-              <CardContent className="p-8 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary text-secondary-foreground mb-4">
+              <CardContent className="p-8">
+                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-secondary text-secondary-foreground mb-4 mx-auto">
                   <Eye className="h-8 w-8" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4">Visão</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-4 text-center">Visão</h3>
                 <p className="text-muted-foreground">
                   Ser referência nacional em soluções de energia, reconhecida pela qualidade dos 
                   serviços, inovação tecnológica e compromisso com a sustentabilidade.
