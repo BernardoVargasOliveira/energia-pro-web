@@ -34,7 +34,7 @@ const WhyChooseSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-muted to-background">
+    <section className="py-16 bg-gradient-to-b from-primary to-background">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Text content */}
