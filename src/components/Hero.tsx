@@ -1,9 +1,36 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
+import { useEffect, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 import heroImage from "@/assets/galpao-geradores.jpeg";
 
 const Hero = () => {
+  const [title, setTitle] = useState("Soluções Completas em Energia com Grupos Geradores");
+  const [subtitle, setSubtitle] = useState("Locação e projetos de geradores de energia para sua empresa.");
+
+  useEffect(() => {
+    const loadContent = async () => {
+      const { data } = await supabase
+        .from("site_content")
+        .select("key, value_text")
+        .in("key", ["home_hero_title", "home_hero_subtitle"]);
+
+      if (data) {
+        data.forEach((item) => {
+          if (item.key === "home_hero_title" && item.value_text) {
+            setTitle(item.value_text);
+          }
+          if (item.key === "home_hero_subtitle" && item.value_text) {
+            setSubtitle(item.value_text);
+          }
+        });
+      }
+    };
+
+    loadContent();
+  }, []);
+
   return (
     <section className="relative bg-gradient-primary py-20 md:py-32 overflow-hidden">
       {/* Background image with overlay */}
@@ -26,13 +53,11 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6 animate-fade-in">
-            Soluções Completas em Energia com
-            <span className="block text-accent mt-2">Grupos Geradores</span>
+            {title}
           </h1>
           
           <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Locação e projetos de geradores de energia para sua empresa. 
-            Atendimento em todo estado de Minas Gerais com equipe técnica especializada.
+            {subtitle}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
