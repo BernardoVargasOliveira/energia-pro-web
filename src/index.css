@@ -40,15 +40,13 @@ All colors MUST be HSL.
     --input: 214.3 31.8% 91.4%;
     --ring: 196 100% 43%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     /* Custom tokens for the industrial theme */
     --gradient-primary: linear-gradient(135deg, hsl(196 100% 21%), hsl(196 100% 43%));
     --gradient-accent: linear-gradient(135deg, hsl(43 98% 54%), hsl(43 98% 64%));
     --shadow-primary: 0 10px 40px -10px hsl(196 100% 21% / 0.4);
     --shadow-accent: 0 0 30px hsl(43 98% 54% / 0.3);
-    --shadow-card: 0 4px 12px hsl(196 100% 21% / 0.08);
-    --shadow-card-hover: 0 8px 24px hsl(196 100% 21% / 0.15);
   }
 
   .dark {

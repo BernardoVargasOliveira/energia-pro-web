@@ -86,7 +86,7 @@ const Home = () => {
       {/* Services Section */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-foreground mb-12 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">
             {content['home_services_title'] || 'Nossos Serviços'}
           </h2>
           
@@ -94,17 +94,17 @@ const Home = () => {
             {services.map((service, index) => (
               <Card 
                 key={service.id} 
-                className="border hover:border-secondary transition-all duration-300 bg-card/80 backdrop-blur-sm animate-fade-in"
+                className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-primary animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardContent className="p-8 text-center">
-                  <div className="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-primary text-primary-foreground mb-6 shadow-lg">
+                <CardContent className="p-6 text-center">
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4">
                     {getIconComponent(service.icon)}
                   </div>
-                  <h3 className="text-2xl font-semibold mb-4 text-foreground leading-tight">
+                  <h3 className="text-xl font-semibold mb-3 text-foreground">
                     {service.title}
                   </h3>
-                  <p className="text-[15px] leading-relaxed text-muted-foreground">
+                  <p className="text-muted-foreground">
                     {service.description}
                   </p>
                 </CardContent>
@@ -123,10 +123,10 @@ const Home = () => {
       {/* Differentials Section */}
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-foreground mb-6 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
             {content['home_differentials_title'] || 'Por Que Escolher a PROJEMAC?'}
           </h2>
-          <p className="text-center text-[15px] leading-relaxed text-muted-foreground mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
             {content['home_differentials_subtitle'] || 'Somos referência em soluções de energia com anos de experiência no mercado'}
           </p>
 
@@ -134,16 +134,16 @@ const Home = () => {
             {differentials.map((item, index) => (
               <div 
                 key={index}
-                className="bg-card p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 animate-fade-in border border-border/50"
+                className="bg-card p-6 rounded-lg shadow-lg hover:shadow-primary transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="text-secondary mb-5">
+                <div className="text-secondary mb-4">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-3 text-card-foreground leading-tight">
+                <h3 className="text-lg font-semibold mb-2 text-card-foreground">
                   {item.title}
                 </h3>
-                <p className="text-muted-foreground text-[15px] leading-relaxed">
+                <p className="text-muted-foreground text-sm">
                   {item.description}
                 </p>
               </div>
@@ -155,7 +155,7 @@ const Home = () => {
       {/* Sectors Section */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-foreground mb-12 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">
             {content['home_sectors_title'] || 'Setores Atendidos'}
           </h2>
 
@@ -163,12 +163,12 @@ const Home = () => {
             {sectors.map((sector, index) => (
               <Card 
                 key={sector.id}
-                className="hover:border-secondary transition-all duration-300 cursor-pointer animate-fade-in bg-card/80 backdrop-blur-sm"
+                className="hover:border-secondary transition-all duration-300 cursor-pointer animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardContent className="p-7 text-center">
-                  <div className="text-5xl mb-4">{sector.icon}</div>
-                  <h3 className="font-semibold text-foreground text-[15px]">{sector.name}</h3>
+                <CardContent className="p-6 text-center">
+                  <div className="text-4xl mb-3">{sector.icon}</div>
+                  <h3 className="font-semibold text-foreground">{sector.name}</h3>
                 </CardContent>
               </Card>
             ))}
@@ -185,10 +185,10 @@ const Home = () => {
       {/* CTA Section */}
       <section className="py-16 bg-gradient-primary">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-8 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
             {content['home_cta_title'] || 'Precisa de uma Solução em Energia?'}
           </h2>
-          <p className="text-xl leading-relaxed text-primary-foreground/90 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
             {content['home_cta_subtitle'] || 'Entre em contato conosco e receba um orçamento personalizado para sua necessidade'}
           </p>
           <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg shadow-accent">
