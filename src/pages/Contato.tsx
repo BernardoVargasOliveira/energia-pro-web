@@ -10,7 +10,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { PageHero } from "@/components/PageHero";
-import { CTAFinal } from "@/components/CTAFinal";
 
 const formSchema = z.object({
   nome: z.string().min(3, "Nome deve ter pelo menos 3 caracteres").max(100),
@@ -356,9 +355,6 @@ const Contato = () => {
           </div>
         </div>
       </section>
-
-      {/* CTA Final */}
-      <CTAFinal />
     </div>
   );
 };

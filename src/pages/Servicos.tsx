@@ -12,7 +12,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { CTAFinal } from "@/components/CTAFinal";
 
 const Servicos = () => {
   useEffect(() => {
@@ -282,9 +281,6 @@ const Servicos = () => {
           </div>
         </div>
       </section>
-
-      {/* CTA Final */}
-      <CTAFinal />
     </div>
   );
 };

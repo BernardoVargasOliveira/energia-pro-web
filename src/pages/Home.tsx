@@ -8,7 +8,6 @@ import ProductsSection from "@/components/home/ProductsSection";
 import WhyChooseSection from "@/components/home/WhyChooseSection";
 import { supabase } from "@/integrations/supabase/client";
 import { motion } from "framer-motion";
-import { CTAFinal } from "@/components/CTAFinal";
 
 const Home = () => {
   const [services, setServices] = useState<any[]>([]);
@@ -284,9 +283,6 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* CTA Final */}
-      <CTAFinal />
     </>
   );
 };
