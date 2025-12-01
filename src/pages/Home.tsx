@@ -263,8 +263,7 @@ const Home = () => {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Localização</h3>
                 <p className="text-white/90">
-                  Belo Horizonte - MG<br />
-                  Atendimento em todo Brasil
+                  Belo Horizonte - MG
                 </p>
               </div>
             </div>
