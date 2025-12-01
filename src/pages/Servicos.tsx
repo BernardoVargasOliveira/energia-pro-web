@@ -9,7 +9,7 @@ const Servicos = () => {
     {
       icon: <Battery className="h-12 w-12" />,
       title: "Locação de Grupos Geradores",
-      description: "Disponibilizamos grupos geradores de diversas potências para locação de curta, média e longa duração.",
+      description: "Disponibilizamos grupos geradores de diversas potências para locação de curta, média e longa duração. Potência de 6 a 4000 kVA com geradores ligados em paralelo.",
       benefits: [
         "Equipamentos de última geração",
         "Flexibilidade de prazos",
