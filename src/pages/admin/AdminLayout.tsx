@@ -109,20 +109,25 @@ const AdminLayout = () => {
           </div>
 
           <nav className="flex-1 space-y-2">
-            {menuItems.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className={`flex items-center gap-3 px-4 py-2 rounded-md transition-colors ${
-                  location.pathname === item.href
-                    ? 'bg-accent text-accent-foreground'
-                    : 'hover:bg-primary-foreground/10'
-                }`}
-              >
-                <item.icon className="h-5 w-5" />
-                {item.label}
-              </Link>
-            ))}
+            {menuItems.map((item) => {
+              const isActive = location.pathname === item.href || 
+                               (item.href === '/admin/home' && location.pathname === '/admin');
+              
+              return (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className={`flex items-center gap-3 px-4 py-2 rounded-md transition-colors ${
+                    isActive
+                      ? 'bg-accent text-accent-foreground'
+                      : 'hover:bg-primary-foreground/10'
+                  }`}
+                >
+                  <item.icon className="h-5 w-5" />
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="pt-4 border-t border-primary-foreground/20">
