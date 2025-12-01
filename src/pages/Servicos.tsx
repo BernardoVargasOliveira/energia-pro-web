@@ -15,7 +15,8 @@ const Servicos = () => {
         "Flexibilidade de prazos",
         "Manutenção inclusa",
         "Instalação e desinstalação",
-        "Suporte técnico 24h"
+        "Equipe técnica especializada",
+        "Engenheiro eletricista responsável técnico dos equipamentos"
       ]
     },
     {
