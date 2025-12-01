@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Battery, Zap, Users, Award, MapPin, BatteryCharging, Wrench, HardHat, Headphones } from "lucide-react";
+import { Battery, Zap, Users, Award, MapPin, BatteryCharging, Wrench, HardHat, Headphones, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Hero from "@/components/Hero";
@@ -183,38 +183,92 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary via-primary to-secondary relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-b from-secondary/90 to-primary relative overflow-hidden">
         {/* Background pattern */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }} />
         </div>
 
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-white mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            {content['home_cta_title'] || 'Precisa de uma Solução em Energia?'}
-          </motion.h2>
-          <motion.p 
-            className="text-xl text-white/90 mb-10 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          >
-            {content['home_cta_subtitle'] || 'Entre em contato conosco e receba um orçamento personalizado para sua necessidade'}
-          </motion.p>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
+            className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              {content['home_cta_title'] || 'Pronto para garantir energia para o seu negócio?'}
+            </h2>
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+              {content['home_cta_subtitle'] || 'Entre em contato conosco e receba um orçamento personalizado para sua necessidade'}
+            </p>
+          </motion.div>
+
+          {/* Contact Cards */}
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            {/* Telefone Card */}
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/15 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mb-4">
+                  <Phone className="w-8 h-8 text-accent" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Telefone</h3>
+                <a 
+                  href="tel:+553134953004" 
+                  className="text-white/90 hover:text-accent transition-colors"
+                >
+                  (31) 3495-3004
+                </a>
+              </div>
+            </div>
+
+            {/* E-mail Card */}
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/15 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mb-4">
+                  <Mail className="w-8 h-8 text-accent" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">E-mail</h3>
+                <a 
+                  href="mailto:contato@projemac.com.br" 
+                  className="text-white/90 hover:text-accent transition-colors break-all"
+                >
+                  contato@projemac.com.br
+                </a>
+              </div>
+            </div>
+
+            {/* Localização Card */}
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/15 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mb-4">
+                  <MapPin className="w-8 h-8 text-accent" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Localização</h3>
+                <p className="text-white/90">
+                  Belo Horizonte - MG<br />
+                  Atendimento em todo Brasil
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* CTA Button */}
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
           >
             <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold text-lg px-8 h-14 shadow-accent transition-all hover:scale-105">
               <Link to="/contato">Solicitar Orçamento Agora</Link>
