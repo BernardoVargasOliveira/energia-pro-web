@@ -1,22 +1,12 @@
-import { Factory, Store, Hospital, PartyPopper, Building2, Server } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { IconMapper } from "@/components/IconMapper";
 
 const Setores = () => {
   const [content, setContent] = useState<Record<string, string>>({});
   const [sectors, setSectors] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  // Ícones originais fixos do layout inicial
-  const defaultIcons = [
-    <Factory className="h-12 w-12" />,
-    <Store className="h-12 w-12" />,
-    <Hospital className="h-12 w-12" />,
-    <PartyPopper className="h-12 w-12" />,
-    <Building2 className="h-12 w-12" />,
-    <Server className="h-12 w-12" />
-  ];
 
   useEffect(() => {
     loadContent();
@@ -87,7 +77,7 @@ const Setores = () => {
               >
                 <CardHeader>
                   <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4">
-                    {defaultIcons[index] || <Factory className="h-12 w-12" />}
+                    <IconMapper iconName={sector.icon} />
                   </div>
                   <CardTitle className="text-2xl mb-3">{sector.name}</CardTitle>
                   <p className="text-muted-foreground">{sector.description}</p>
