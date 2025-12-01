@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import geradoresTransporte from "@/assets/geradores-transporte.jpg";
+import { motion } from "framer-motion";
 
 const Servicos = () => {
   const services = [
@@ -91,11 +92,14 @@ const Servicos = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
-              <Card 
+              <motion.div
                 key={index}
-                className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-primary animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                initial={{ opacity: 0, scale: 0.97 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
+                <Card className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-primary h-full">
                 <CardHeader>
                   <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4">
                     {service.icon}
@@ -115,6 +119,7 @@ const Servicos = () => {
                   </ul>
                 </CardContent>
               </Card>
+              </motion.div>
             ))}
           </div>
         </div>
