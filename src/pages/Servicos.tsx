@@ -1,23 +1,15 @@
-import { Battery, Wrench, Zap, HardHat, Headphones } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import geradoresTransporte from "@/assets/geradores-transporte.jpg";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { IconMapper } from "@/components/IconMapper";
 
 const Servicos = () => {
   const [content, setContent] = useState<Record<string, string>>({});
   const [services, setServices] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  // Ícones originais fixos do layout inicial
-  const defaultIcons = [
-    <Battery className="h-12 w-12" />,
-    <HardHat className="h-12 w-12" />,
-    <Zap className="h-12 w-12" />,
-    <Headphones className="h-12 w-12" />
-  ];
 
   useEffect(() => {
     loadContent();
@@ -98,7 +90,7 @@ const Servicos = () => {
               >
                 <CardHeader>
                   <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4">
-                    {defaultIcons[index] || <Wrench className="h-12 w-12" />}
+                    <IconMapper iconName={service.icon} />
                   </div>
                   <CardTitle className="text-2xl">{service.title}</CardTitle>
                   <CardDescription className="text-base">{service.description}</CardDescription>
