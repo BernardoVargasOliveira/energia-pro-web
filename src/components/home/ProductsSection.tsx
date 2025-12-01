@@ -3,9 +3,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import geradorResidencial from "@/assets/gerador-residencial.png";
-import geradorIndustrial from "@/assets/gerador-industrial.png";
-import geradorAltaPotencia from "@/assets/gerador-alta-potencia.png";
+import generator100 from "@/assets/generator-100kva.jpg";
+import generator300 from "@/assets/generator-300kva.jpg";
+import generator1000 from "@/assets/generator-1000kva.jpg";
 
 interface Product {
   id: string;
@@ -24,10 +24,10 @@ interface ProductsSectionProps {
 const ProductsSection = ({ products }: ProductsSectionProps) => {
   // Map para imagens padrão baseadas na categoria
   const defaultImages: Record<string, string> = {
-    "até 100": geradorResidencial,
-    "100 a 300": geradorIndustrial,
-    "300 a 500": geradorAltaPotencia,
-    "acima de 500": geradorAltaPotencia,
+    "até 100": generator100,
+    "100 a 300": generator300,
+    "300 a 500": generator1000,
+    "acima de 500": generator1000,
   };
 
   const getProductImage = (product: Product) => {
@@ -35,11 +35,11 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
     
     // Detecta a categoria pelas keywords
     const category = product.category.toLowerCase();
-    if (category.includes("até 100") || category.includes("ate 100")) return geradorResidencial;
-    if (category.includes("100") && category.includes("300")) return geradorIndustrial;
-    if (category.includes("300") || category.includes("500") || category.includes("acima")) return geradorAltaPotencia;
+    if (category.includes("até 100") || category.includes("ate 100")) return generator100;
+    if (category.includes("100") && category.includes("300")) return generator300;
+    if (category.includes("300") || category.includes("500") || category.includes("acima")) return generator1000;
     
-    return geradorResidencial; // fallback
+    return generator100; // fallback
   };
 
   // Pega até 3 produtos para exibir
