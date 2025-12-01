@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Battery, Zap, Users, Award, MapPin, BatteryCharging, Wrench, HardHat, Headphones, Phone, Mail } from "lucide-react";
+import { Battery, Zap, Users, Award, MapPin, BatteryCharging, Wrench, HardHat, Headphones, Phone, Mail, Factory, Building2, Hospital, PartyPopper, Building, Server } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Hero from "@/components/Hero";
@@ -74,6 +74,17 @@ const Home = () => {
     }
   };
 
+  const getSectorIconComponent = (sectorName: string) => {
+    const name = sectorName.toLowerCase();
+    if (name.includes('indústria') || name.includes('industria')) return <Factory className="h-10 w-10" />;
+    if (name.includes('comércio') || name.includes('comercio')) return <Building2 className="h-10 w-10" />;
+    if (name.includes('hospital') || name.includes('saúde') || name.includes('saude')) return <Hospital className="h-10 w-10" />;
+    if (name.includes('evento')) return <PartyPopper className="h-10 w-10" />;
+    if (name.includes('condomínio') || name.includes('condominio') || name.includes('residencial')) return <Building className="h-10 w-10" />;
+    if (name.includes('data center') || name.includes('datacenter') || name.includes('tecnologia')) return <Server className="h-10 w-10" />;
+    return <Factory className="h-10 w-10" />;
+  };
+
   return (
     <>
       <Hero />
@@ -138,7 +149,7 @@ const Home = () => {
 
 
       {/* Sectors Section */}
-      <section className="py-24 bg-background">
+      <section className="py-28 bg-muted/20">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-20"
@@ -159,14 +170,16 @@ const Home = () => {
             {sectors.map((sector, index) => (
               <motion.div
                 key={sector.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
               >
-                <Card className="hover:border-accent cursor-pointer h-full group shadow-sm hover:shadow-md hover:scale-[1.03] transition-all duration-200 rounded-xl">
-                  <CardContent className="p-6 text-center">
-                    <div className="text-5xl mb-3 text-primary group-hover:scale-110 transition-transform duration-200">{sector.icon}</div>
+                <Card className="bg-background border hover:border-accent cursor-pointer h-full group shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 rounded-xl">
+                  <CardContent className="p-8 text-center flex flex-col items-center justify-center min-h-[160px]">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4 text-white group-hover:scale-110 transition-transform duration-300">
+                      {getSectorIconComponent(sector.name)}
+                    </div>
                     <h3 className="font-bold text-sm text-foreground group-hover:text-accent transition-colors">{sector.name}</h3>
                   </CardContent>
                 </Card>
