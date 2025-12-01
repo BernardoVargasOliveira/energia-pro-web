@@ -59,20 +59,20 @@ const Projetos = () => {
       />
 
       {/* Stats Section */}
-      <section className="py-12 bg-background mt-8 md:mt-10">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-secondary mb-2">1000+</div>
-              <p className="text-muted-foreground">Projetos Executados</p>
+      <section className="py-16 bg-background mt-8 md:mt-10">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+            <div className="bg-white rounded-xl border border-gray-200 shadow-md p-6 md:p-8 text-center transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl hover:-translate-y-1">
+              <div className="text-primary text-4xl md:text-5xl font-bold">1000+</div>
+              <p className="text-gray-600 text-sm md:text-base mt-2">Projetos Executados</p>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-secondary mb-2">500+</div>
-              <p className="text-muted-foreground">Clientes Satisfeitos</p>
+            <div className="bg-white rounded-xl border border-gray-200 shadow-md p-6 md:p-8 text-center transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl hover:-translate-y-1">
+              <div className="text-primary text-4xl md:text-5xl font-bold">500+</div>
+              <p className="text-gray-600 text-sm md:text-base mt-2">Clientes Satisfeitos</p>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-secondary mb-2">99.9%</div>
-              <p className="text-muted-foreground">Taxa de Sucesso</p>
+            <div className="bg-white rounded-xl border border-gray-200 shadow-md p-6 md:p-8 text-center transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl hover:-translate-y-1">
+              <div className="text-primary text-4xl md:text-5xl font-bold">99.9%</div>
+              <p className="text-gray-600 text-sm md:text-base mt-2">Taxa de Sucesso</p>
             </div>
           </div>
         </div>
