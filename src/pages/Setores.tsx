@@ -6,7 +6,7 @@ const Setores = () => {
     {
       icon: <Factory className="h-12 w-12" />,
       title: "Indústria",
-      description: "Soluções robustas para processos industriais que não podem parar. Garantimos energia confiável para manter sua produção funcionando 24/7.",
+      description: "Soluções robustas para processos industriais que não podem parar. Garantimos energia confiável para manter sua produção funcionando.",
       needs: [
         "Alta potência e confiabilidade",
         "Operação contínua",
@@ -54,8 +54,7 @@ const Setores = () => {
       needs: [
         "Acionamento automático",
         "Operação silenciosa",
-        "Manutenção programada",
-        "Atendimento 24h"
+        "Manutenção programada"
       ]
     },
     {
@@ -139,7 +138,7 @@ const Setores = () => {
             <div className="bg-card p-6 rounded-lg">
               <h3 className="text-xl font-semibold mb-3 text-foreground">Experiência Comprovada</h3>
               <p className="text-muted-foreground">
-                Anos de experiência atendendo empresas de diversos portes e segmentos em todo o Brasil.
+                Anos de experiência atendendo empresas de diversos portes e segmentos.
               </p>
             </div>
             
@@ -154,13 +153,6 @@ const Setores = () => {
               <h3 className="text-xl font-semibold mb-3 text-foreground">Suporte Especializado</h3>
               <p className="text-muted-foreground">
                 Equipe técnica com conhecimento profundo das particularidades de cada segmento.
-              </p>
-            </div>
-            
-            <div className="bg-card p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3 text-foreground">Disponibilidade Total</h3>
-              <p className="text-muted-foreground">
-                Atendimento 24/7 para garantir que sua operação nunca pare.
               </p>
             </div>
           </div>
