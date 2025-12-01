@@ -2,6 +2,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import gerador500kva from "@/assets/gerador-500kva.jpg";
+import geradoresTransporte from "@/assets/geradores-transporte.jpg";
 
 const Produtos = () => {
   const products = [
@@ -81,6 +83,34 @@ const Produtos = () => {
           <p className="text-xl text-primary-foreground/90 text-center max-w-3xl mx-auto">
             Grupos geradores de energia de 20 kVA a 2500+ kVA
           </p>
+        </div>
+      </section>
+
+      {/* Showcase Images */}
+      <section className="py-12 bg-muted">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="relative rounded-lg overflow-hidden shadow-primary">
+              <img 
+                src={gerador500kva} 
+                alt="Gerador PROJEMAC de 500 kVA" 
+                className="w-full h-[300px] object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/90 to-transparent p-4">
+                <p className="text-primary-foreground font-semibold">Gerador de 500 kVA</p>
+              </div>
+            </div>
+            <div className="relative rounded-lg overflow-hidden shadow-primary">
+              <img 
+                src={geradoresTransporte} 
+                alt="Geradores PROJEMAC em transporte" 
+                className="w-full h-[300px] object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/90 to-transparent p-4">
+                <p className="text-primary-foreground font-semibold">Logística e Entrega</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

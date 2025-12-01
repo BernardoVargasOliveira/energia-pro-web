@@ -2,6 +2,7 @@ import { Battery, ShoppingCart, Wrench, Zap, HardHat, Headphones } from "lucide-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import geradoresTransporte from "@/assets/geradores-transporte.jpg";
 
 const Servicos = () => {
   const services = [
@@ -90,6 +91,25 @@ const Servicos = () => {
           <p className="text-xl text-primary-foreground/90 text-center max-w-3xl mx-auto">
             Soluções completas em geração de energia para sua empresa
           </p>
+        </div>
+      </section>
+
+      {/* Showcase Image */}
+      <section className="py-12 bg-muted">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="relative rounded-lg overflow-hidden shadow-primary">
+              <img 
+                src={geradoresTransporte} 
+                alt="Geradores PROJEMAC prontos para locação e entrega" 
+                className="w-full h-[400px] object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/95 to-transparent p-6">
+                <h3 className="text-primary-foreground font-bold text-2xl mb-2">Equipamentos Prontos para Locação</h3>
+                <p className="text-primary-foreground/90">Frota moderna com entrega e instalação em todo o Brasil</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
