@@ -82,7 +82,7 @@ const Home = () => {
       <ProductsSection products={products} />
 
       {/* Services Section */}
-      <section className="py-20 bg-muted">
+      <section className="py-16 bg-gradient-to-b from-primary to-background">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-16"
