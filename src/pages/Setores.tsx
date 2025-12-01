@@ -1,46 +1,74 @@
+import { Factory, Store, Hospital, PartyPopper, Building2, Server } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
-import { IconMapper } from "@/components/IconMapper";
 
 const Setores = () => {
-  const [content, setContent] = useState<Record<string, string>>({});
-  const [sectors, setSectors] = useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    loadContent();
-  }, []);
-
-  const loadContent = async () => {
-    const keys = [
-      'setores_header_titulo', 'setores_header_subtitulo',
-      'setores_intro_titulo', 'setores_intro_texto',
-      'setores_escolher_titulo',
-      'setores_escolher_1_titulo', 'setores_escolher_1_texto',
-      'setores_escolher_2_titulo', 'setores_escolher_2_texto',
-      'setores_escolher_3_titulo', 'setores_escolher_3_texto',
-      'setores_cta_titulo', 'setores_cta_subtitulo', 'setores_cta_botao'
-    ];
-
-    const [contentData, sectorsData] = await Promise.all([
-      supabase.from("site_content").select("*").in("key", keys),
-      supabase.from("sectors").select("*").order("order_index")
-    ]);
-
-    const contentMap: Record<string, string> = {};
-    contentData.data?.forEach((item) => {
-      contentMap[item.key] = item.value_text || "";
-    });
-    
-    setContent(contentMap);
-    setSectors(sectorsData.data || []);
-    setIsLoading(false);
-  };
-
-  if (isLoading) {
-    return <div className="flex items-center justify-center min-h-screen">Carregando...</div>;
-  }
+  const sectors = [
+    {
+      icon: <Factory className="h-12 w-12" />,
+      title: "Indústria",
+      description: "Soluções robustas para processos industriais que não podem parar. Garantimos energia confiável para manter sua produção funcionando.",
+      needs: [
+        "Alta potência e confiabilidade",
+        "Operação contínua",
+        "Backup imediato em caso de falhas",
+        "Sistemas redundantes"
+      ]
+    },
+    {
+      icon: <Store className="h-12 w-12" />,
+      title: "Comércio",
+      description: "Mantenha seu estabelecimento comercial sempre operacional. Evite perdas de vendas e preserve a experiência do cliente.",
+      needs: [
+        "Proteção de equipamentos sensíveis",
+        "Continuidade das operações",
+        "Segurança para sistemas de pagamento",
+        "Preservação de mercadorias refrigeradas"
+      ]
+    },
+    {
+      icon: <Hospital className="h-12 w-12" />,
+      title: "Hospitais e Clínicas",
+      description: "Energia ininterrupta é vital para salvar vidas. Fornecemos sistemas com altíssima confiabilidade para o setor de saúde.",
+      needs: [
+        "Zero tempo de interrupção",
+        "Sistemas com redundância",
+        "Manutenção preventiva rigorosa",
+        "Certificações e normas específicas"
+      ]
+    },
+    {
+      icon: <PartyPopper className="h-12 w-12" />,
+      title: "Eventos",
+      description: "Geradores para eventos de todos os portes. Shows, festas, feiras e convenções com energia confiável e silenciosa.",
+      needs: [
+        "Mobilidade e fácil instalação",
+        "Baixa emissão de ruído",
+        "Autonomia adequada ao evento",
+        "Suporte técnico no local"
+      ]
+    },
+    {
+      icon: <Building2 className="h-12 w-12" />,
+      title: "Condomínios",
+      description: "Garanta conforto e segurança para os moradores. Sistemas de backup para áreas comuns e equipamentos essenciais.",
+      needs: [
+        "Acionamento automático",
+        "Operação silenciosa",
+        "Manutenção programada"
+      ]
+    },
+    {
+      icon: <Server className="h-12 w-12" />,
+      title: "Data Centers",
+      description: "Proteção máxima para infraestrutura crítica de TI. Soluções especializadas para ambientes que exigem altíssima disponibilidade.",
+      needs: [
+        "Redundância N+1 ou 2N",
+        "Monitoramento em tempo real",
+        "Manutenção preventiva especializada",
+        "Certificações internacionais"
+      ]
+    },
+  ];
 
   return (
     <div className="min-h-screen">
@@ -48,10 +76,10 @@ const Setores = () => {
       <section className="bg-gradient-primary py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground text-center mb-6">
-            {content.setores_header_titulo || "Setores Atendidos"}
+            Setores Atendidos
           </h1>
           <p className="text-xl text-primary-foreground/90 text-center max-w-3xl mx-auto">
-            {content.setores_header_subtitulo || "Soluções especializadas em energia para diversos segmentos"}
+            Soluções especializadas em energia para diversos segmentos
           </p>
         </div>
       </section>
@@ -61,10 +89,10 @@ const Setores = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">
-              {content.setores_intro_titulo || "Experiência em Diversos Mercados"}
+              Experiência em Diversos Mercados
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              {content.setores_intro_texto || "Entendemos as necessidades específicas de cada setor e oferecemos soluções personalizadas"}
+              Entendemos as necessidades específicas de cada setor e oferecemos soluções personalizadas
             </p>
           </div>
 
@@ -77,11 +105,22 @@ const Setores = () => {
               >
                 <CardHeader>
                   <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4">
-                    <IconMapper iconName={sector.icon} />
+                    {sector.icon}
                   </div>
-                  <CardTitle className="text-2xl mb-3">{sector.name}</CardTitle>
+                  <CardTitle className="text-2xl mb-3">{sector.title}</CardTitle>
                   <p className="text-muted-foreground">{sector.description}</p>
                 </CardHeader>
+                <CardContent>
+                  <h4 className="font-semibold mb-3 text-foreground">Necessidades principais:</h4>
+                  <ul className="space-y-2">
+                    {sector.needs.map((need, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-muted-foreground">
+                        <span className="text-secondary mt-1">✓</span>
+                        <span>{need}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
               </Card>
             ))}
           </div>
@@ -92,34 +131,28 @@ const Setores = () => {
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-foreground mb-12">
-            {content.setores_escolher_titulo || "Por Que Nos Escolher Para Seu Setor?"}
+            Por Que Nos Escolher Para Seu Setor?
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="bg-card p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3 text-foreground">
-                {content.setores_escolher_1_titulo || "Experiência Comprovada"}
-              </h3>
+              <h3 className="text-xl font-semibold mb-3 text-foreground">Experiência Comprovada</h3>
               <p className="text-muted-foreground">
-                {content.setores_escolher_1_texto || "Anos de experiência atendendo empresas de diversos portes e segmentos."}
+                Anos de experiência atendendo empresas de diversos portes e segmentos.
               </p>
             </div>
             
             <div className="bg-card p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3 text-foreground">
-                {content.setores_escolher_2_titulo || "Soluções Personalizadas"}
-              </h3>
+              <h3 className="text-xl font-semibold mb-3 text-foreground">Soluções Personalizadas</h3>
               <p className="text-muted-foreground">
-                {content.setores_escolher_2_texto || "Cada setor tem necessidades únicas. Desenvolvemos projetos sob medida para seu negócio."}
+                Cada setor tem necessidades únicas. Desenvolvemos projetos sob medida para seu negócio.
               </p>
             </div>
             
             <div className="bg-card p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3 text-foreground">
-                {content.setores_escolher_3_titulo || "Suporte Especializado"}
-              </h3>
+              <h3 className="text-xl font-semibold mb-3 text-foreground">Suporte Especializado</h3>
               <p className="text-muted-foreground">
-                {content.setores_escolher_3_texto || "Equipe técnica com conhecimento profundo das particularidades de cada segmento."}
+                Equipe técnica com conhecimento profundo das particularidades de cada segmento.
               </p>
             </div>
           </div>
@@ -130,17 +163,17 @@ const Setores = () => {
       <section className="py-16 bg-gradient-primary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-primary-foreground mb-6">
-            {content.setores_cta_titulo || "Seu Setor Precisa de Energia Confiável?"}
+            Seu Setor Precisa de Energia Confiável?
           </h2>
           <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            {content.setores_cta_subtitulo || "Fale com nossos especialistas e descubra a melhor solução para seu negócio"}
+            Fale com nossos especialistas e descubra a melhor solução para seu negócio
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href="/contato"
               className="inline-flex items-center justify-center px-8 py-3 bg-accent text-accent-foreground hover:bg-accent/90 rounded-md font-semibold text-lg transition-colors shadow-accent"
             >
-              {content.setores_cta_botao || "Solicitar Orçamento"}
+              Solicitar Orçamento
             </a>
             <a 
               href="https://wa.me/553134953004" 
