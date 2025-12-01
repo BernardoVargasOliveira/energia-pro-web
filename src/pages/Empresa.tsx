@@ -1,7 +1,27 @@
 import { Award, Target, Eye, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useEffect, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 
 const Empresa = () => {
+  const [aboutText, setAboutText] = useState("");
+
+  useEffect(() => {
+    const loadContent = async () => {
+      const { data } = await supabase
+        .from("site_content")
+        .select("value_text")
+        .eq("key", "sobre_texto")
+        .maybeSingle();
+
+      if (data?.value_text) {
+        setAboutText(data.value_text);
+      }
+    };
+
+    loadContent();
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Header Section */}
@@ -21,25 +41,20 @@ const Empresa = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-foreground mb-6">Nossa História</h2>
-            <div className="space-y-4 text-muted-foreground text-lg">
-              <p>
-                A PROJEMAC é uma empresa especializada em soluções completas para geração de energia elétrica, 
-                atuando no mercado brasileiro com foco em excelência e comprometimento com nossos clientes.
-              </p>
-              <p>
-                Com anos de experiência no setor, oferecemos serviços de locação e 
-                instalação de grupos geradores para diversos segmentos do mercado, sempre priorizando 
-                a qualidade e a confiabilidade de nossos equipamentos e serviços.
-              </p>
-              <p>
-                Nossa equipe é formada por profissionais altamente qualificados e treinados, prontos para 
-                atender às necessidades específicas de cada cliente, desde pequenas instalações até 
-                grandes projetos industriais.
-              </p>
-              <p>
-                Trabalhamos com as melhores marcas do mercado e mantemos um rigoroso controle de qualidade 
-                em todos os nossos processos, garantindo assim a satisfação total de nossos clientes.
-              </p>
+            <div className="space-y-4 text-muted-foreground text-lg whitespace-pre-wrap">
+              {aboutText || (
+                <>
+                  <p>
+                    A PROJEMAC é uma empresa especializada em soluções completas para geração de energia elétrica, 
+                    atuando no mercado brasileiro com foco em excelência e comprometimento com nossos clientes.
+                  </p>
+                  <p>
+                    Com anos de experiência no setor, oferecemos serviços de locação e 
+                    instalação de grupos geradores para diversos segmentos do mercado, sempre priorizando 
+                    a qualidade e a confiabilidade de nossos equipamentos e serviços.
+                  </p>
+                </>
+              )}
             </div>
           </div>
         </div>

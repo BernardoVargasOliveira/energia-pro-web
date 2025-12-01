@@ -2,48 +2,69 @@ import { Link } from "react-router-dom";
 import { Battery, Zap, Users, Award, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useEffect, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 import Hero from "@/components/Hero";
 
+interface Service {
+  id: string;
+  title: string;
+  description: string | null;
+  icon: string | null;
+}
+
+interface Sector {
+  id: string;
+  name: string;
+  icon: string | null;
+}
+
 const Home = () => {
-  const services = [
-    {
-      icon: <Battery className="h-12 w-12" />,
-      title: "Locação de Geradores",
-      description: "Grupos geradores de diversas potências para locação de curta e longa duração."
-    },
-    {
-      icon: <Zap className="h-12 w-12" />,
-      title: "Projetos e Instalações",
-      description: "Desenvolvimento de projetos e instalação completa de sistemas de energia."
-    },
-  ];
+  const [services, setServices] = useState<Service[]>([]);
+  const [sectors, setSectors] = useState<Sector[]>([]);
+  const [servicesTitle, setServicesTitle] = useState("Nossos Serviços");
+  const [sectorsTitle, setSectorsTitle] = useState("Setores Atendidos");
 
-  const differentials = [
-    {
-      icon: <Users className="h-10 w-10" />,
-      title: "Equipe Especializada",
-      description: "Profissionais qualificados e experientes em sistemas de energia."
-    },
-    {
-      icon: <MapPin className="h-10 w-10" />,
-      title: "Cobertura Regional",
-      description: "Atendimento em todo estado de Minas Gerais."
-    },
-    {
-      icon: <Award className="h-10 w-10" />,
-      title: "Equipamentos Modernos",
-      description: "Geradores de última geração das melhores marcas."
-    },
-  ];
+  useEffect(() => {
+    const loadData = async () => {
+      // Load services
+      const { data: servicesData } = await supabase
+        .from("services")
+        .select("*")
+        .order("order_index")
+        .limit(4);
+      
+      if (servicesData) setServices(servicesData);
 
-  const sectors = [
-    { name: "Indústria", icon: "🏭" },
-    { name: "Comércio", icon: "🏪" },
-    { name: "Hospitais", icon: "🏥" },
-    { name: "Eventos", icon: "🎪" },
-    { name: "Condomínios", icon: "🏢" },
-    { name: "Data Centers", icon: "💻" },
-  ];
+      // Load sectors
+      const { data: sectorsData } = await supabase
+        .from("sectors")
+        .select("*")
+        .order("order_index")
+        .limit(6);
+      
+      if (sectorsData) setSectors(sectorsData);
+
+      // Load section titles
+      const { data: contentData } = await supabase
+        .from("site_content")
+        .select("key, value_text")
+        .in("key", ["home_servicos_titulo", "home_setores_titulo"]);
+
+      if (contentData) {
+        contentData.forEach((item) => {
+          if (item.key === "home_servicos_titulo" && item.value_text) {
+            setServicesTitle(item.value_text);
+          }
+          if (item.key === "home_setores_titulo" && item.value_text) {
+            setSectorsTitle(item.value_text);
+          }
+        });
+      }
+    };
+
+    loadData();
+  }, []);
 
   return (
     <>
@@ -97,23 +118,39 @@ const Home = () => {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {differentials.map((item, index) => (
-              <div 
-                key={index}
-                className="bg-card p-6 rounded-lg shadow-lg hover:shadow-primary transition-all duration-300 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="text-secondary mb-4">
-                  {item.icon}
-                </div>
-                <h3 className="text-lg font-semibold mb-2 text-card-foreground">
-                  {item.title}
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  {item.description}
-                </p>
+            <div className="bg-card p-6 rounded-lg shadow-lg hover:shadow-primary transition-all duration-300">
+              <div className="text-secondary mb-4">
+                <Users className="h-10 w-10" />
               </div>
-            ))}
+              <h3 className="text-lg font-semibold mb-2 text-card-foreground">
+                Equipe Especializada
+              </h3>
+              <p className="text-muted-foreground text-sm">
+                Profissionais qualificados e experientes em sistemas de energia.
+              </p>
+            </div>
+            <div className="bg-card p-6 rounded-lg shadow-lg hover:shadow-primary transition-all duration-300">
+              <div className="text-secondary mb-4">
+                <MapPin className="h-10 w-10" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2 text-card-foreground">
+                Cobertura Regional
+              </h3>
+              <p className="text-muted-foreground text-sm">
+                Atendimento em todo estado de Minas Gerais.
+              </p>
+            </div>
+            <div className="bg-card p-6 rounded-lg shadow-lg hover:shadow-primary transition-all duration-300">
+              <div className="text-secondary mb-4">
+                <Award className="h-10 w-10" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2 text-card-foreground">
+                Equipamentos Modernos
+              </h3>
+              <p className="text-muted-foreground text-sm">
+                Geradores de última geração das melhores marcas.
+              </p>
+            </div>
           </div>
         </div>
       </section>
