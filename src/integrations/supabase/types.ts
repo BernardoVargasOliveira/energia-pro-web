@@ -89,6 +89,51 @@ export type Database = {
         }
         Relationships: []
       }
+      products: {
+        Row: {
+          applications: string[] | null
+          badge: string | null
+          category: string
+          created_at: string | null
+          description: string | null
+          features: string[] | null
+          id: string
+          image_url: string | null
+          name: string
+          order_index: number | null
+          power_range: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          applications?: string[] | null
+          badge?: string | null
+          category: string
+          created_at?: string | null
+          description?: string | null
+          features?: string[] | null
+          id?: string
+          image_url?: string | null
+          name: string
+          order_index?: number | null
+          power_range?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          applications?: string[] | null
+          badge?: string | null
+          category?: string
+          created_at?: string | null
+          description?: string | null
+          features?: string[] | null
+          id?: string
+          image_url?: string | null
+          name?: string
+          order_index?: number | null
+          power_range?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       sectors: {
         Row: {
           created_at: string | null
