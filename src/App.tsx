@@ -10,11 +10,17 @@ import Produtos from "./pages/Produtos";
 import Setores from "./pages/Setores";
 import Projetos from "./pages/Projetos";
 import Contato from "./pages/Contato";
-import Admin from "./pages/Admin";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import AdminLayout from "./pages/admin/AdminLayout";
+import AdminHome from "./pages/admin/AdminHome";
+import AdminSobre from "./pages/admin/AdminSobre";
+import AdminServicos from "./pages/admin/AdminServicos";
+import AdminSetores from "./pages/admin/AdminSetores";
+import AdminProdutos from "./pages/admin/AdminProdutos";
+import AdminLeads from "./pages/admin/AdminLeads";
 
 const queryClient = new QueryClient();
 
@@ -35,8 +41,15 @@ const App = () => (
               <Route path="/setores" element={<Setores />} />
               <Route path="/projetos" element={<Projetos />} />
               <Route path="/contato" element={<Contato />} />
-              <Route path="/admin" element={<Admin />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/admin" element={<AdminLayout />}>
+                <Route path="/admin/home" element={<AdminHome />} />
+                <Route path="/admin/sobre" element={<AdminSobre />} />
+                <Route path="/admin/servicos" element={<AdminServicos />} />
+                <Route path="/admin/setores" element={<AdminSetores />} />
+                <Route path="/admin/produtos" element={<AdminProdutos />} />
+                <Route path="/admin/leads" element={<AdminLeads />} />
+              </Route>
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
