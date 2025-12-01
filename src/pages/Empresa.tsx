@@ -76,11 +76,11 @@ const Empresa = () => {
             </Card>
 
             <Card className="border-t-4 border-t-accent">
-              <CardContent className="p-8 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent text-accent-foreground mb-4">
+              <CardContent className="p-8">
+                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-accent text-accent-foreground mb-4 mx-auto">
                   <Award className="h-8 w-8" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4">Valores</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-4 text-center">Valores</h3>
                 <ul className="text-muted-foreground space-y-2">
                   <li>• Compromisso com a qualidade</li>
                   <li>• Ética e transparência</li>
