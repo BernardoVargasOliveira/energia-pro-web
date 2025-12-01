@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Battery, Wrench, Zap, HardHat, Headphones } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,9 @@ import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
 
 const Servicos = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const services = [
     {
       icon: <Battery className="h-12 w-12" />,
