@@ -1,4 +1,4 @@
-import { Battery, ShoppingCart, Wrench, Zap, HardHat, Headphones } from "lucide-react";
+import { Battery, Wrench, Zap, HardHat, Headphones } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -16,18 +16,6 @@ const Servicos = () => {
         "Manutenção inclusa",
         "Instalação e desinstalação",
         "Suporte técnico 24h"
-      ]
-    },
-    {
-      icon: <ShoppingCart className="h-12 w-12" />,
-      title: "Venda de Grupos Geradores",
-      description: "Comercializamos geradores novos e seminovos das melhores marcas do mercado nacional e internacional.",
-      benefits: [
-        "Equipamentos certificados",
-        "Garantia de fábrica",
-        "Financiamento disponível",
-        "Entrega em todo Brasil",
-        "Treinamento operacional"
       ]
     },
     {
