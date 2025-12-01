@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Battery, Zap, Clock, Users, Award, MapPin } from "lucide-react";
+import { Battery, Zap, Users, Award, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Hero from "@/components/Hero";
@@ -20,19 +20,14 @@ const Home = () => {
 
   const differentials = [
     {
-      icon: <Clock className="h-10 w-10" />,
-      title: "Atendimento 24h",
-      description: "Suporte técnico disponível todos os dias, a qualquer hora."
-    },
-    {
       icon: <Users className="h-10 w-10" />,
       title: "Equipe Especializada",
       description: "Profissionais qualificados e experientes em sistemas de energia."
     },
     {
       icon: <MapPin className="h-10 w-10" />,
-      title: "Cobertura Nacional",
-      description: "Atendimento em todo o território brasileiro."
+      title: "Cobertura Regional",
+      description: "Atendimento em todo estado de Minas Gerais."
     },
     {
       icon: <Award className="h-10 w-10" />,
@@ -101,7 +96,7 @@ const Home = () => {
             Somos referência em soluções de energia com anos de experiência no mercado
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {differentials.map((item, index) => (
               <div 
                 key={index}

@@ -9,7 +9,7 @@ const Projetos = () => {
       title: "Indústria Farmacêutica - MG",
       sector: "Indústria",
       challenge: "Necessidade de energia ininterrupta para processos críticos de fabricação de medicamentos que não podem sofrer qualquer tipo de interrupção.",
-      solution: "Instalação de sistema com 2 geradores de 500 kVA em paralelismo com redundância N+1, QTA e monitoramento remoto 24h.",
+      solution: "Instalação de sistema com 2 geradores de 500 kVA em paralelismo com redundância N+1 e QTA.",
       result: "Zero tempo de parada em 3 anos de operação, com economia de 40% em custos de energia de backup."
     },
     {
@@ -23,7 +23,7 @@ const Projetos = () => {
       title: "Hospital Regional - RJ",
       sector: "Saúde",
       challenge: "Fornecimento de energia para UTI, centro cirúrgico e equipamentos médicos críticos com zero tolerância a falhas.",
-      solution: "Instalação de geradores de 1000 kVA com sistema UPS integrado, manutenção preventiva semanal e equipe de plantão 24h.",
+      solution: "Instalação de geradores de 1000 kVA com sistema UPS integrado e manutenção preventiva semanal.",
       result: "Certificação de conformidade com normas hospitalares e zero incidentes relacionados à energia em 5 anos."
     },
     {
@@ -66,7 +66,7 @@ const Projetos = () => {
       {/* Stats Section */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <div className="text-center">
               <div className="text-4xl font-bold text-secondary mb-2">1000+</div>
               <p className="text-muted-foreground">Projetos Executados</p>
@@ -78,10 +78,6 @@ const Projetos = () => {
             <div className="text-center">
               <div className="text-4xl font-bold text-secondary mb-2">99.9%</div>
               <p className="text-muted-foreground">Taxa de Sucesso</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-secondary mb-2">24/7</div>
-              <p className="text-muted-foreground">Suporte Disponível</p>
             </div>
           </div>
         </div>
@@ -214,7 +210,7 @@ const Projetos = () => {
               </div>
               <h3 className="text-lg font-semibold mb-2 text-foreground">Suporte Contínuo</h3>
               <p className="text-muted-foreground text-sm">
-                Manutenção preventiva e suporte técnico 24/7 para garantir performance
+                Manutenção preventiva e suporte técnico para garantir performance
               </p>
             </div>
           </div>

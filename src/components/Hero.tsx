@@ -32,7 +32,7 @@ const Hero = () => {
           
           <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
             Locação e projetos de geradores de energia para sua empresa. 
-            Atendimento 24h em todo o Brasil com equipe técnica especializada.
+            Atendimento em todo estado de Minas Gerais com equipe técnica especializada.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.4s' }}>

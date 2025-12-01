@@ -148,8 +148,7 @@ const Contato = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Horário de Atendimento</h3>
                     <p className="text-muted-foreground">
-                      Segunda a Sexta: 8h às 18h<br />
-                      Suporte técnico 24h
+                      Segunda a Sexta: 8h às 18h
                     </p>
                   </div>
                 </div>
