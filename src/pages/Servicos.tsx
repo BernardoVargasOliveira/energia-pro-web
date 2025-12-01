@@ -50,8 +50,7 @@ const Servicos = () => {
         "Análise de demanda energética",
         "Dimensionamento adequado",
         "Estudo de viabilidade",
-        "Projeto elétrico e civil",
-        "Homologação junto à concessionária"
+        "Projeto elétrico"
       ]
     },
     {
