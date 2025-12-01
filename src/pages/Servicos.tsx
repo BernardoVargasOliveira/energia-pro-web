@@ -1,57 +1,51 @@
-import { Battery, Wrench, Zap, HardHat, Headphones } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import geradoresTransporte from "@/assets/geradores-transporte.jpg";
+import { useEffect, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import * as LucideIcons from "lucide-react";
 
 const Servicos = () => {
-  const services = [
-    {
-      icon: <Battery className="h-12 w-12" />,
-      title: "Locação de Grupos Geradores",
-      description: "Disponibilizamos grupos geradores de diversas potências para locação de curta, média e longa duração. Potência de 6 a 4000 kVA com geradores ligados em paralelo.",
-      benefits: [
-        "Equipamentos de última geração",
-        "Flexibilidade de prazos",
-        "Manutenção inclusa",
-        "Instalação e desinstalação",
-        "Mobilização e desmobilização dos geradores locados",
-        "Equipe técnica especializada",
-        "Engenheiro eletricista responsável técnico dos equipamentos"
-      ]
-    },
-    {
-      icon: <HardHat className="h-12 w-12" />,
-      title: "Serviços de Instalação",
-      description: "Instalação completa de sistemas de geração de energia com técnicos especializados.",
-      benefits: [
-        "Projeto executivo detalhado",
-        "Instalação elétrica e mecânica",
-        "Testes"
-      ]
-    },
-    {
-      icon: <Zap className="h-12 w-12" />,
-      title: "Projetos de Sistemas de Geração de Energia",
-      description: "Execução de projetos completos de geração de energia adaptados às necessidades específicas de cada cliente.",
-      benefits: [
-        "Análise de demanda energética",
-        "Dimensionamento adequado",
-        "Estudo de viabilidade",
-        "Execução de projeto elétrico"
-      ]
-    },
-    {
-      icon: <Headphones className="h-12 w-12" />,
-      title: "Assistência Técnica e Suporte",
-      description: "Suporte técnico durante todo período da locação.",
-      benefits: [
-        "Técnicos especializados",
-        "Diagnóstico remoto",
-        "Cobertura em todo estado de Minas Gerais"
-      ]
-    },
-  ];
+  const [content, setContent] = useState<Record<string, string>>({});
+  const [services, setServices] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    loadContent();
+  }, []);
+
+  const loadContent = async () => {
+    const keys = [
+      'servicos_header_titulo', 'servicos_header_subtitulo',
+      'servicos_showcase_titulo', 'servicos_showcase_subtitulo',
+      'servicos_cta_titulo', 'servicos_cta_subtitulo', 'servicos_cta_botao'
+    ];
+
+    const [contentData, servicesData] = await Promise.all([
+      supabase.from("site_content").select("*").in("key", keys),
+      supabase.from("services").select("*").order("order_index")
+    ]);
+
+    const contentMap: Record<string, string> = {};
+    contentData.data?.forEach((item) => {
+      contentMap[item.key] = item.value_text || "";
+    });
+    
+    setContent(contentMap);
+    setServices(servicesData.data || []);
+    setIsLoading(false);
+  };
+
+  const getIconComponent = (iconName: string | null) => {
+    if (!iconName) return <LucideIcons.Zap className="h-12 w-12" />;
+    const Icon = (LucideIcons as any)[iconName];
+    return Icon ? <Icon className="h-12 w-12" /> : <LucideIcons.Zap className="h-12 w-12" />;
+  };
+
+  if (isLoading) {
+    return <div className="flex items-center justify-center min-h-screen">Carregando...</div>;
+  }
 
   return (
     <div className="min-h-screen">
@@ -59,10 +53,10 @@ const Servicos = () => {
       <section className="bg-gradient-primary py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground text-center mb-6">
-            Nossos Serviços
+            {content.servicos_header_titulo || "Nossos Serviços"}
           </h1>
           <p className="text-xl text-primary-foreground/90 text-center max-w-3xl mx-auto">
-            Soluções completas em geração de energia para sua empresa
+            {content.servicos_header_subtitulo || "Soluções completas em geração de energia para sua empresa"}
           </p>
         </div>
       </section>
@@ -78,8 +72,12 @@ const Servicos = () => {
                 className="w-full h-[400px] object-cover"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/95 to-transparent p-6">
-                <h3 className="text-primary-foreground font-bold text-2xl mb-2">Equipamentos Prontos para Locação</h3>
-                <p className="text-primary-foreground/90">Frota moderna com entrega e instalação em todo o Brasil</p>
+                <h3 className="text-primary-foreground font-bold text-2xl mb-2">
+                  {content.servicos_showcase_titulo || "Equipamentos Prontos para Locação"}
+                </h3>
+                <p className="text-primary-foreground/90">
+                  {content.servicos_showcase_subtitulo || "Frota moderna com entrega e instalação em todo o Brasil"}
+                </p>
               </div>
             </div>
           </div>
@@ -98,22 +96,11 @@ const Servicos = () => {
               >
                 <CardHeader>
                   <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4">
-                    {service.icon}
+                    {getIconComponent(service.icon)}
                   </div>
                   <CardTitle className="text-2xl">{service.title}</CardTitle>
                   <CardDescription className="text-base">{service.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <h4 className="font-semibold mb-3 text-foreground">Principais benefícios:</h4>
-                  <ul className="space-y-2">
-                    {service.benefits.map((benefit, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-muted-foreground">
-                        <span className="text-secondary mt-1">✓</span>
-                        <span>{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
               </Card>
             ))}
           </div>
@@ -124,14 +111,14 @@ const Servicos = () => {
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-foreground mb-6">
-            Precisa de Mais Informações?
+            {content.servicos_cta_titulo || "Precisa de Mais Informações?"}
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Nossa equipe está pronta para ajudar você a encontrar a melhor solução em geração de energia
+            {content.servicos_cta_subtitulo || "Nossa equipe está pronta para ajudar você a encontrar a melhor solução em geração de energia"}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold">
-              <Link to="/contato">Solicitar Orçamento</Link>
+              <Link to="/contato">{content.servicos_cta_botao || "Solicitar Orçamento"}</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="font-semibold">
               <a href="https://wa.me/553134953004" target="_blank" rel="noopener noreferrer">
