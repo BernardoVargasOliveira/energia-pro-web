@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import { Battery, Wrench, Zap, HardHat, Headphones } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import geradoresTransporte from "@/assets/geradores-transporte.jpg";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
@@ -12,6 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import FinalCTA from "@/components/FinalCTA";
 
 const Servicos = () => {
   useEffect(() => {
@@ -248,39 +247,10 @@ const Servicos = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-muted">
-        <div className="container mx-auto px-4 text-center">
-          <motion.h2 
-            className="text-3xl font-bold text-foreground mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            Precisa de Mais Informações?
-          </motion.h2>
-          <motion.p 
-            className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          >
-            Nossa equipe está pronta para ajudar você a encontrar a melhor solução em geração de energia
-          </motion.p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold">
-              <Link to="/contato">Solicitar Orçamento</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="font-semibold">
-              <a href="https://wa.me/553134953004" target="_blank" rel="noopener noreferrer">
-                Falar no WhatsApp
-              </a>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <FinalCTA 
+        title="Precisa de Mais Informações?"
+        subtitle="Nossa equipe está pronta para ajudar você a encontrar a melhor solução em geração de energia"
+      />
     </div>
   );
 };

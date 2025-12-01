@@ -5,6 +5,7 @@ import { CheckCircle } from "lucide-react";
 import geradorEvento from "@/assets/gerador-evento.jpg";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
+import FinalCTA from "@/components/FinalCTA";
 
 const Projetos = () => {
   useEffect(() => {
@@ -217,23 +218,10 @@ const Projetos = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-primary">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-primary-foreground mb-6">
-            Quer Ser Nosso Próximo Case de Sucesso?
-          </h2>
-          <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Vamos conversar sobre seu projeto e desenvolver a melhor solução para você
-          </p>
-          <a 
-            href="/contato"
-            className="inline-flex items-center justify-center px-8 py-3 bg-accent text-accent-foreground hover:bg-accent/90 rounded-md font-semibold text-lg transition-colors shadow-accent"
-          >
-            Iniciar Meu Projeto
-          </a>
-        </div>
-      </section>
+      <FinalCTA 
+        title="Quer Ser Nosso Próximo Case de Sucesso?"
+        subtitle="Vamos conversar sobre seu projeto e desenvolver a melhor solução para você"
+      />
     </div>
   );
 };

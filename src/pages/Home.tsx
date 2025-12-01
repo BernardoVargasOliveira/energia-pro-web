@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Hero from "@/components/Hero";
 import ProductsSection from "@/components/home/ProductsSection";
 import WhyChooseSection from "@/components/home/WhyChooseSection";
+import FinalCTA from "@/components/FinalCTA";
 import { supabase } from "@/integrations/supabase/client";
 import { motion } from "framer-motion";
 
@@ -197,92 +198,10 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-b from-primary/95 to-secondary/90 relative overflow-hidden">
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8">
-              {content['home_cta_title'] || 'Pronto para garantir energia para o seu negócio?'}
-            </h2>
-            <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed">
-              {content['home_cta_subtitle'] || 'Entre em contato conosco e receba um orçamento personalizado para sua necessidade'}
-            </p>
-          </motion.div>
-
-          {/* Contact Cards */}
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            {/* Telefone Card */}
-            <div className="bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-8 hover:bg-white/10 hover:-translate-y-1 hover:shadow-xl transition-all duration-200">
-              <div className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mb-4">
-                  <Phone className="w-8 h-8 text-accent" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Telefone</h3>
-                <a 
-                  href="tel:+553134953004" 
-                  className="text-white/90 hover:text-accent transition-colors"
-                >
-                  (31) 3495-3004
-                </a>
-              </div>
-            </div>
-
-            {/* E-mail Card */}
-            <div className="bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-8 hover:bg-white/10 hover:-translate-y-1 hover:shadow-xl transition-all duration-200">
-              <div className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mb-4">
-                  <Mail className="w-8 h-8 text-accent" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">E-mail</h3>
-                <a 
-                  href="mailto:contato@projemac.com.br" 
-                  className="text-white/90 hover:text-accent transition-colors break-all"
-                >
-                  contato@projemac.com.br
-                </a>
-              </div>
-            </div>
-
-            {/* Localização Card */}
-            <div className="bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-8 hover:bg-white/10 hover:-translate-y-1 hover:shadow-xl transition-all duration-200">
-              <div className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mb-4">
-                  <MapPin className="w-8 h-8 text-accent" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Localização</h3>
-                <p className="text-white/90">
-                  Belo Horizonte - MG
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* CTA Button */}
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold text-lg px-10 h-16 shadow-xl hover:shadow-accent/50 hover:-translate-y-1 transition-all duration-200">
-              <Link to="/contato">Solicitar Orçamento Agora</Link>
-            </Button>
-          </motion.div>
-        </div>
-      </section>
+      <FinalCTA 
+        title={content['home_cta_title'] || 'Pronto para garantir energia para o seu negócio?'}
+        subtitle={content['home_cta_subtitle'] || 'Entre em contato conosco e receba um orçamento personalizado para sua necessidade'}
+      />
     </>
   );
 };
