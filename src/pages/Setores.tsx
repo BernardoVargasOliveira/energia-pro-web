@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { DynamicIcon } from "@/components/DynamicIcon";
 
 const Setores = () => {
   const [content, setContent] = useState<Record<string, string>>({});
@@ -38,7 +37,6 @@ const Setores = () => {
     setIsLoading(false);
   };
 
-
   if (isLoading) {
     return <div className="flex items-center justify-center min-h-screen">Carregando...</div>;
   }
@@ -73,15 +71,15 @@ const Setores = () => {
             {sectors.map((sector, index) => (
               <Card 
                 key={index}
-                className="border-2 hover:border-primary hover:shadow-lg transition-all duration-300 animate-fade-in"
+                className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-primary animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardHeader className="text-center">
-                  <div className="mx-auto mb-6 w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
-                    <DynamicIcon name={sector.icon} className="h-10 w-10 text-primary" fallback="Factory" />
+                <CardHeader>
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4 text-5xl">
+                    {sector.icon || "🏢"}
                   </div>
-                  <CardTitle className="text-xl font-bold mb-3">{sector.name}</CardTitle>
-                  <p className="text-muted-foreground text-sm">{sector.description}</p>
+                  <CardTitle className="text-2xl mb-3">{sector.name}</CardTitle>
+                  <p className="text-muted-foreground">{sector.description}</p>
                 </CardHeader>
               </Card>
             ))}
