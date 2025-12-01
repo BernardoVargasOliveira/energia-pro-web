@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -9,7 +9,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 
 const formSchema = z.object({
   nome: z.string().min(3, "Nome deve ter pelo menos 3 caracteres").max(100),
@@ -27,6 +26,17 @@ type FormData = z.infer<typeof formSchema>;
 const Contato = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  
+  // Timestamp de quando o formulário foi carregado (proteção anti-bot)
+  const formLoadTimeRef = useRef<number>(Date.now());
+  
+  // Campo honeypot (invisível para humanos, visível para bots)
+  const [honeypot, setHoneypot] = useState("");
+
+  useEffect(() => {
+    // Atualiza o timestamp quando o componente monta
+    formLoadTimeRef.current = Date.now();
+  }, []);
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -46,33 +56,52 @@ const Contato = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase.from("leads").insert([
+      // Chama a edge function que tem proteção anti-bot
+      const response = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-lead`,
         {
-          nome: data.nome,
-          email: data.email,
-          telefone: data.telefone,
-          empresa: data.empresa || null,
-          cidade: data.cidade || null,
-          estado: data.estado || null,
-          tipo_interesse: data.tipo_interesse,
-          mensagem: data.mensagem || null,
-          origem: "form_contato_site",
-        },
-      ]);
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+          },
+          body: JSON.stringify({
+            nome: data.nome,
+            email: data.email,
+            telefone: data.telefone,
+            empresa: data.empresa || null,
+            cidade: data.cidade || null,
+            estado: data.estado || null,
+            tipo_interesse: data.tipo_interesse,
+            mensagem: data.mensagem || null,
+            honeypot, // campo honeypot para detecção de bot
+            formLoadTime: formLoadTimeRef.current, // timestamp de quando o form foi carregado
+          }),
+        }
+      );
 
-      if (error) throw error;
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Erro ao enviar mensagem');
+      }
 
       toast({
         title: "Mensagem enviada com sucesso!",
-        description: "Em breve entraremos em contato com você.",
+        description: result.message || "Em breve entraremos em contato com você.",
       });
 
       form.reset();
+      setHoneypot(""); // limpa o honeypot
+      formLoadTimeRef.current = Date.now(); // reseta o timestamp
+      
     } catch (error) {
       console.error("Error submitting form:", error);
+      const errorMessage = error instanceof Error ? error.message : "Por favor, tente novamente ou entre em contato por telefone.";
+      
       toast({
         title: "Erro ao enviar mensagem",
-        description: "Por favor, tente novamente ou entre em contato por telefone.",
+        description: errorMessage,
         variant: "destructive",
       });
     } finally {
@@ -175,6 +204,20 @@ const Contato = () => {
 
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  {/* Campo Honeypot - Invisível para humanos, visível para bots */}
+                  <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} aria-hidden="true">
+                    <label htmlFor="website">Website (não preencha este campo)</label>
+                    <input
+                      id="website"
+                      name="website"
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={honeypot}
+                      onChange={(e) => setHoneypot(e.target.value)}
+                    />
+                  </div>
+
                   <FormField
                     control={form.control}
                     name="nome"
