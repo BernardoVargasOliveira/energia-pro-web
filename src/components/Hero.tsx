@@ -8,7 +8,7 @@ import heroImage from "@/assets/hero-generator-facility.jpg";
 const Hero = () => {
   return (
     <section 
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden pt-20"
       style={{
         backgroundImage: `url(${heroImage})`,
         backgroundSize: 'cover',

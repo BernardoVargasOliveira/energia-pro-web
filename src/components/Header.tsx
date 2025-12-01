@@ -1,11 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoImage from "@/assets/logo-projemac-transparent.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const menuItems = [
     { label: "Home", href: "/" },
@@ -18,23 +28,13 @@ const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-primary shadow-lg">
-      {/* Top bar with contact info */}
-      <div className="bg-secondary">
-        <div className="container mx-auto px-4 py-2">
-          <div className="flex items-center justify-end gap-6 text-sm text-primary-foreground">
-            <a href="tel:+553134953004" className="flex items-center gap-2 hover:text-accent transition-colors">
-              <Phone className="h-4 w-4" />
-              <span className="font-semibold">(31) 3495-3004</span>
-            </a>
-            <a href="https://wa.me/553134953004" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors font-semibold">
-              WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Main navigation */}
+    <header 
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-primary/95 backdrop-blur-sm shadow-lg' 
+          : 'bg-slate-900/40 backdrop-blur-md'
+      }`}
+    >
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between py-4">
           {/* Logo */}
@@ -42,17 +42,17 @@ const Header = () => {
             <img 
               src={logoImage} 
               alt="PROJEMAC Geradores de Energia" 
-              className="h-12 md:h-14 w-auto"
+              className="h-10 md:h-12 w-auto"
             />
           </Link>
 
           {/* Desktop menu */}
-          <ul className="hidden lg:flex items-center gap-8">
+          <ul className="hidden lg:flex items-center gap-6">
             {menuItems.map((item) => (
               <li key={item.label}>
                 <Link
                   to={item.href}
-                  className="text-primary-foreground hover:text-accent transition-colors font-medium"
+                  className="text-white hover:text-accent transition-colors font-medium"
                 >
                   {item.label}
                 </Link>
@@ -69,7 +69,7 @@ const Header = () => {
 
           {/* Mobile menu button */}
           <button
-            className="lg:hidden text-primary-foreground"
+            className="lg:hidden text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -85,7 +85,7 @@ const Header = () => {
                 <li key={item.label}>
                   <Link
                     to={item.href}
-                    className="block text-primary-foreground hover:text-accent transition-colors font-medium"
+                    className="block text-white hover:text-accent transition-colors font-medium"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}
