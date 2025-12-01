@@ -45,7 +45,6 @@ const Servicos = () => {
       title: "Assistência Técnica e Suporte",
       description: "Suporte técnico durante todo período da locação.",
       benefits: [
-        "Atendimento emergencial",
         "Técnicos especializados",
         "Estoque de peças sobressalentes",
         "Diagnóstico remoto",
