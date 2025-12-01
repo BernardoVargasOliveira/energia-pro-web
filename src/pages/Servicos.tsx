@@ -136,89 +136,114 @@ const Servicos = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
+      <section className="w-full bg-background py-16">
+        <div className="max-w-4xl mx-auto px-4">
           <motion.div
-            className="max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <h2 className="text-3xl font-bold text-foreground mb-4 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 text-center">
               Perguntas Frequentes
             </h2>
-            <p className="text-muted-foreground text-center mb-10">
+            <p className="mt-2 text-sm md:text-base text-slate-600 text-center">
               Respostas para as dúvidas mais comuns sobre nossos serviços
             </p>
             
-            <Accordion type="single" collapsible className="space-y-4">
-              <AccordionItem value="item-1" className="border border-border rounded-lg px-6 bg-card">
-                <AccordionTrigger className="text-left font-semibold hover:text-primary">
-                  Quais são os prazos disponíveis para locação?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Oferecemos locação de curta, média e longa duração, com flexibilidade total para atender suas necessidades. 
-                  Os prazos podem variar desde locações diárias para eventos até contratos de meses ou anos para projetos industriais. 
-                  Nossa equipe trabalha com você para definir o prazo ideal.
-                </AccordionContent>
-              </AccordionItem>
+            <div className="mt-10 bg-white rounded-2xl shadow-lg border border-slate-100 p-4 md:p-6 lg:p-8">
+              <Accordion type="single" collapsible>
+                <div className="border-b border-slate-100">
+                  <AccordionItem value="item-1" className="border-0">
+                    <AccordionTrigger className="w-full flex items-center justify-between py-4 text-left group hover:no-underline">
+                      <span className="text-sm md:text-base font-medium text-slate-800 group-hover:text-primary transition-colors">
+                        Quais são os prazos disponíveis para locação?
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-4 text-xs md:text-sm text-slate-600 leading-relaxed">
+                      Oferecemos locação de curta, média e longa duração, com flexibilidade total para atender suas necessidades. 
+                      Os prazos podem variar desde locações diárias para eventos até contratos de meses ou anos para projetos industriais. 
+                      Nossa equipe trabalha com você para definir o prazo ideal.
+                    </AccordionContent>
+                  </AccordionItem>
+                </div>
 
-              <AccordionItem value="item-2" className="border border-border rounded-lg px-6 bg-card">
-                <AccordionTrigger className="text-left font-semibold hover:text-primary">
-                  A instalação está incluída no serviço de locação?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Sim, nosso serviço inclui instalação e desinstalação completa dos equipamentos. 
-                  Contamos com uma equipe técnica especializada que realiza todo o processo de mobilização e desmobilização, 
-                  garantindo que o gerador esteja operacional e seguro desde o primeiro momento.
-                </AccordionContent>
-              </AccordionItem>
+                <div className="border-b border-slate-100">
+                  <AccordionItem value="item-2" className="border-0">
+                    <AccordionTrigger className="w-full flex items-center justify-between py-4 text-left group hover:no-underline">
+                      <span className="text-sm md:text-base font-medium text-slate-800 group-hover:text-primary transition-colors">
+                        A instalação está incluída no serviço de locação?
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-4 text-xs md:text-sm text-slate-600 leading-relaxed">
+                      Sim, nosso serviço inclui instalação e desinstalação completa dos equipamentos. 
+                      Contamos com uma equipe técnica especializada que realiza todo o processo de mobilização e desmobilização, 
+                      garantindo que o gerador esteja operacional e seguro desde o primeiro momento.
+                    </AccordionContent>
+                  </AccordionItem>
+                </div>
 
-              <AccordionItem value="item-3" className="border border-border rounded-lg px-6 bg-card">
-                <AccordionTrigger className="text-left font-semibold hover:text-primary">
-                  Vocês oferecem manutenção durante o período de locação?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Sim, a manutenção preventiva está inclusa em todos os nossos contratos de locação. 
-                  Além disso, oferecemos suporte técnico especializado durante todo o período da locação, 
-                  com diagnóstico remoto e atendimento presencial quando necessário em todo o Território de Minas Gerais.
-                </AccordionContent>
-              </AccordionItem>
+                <div className="border-b border-slate-100">
+                  <AccordionItem value="item-3" className="border-0">
+                    <AccordionTrigger className="w-full flex items-center justify-between py-4 text-left group hover:no-underline">
+                      <span className="text-sm md:text-base font-medium text-slate-800 group-hover:text-primary transition-colors">
+                        Vocês oferecem manutenção durante o período de locação?
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-4 text-xs md:text-sm text-slate-600 leading-relaxed">
+                      Sim, a manutenção preventiva está inclusa em todos os nossos contratos de locação. 
+                      Além disso, oferecemos suporte técnico especializado durante todo o período da locação, 
+                      com diagnóstico remoto e atendimento presencial quando necessário em todo o Território de Minas Gerais.
+                    </AccordionContent>
+                  </AccordionItem>
+                </div>
 
-              <AccordionItem value="item-4" className="border border-border rounded-lg px-6 bg-card">
-                <AccordionTrigger className="text-left font-semibold hover:text-primary">
-                  Qual é a potência disponível dos geradores?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Disponibilizamos grupos geradores de 6 a 4000 kVA, com possibilidade de ligação em paralelo para 
-                  potências ainda maiores. Nossos equipamentos são de última geração e atendem desde pequenos estabelecimentos 
-                  comerciais até grandes complexos industriais.
-                </AccordionContent>
-              </AccordionItem>
+                <div className="border-b border-slate-100">
+                  <AccordionItem value="item-4" className="border-0">
+                    <AccordionTrigger className="w-full flex items-center justify-between py-4 text-left group hover:no-underline">
+                      <span className="text-sm md:text-base font-medium text-slate-800 group-hover:text-primary transition-colors">
+                        Qual é a potência disponível dos geradores?
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-4 text-xs md:text-sm text-slate-600 leading-relaxed">
+                      Disponibilizamos grupos geradores de 6 a 4000 kVA, com possibilidade de ligação em paralelo para 
+                      potências ainda maiores. Nossos equipamentos são de última geração e atendem desde pequenos estabelecimentos 
+                      comerciais até grandes complexos industriais.
+                    </AccordionContent>
+                  </AccordionItem>
+                </div>
 
-              <AccordionItem value="item-5" className="border border-border rounded-lg px-6 bg-card">
-                <AccordionTrigger className="text-left font-semibold hover:text-primary">
-                  Como funciona o processo de dimensionamento do gerador?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Nosso engenheiro eletricista responsável realiza uma análise completa da demanda energética do seu projeto. 
-                  Fazemos um estudo de viabilidade e dimensionamento adequado para garantir que o equipamento atenda 
-                  perfeitamente às suas necessidades, sem superdimensionamento ou subdimensionamento.
-                </AccordionContent>
-              </AccordionItem>
+                <div className="border-b border-slate-100">
+                  <AccordionItem value="item-5" className="border-0">
+                    <AccordionTrigger className="w-full flex items-center justify-between py-4 text-left group hover:no-underline">
+                      <span className="text-sm md:text-base font-medium text-slate-800 group-hover:text-primary transition-colors">
+                        Como funciona o processo de dimensionamento do gerador?
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-4 text-xs md:text-sm text-slate-600 leading-relaxed">
+                      Nosso engenheiro eletricista responsável realiza uma análise completa da demanda energética do seu projeto. 
+                      Fazemos um estudo de viabilidade e dimensionamento adequado para garantir que o equipamento atenda 
+                      perfeitamente às suas necessidades, sem superdimensionamento ou subdimensionamento.
+                    </AccordionContent>
+                  </AccordionItem>
+                </div>
 
-              <AccordionItem value="item-6" className="border border-border rounded-lg px-6 bg-card">
-                <AccordionTrigger className="text-left font-semibold hover:text-primary">
-                  Qual é a área de cobertura dos serviços?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Atendemos em todo o Território de Minas Gerais com nossa frota moderna de equipamentos. 
-                  Nossa sede está localizada em Belo Horizonte - MG, e contamos com logística especializada 
-                  para entrega, instalação e suporte técnico em qualquer região do estado.
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+                <div className="last:border-b-0">
+                  <AccordionItem value="item-6" className="border-0">
+                    <AccordionTrigger className="w-full flex items-center justify-between py-4 text-left group hover:no-underline">
+                      <span className="text-sm md:text-base font-medium text-slate-800 group-hover:text-primary transition-colors">
+                        Qual é a área de cobertura dos serviços?
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-4 text-xs md:text-sm text-slate-600 leading-relaxed">
+                      Atendemos em todo o Território de Minas Gerais com nossa frota moderna de equipamentos. 
+                      Nossa sede está localizada em Belo Horizonte - MG, e contamos com logística especializada 
+                      para entrega, instalação e suporte técnico em qualquer região do estado.
+                    </AccordionContent>
+                  </AccordionItem>
+                </div>
+              </Accordion>
+            </div>
           </motion.div>
         </div>
       </section>
