@@ -93,21 +93,21 @@ const Servicos = () => {
             {services.map((service, index) => (
               <Card 
                 key={index}
-                className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-primary animate-fade-in"
+                className="border hover:border-secondary transition-all duration-300 bg-card/80 backdrop-blur-sm animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4">
+                  <div className="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-primary text-primary-foreground mb-6 shadow-lg">
                     {service.icon}
                   </div>
-                  <CardTitle className="text-2xl">{service.title}</CardTitle>
-                  <CardDescription className="text-base">{service.description}</CardDescription>
+                  <CardTitle className="text-2xl leading-tight">{service.title}</CardTitle>
+                  <CardDescription className="text-[15px] leading-relaxed">{service.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <h4 className="font-semibold mb-3 text-foreground">Principais benefícios:</h4>
-                  <ul className="space-y-2">
+                  <h4 className="font-semibold mb-4 text-foreground text-base">Principais benefícios:</h4>
+                  <ul className="space-y-2.5">
                     {service.benefits.map((benefit, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-muted-foreground">
+                      <li key={idx} className="flex items-start gap-2 text-muted-foreground text-[15px] leading-relaxed">
                         <span className="text-secondary mt-1">✓</span>
                         <span>{benefit}</span>
                       </li>

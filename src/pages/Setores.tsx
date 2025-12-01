@@ -100,21 +100,21 @@ const Setores = () => {
             {sectors.map((sector, index) => (
               <Card 
                 key={index}
-                className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-primary animate-fade-in"
+                className="border hover:border-secondary transition-all duration-300 bg-card/80 backdrop-blur-sm animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4">
+                  <div className="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-primary text-primary-foreground mb-6 shadow-lg">
                     {sector.icon}
                   </div>
-                  <CardTitle className="text-2xl mb-3">{sector.title}</CardTitle>
-                  <p className="text-muted-foreground">{sector.description}</p>
+                  <CardTitle className="text-2xl mb-4 leading-tight">{sector.title}</CardTitle>
+                  <p className="text-muted-foreground text-[15px] leading-relaxed">{sector.description}</p>
                 </CardHeader>
                 <CardContent>
-                  <h4 className="font-semibold mb-3 text-foreground">Necessidades principais:</h4>
-                  <ul className="space-y-2">
+                  <h4 className="font-semibold mb-4 text-foreground text-base">Necessidades principais:</h4>
+                  <ul className="space-y-2.5">
                     {sector.needs.map((need, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-muted-foreground">
+                      <li key={idx} className="flex items-start gap-2 text-muted-foreground text-[15px] leading-relaxed">
                         <span className="text-secondary mt-1">✓</span>
                         <span>{need}</span>
                       </li>
@@ -135,23 +135,23 @@ const Setores = () => {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <div className="bg-card p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3 text-foreground">Experiência Comprovada</h3>
-              <p className="text-muted-foreground">
+            <div className="bg-card p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-border/50">
+              <h3 className="text-xl font-semibold mb-4 text-foreground leading-tight">Experiência Comprovada</h3>
+              <p className="text-muted-foreground text-[15px] leading-relaxed">
                 Anos de experiência atendendo empresas de diversos portes e segmentos.
               </p>
             </div>
             
-            <div className="bg-card p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3 text-foreground">Soluções Personalizadas</h3>
-              <p className="text-muted-foreground">
+            <div className="bg-card p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-border/50">
+              <h3 className="text-xl font-semibold mb-4 text-foreground leading-tight">Soluções Personalizadas</h3>
+              <p className="text-muted-foreground text-[15px] leading-relaxed">
                 Cada setor tem necessidades únicas. Desenvolvemos projetos sob medida para seu negócio.
               </p>
             </div>
             
-            <div className="bg-card p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3 text-foreground">Suporte Especializado</h3>
-              <p className="text-muted-foreground">
+            <div className="bg-card p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-border/50">
+              <h3 className="text-xl font-semibold mb-4 text-foreground leading-tight">Suporte Especializado</h3>
+              <p className="text-muted-foreground text-[15px] leading-relaxed">
                 Equipe técnica com conhecimento profundo das particularidades de cada segmento.
               </p>
             </div>

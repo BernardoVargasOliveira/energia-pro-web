@@ -130,13 +130,13 @@ const Produtos = () => {
             {products.map((product, index) => (
               <Card 
                 key={index}
-                className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-primary animate-fade-in"
+                className="border hover:border-secondary transition-all duration-300 bg-card/80 backdrop-blur-sm animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
-                  <div className="flex items-start justify-between mb-2">
-                    <CardTitle className="text-2xl">{product.category}</CardTitle>
-                    <Badge variant="secondary" className="bg-accent text-accent-foreground">
+                  <div className="flex items-start justify-between mb-3">
+                    <CardTitle className="text-2xl leading-tight">{product.category}</CardTitle>
+                    <Badge variant="secondary" className="bg-accent text-accent-foreground shadow-sm">
                       {product.badge}
                     </Badge>
                   </div>
@@ -144,12 +144,12 @@ const Produtos = () => {
                     Faixa de potência: {product.power}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-5">
                   <div>
-                    <h4 className="font-semibold mb-2 text-foreground">Aplicações típicas:</h4>
-                    <ul className="space-y-1">
+                    <h4 className="font-semibold mb-3 text-foreground text-base">Aplicações típicas:</h4>
+                    <ul className="space-y-2">
                       {product.applications.map((app, idx) => (
-                        <li key={idx} className="flex items-center gap-2 text-muted-foreground">
+                        <li key={idx} className="flex items-center gap-2 text-muted-foreground text-[15px] leading-relaxed">
                           <span className="text-secondary">•</span>
                           {app}
                         </li>
@@ -157,10 +157,10 @@ const Produtos = () => {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-2 text-foreground">Características principais:</h4>
-                    <ul className="space-y-1">
+                    <h4 className="font-semibold mb-3 text-foreground text-base">Características principais:</h4>
+                    <ul className="space-y-2">
                       {product.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-muted-foreground">
+                        <li key={idx} className="flex items-start gap-2 text-muted-foreground text-[15px] leading-relaxed">
                           <span className="text-secondary mt-1">✓</span>
                           <span>{feature}</span>
                         </li>
@@ -173,15 +173,15 @@ const Produtos = () => {
           </div>
 
           {/* Brands Section */}
-          <div className="bg-muted rounded-lg p-8">
-            <h3 className="text-2xl font-bold text-center text-foreground mb-8">
+          <div className="bg-muted rounded-xl p-10 border border-border/50">
+            <h3 className="text-3xl font-bold text-center text-foreground mb-10 leading-tight">
               Trabalhamos com as Melhores Marcas
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
               {brands.map((brand, index) => (
                 <div 
                   key={index}
-                  className="bg-card p-4 rounded-lg text-center font-semibold text-foreground hover:border-2 hover:border-secondary transition-all duration-300 animate-fade-in"
+                  className="bg-card p-5 rounded-xl text-center font-semibold text-foreground shadow-md hover:shadow-lg hover:border-secondary border border-transparent transition-all duration-300 animate-fade-in"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {brand}
