@@ -63,16 +63,6 @@ const Produtos = () => {
     },
   ];
 
-  const brands = [
-    "Cummins",
-    "Perkins",
-    "MWM",
-    "Scania",
-    "Volvo",
-    "FG Wilson",
-    "Stemac",
-    "GESAN"
-  ];
 
   return (
     <div className="min-h-screen">
@@ -177,32 +167,6 @@ const Produtos = () => {
             ))}
           </div>
 
-          {/* Brands Section */}
-          <motion.div 
-            className="bg-muted rounded-lg p-8"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <h3 className="text-2xl font-bold text-center text-foreground mb-8">
-              Trabalhamos com as Melhores Marcas
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {brands.map((brand, index) => (
-                <motion.div 
-                  key={index}
-                  className="bg-card p-4 rounded-lg text-center font-semibold text-foreground hover:border-2 hover:border-secondary transition-all duration-300"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.05 }}
-                >
-                  {brand}
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </section>
 
