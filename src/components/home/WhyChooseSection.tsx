@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, Award, Users, Clock } from "lucide-react";
+import { CheckCircle2, Award, Users, HeadphonesIcon } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 const WhyChooseSection = () => {
@@ -26,18 +26,18 @@ const WhyChooseSection = () => {
       color: "text-secondary"
     },
     {
-      icon: <Clock className="w-8 h-8" />,
-      value: "24/7",
-      label: "Suporte Técnico",
+      icon: <HeadphonesIcon className="w-8 h-8" />,
+      value: "100%",
+      label: "Suporte Especializado",
       color: "text-primary"
     },
   ];
 
   return (
-    <section className="py-24 bg-muted/10">
+    <section className="py-28 bg-gradient-to-b from-muted to-background">
       <div className="container mx-auto px-4">
         {/* Premium White Box */}
-        <div className="bg-gradient-to-b from-card to-muted/5 rounded-2xl shadow-xl border border-border/50 p-10 md:p-16">
+        <div className="bg-background rounded-2xl shadow-xl border border-border/50 p-10 md:p-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Text content */}
           <motion.div
@@ -46,11 +46,11 @@ const WhyChooseSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary mb-8">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-primary mb-8">
               Por que escolher a <span className="text-accent">PROJEMAC</span>?
             </h2>
             
-            <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
+            <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl">
               Somos referência em soluções de energia com anos de experiência no mercado. 
               Nossa expertise garante a melhor solução para sua necessidade energética, 
               com equipamentos modernos e atendimento de excelência.
@@ -90,7 +90,7 @@ const WhyChooseSection = () => {
                 transition={{ duration: 0.5, delay: 0.1 * index }}
                 className={index === 2 ? "sm:col-span-2" : ""}
               >
-                <Card className="p-8 text-center shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-200 border-2 hover:border-accent h-full bg-card rounded-xl">
+                <Card className="p-8 text-center shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border hover:border-accent h-full bg-background rounded-xl">
                   <div className={`${metric.color} mb-4 flex justify-center`}>
                     {metric.icon}
                   </div>
