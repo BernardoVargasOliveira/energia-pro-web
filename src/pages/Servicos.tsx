@@ -47,7 +47,7 @@ const Servicos = () => {
       benefits: [
         "Técnicos especializados",
         "Diagnóstico remoto",
-        "Cobertura nacional"
+        "Cobertura em todo estado de Minas Gerais"
       ]
     },
   ];
