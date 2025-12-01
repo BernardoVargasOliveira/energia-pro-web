@@ -20,18 +20,6 @@ const Servicos = () => {
       ]
     },
     {
-      icon: <Wrench className="h-12 w-12" />,
-      title: "Manutenção Preventiva e Corretiva",
-      description: "Realizamos manutenção completa em nossos grupos geradores.",
-      benefits: [
-        "Equipe técnica especializada",
-        "Peças originais",
-        "Diagnóstico preciso",
-        "Relatórios detalhados",
-        "Planos de manutenção customizados"
-      ]
-    },
-    {
       icon: <HardHat className="h-12 w-12" />,
       title: "Serviços de Instalação",
       description: "Instalação completa de sistemas de geração de energia com técnicos especializados.",
