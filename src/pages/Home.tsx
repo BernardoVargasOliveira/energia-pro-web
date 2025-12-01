@@ -4,11 +4,14 @@ import { Battery, Zap, Users, Award, MapPin, BatteryCharging, Wrench, HardHat, H
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Hero from "@/components/Hero";
+import ProductsSection from "@/components/home/ProductsSection";
+import WhyChooseSection from "@/components/home/WhyChooseSection";
 import { supabase } from "@/integrations/supabase/client";
 import { motion } from "framer-motion";
 
 const Home = () => {
   const [services, setServices] = useState<any[]>([]);
+  const [products, setProducts] = useState<any[]>([]);
   const [sectors, setSectors] = useState<any[]>([]);
   const [content, setContent] = useState<Record<string, string>>({});
 
@@ -22,9 +25,18 @@ const Home = () => {
       .from('services')
       .select('*')
       .order('order_index')
-      .limit(2);
+      .limit(4);
     
     if (servicesData) setServices(servicesData);
+
+    // Load products
+    const { data: productsData } = await supabase
+      .from('products')
+      .select('*')
+      .order('order_index')
+      .limit(3);
+    
+    if (productsData) setProducts(productsData);
 
     // Load sectors
     const { data: sectorsData } = await supabase
@@ -52,52 +64,42 @@ const Home = () => {
 
   const getIconComponent = (iconName: string | null) => {
     switch(iconName) {
-      case 'Battery': return <Battery className="h-12 w-12" />;
-      case 'BatteryCharging': return <BatteryCharging className="h-12 w-12" />;
-      case 'Zap': return <Zap className="h-12 w-12" />;
-      case 'Wrench': return <Wrench className="h-12 w-12" />;
-      case 'HardHat': return <HardHat className="h-12 w-12" />;
-      case 'Headphones': return <Headphones className="h-12 w-12" />;
-      default: return <Battery className="h-12 w-12" />;
+      case 'Battery': return <Battery className="h-8 w-8" />;
+      case 'BatteryCharging': return <BatteryCharging className="h-8 w-8" />;
+      case 'Zap': return <Zap className="h-8 w-8" />;
+      case 'Wrench': return <Wrench className="h-8 w-8" />;
+      case 'HardHat': return <HardHat className="h-8 w-8" />;
+      case 'Headphones': return <Headphones className="h-8 w-8" />;
+      default: return <Battery className="h-8 w-8" />;
     }
   };
-
-  const differentials = [
-    {
-      icon: <Users className="h-10 w-10" />,
-      title: "Equipe Especializada",
-      description: "Profissionais qualificados e experientes em sistemas de energia."
-    },
-    {
-      icon: <MapPin className="h-10 w-10" />,
-      title: "Cobertura Regional",
-      description: "Atendimento em todo estado de Minas Gerais."
-    },
-    {
-      icon: <Award className="h-10 w-10" />,
-      title: "Equipamentos Modernos",
-      description: "Geradores de última geração das melhores marcas."
-    },
-  ];
 
   return (
     <>
       <Hero />
 
+      {/* Products Section */}
+      <ProductsSection products={products} />
+
       {/* Services Section */}
-      <section className="py-16 bg-background">
+      <section className="py-20 bg-muted">
         <div className="container mx-auto px-4">
-          <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12"
+          <motion.div
+            className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6 }}
           >
-            {content['home_services_title'] || 'Nossos Serviços'}
-          </motion.h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              {content['home_services_title'] || 'Nossos Serviços'}
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Serviços completos de locação, instalação e manutenção de geradores
+            </p>
+          </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
               <motion.div
                 key={service.id}
@@ -106,106 +108,68 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
               >
-                <Card className="border-2 hover:border-secondary h-full">
-                <CardContent className="p-6 text-center">
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4">
-                    {getIconComponent(service.icon)}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3 text-foreground">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {service.description}
-                  </p>
-                </CardContent>
-              </Card>
+                <Card className="border-2 h-full group hover:border-primary transition-all duration-300">
+                  <CardContent className="p-6 text-center">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-primary text-primary-foreground mb-4 group-hover:scale-110 transition-transform">
+                      {getIconComponent(service.icon)}
+                    </div>
+                    <h3 className="text-lg font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {service.description}
+                    </p>
+                  </CardContent>
+                </Card>
               </motion.div>
             ))}
           </div>
 
           <div className="text-center mt-12">
-            <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold">
+            <Button asChild size="lg" variant="outline" className="font-semibold">
               <Link to="/servicos">Ver Todos os Serviços</Link>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Differentials Section */}
-      <section className="py-16 bg-muted">
-        <div className="container mx-auto px-4">
-          <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-center text-foreground mb-4"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            {content['home_differentials_title'] || 'Por Que Escolher a PROJEMAC?'}
-          </motion.h2>
-          <motion.p 
-            className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          >
-            {content['home_differentials_subtitle'] || 'Somos referência em soluções de energia com anos de experiência no mercado'}
-          </motion.p>
+      {/* Why Choose Section */}
+      <WhyChooseSection />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {differentials.map((item, index) => (
-              <motion.div 
-                key={index}
-                className="bg-card p-6 rounded-lg shadow-lg hover:shadow-primary transition-all duration-300 hover:scale-[1.03] hover:border hover:border-primary/20"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
-              >
-                <div className="text-secondary mb-4">
-                  {item.icon}
-                </div>
-                <h3 className="text-lg font-semibold mb-2 text-card-foreground">
-                  {item.title}
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Sectors Section */}
-      <section className="py-16 bg-background">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12"
+          <motion.div
+            className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6 }}
           >
-            {content['home_sectors_title'] || 'Setores Atendidos'}
-          </motion.h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              {content['home_sectors_title'] || 'Setores Atendidos'}
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Soluções especializadas para diversos segmentos do mercado
+            </p>
+          </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {sectors.map((sector, index) => (
               <motion.div
                 key={sector.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.05 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
               >
-                <Card className="hover:border-secondary cursor-pointer h-full">
-                <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-3">{sector.icon}</div>
-                  <h3 className="font-semibold text-foreground">{sector.name}</h3>
-                </CardContent>
-              </Card>
+                <Card className="hover:border-primary cursor-pointer h-full group transition-all duration-300">
+                  <CardContent className="p-6 text-center">
+                    <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">{sector.icon}</div>
+                    <h3 className="font-bold text-sm text-foreground group-hover:text-primary transition-colors">{sector.name}</h3>
+                  </CardContent>
+                </Card>
               </motion.div>
             ))}
           </div>
@@ -219,10 +183,17 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-primary">
-        <div className="container mx-auto px-4 text-center">
+      <section className="py-20 bg-gradient-to-br from-primary via-primary to-secondary relative overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }} />
+        </div>
+
+        <div className="container mx-auto px-4 text-center relative z-10">
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6"
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -231,7 +202,7 @@ const Home = () => {
             {content['home_cta_title'] || 'Precisa de uma Solução em Energia?'}
           </motion.h2>
           <motion.p 
-            className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto"
+            className="text-xl text-white/90 mb-10 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -245,7 +216,7 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           >
-            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg shadow-accent">
+            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold text-lg px-8 h-14 shadow-accent transition-all hover:scale-105">
               <Link to="/contato">Solicitar Orçamento Agora</Link>
             </Button>
           </motion.div>
