@@ -22,7 +22,7 @@ const Servicos = () => {
     {
       icon: <Wrench className="h-12 w-12" />,
       title: "Manutenção Preventiva e Corretiva",
-      description: "Realizamos manutenção completa em grupos geradores de todas as marcas e modelos.",
+      description: "Realizamos manutenção completa em nossos grupos geradores.",
       benefits: [
         "Equipe técnica especializada",
         "Peças originais",
