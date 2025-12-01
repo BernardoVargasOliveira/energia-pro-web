@@ -3,9 +3,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import generator100 from "@/assets/generator-100kva.jpg";
-import generator300 from "@/assets/generator-300kva.jpg";
-import generator1000 from "@/assets/generator-1000kva.jpg";
+import generatorResidencial from "@/assets/gerador-residencial.png";
+import generatorIndustrial from "@/assets/gerador-industrial.png";
+import generatorAltaPotencia from "@/assets/gerador-alta-potencia.png";
 
 interface Product {
   id: string;
@@ -24,10 +24,10 @@ interface ProductsSectionProps {
 const ProductsSection = ({ products }: ProductsSectionProps) => {
   // Map para imagens padrão baseadas na categoria
   const defaultImages: Record<string, string> = {
-    "até 100": generator100,
-    "100 a 300": generator300,
-    "300 a 500": generator1000,
-    "acima de 500": generator1000,
+    "até 100": generatorResidencial,
+    "100 a 300": generatorIndustrial,
+    "300 a 500": generatorAltaPotencia,
+    "acima de 500": generatorAltaPotencia,
   };
 
   const getProductImage = (product: Product) => {
@@ -35,11 +35,11 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
     
     // Detecta a categoria pelas keywords
     const category = product.category.toLowerCase();
-    if (category.includes("até 100") || category.includes("ate 100")) return generator100;
-    if (category.includes("100") && category.includes("300")) return generator300;
-    if (category.includes("300") || category.includes("500") || category.includes("acima")) return generator1000;
+    if (category.includes("até 100") || category.includes("ate 100")) return generatorResidencial;
+    if (category.includes("100") && category.includes("300")) return generatorIndustrial;
+    if (category.includes("300") || category.includes("500") || category.includes("acima")) return generatorAltaPotencia;
     
-    return generator100; // fallback
+    return generatorResidencial; // fallback
   };
 
   // Pega até 3 produtos para exibir
@@ -76,7 +76,7 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
                 <div className="relative h-64 overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5">
                   <img
                     src={getProductImage(product)}
-                    alt={product.name}
+                    alt={`Gerador Projemac ${product.category.toLowerCase().includes('residencial') || product.category.toLowerCase().includes('até 100') || product.category.toLowerCase().includes('ate 100') ? 'para uso residencial e comercial' : product.category.toLowerCase().includes('industrial') || (product.category.toLowerCase().includes('100') && product.category.toLowerCase().includes('500')) ? 'para uso industrial' : 'de alta potência'}`}
                     className="w-full h-full object-contain p-6 group-hover:scale-110 transition-transform duration-500"
                   />
                   {product.power_range && (
