@@ -57,7 +57,7 @@ const Servicos = () => {
     {
       icon: <Headphones className="h-12 w-12" />,
       title: "Assistência Técnica e Suporte",
-      description: "Suporte técnico especializado disponível 24 horas por dia, 7 dias por semana.",
+      description: "Suporte técnico durante todo período da locação.",
       benefits: [
         "Atendimento emergencial",
         "Técnicos especializados",
