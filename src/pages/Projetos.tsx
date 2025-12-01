@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle } from "lucide-react";
@@ -6,6 +7,10 @@ import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
 
 const Projetos = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   const projects = [
     {
       title: "Indústria Farmacêutica - MG",

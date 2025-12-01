@@ -1,9 +1,14 @@
+import { useEffect } from "react";
 import { Factory, Store, Hospital, PartyPopper, Building2, Server } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
 
 const Setores = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   const sectors = [
     {
       icon: <Factory className="h-12 w-12" />,

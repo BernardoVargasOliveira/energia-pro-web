@@ -1,9 +1,14 @@
+import { useEffect } from "react";
 import { Award, Target, Eye, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
 
 const Empresa = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <div className="min-h-screen">
       <PageHero 

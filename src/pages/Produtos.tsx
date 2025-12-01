@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -8,6 +9,10 @@ import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
 
 const Produtos = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   const products = [
     {
       category: "Geradores até 100 kVA",
