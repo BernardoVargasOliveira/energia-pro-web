@@ -7,7 +7,7 @@ interface PageHeroProps {
 
 export function PageHero({ title, subtitle }: PageHeroProps) {
   return (
-    <section className="w-full bg-gradient-primary text-white py-12 md:py-16">
+    <section className="w-full bg-gradient-primary text-white pt-28 md:pt-32 pb-12 md:pb-16">
       <div className="max-w-6xl mx-auto px-4 text-center">
         <motion.h1 
           className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6"
