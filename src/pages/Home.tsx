@@ -82,7 +82,7 @@ const Home = () => {
       <ProductsSection products={products} />
 
       {/* Services Section */}
-      <section className="py-24 bg-gradient-to-b from-background to-muted/20">
+      <section className="py-28 bg-gradient-to-b from-muted/40 via-muted/30 to-muted/20">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-20"
@@ -108,7 +108,7 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
               >
-                <Card className="bg-card border shadow-sm h-full group hover:border-accent hover:shadow-md hover:-translate-y-1 transition-all duration-200 rounded-xl">
+                <Card className="bg-card border shadow-sm h-full group hover:border-accent hover:shadow-lg hover:-translate-y-2 transition-all duration-300 rounded-xl">
                   <CardContent className="p-8 text-center">
                     <div className="inline-flex items-center justify-center w-20 h-20 rounded-xl bg-gradient-primary text-white mb-6 group-hover:scale-110 transition-transform duration-200">
                       {getIconComponent(service.icon)}
