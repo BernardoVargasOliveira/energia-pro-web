@@ -46,7 +46,6 @@ const Servicos = () => {
       description: "Suporte técnico durante todo período da locação.",
       benefits: [
         "Técnicos especializados",
-        "Estoque de peças sobressalentes",
         "Diagnóstico remoto",
         "Cobertura nacional"
       ]
