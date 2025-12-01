@@ -1,1 +1,7 @@
 project_id = "vwtqzzwlrndjazgwkfcc"
+
+[functions.submit-lead]
+verify_jwt = false
+
+[functions.validate-password]
+verify_jwt = false
