@@ -15,6 +15,7 @@ const Servicos = () => {
         "Flexibilidade de prazos",
         "Manutenção inclusa",
         "Instalação e desinstalação",
+        "Mobilização e desmobilização dos geradores locados",
         "Equipe técnica especializada",
         "Engenheiro eletricista responsável técnico dos equipamentos"
       ]
