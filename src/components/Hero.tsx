@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, Phone, Zap } from "lucide-react";
 import heroImage from "@/assets/galpao-geradores.jpeg";
 
 const Hero = () => {
@@ -21,6 +21,11 @@ const Hero = () => {
         <div className="absolute inset-0" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }} />
+      </div>
+
+      {/* Floating icon watermark */}
+      <div className="absolute right-8 top-1/2 -translate-y-1/2 opacity-10 pointer-events-none animate-float">
+        <Zap className="w-[400px] h-[400px] text-primary-foreground" strokeWidth={0.5} />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
