@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle } from "lucide-react";
 import geradorEvento from "@/assets/gerador-evento.jpg";
 import { motion } from "framer-motion";
+import { PageHero } from "@/components/PageHero";
 
 const Projetos = () => {
   const projects = [
@@ -52,30 +53,13 @@ const Projetos = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Header Section */}
-      <section className="bg-gradient-primary py-12 md:py-16">
-        <div className="container mx-auto px-4">
-          <motion.h1 
-            className="text-4xl md:text-5xl font-bold tracking-tight text-white text-center mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            Projetos Realizados
-          </motion.h1>
-          <motion.p 
-            className="text-base md:text-lg text-primary-foreground/80 text-center max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          >
-            Conheça alguns dos nossos cases de sucesso
-          </motion.p>
-        </div>
-      </section>
+      <PageHero 
+        title="Projetos Realizados"
+        subtitle="Conheça alguns dos nossos cases de sucesso"
+      />
 
       {/* Stats Section */}
-      <section className="py-12 bg-background">
+      <section className="py-12 bg-background mt-8 md:mt-10">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <div className="text-center">
