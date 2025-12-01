@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import geradoresTransporte from "@/assets/geradores-transporte.jpg";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { ServiceIcon } from "@/components/ServiceIcon";
 
 const Servicos = () => {
   const [content, setContent] = useState<Record<string, string>>({});
@@ -58,7 +59,7 @@ const Servicos = () => {
       <section className="py-12 bg-muted">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="relative rounded-lg overflow-hidden shadow-primary">
+            <div className="relative rounded-lg overflow-hidden shadow-lg">
               <img 
                 src={geradoresTransporte} 
                 alt="Geradores PROJEMAC prontos para locação e entrega" 
@@ -84,15 +85,13 @@ const Servicos = () => {
             {services.map((service, index) => (
               <Card 
                 key={index}
-                className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-primary animate-fade-in"
+                className="border hover:shadow-lg transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardHeader>
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4 text-5xl">
-                    {service.icon || "⚡"}
-                  </div>
-                  <CardTitle className="text-2xl">{service.title}</CardTitle>
-                  <CardDescription className="text-base">{service.description}</CardDescription>
+                <CardHeader className="text-center">
+                  <ServiceIcon iconName={service.icon} />
+                  <CardTitle className="text-xl font-bold mb-2">{service.title}</CardTitle>
+                  <CardDescription className="text-sm">{service.description}</CardDescription>
                 </CardHeader>
               </Card>
             ))}
