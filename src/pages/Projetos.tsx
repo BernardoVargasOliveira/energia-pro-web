@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle } from "lucide-react";
 import geradorEvento from "@/assets/gerador-evento.jpg";
+import { motion } from "framer-motion";
 
 const Projetos = () => {
   const projects = [
@@ -52,14 +53,24 @@ const Projetos = () => {
   return (
     <div className="min-h-screen">
       {/* Header Section */}
-      <section className="bg-gradient-primary py-16">
+      <section className="bg-gradient-primary py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground text-center mb-6">
+          <motion.h1 
+            className="text-4xl md:text-5xl font-bold tracking-tight text-white text-center mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             Projetos Realizados
-          </h1>
-          <p className="text-xl text-primary-foreground/90 text-center max-w-3xl mx-auto">
+          </motion.h1>
+          <motion.p 
+            className="text-base md:text-lg text-primary-foreground/80 text-center max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          >
             Conheça alguns dos nossos cases de sucesso
-          </p>
+          </motion.p>
         </div>
       </section>
 
