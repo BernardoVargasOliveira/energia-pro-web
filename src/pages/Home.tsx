@@ -281,11 +281,14 @@ const Home = () => {
               <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold text-lg px-10 h-16 shadow-xl hover:shadow-accent/50 hover:-translate-y-1 transition-all duration-200">
                 <Link to="/contato">Solicitar Orçamento Agora</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary font-bold text-lg px-10 h-16 shadow-xl hover:-translate-y-1 transition-all duration-200">
-                <a href="https://wa.me/553134953004?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20de%20geradores." target="_blank" rel="noopener noreferrer">
-                  Falar no WhatsApp
-                </a>
-              </Button>
+              <a 
+                href="https://wa.me/553134953004?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20de%20geradores." 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-10 h-16 bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary rounded-md font-bold text-lg transition-all duration-200 shadow-xl hover:-translate-y-1"
+              >
+                Falar no WhatsApp
+              </a>
             </div>
           </motion.div>
         </div>
