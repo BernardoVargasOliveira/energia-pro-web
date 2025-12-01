@@ -54,7 +54,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
-                <span>Belo Horizonte - MG<br />Atendimento em todo Brasil</span>
+                <span>Belo Horizonte - MG</span>
               </li>
             </ul>
           </div>
