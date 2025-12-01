@@ -7,6 +7,7 @@ import gerador500kva from "@/assets/gerador-500kva.jpg";
 import geradoresTransporte from "@/assets/geradores-transporte.jpg";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
+import { CTAFinal } from "@/components/CTAFinal";
 
 const Produtos = () => {
   useEffect(() => {
@@ -269,6 +270,9 @@ const Produtos = () => {
           </Button>
         </div>
       </section>
+
+      {/* CTA Final */}
+      <CTAFinal />
     </div>
   );
 };

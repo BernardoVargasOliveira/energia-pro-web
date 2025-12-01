@@ -3,6 +3,7 @@ import { Factory, Store, Hospital, PartyPopper, Building2, Server } from "lucide
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
+import { CTAFinal } from "@/components/CTAFinal";
 
 const Setores = () => {
   useEffect(() => {
@@ -220,6 +221,9 @@ const Setores = () => {
           </div>
         </div>
       </section>
+
+      {/* CTA Final */}
+      <CTAFinal />
     </div>
   );
 };
