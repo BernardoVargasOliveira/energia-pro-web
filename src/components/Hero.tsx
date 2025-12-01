@@ -1,10 +1,21 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
+import heroImage from "@/assets/galpao-geradores.jpeg";
 
 const Hero = () => {
   return (
     <section className="relative bg-gradient-primary py-20 md:py-32 overflow-hidden">
+      {/* Background image with overlay */}
+      <div className="absolute inset-0">
+        <img 
+          src={heroImage} 
+          alt="Galpão com geradores PROJEMAC" 
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-primary opacity-90" />
+      </div>
+      
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{

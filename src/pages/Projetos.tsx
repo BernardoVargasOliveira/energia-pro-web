@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle } from "lucide-react";
+import geradorEvento from "@/assets/gerador-evento.jpg";
 
 const Projetos = () => {
   const projects = [
@@ -81,6 +82,25 @@ const Projetos = () => {
             <div className="text-center">
               <div className="text-4xl font-bold text-secondary mb-2">24/7</div>
               <p className="text-muted-foreground">Suporte Disponível</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Showcase Image */}
+      <section className="py-12 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="relative rounded-lg overflow-hidden shadow-primary">
+              <img 
+                src={geradorEvento} 
+                alt="Gerador PROJEMAC em evento esportivo" 
+                className="w-full h-[400px] object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/95 to-transparent p-6">
+                <h3 className="text-primary-foreground font-bold text-2xl mb-2">Energia para Grandes Eventos</h3>
+                <p className="text-primary-foreground/90">Soluções confiáveis para eventos esportivos, shows e festivais</p>
+              </div>
             </div>
           </div>
         </div>
