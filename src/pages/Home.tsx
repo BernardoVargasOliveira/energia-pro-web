@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-import { CheckCircle2, TrendingUp, Shield } from "lucide-react";
+import { Users, Award, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import Hero from "@/components/Hero";
-import { DynamicIcon } from "@/components/DynamicIcon";
 
 interface Service {
   id: string;
@@ -54,57 +53,9 @@ const Home = () => {
     loadData();
   }, []);
 
-  const diferenciais = [
-    {
-      icon: <CheckCircle2 className="h-8 w-8 text-primary" />,
-      title: content.home_diferencial_1_titulo || "Equipe Especializada",
-      description: content.home_diferencial_1_texto || "Profissionais qualificados"
-    },
-    {
-      icon: <TrendingUp className="h-8 w-8 text-primary" />,
-      title: content.home_diferencial_2_titulo || "Cobertura Regional",
-      description: content.home_diferencial_2_texto || "Atendimento em todo estado"
-    },
-    {
-      icon: <Shield className="h-8 w-8 text-primary" />,
-      title: content.home_diferencial_3_titulo || "Equipamentos Modernos",
-      description: content.home_diferencial_3_texto || "Geradores de última geração"
-    }
-  ];
-
   return (
     <>
       <Hero />
-
-      {/* Differentials Section */}
-      <section className="py-16 bg-muted">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
-            {content.home_diferenciais_titulo || "Por Que Escolher a PROJEMAC?"}
-          </h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            {content.home_diferenciais_subtitulo || "Somos referência em soluções de energia"}
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {diferenciais.map((item, index) => (
-              <div
-                key={index}
-                className="bg-card p-8 rounded-xl border-2 border-border hover:border-primary transition-all duration-300 animate-fade-in hover:shadow-lg"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="flex flex-col items-center text-center gap-4 mb-4">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                    {item.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground">{item.title}</h3>
-                </div>
-                <p className="text-muted-foreground text-center">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Services Section */}
       <section className="py-16 bg-background">
@@ -113,24 +64,24 @@ const Home = () => {
             {content.home_servicos_titulo || "Nossos Serviços"}
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((service, index) => (
-              <Card
-                key={service.id}
-                className="border-2 hover:border-primary hover:shadow-lg transition-all duration-300 animate-fade-in"
+              <Card 
+                key={service.id} 
+                className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-primary animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardHeader className="text-center">
-                  <div className="mx-auto mb-4 w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
-                    <DynamicIcon name={service.icon} className="h-7 w-7 text-primary" fallback="Zap" />
+                <CardContent className="p-6 text-center">
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4 text-5xl">
+                    {service.icon || "⚡"}
                   </div>
-                  <CardTitle className="text-lg font-bold">{service.title}</CardTitle>
-                </CardHeader>
-                {service.description && (
-                  <CardContent>
-                    <CardDescription className="text-center text-sm">{service.description}</CardDescription>
-                  </CardContent>
-                )}
+                  <h3 className="text-xl font-semibold mb-3 text-foreground">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground">
+                    {service.description}
+                  </p>
+                </CardContent>
               </Card>
             ))}
           </div>
@@ -143,31 +94,72 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Sectors Section */}
+      {/* Differentials Section */}
       <section className="py-16 bg-muted">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
+            {content.home_diferenciais_titulo || "Por Que Escolher a PROJEMAC?"}
+          </h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            {content.home_diferenciais_subtitulo || "Somos referência em soluções de energia"}
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-card p-6 rounded-lg shadow-lg hover:shadow-primary transition-all duration-300">
+              <div className="text-secondary mb-4">
+                <Users className="h-10 w-10" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2 text-card-foreground">
+                {content.home_diferencial_1_titulo || "Equipe Especializada"}
+              </h3>
+              <p className="text-muted-foreground text-sm">
+                {content.home_diferencial_1_texto || "Profissionais qualificados"}
+              </p>
+            </div>
+            <div className="bg-card p-6 rounded-lg shadow-lg hover:shadow-primary transition-all duration-300">
+              <div className="text-secondary mb-4">
+                <MapPin className="h-10 w-10" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2 text-card-foreground">
+                {content.home_diferencial_2_titulo || "Cobertura Regional"}
+              </h3>
+              <p className="text-muted-foreground text-sm">
+                {content.home_diferencial_2_texto || "Atendimento em todo estado"}
+              </p>
+            </div>
+            <div className="bg-card p-6 rounded-lg shadow-lg hover:shadow-primary transition-all duration-300">
+              <div className="text-secondary mb-4">
+                <Award className="h-10 w-10" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2 text-card-foreground">
+                {content.home_diferencial_3_titulo || "Equipamentos Modernos"}
+              </h3>
+              <p className="text-muted-foreground text-sm">
+                {content.home_diferencial_3_texto || "Geradores de última geração"}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sectors Section */}
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">
             {content.home_setores_titulo || "Setores Atendidos"}
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {sectors.map((sector, index) => (
-              <Card
+              <Card 
                 key={sector.id}
-                className="border-2 hover:border-primary hover:shadow-lg transition-all duration-300 animate-fade-in"
+                className="hover:border-secondary transition-all duration-300 cursor-pointer animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardHeader className="text-center">
-                  <div className="mx-auto mb-4 w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
-                    <DynamicIcon name={sector.icon} className="h-7 w-7 text-primary" fallback="Factory" />
-                  </div>
-                  <CardTitle className="text-lg font-bold">{sector.name}</CardTitle>
-                </CardHeader>
-                {sector.description && (
-                  <CardContent>
-                    <CardDescription className="text-center text-sm">{sector.description}</CardDescription>
-                  </CardContent>
-                )}
+                <CardContent className="p-6 text-center">
+                  <div className="text-4xl mb-3">{sector.icon || "🏢"}</div>
+                  <h3 className="font-semibold text-foreground">{sector.name}</h3>
+                </CardContent>
               </Card>
             ))}
           </div>

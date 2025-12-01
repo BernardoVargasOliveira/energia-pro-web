@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import geradoresTransporte from "@/assets/geradores-transporte.jpg";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { DynamicIcon } from "@/components/DynamicIcon";
 
 const Servicos = () => {
   const [content, setContent] = useState<Record<string, string>>({});
@@ -36,7 +35,6 @@ const Servicos = () => {
     setServices(servicesData.data || []);
     setIsLoading(false);
   };
-
 
   if (isLoading) {
     return <div className="flex items-center justify-center min-h-screen">Carregando...</div>;
@@ -86,15 +84,15 @@ const Servicos = () => {
             {services.map((service, index) => (
               <Card 
                 key={index}
-                className="border-2 hover:border-primary hover:shadow-lg transition-all duration-300 animate-fade-in"
+                className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-primary animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardHeader className="text-center">
-                  <div className="mx-auto mb-6 w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
-                    <DynamicIcon name={service.icon} className="h-10 w-10 text-primary" fallback="Zap" />
+                <CardHeader>
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4 text-5xl">
+                    {service.icon || "⚡"}
                   </div>
-                  <CardTitle className="text-xl font-bold mb-3">{service.title}</CardTitle>
-                  <CardDescription className="text-sm">{service.description}</CardDescription>
+                  <CardTitle className="text-2xl">{service.title}</CardTitle>
+                  <CardDescription className="text-base">{service.description}</CardDescription>
                 </CardHeader>
               </Card>
             ))}
