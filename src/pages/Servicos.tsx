@@ -26,9 +26,7 @@ const Servicos = () => {
       benefits: [
         "Projeto executivo detalhado",
         "Instalação elétrica e mecânica",
-        "Testes",
-        "Documentação técnica completa",
-        "Certificação de segurança"
+        "Testes"
       ]
     },
     {
