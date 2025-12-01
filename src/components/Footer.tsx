@@ -10,7 +10,7 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold text-accent mb-4">PROJEMAC</h3>
             <p className="text-sm mb-4">
-              Soluções completas em energia com grupos geradores. Locação, manutenção e projetos.
+              Soluções completas em energia com grupos geradores. Locação e projetos.
             </p>
             <div className="flex gap-4">
               <a href="#" className="hover:text-accent transition-colors">
@@ -42,7 +42,6 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Serviços</h4>
             <ul className="space-y-2 text-sm">
               <li className="hover:text-accent transition-colors cursor-pointer">Locação de Geradores</li>
-              <li className="hover:text-accent transition-colors cursor-pointer">Manutenção Preventiva</li>
               <li className="hover:text-accent transition-colors cursor-pointer">Assistência Técnica</li>
               <li className="hover:text-accent transition-colors cursor-pointer">Projetos de Instalação</li>
             </ul>
