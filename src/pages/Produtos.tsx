@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import gerador500kva from "@/assets/gerador-500kva.jpg";
 import geradoresTransporte from "@/assets/geradores-transporte.jpg";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
-import FinalCTA from "@/components/FinalCTA";
 
 const Produtos = () => {
   useEffect(() => {
@@ -254,10 +255,20 @@ const Produtos = () => {
         </div>
       </section>
 
-      <FinalCTA 
-        title="Não Sabe Qual Gerador Escolher?"
-        subtitle="Nossa equipe técnica pode ajudar você a dimensionar o equipamento ideal para sua necessidade"
-      />
+      {/* CTA Section */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold text-foreground mb-6">
+            Não Sabe Qual Gerador Escolher?
+          </h2>
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Nossa equipe técnica pode ajudar você a dimensionar o equipamento ideal para sua necessidade
+          </p>
+          <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold">
+            <Link to="/contato">Falar com um Especialista</Link>
+          </Button>
+        </div>
+      </section>
     </div>
   );
 };
