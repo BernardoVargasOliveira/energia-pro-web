@@ -1,11 +1,47 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X, Phone } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Menu, X, Phone, LogIn, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoImage from "@/assets/logo-projemac-transparent.png";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+  const { toast } = useToast();
+
+  useEffect(() => {
+    // Check current session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setIsLoggedIn(!!session);
+    });
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      setIsLoggedIn(!!session);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      toast({
+        title: "Erro ao sair",
+        description: error.message,
+        variant: "destructive",
+      });
+    } else {
+      toast({
+        title: "Logout realizado",
+        description: "Você foi desconectado com sucesso.",
+      });
+      navigate("/");
+    }
+  };
 
   const menuItems = [
     { label: "Home", href: "/" },
@@ -61,10 +97,31 @@ const Header = () => {
           </ul>
 
           {/* CTA Button */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex items-center gap-3">
             <Button asChild variant="default" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
               <Link to="/contato">Solicitar Orçamento</Link>
             </Button>
+            {isLoggedIn ? (
+              <Button 
+                onClick={handleLogout} 
+                variant="outline" 
+                className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10"
+              >
+                <LogOut className="h-4 w-4 mr-2" />
+                Sair
+              </Button>
+            ) : (
+              <Button 
+                asChild 
+                variant="outline" 
+                className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10"
+              >
+                <Link to="/login">
+                  <LogIn className="h-4 w-4 mr-2" />
+                  Admin
+                </Link>
+              </Button>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -98,6 +155,32 @@ const Header = () => {
                     Solicitar Orçamento
                   </Link>
                 </Button>
+              </li>
+              <li>
+                {isLoggedIn ? (
+                  <Button 
+                    onClick={() => {
+                      handleLogout();
+                      setIsMenuOpen(false);
+                    }} 
+                    variant="outline" 
+                    className="w-full border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10"
+                  >
+                    <LogOut className="h-4 w-4 mr-2" />
+                    Sair
+                  </Button>
+                ) : (
+                  <Button 
+                    asChild 
+                    variant="outline" 
+                    className="w-full border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10"
+                  >
+                    <Link to="/login" onClick={() => setIsMenuOpen(false)}>
+                      <LogIn className="h-4 w-4 mr-2" />
+                      Admin
+                    </Link>
+                  </Button>
+                )}
               </li>
             </ul>
           </div>
