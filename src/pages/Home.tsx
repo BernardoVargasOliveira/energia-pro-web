@@ -75,13 +75,13 @@ const Home = () => {
   };
 
   const getSectorIconComponent = (sectorName: string) => {
-    const name = sectorName.toLowerCase();
-    if (name.includes('indústria') || name.includes('industria')) return <Factory className="h-10 w-10" />;
-    if (name.includes('comércio') || name.includes('comercio')) return <Building2 className="h-10 w-10" />;
-    if (name.includes('hospital') || name.includes('saúde') || name.includes('saude')) return <Hospital className="h-10 w-10" />;
-    if (name.includes('evento')) return <PartyPopper className="h-10 w-10" />;
-    if (name.includes('condomínio') || name.includes('condominio') || name.includes('residencial')) return <Building className="h-10 w-10" />;
-    if (name.includes('data center') || name.includes('datacenter') || name.includes('tecnologia')) return <Server className="h-10 w-10" />;
+    const name = sectorName.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    if (name.includes('hospital') || name.includes('saude') || name.includes('clinica') || name.includes('medico')) return <Hospital className="h-10 w-10" />;
+    if (name.includes('evento') || name.includes('festa')) return <PartyPopper className="h-10 w-10" />;
+    if (name.includes('comercio') || name.includes('loja') || name.includes('varejo')) return <Building2 className="h-10 w-10" />;
+    if (name.includes('condominio') || name.includes('residencial') || name.includes('apartamento')) return <Building className="h-10 w-10" />;
+    if (name.includes('data center') || name.includes('datacenter') || name.includes('ti') || name.includes('servidor')) return <Server className="h-10 w-10" />;
+    if (name.includes('industria') || name.includes('fabrica') || name.includes('manufatura')) return <Factory className="h-10 w-10" />;
     return <Factory className="h-10 w-10" />;
   };
 
