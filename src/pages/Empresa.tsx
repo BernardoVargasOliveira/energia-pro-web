@@ -101,9 +101,9 @@ const Empresa = () => {
             PROJEMAC em Números
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="text-5xl font-bold text-secondary mb-2">15+</div>
+              <div className="text-5xl font-bold text-secondary mb-2">30+</div>
               <p className="text-muted-foreground font-medium">Anos de Experiência</p>
             </div>
             <div className="text-center">
@@ -113,10 +113,6 @@ const Empresa = () => {
             <div className="text-center">
               <div className="text-5xl font-bold text-secondary mb-2">1000+</div>
               <p className="text-muted-foreground font-medium">Projetos Executados</p>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-secondary mb-2">24/7</div>
-              <p className="text-muted-foreground font-medium">Suporte Técnico</p>
             </div>
           </div>
         </div>
