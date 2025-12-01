@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import gerador500kva from "@/assets/gerador-500kva.jpg";
 import geradoresTransporte from "@/assets/geradores-transporte.jpg";
+import { motion } from "framer-motion";
 
 const Produtos = () => {
   const products = [
@@ -77,12 +78,22 @@ const Produtos = () => {
       {/* Header Section */}
       <section className="bg-gradient-primary py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground text-center mb-6">
+          <motion.h1 
+            className="text-4xl md:text-5xl font-bold text-primary-foreground text-center mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             Produtos
-          </h1>
-          <p className="text-xl text-primary-foreground/90 text-center max-w-3xl mx-auto">
+          </motion.h1>
+          <motion.p 
+            className="text-xl text-primary-foreground/90 text-center max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          >
             Grupos geradores de energia de 20 kVA a 2500+ kVA
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -117,22 +128,31 @@ const Produtos = () => {
       {/* Products Grid */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             <h2 className="text-3xl font-bold text-foreground mb-4">
               Encontre o Gerador Ideal para Sua Necessidade
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Trabalhamos com as melhores marcas do mercado e oferecemos soluções para todos os portes de empresas
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {products.map((product, index) => (
-              <Card 
+              <motion.div
                 key={index}
-                className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-primary animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
               >
+                <Card className="border-2 hover:border-secondary h-full">
                 <CardHeader>
                   <div className="flex items-start justify-between mb-2">
                     <CardTitle className="text-2xl">{product.category}</CardTitle>
@@ -169,38 +189,60 @@ const Produtos = () => {
                   </div>
                 </CardContent>
               </Card>
+              </motion.div>
             ))}
           </div>
 
           {/* Brands Section */}
-          <div className="bg-muted rounded-lg p-8">
+          <motion.div 
+            className="bg-muted rounded-lg p-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             <h3 className="text-2xl font-bold text-center text-foreground mb-8">
               Trabalhamos com as Melhores Marcas
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {brands.map((brand, index) => (
-                <div 
+                <motion.div 
                   key={index}
-                  className="bg-card p-4 rounded-lg text-center font-semibold text-foreground hover:border-2 hover:border-secondary transition-all duration-300 animate-fade-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className="bg-card p-4 rounded-lg text-center font-semibold text-foreground hover:border-2 hover:border-secondary transition-all duration-300"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.05 }}
                 >
                   {brand}
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Technical Info Section */}
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-foreground mb-12">
+          <motion.h2 
+            className="text-3xl font-bold text-center text-foreground mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             Informações Técnicas
-          </h2>
+          </motion.h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+            >
+              <Card>
               <CardHeader>
                 <CardTitle>Combustível</CardTitle>
               </CardHeader>
@@ -211,10 +253,17 @@ const Produtos = () => {
                   <li>• Biocombustível</li>
                   <li>• Dual fuel (diesel/gás)</li>
                 </ul>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            >
+              <Card>
               <CardHeader>
                 <CardTitle>Tensões Disponíveis</CardTitle>
               </CardHeader>
@@ -225,10 +274,17 @@ const Produtos = () => {
                   <li>• 127/220/380V</li>
                   <li>• Tensões especiais sob consulta</li>
                 </ul>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+            >
+              <Card>
               <CardHeader>
                 <CardTitle>Recursos Adicionais</CardTitle>
               </CardHeader>
@@ -239,8 +295,9 @@ const Produtos = () => {
                   <li>• Monitoramento remoto</li>
                   <li>• Tanques de combustível ampliados</li>
                 </ul>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
         </div>
       </section>

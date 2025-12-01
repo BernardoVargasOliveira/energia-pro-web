@@ -1,5 +1,6 @@
 import { Award, Target, Eye, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 const Empresa = () => {
   return (
@@ -7,19 +8,35 @@ const Empresa = () => {
       {/* Header Section */}
       <section className="bg-gradient-primary py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground text-center mb-6">
+          <motion.h1 
+            className="text-4xl md:text-5xl font-bold text-primary-foreground text-center mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             A Empresa
-          </h1>
-          <p className="text-xl text-primary-foreground/90 text-center max-w-3xl mx-auto">
+          </motion.h1>
+          <motion.p 
+            className="text-xl text-primary-foreground/90 text-center max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          >
             Especialistas em soluções de energia com grupos geradores
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* About Section */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <motion.div 
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             <h2 className="text-3xl font-bold text-foreground mb-6">Nossa História</h2>
             <div className="space-y-4 text-muted-foreground text-lg">
               <p>
@@ -41,7 +58,7 @@ const Empresa = () => {
                 em todos os nossos processos, garantindo assim a satisfação total de nossos clientes.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -49,7 +66,13 @@ const Empresa = () => {
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="border-t-4 border-t-primary">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+            >
+              <Card className="border-t-4 border-t-primary h-full">
               <CardContent className="p-8">
                 <div className="flex items-center justify-center w-16 h-16 rounded-full bg-primary text-primary-foreground mb-4 mx-auto">
                   <Target className="h-8 w-8" />
@@ -59,10 +82,17 @@ const Empresa = () => {
                   Fornecer soluções confiáveis e eficientes em geração de energia, superando as 
                   expectativas de nossos clientes através de tecnologia de ponta e atendimento personalizado.
                 </p>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card className="border-t-4 border-t-secondary">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            >
+              <Card className="border-t-4 border-t-secondary h-full">
               <CardContent className="p-8">
                 <div className="flex items-center justify-center w-16 h-16 rounded-full bg-secondary text-secondary-foreground mb-4 mx-auto">
                   <Eye className="h-8 w-8" />
@@ -72,10 +102,17 @@ const Empresa = () => {
                   Ser referência nacional em soluções de energia, reconhecida pela qualidade dos 
                   serviços, inovação tecnológica e compromisso com a sustentabilidade.
                 </p>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card className="border-t-4 border-t-accent">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+            >
+              <Card className="border-t-4 border-t-accent h-full">
               <CardContent className="p-8">
                 <div className="flex items-center justify-center w-16 h-16 rounded-full bg-accent text-accent-foreground mb-4 mx-auto">
                   <Award className="h-8 w-8" />
@@ -88,8 +125,9 @@ const Empresa = () => {
                   <li>• Foco no cliente</li>
                   <li>• Responsabilidade social</li>
                 </ul>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -97,23 +135,47 @@ const Empresa = () => {
       {/* Numbers Section */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-foreground mb-12">
+          <motion.h2 
+            className="text-3xl font-bold text-center text-foreground mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             PROJEMAC em Números
-          </h2>
+          </motion.h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
+            <motion.div 
+              className="text-center"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+            >
               <div className="text-5xl font-bold text-secondary mb-2">30+</div>
               <p className="text-muted-foreground font-medium">Anos de Experiência</p>
-            </div>
-            <div className="text-center">
+            </motion.div>
+            <motion.div 
+              className="text-center"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+            >
               <div className="text-5xl font-bold text-secondary mb-2">500+</div>
               <p className="text-muted-foreground font-medium">Clientes Atendidos</p>
-            </div>
-            <div className="text-center">
+            </motion.div>
+            <motion.div 
+              className="text-center"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+            >
               <div className="text-5xl font-bold text-secondary mb-2">1000+</div>
               <p className="text-muted-foreground font-medium">Projetos Executados</p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -121,7 +183,13 @@ const Empresa = () => {
       {/* Team Section */}
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
+          <motion.div 
+            className="max-w-4xl mx-auto text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             <Users className="h-16 w-16 text-primary mx-auto mb-6" />
             <h2 className="text-3xl font-bold text-foreground mb-6">Nossa Equipe</h2>
             <p className="text-lg text-muted-foreground">
@@ -130,7 +198,7 @@ const Empresa = () => {
               Nossa equipe passa por treinamentos constantes para estar sempre atualizada com as 
               mais recentes tecnologias e melhores práticas do setor.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>
