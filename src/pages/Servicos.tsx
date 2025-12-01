@@ -32,8 +32,8 @@ const Servicos = () => {
     },
     {
       icon: <HardHat className="h-12 w-12" />,
-      title: "Serviços de Instalação e Comissionamento",
-      description: "Instalação completa de sistemas de geração de energia com todos os sistemas auxiliares necessários.",
+      title: "Serviços de Instalação",
+      description: "Instalação completa de sistemas de geração de energia com técnicos especializados.",
       benefits: [
         "Projeto executivo detalhado",
         "Instalação elétrica e mecânica",
