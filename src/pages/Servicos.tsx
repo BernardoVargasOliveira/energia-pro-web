@@ -249,35 +249,29 @@ const Servicos = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-gradient-primary">
         <div className="container mx-auto px-4 text-center">
-          <motion.h2 
-            className="text-3xl font-bold text-foreground mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
+          <h2 className="text-3xl font-bold text-primary-foreground mb-6">
             Precisa de Mais Informações?
-          </motion.h2>
-          <motion.p 
-            className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          >
+          </h2>
+          <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
             Nossa equipe está pronta para ajudar você a encontrar a melhor solução em geração de energia
-          </motion.p>
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold">
-              <Link to="/contato">Solicitar Orçamento</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="font-semibold">
-              <a href="https://wa.me/553134953004" target="_blank" rel="noopener noreferrer">
-                Falar no WhatsApp
-              </a>
-            </Button>
+            <a 
+              href="/contato"
+              className="inline-flex items-center justify-center px-8 py-3 bg-accent text-accent-foreground hover:bg-accent/90 rounded-md font-semibold text-lg transition-colors shadow-accent"
+            >
+              Solicitar Orçamento
+            </a>
+            <a 
+              href="https://wa.me/553134953004?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20de%20geradores." 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-3 bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary rounded-md font-semibold text-lg transition-colors"
+            >
+              Falar no WhatsApp
+            </a>
           </div>
         </div>
       </section>
