@@ -18,8 +18,8 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 196 100% 15%;
 
-    /* Primary: Deep Blue (#004C6D) */
-    --primary: 196 100% 21%;
+    /* Primary: Deep Blue (#00496D) */
+    --primary: 200 100% 21%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary: Bright Cyan (#00A0DC) */
