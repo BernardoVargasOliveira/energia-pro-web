@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import gerador500kva from "@/assets/gerador-500kva.jpg";
 import geradoresTransporte from "@/assets/geradores-transporte.jpg";
+import { motion } from "framer-motion";
 
 const Produtos = () => {
   const products = [
@@ -118,9 +119,15 @@ const Produtos = () => {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
+            <motion.h2 
+              className="text-3xl font-bold text-foreground mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
               Encontre o Gerador Ideal para Sua Necessidade
-            </h2>
+            </motion.h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Trabalhamos com as melhores marcas do mercado e oferecemos soluções para todos os portes de empresas
             </p>
@@ -128,11 +135,14 @@ const Produtos = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {products.map((product, index) => (
-              <Card 
+              <motion.div
                 key={index}
-                className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-primary animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                initial={{ opacity: 0, scale: 0.97 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
+                <Card className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-primary h-full">
                 <CardHeader>
                   <div className="flex items-start justify-between mb-2">
                     <CardTitle className="text-2xl">{product.category}</CardTitle>
@@ -169,23 +179,33 @@ const Produtos = () => {
                   </div>
                 </CardContent>
               </Card>
+              </motion.div>
             ))}
           </div>
 
           {/* Brands Section */}
           <div className="bg-muted rounded-lg p-8">
-            <h3 className="text-2xl font-bold text-center text-foreground mb-8">
+            <motion.h3 
+              className="text-2xl font-bold text-center text-foreground mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
               Trabalhamos com as Melhores Marcas
-            </h3>
+            </motion.h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {brands.map((brand, index) => (
-                <div 
+                <motion.div 
                   key={index}
-                  className="bg-card p-4 rounded-lg text-center font-semibold text-foreground hover:border-2 hover:border-secondary transition-all duration-300 animate-fade-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className="bg-card p-4 rounded-lg text-center font-semibold text-foreground hover:border-2 hover:border-secondary transition-all duration-300"
+                  initial={{ opacity: 0, scale: 0.97 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   {brand}
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -195,9 +215,15 @@ const Produtos = () => {
       {/* Technical Info Section */}
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-foreground mb-12">
+          <motion.h2 
+            className="text-3xl font-bold text-center text-foreground mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             Informações Técnicas
-          </h2>
+          </motion.h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card>
