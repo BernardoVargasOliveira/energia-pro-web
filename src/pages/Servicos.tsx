@@ -32,12 +32,12 @@ const Servicos = () => {
     {
       icon: <Zap className="h-12 w-12" />,
       title: "Projetos de Sistemas de Geração de Energia",
-      description: "Desenvolvimento de projetos completos de geração de energia adaptados às necessidades específicas de cada cliente.",
+      description: "Execução de projetos completos de geração de energia adaptados às necessidades específicas de cada cliente.",
       benefits: [
         "Análise de demanda energética",
         "Dimensionamento adequado",
         "Estudo de viabilidade",
-        "Projeto elétrico"
+        "Execução de projeto elétrico"
       ]
     },
     {
