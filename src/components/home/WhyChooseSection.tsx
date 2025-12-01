@@ -21,7 +21,7 @@ const WhyChooseSection = () => {
     },
     {
       icon: <Users className="w-8 h-8" />,
-      value: "15+",
+      value: "30+",
       label: "Anos no Mercado",
       color: "text-secondary"
     },
