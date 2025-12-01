@@ -34,10 +34,10 @@ const WhyChooseSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-24 bg-muted/10">
       <div className="container mx-auto px-4">
         {/* Premium White Box */}
-        <div className="bg-card rounded-2xl shadow-lg border border-border p-8 md:p-12">
+        <div className="bg-gradient-to-b from-card to-muted/5 rounded-2xl shadow-xl border border-border/50 p-10 md:p-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Text content */}
           <motion.div
@@ -46,11 +46,11 @@ const WhyChooseSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-primary mb-6">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary mb-8">
               Por que escolher a <span className="text-accent">PROJEMAC</span>?
             </h2>
             
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
               Somos referência em soluções de energia com anos de experiência no mercado. 
               Nossa expertise garante a melhor solução para sua necessidade energética, 
               com equipamentos modernos e atendimento de excelência.
@@ -66,8 +66,8 @@ const WhyChooseSection = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
-                  <span className="text-foreground font-semibold">{item}</span>
+                  <CheckCircle2 className="w-6 h-6 text-secondary flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground font-semibold text-base">{item}</span>
                 </motion.div>
               ))}
             </div>
@@ -90,7 +90,7 @@ const WhyChooseSection = () => {
                 transition={{ duration: 0.5, delay: 0.1 * index }}
                 className={index === 2 ? "sm:col-span-2" : ""}
               >
-                <Card className="p-8 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-200 border-2 hover:border-accent h-full bg-card">
+                <Card className="p-8 text-center shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-200 border-2 hover:border-accent h-full bg-card rounded-xl">
                   <div className={`${metric.color} mb-4 flex justify-center`}>
                     {metric.icon}
                   </div>

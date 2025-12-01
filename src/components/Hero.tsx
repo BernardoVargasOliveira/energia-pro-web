@@ -17,7 +17,7 @@ const Hero = () => {
       }}
     >
       {/* Dark overlay - reduced opacity for better image visibility */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/50 via-primary/45 to-secondary/40 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-primary/35 to-secondary/30 z-10" />
 
       <div className="container mx-auto px-4 py-20 relative z-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
@@ -36,21 +36,21 @@ const Hero = () => {
 
             <motion.h1 
               className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
-              style={{ textShadow: '2px 4px 12px rgba(0,0,0,0.6)' }}
-              initial={{ opacity: 0, y: 30 }}
+              style={{ textShadow: '3px 5px 15px rgba(0,0,0,0.8)' }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             >
               Soluções Completas em
-              <span className="block text-accent mt-2" style={{ textShadow: '2px 4px 12px rgba(0,0,0,0.5)' }}>Geradores de Energia</span>
+              <span className="block text-accent mt-2" style={{ textShadow: '3px 5px 15px rgba(0,0,0,0.7)' }}>Geradores de Energia</span>
             </motion.h1>
             
             <motion.p 
-              className="text-xl text-white/90 mb-10 max-w-xl leading-relaxed"
-              style={{ textShadow: '1px 2px 8px rgba(0,0,0,0.6)' }}
-              initial={{ opacity: 0, y: 30 }}
+              className="text-xl text-white mb-10 max-w-xl leading-relaxed"
+              style={{ textShadow: '2px 3px 10px rgba(0,0,0,0.8)' }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             >
               Locação e projetos de geradores de energia para sua empresa. 
               Atendimento em todo estado de Minas Gerais com equipe técnica especializada.
@@ -58,9 +58,9 @@ const Hero = () => {
 
             <motion.div 
               className="flex flex-col sm:flex-row gap-4"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
             >
               <Button 
                 asChild 
