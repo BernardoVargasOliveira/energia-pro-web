@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Hero from "@/components/Hero";
 import { supabase } from "@/integrations/supabase/client";
+import { motion } from "framer-motion";
 
 const Home = () => {
   const [services, setServices] = useState<any[]>([]);
@@ -86,17 +87,26 @@ const Home = () => {
       {/* Services Section */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             {content['home_services_title'] || 'Nossos Serviços'}
-          </h2>
+          </motion.h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((service, index) => (
-              <Card 
-                key={service.id} 
-                className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-primary animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
               >
+                <Card className="border-2 hover:border-secondary h-full">
                 <CardContent className="p-6 text-center">
                   <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4">
                     {getIconComponent(service.icon)}
@@ -109,6 +119,7 @@ const Home = () => {
                   </p>
                 </CardContent>
               </Card>
+              </motion.div>
             ))}
           </div>
 
@@ -123,19 +134,34 @@ const Home = () => {
       {/* Differentials Section */}
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-center text-foreground mb-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             {content['home_differentials_title'] || 'Por Que Escolher a PROJEMAC?'}
-          </h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          >
             {content['home_differentials_subtitle'] || 'Somos referência em soluções de energia com anos de experiência no mercado'}
-          </p>
+          </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {differentials.map((item, index) => (
-              <div 
+              <motion.div 
                 key={index}
-                className="bg-card p-6 rounded-lg shadow-lg hover:shadow-primary transition-all duration-300 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="bg-card p-6 rounded-lg shadow-lg hover:shadow-primary transition-all duration-300 hover:scale-[1.03] hover:border hover:border-primary/20"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
               >
                 <div className="text-secondary mb-4">
                   {item.icon}
@@ -146,7 +172,7 @@ const Home = () => {
                 <p className="text-muted-foreground text-sm">
                   {item.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -155,22 +181,32 @@ const Home = () => {
       {/* Sectors Section */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             {content['home_sectors_title'] || 'Setores Atendidos'}
-          </h2>
+          </motion.h2>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {sectors.map((sector, index) => (
-              <Card 
+              <motion.div
                 key={sector.id}
-                className="hover:border-secondary transition-all duration-300 cursor-pointer animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.05 }}
               >
+                <Card className="hover:border-secondary cursor-pointer h-full">
                 <CardContent className="p-6 text-center">
                   <div className="text-4xl mb-3">{sector.icon}</div>
                   <h3 className="font-semibold text-foreground">{sector.name}</h3>
                 </CardContent>
               </Card>
+              </motion.div>
             ))}
           </div>
 
@@ -185,15 +221,34 @@ const Home = () => {
       {/* CTA Section */}
       <section className="py-16 bg-gradient-primary">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             {content['home_cta_title'] || 'Precisa de uma Solução em Energia?'}
-          </h2>
-          <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          >
             {content['home_cta_subtitle'] || 'Entre em contato conosco e receba um orçamento personalizado para sua necessidade'}
-          </p>
-          <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg shadow-accent">
-            <Link to="/contato">Solicitar Orçamento Agora</Link>
-          </Button>
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          >
+            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg shadow-accent">
+              <Link to="/contato">Solicitar Orçamento Agora</Link>
+            </Button>
+          </motion.div>
         </div>
       </section>
     </>

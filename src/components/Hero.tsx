@@ -2,19 +2,24 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Zap } from "lucide-react";
 import heroImage from "@/assets/galpao-geradores.jpeg";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const Hero = () => {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 300], [0, 50]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0.3]);
+
   return (
     <section className="relative bg-gradient-primary py-20 md:py-32 overflow-hidden">
       {/* Background image with overlay */}
-      <div className="absolute inset-0">
+      <motion.div className="absolute inset-0" style={{ y }}>
         <img 
           src={heroImage} 
           alt="Galpão com geradores PROJEMAC" 
           className="w-full h-full object-cover opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-primary opacity-90" />
-      </div>
+      </motion.div>
       
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
@@ -28,19 +33,37 @@ const Hero = () => {
         <Zap className="w-[400px] h-[400px] text-primary-foreground" strokeWidth={0.5} />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <motion.div 
+        className="container mx-auto px-4 relative z-10"
+        style={{ opacity }}
+      >
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6 animate-fade-in">
+          <motion.h1 
+            className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             Soluções Completas em Energia com
             <span className="block text-accent mt-2">Grupos Geradores</span>
-          </h1>
+          </motion.h1>
           
-          <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <motion.p 
+            className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          >
             Locação e projetos de geradores de energia para sua empresa. 
             Atendimento em todo estado de Minas Gerais com equipe técnica especializada.
-          </p>
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+          >
             <Button 
               asChild 
               size="lg" 
@@ -63,9 +86,9 @@ const Hero = () => {
                 Falar no WhatsApp
               </a>
             </Button>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Decorative elements */}
       <div className="absolute bottom-0 left-0 right-0">

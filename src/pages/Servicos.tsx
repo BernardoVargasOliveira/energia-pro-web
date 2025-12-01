@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import geradoresTransporte from "@/assets/geradores-transporte.jpg";
+import { motion } from "framer-motion";
 
 const Servicos = () => {
   const services = [
@@ -58,19 +59,35 @@ const Servicos = () => {
       {/* Header Section */}
       <section className="bg-gradient-primary py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground text-center mb-6">
+          <motion.h1 
+            className="text-4xl md:text-5xl font-bold text-primary-foreground text-center mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             Nossos Serviços
-          </h1>
-          <p className="text-xl text-primary-foreground/90 text-center max-w-3xl mx-auto">
+          </motion.h1>
+          <motion.p 
+            className="text-xl text-primary-foreground/90 text-center max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          >
             Soluções completas em geração de energia para sua empresa
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* Showcase Image */}
       <section className="py-12 bg-muted">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <motion.div 
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             <div className="relative rounded-lg overflow-hidden shadow-primary">
               <img 
                 src={geradoresTransporte} 
@@ -82,7 +99,7 @@ const Servicos = () => {
                 <p className="text-primary-foreground/90">Frota moderna com entrega e instalação em todo o Brasil</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -91,11 +108,14 @@ const Servicos = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
-              <Card 
+              <motion.div
                 key={index}
-                className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-primary animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
               >
+                <Card className="border-2 hover:border-secondary h-full">
                 <CardHeader>
                   <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4">
                     {service.icon}
@@ -115,6 +135,7 @@ const Servicos = () => {
                   </ul>
                 </CardContent>
               </Card>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -123,12 +144,24 @@ const Servicos = () => {
       {/* CTA Section */}
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-foreground mb-6">
+          <motion.h2 
+            className="text-3xl font-bold text-foreground mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             Precisa de Mais Informações?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          >
             Nossa equipe está pronta para ajudar você a encontrar a melhor solução em geração de energia
-          </p>
+          </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold">
               <Link to="/contato">Solicitar Orçamento</Link>

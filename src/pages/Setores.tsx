@@ -1,5 +1,6 @@
 import { Factory, Store, Hospital, PartyPopper, Building2, Server } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 const Setores = () => {
   const sectors = [
@@ -75,34 +76,53 @@ const Setores = () => {
       {/* Header Section */}
       <section className="bg-gradient-primary py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground text-center mb-6">
+          <motion.h1 
+            className="text-4xl md:text-5xl font-bold text-primary-foreground text-center mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             Setores Atendidos
-          </h1>
-          <p className="text-xl text-primary-foreground/90 text-center max-w-3xl mx-auto">
+          </motion.h1>
+          <motion.p 
+            className="text-xl text-primary-foreground/90 text-center max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          >
             Soluções especializadas em energia para diversos segmentos
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* Sectors Grid */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             <h2 className="text-3xl font-bold text-foreground mb-4">
               Experiência em Diversos Mercados
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Entendemos as necessidades específicas de cada setor e oferecemos soluções personalizadas
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sectors.map((sector, index) => (
-              <Card 
+              <motion.div
                 key={index}
-                className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-primary animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
               >
+                <Card className="border-2 hover:border-secondary h-full">
                 <CardHeader>
                   <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4">
                     {sector.icon}
@@ -122,6 +142,7 @@ const Setores = () => {
                   </ul>
                 </CardContent>
               </Card>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -130,31 +151,55 @@ const Setores = () => {
       {/* Why Choose Us Section */}
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-foreground mb-12">
+          <motion.h2 
+            className="text-3xl font-bold text-center text-foreground mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             Por Que Nos Escolher Para Seu Setor?
-          </h2>
+          </motion.h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <div className="bg-card p-6 rounded-lg">
+            <motion.div 
+              className="bg-card p-6 rounded-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:border hover:border-primary/20"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+            >
               <h3 className="text-xl font-semibold mb-3 text-foreground">Experiência Comprovada</h3>
               <p className="text-muted-foreground">
                 Anos de experiência atendendo empresas de diversos portes e segmentos.
               </p>
-            </div>
+            </motion.div>
             
-            <div className="bg-card p-6 rounded-lg">
+            <motion.div 
+              className="bg-card p-6 rounded-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:border hover:border-primary/20"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            >
               <h3 className="text-xl font-semibold mb-3 text-foreground">Soluções Personalizadas</h3>
               <p className="text-muted-foreground">
                 Cada setor tem necessidades únicas. Desenvolvemos projetos sob medida para seu negócio.
               </p>
-            </div>
+            </motion.div>
             
-            <div className="bg-card p-6 rounded-lg">
+            <motion.div 
+              className="bg-card p-6 rounded-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:border hover:border-primary/20"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+            >
               <h3 className="text-xl font-semibold mb-3 text-foreground">Suporte Especializado</h3>
               <p className="text-muted-foreground">
                 Equipe técnica com conhecimento profundo das particularidades de cada segmento.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
