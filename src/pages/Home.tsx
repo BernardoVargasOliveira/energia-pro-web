@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Battery, Zap, Users, Award, MapPin } from "lucide-react";
+import { Battery, Zap, Users, Award, MapPin, BatteryCharging, Wrench, HardHat, Headphones } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Hero from "@/components/Hero";
@@ -52,7 +52,11 @@ const Home = () => {
   const getIconComponent = (iconName: string | null) => {
     switch(iconName) {
       case 'Battery': return <Battery className="h-12 w-12" />;
+      case 'BatteryCharging': return <BatteryCharging className="h-12 w-12" />;
       case 'Zap': return <Zap className="h-12 w-12" />;
+      case 'Wrench': return <Wrench className="h-12 w-12" />;
+      case 'HardHat': return <HardHat className="h-12 w-12" />;
+      case 'Headphones': return <Headphones className="h-12 w-12" />;
       default: return <Battery className="h-12 w-12" />;
     }
   };
