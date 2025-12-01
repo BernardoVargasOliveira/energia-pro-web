@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Hero from "@/components/Hero";
 import { supabase } from "@/integrations/supabase/client";
-import { motion } from "framer-motion";
 
 const Home = () => {
   const [services, setServices] = useState<any[]>([]);
@@ -87,26 +86,17 @@ const Home = () => {
       {/* Services Section */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">
             {content['home_services_title'] || 'Nossos Serviços'}
-          </motion.h2>
+          </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((service, index) => (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, scale: 0.97 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+              <Card 
+                key={service.id} 
+                className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-primary animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <Card className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-primary h-full">
                 <CardContent className="p-6 text-center">
                   <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4">
                     {getIconComponent(service.icon)}
@@ -119,7 +109,6 @@ const Home = () => {
                   </p>
                 </CardContent>
               </Card>
-              </motion.div>
             ))}
           </div>
 
@@ -134,28 +123,19 @@ const Home = () => {
       {/* Differentials Section */}
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
-          <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-center text-foreground mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
             {content['home_differentials_title'] || 'Por Que Escolher a PROJEMAC?'}
-          </motion.h2>
+          </h2>
           <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
             {content['home_differentials_subtitle'] || 'Somos referência em soluções de energia com anos de experiência no mercado'}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {differentials.map((item, index) => (
-              <motion.div 
+              <div 
                 key={index}
-                className="bg-card p-6 rounded-lg shadow-lg hover:shadow-primary transition-all duration-300"
-                initial={{ opacity: 0, scale: 0.97 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-card p-6 rounded-lg shadow-lg hover:shadow-primary transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="text-secondary mb-4">
                   {item.icon}
@@ -166,7 +146,7 @@ const Home = () => {
                 <p className="text-muted-foreground text-sm">
                   {item.description}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -175,32 +155,22 @@ const Home = () => {
       {/* Sectors Section */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">
             {content['home_sectors_title'] || 'Setores Atendidos'}
-          </motion.h2>
+          </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {sectors.map((sector, index) => (
-              <motion.div
+              <Card 
                 key={sector.id}
-                initial={{ opacity: 0, scale: 0.97 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="hover:border-secondary transition-all duration-300 cursor-pointer animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <Card className="hover:border-secondary transition-all duration-300 cursor-pointer h-full">
                 <CardContent className="p-6 text-center">
                   <div className="text-4xl mb-3">{sector.icon}</div>
                   <h3 className="font-semibold text-foreground">{sector.name}</h3>
                 </CardContent>
               </Card>
-              </motion.div>
             ))}
           </div>
 
