@@ -21,14 +21,20 @@ All colors MUST be HSL.
     /* Primary: Deep Blue (#00496D) */
     --primary: 200 100% 21%;
     --primary-foreground: 0 0% 100%;
+    --primary-light: 200 80% 35%;
+    --primary-dark: 200 100% 15%;
 
     /* Secondary: Bright Cyan (#00A0DC) */
     --secondary: 196 100% 43%;
     --secondary-foreground: 0 0% 100%;
+    --secondary-light: 196 100% 55%;
+    --secondary-dark: 196 100% 35%;
 
     /* Accent: Energy Yellow (#FDB913) */
     --accent: 43 98% 54%;
     --accent-foreground: 196 100% 15%;
+    --accent-light: 43 98% 65%;
+    --accent-dark: 43 98% 45%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 196 20% 45%;
@@ -42,11 +48,25 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
 
-    /* Custom tokens for the industrial theme */
-    --gradient-primary: linear-gradient(135deg, hsl(196 100% 21%), hsl(196 100% 43%));
+    /* Premium Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(200 100% 21%), hsl(196 100% 43%));
+    --gradient-primary-vertical: linear-gradient(180deg, hsl(200 100% 21%), hsl(196 100% 35%));
     --gradient-accent: linear-gradient(135deg, hsl(43 98% 54%), hsl(43 98% 64%));
-    --shadow-primary: 0 10px 40px -10px hsl(196 100% 21% / 0.4);
+    --gradient-accent-horizontal: linear-gradient(90deg, hsl(43 98% 50%), hsl(43 98% 58%));
+    --gradient-hero: linear-gradient(135deg, hsl(200 100% 18%) 0%, hsl(196 100% 30%) 50%, hsl(196 100% 43%) 100%);
+    --gradient-premium: linear-gradient(135deg, hsl(200 100% 15%) 0%, hsl(200 100% 25%) 100%);
+    --gradient-surface: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 30% 97%) 100%);
+    
+    /* Premium Shadows */
+    --shadow-primary: 0 10px 40px -10px hsl(200 100% 21% / 0.4);
+    --shadow-primary-lg: 0 20px 50px -15px hsl(200 100% 21% / 0.5);
     --shadow-accent: 0 0 30px hsl(43 98% 54% / 0.3);
+    --shadow-accent-glow: 0 0 50px hsl(43 98% 54% / 0.4);
+    --shadow-secondary: 0 10px 40px -10px hsl(196 100% 43% / 0.3);
+    --shadow-card: 0 4px 20px -4px hsl(200 100% 21% / 0.1);
+    --shadow-card-hover: 0 10px 40px -10px hsl(200 100% 21% / 0.2);
+    --shadow-elevated: 0 25px 50px -12px hsl(200 100% 21% / 0.25);
   }
 
   .dark {
@@ -61,12 +81,18 @@ All colors MUST be HSL.
 
     --primary: 196 100% 43%;
     --primary-foreground: 0 0% 100%;
+    --primary-light: 196 100% 55%;
+    --primary-dark: 196 100% 35%;
 
     --secondary: 196 100% 21%;
     --secondary-foreground: 0 0% 100%;
+    --secondary-light: 196 80% 35%;
+    --secondary-dark: 196 100% 15%;
 
     --accent: 43 98% 54%;
     --accent-foreground: 196 100% 15%;
+    --accent-light: 43 98% 65%;
+    --accent-dark: 43 98% 45%;
 
     --muted: 196 50% 15%;
     --muted-foreground: 215 20.2% 65.1%;
@@ -77,6 +103,12 @@ All colors MUST be HSL.
     --border: 196 50% 20%;
     --input: 196 50% 20%;
     --ring: 196 100% 43%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(196 100% 35%), hsl(196 100% 50%));
+    --gradient-premium: linear-gradient(135deg, hsl(196 80% 10%) 0%, hsl(196 80% 18%) 100%);
+    --gradient-surface: linear-gradient(180deg, hsl(196 80% 10%) 0%, hsl(196 80% 8%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(196 80% 14%) 0%, hsl(196 80% 10%) 100%);
   }
 }
 
@@ -87,5 +119,36 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Premium utility classes */
+@layer utilities {
+  .glass {
+    @apply backdrop-blur-md bg-white/80 border border-white/20;
+  }
+  
+  .glass-dark {
+    @apply backdrop-blur-md bg-primary/80 border border-white/10;
+  }
+  
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+  
+  .text-gradient-accent {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent-light;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover;
+  }
+  
+  .premium-border {
+    @apply border border-secondary/20 hover:border-secondary/40 transition-colors;
+  }
+  
+  .accent-glow {
+    @apply shadow-accent hover:shadow-accent-glow transition-shadow duration-300;
   }
 }
