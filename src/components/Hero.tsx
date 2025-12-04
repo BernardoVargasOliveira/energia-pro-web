@@ -16,8 +16,9 @@ const Hero = () => {
         backgroundRepeat: 'no-repeat'
       }}
     >
-      {/* Dark overlay with stronger gradient on the left for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent z-10" />
+      {/* Premium gradient overlay with better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/40 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent z-10" />
 
       <div className="container mx-auto px-4 py-20 relative z-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
@@ -28,26 +29,26 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Badge className="mb-6 bg-accent/20 text-accent border-accent/30 hover:bg-accent/30 text-sm px-4 py-2">
+              <Badge className="mb-6 bg-accent text-accent-foreground border-0 hover:bg-accent-light text-sm px-5 py-2.5 shadow-accent font-bold">
                 <Award className="w-4 h-4 mr-2" />
-                Energia Confiável 24/7
+                Energia Confiável
               </Badge>
             </motion.div>
 
             <motion.h1 
               className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
-              style={{ textShadow: '3px 5px 15px rgba(0,0,0,0.8)' }}
+              style={{ textShadow: '2px 4px 12px rgba(0,0,0,0.5)' }}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             >
               Soluções Completas em
-              <span className="block text-accent mt-2" style={{ textShadow: '3px 5px 15px rgba(0,0,0,0.7)' }}>Geradores de Energia</span>
+              <span className="block text-accent mt-2 drop-shadow-lg">Geradores de Energia</span>
             </motion.h1>
             
             <motion.p 
-              className="text-xl text-white mb-10 max-w-xl leading-relaxed"
-              style={{ textShadow: '2px 3px 10px rgba(0,0,0,0.8)' }}
+              className="text-xl text-white/95 mb-10 max-w-xl leading-relaxed"
+              style={{ textShadow: '1px 2px 8px rgba(0,0,0,0.5)' }}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
@@ -65,7 +66,7 @@ const Hero = () => {
               <Button 
                 asChild 
                 size="lg" 
-                className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold text-lg px-8 h-14 shadow-accent transition-all hover:scale-105"
+                className="bg-gradient-to-r from-accent to-accent-dark text-accent-foreground hover:shadow-accent-glow font-bold text-lg px-8 h-14 shadow-accent transition-all hover:scale-105 hover:-translate-y-1"
               >
                 <Link to="/contato">
                   Solicitar Orçamento
@@ -76,8 +77,7 @@ const Hero = () => {
               <Button 
                 asChild 
                 size="lg" 
-                variant="outline"
-                className="bg-white/10 border-2 border-white/30 text-white hover:bg-white hover:text-primary font-bold text-lg px-8 h-14 backdrop-blur-sm transition-all hover:scale-105"
+                className="bg-white/10 backdrop-blur-sm border-2 border-white/40 text-white hover:bg-white hover:text-primary font-bold text-lg px-8 h-14 transition-all hover:scale-105 hover:-translate-y-1"
               >
                 <a href="https://wa.me/553134953004" target="_blank" rel="noopener noreferrer">
                   <Phone className="mr-2 h-5 w-5" />
@@ -95,38 +95,38 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <div className="bg-gradient-to-br from-primary to-secondary backdrop-blur-sm border border-white/20 rounded-lg p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+          <div className="bg-gradient-to-br from-primary-light to-secondary backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:-translate-y-2 hover:shadow-elevated transition-all duration-300 group">
             <div className="flex items-center gap-4">
-              <div className="p-3 bg-accent/20 rounded-lg">
-                <Zap className="w-8 h-8 text-white" />
+              <div className="p-3 bg-accent/20 rounded-xl group-hover:bg-accent/30 transition-colors">
+                <Zap className="w-8 h-8 text-accent" />
               </div>
               <div>
                 <div className="text-4xl font-bold text-accent">30+</div>
-                <div className="text-white text-sm font-medium">Anos de Experiência</div>
+                <div className="text-white/90 text-sm font-medium">Anos de Experiência</div>
               </div>
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-accent to-accent/80 backdrop-blur-sm border border-white/20 rounded-lg p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+          <div className="bg-gradient-to-br from-accent to-accent-dark backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:-translate-y-2 hover:shadow-accent-glow transition-all duration-300 group">
             <div className="flex items-center gap-4">
-              <div className="p-3 bg-primary/20 rounded-lg">
+              <div className="p-3 bg-primary/20 rounded-xl group-hover:bg-primary/30 transition-colors">
                 <Users className="w-8 h-8 text-primary" />
               </div>
               <div>
                 <div className="text-4xl font-bold text-primary">500+</div>
-                <div className="text-primary text-sm font-medium">Projetos Atendidos</div>
+                <div className="text-primary/90 text-sm font-medium">Projetos Atendidos</div>
               </div>
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-secondary to-primary backdrop-blur-sm border border-white/20 rounded-lg p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+          <div className="bg-gradient-to-br from-secondary to-primary backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:-translate-y-2 hover:shadow-secondary transition-all duration-300 group">
             <div className="flex items-center gap-4">
-              <div className="p-3 bg-white/20 rounded-lg">
+              <div className="p-3 bg-white/20 rounded-xl group-hover:bg-white/30 transition-colors">
                 <HeadphonesIcon className="w-8 h-8 text-white" />
               </div>
               <div>
                 <div className="text-4xl font-bold text-white">Completo</div>
-                <div className="text-white text-sm font-medium">Suporte Técnico Especializado</div>
+                <div className="text-white/90 text-sm font-medium">Suporte Técnico Especializado</div>
               </div>
             </div>
           </div>
