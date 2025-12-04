@@ -108,9 +108,6 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-semibold mb-6">
-              Nossos Serviços
-            </span>
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6">
               {content['home_services_title'] || 'Nossos Serviços'}
             </h2>
@@ -173,9 +170,6 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-2 bg-accent/20 text-accent rounded-full text-sm font-semibold mb-6">
-              Experiência em Diversos Setores
-            </span>
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
               {content['home_sectors_title'] || 'Setores Atendidos'}
             </h2>
@@ -228,9 +222,6 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-2 bg-accent/10 text-accent-dark rounded-full text-sm font-semibold mb-6">
-              Fale Conosco
-            </span>
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8">
               <span className="text-foreground">Pronto para </span>
               <span className="text-gradient-primary">garantir energia</span>

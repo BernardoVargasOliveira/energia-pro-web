@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, Zap } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import generatorResidencial from "@/assets/gerador-residencial.png";
 import generatorIndustrial from "@/assets/gerador-industrial.png";
@@ -79,10 +79,6 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-6">
-            <Zap className="w-4 h-4" />
-            Linha Completa
-          </span>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
             <span className="text-foreground">Nossos </span>
             <span className="text-gradient-primary">Produtos</span>
