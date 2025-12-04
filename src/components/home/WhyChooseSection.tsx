@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, Award, Users, HeadphonesIcon, Sparkles } from "lucide-react";
+import { CheckCircle2, Award, Users, HeadphonesIcon } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 const WhyChooseSection = () => {
@@ -57,11 +57,6 @@ const WhyChooseSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 text-accent-dark rounded-full text-sm font-semibold mb-6">
-              <Sparkles className="w-4 h-4" />
-              Por que nos escolher
-            </div>
-            
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8">
               <span className="text-foreground">Por que escolher a </span>
               <span className="text-gradient-primary">PROJEMAC</span>
