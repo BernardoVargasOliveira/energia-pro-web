@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Award, Zap, Users, HeadphonesIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
-import heroImage from "@/assets/hero-industrial-generator.jpg";
+import heroImage from "@/assets/hero-generator-enclosed.jpg";
 
 const Hero = () => {
   return (
