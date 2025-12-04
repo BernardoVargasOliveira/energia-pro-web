@@ -16,8 +16,8 @@ const Hero = () => {
         backgroundRepeat: 'no-repeat'
       }}
     >
-      {/* Dark overlay - reduced opacity for better image visibility */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/35 via-primary/30 to-secondary/25 z-10" />
+      {/* Dark overlay with stronger gradient on the left for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent z-10" />
 
       <div className="container mx-auto px-4 py-20 relative z-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
