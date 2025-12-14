@@ -178,10 +178,11 @@ const Home = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {sectors.map((sector, index) => (
               <motion.div
                 key={sector.id}
+                className="w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[180px]"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
