@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Battery, Zap, Users, Award, MapPin, BatteryCharging, Wrench, HardHat, Headphones, Phone, Mail, Factory, Store, Hospital, CalendarDays, Building, Server } from "lucide-react";
+import { Battery, Zap, Users, Award, MapPin, BatteryCharging, Wrench, HardHat, Headphones, Phone, Mail, Factory, Store, CalendarDays, Building, Flame, BatteryWarning, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Hero from "@/components/Hero";
@@ -78,10 +78,11 @@ const Home = () => {
     const iconMap: Record<string, JSX.Element> = {
       "Indústria": <Factory className="h-10 w-10" />,
       "Comércio": <Store className="h-10 w-10" />,
-      "Hospitais": <Hospital className="h-10 w-10" />,
       "Eventos": <CalendarDays className="h-10 w-10" />,
       "Condomínios": <Building className="h-10 w-10" />,
-      "Data Centers": <Server className="h-10 w-10" />,
+      "Siderúrgicas": <Flame className="h-10 w-10" />,
+      "Parada de Energia": <BatteryWarning className="h-10 w-10" />,
+      "Outros": <Settings className="h-10 w-10" />,
     };
     
     return iconMap[sectorName] || <Factory className="h-10 w-10" />;
