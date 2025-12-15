@@ -36,23 +36,23 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4">
-        <nav className="flex items-center justify-between py-0">
+        <nav className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center flex-shrink-0">
             <img 
               src={logoImage} 
               alt="PROJEMAC Geradores de Energia" 
-              className="h-36 md:h-40 w-auto"
+              className="h-16 md:h-20 w-auto"
             />
           </Link>
 
           {/* Desktop menu */}
-          <ul className="hidden lg:flex items-center gap-6">
+          <ul className="hidden lg:flex items-center gap-8">
             {menuItems.map((item) => (
               <li key={item.label}>
                 <Link
                   to={item.href}
-                  className="text-white hover:text-accent transition-colors font-medium text-lg"
+                  className="text-white hover:text-accent transition-colors font-semibold text-base xl:text-lg"
                 >
                   {item.label}
                 </Link>
@@ -61,8 +61,8 @@ const Header = () => {
           </ul>
 
           {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Button asChild variant="default" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg px-6 py-3">
+          <div className="hidden lg:flex items-center">
+            <Button asChild variant="default" className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold text-base xl:text-lg px-6 py-2.5 rounded-full">
               <Link to="/contato">Solicitar Orçamento</Link>
             </Button>
           </div>
