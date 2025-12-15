@@ -36,7 +36,7 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4">
-        <nav className="flex items-center justify-between py-2 md:py-3">
+        <nav className="flex items-center justify-between py-1">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
@@ -52,7 +52,7 @@ const Header = () => {
               <li key={item.label}>
                 <Link
                   to={item.href}
-                  className="text-white hover:text-accent transition-colors font-medium"
+                  className="text-white hover:text-accent transition-colors font-medium text-lg"
                 >
                   {item.label}
                 </Link>
@@ -62,7 +62,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button asChild variant="default" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
+            <Button asChild variant="default" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg px-6 py-3">
               <Link to="/contato">Solicitar Orçamento</Link>
             </Button>
           </div>
