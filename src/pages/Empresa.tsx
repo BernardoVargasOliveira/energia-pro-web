@@ -29,22 +29,32 @@ const Empresa = () => {
             <h2 className="text-3xl font-bold text-foreground mb-6">Nossa História</h2>
             <div className="space-y-4 text-muted-foreground text-lg">
               <p>
-                A PROJEMAC é uma empresa especializada em soluções completas para geração de energia elétrica, 
-                atuando no mercado brasileiro com foco em excelência e comprometimento com nossos clientes.
+                A PROJEMAC é especializada em soluções completas para geração de energia elétrica, 
+                atuando no mercado brasileiro com foco em excelência, segurança e confiabilidade.
               </p>
               <p>
-                Com anos de experiência no setor, oferecemos serviços de locação e 
-                instalação de grupos geradores para diversos segmentos do mercado, sempre priorizando 
-                a qualidade e a confiabilidade de nossos equipamentos e serviços.
+                Atuamos com locação e instalação de grupos geradores para diversos segmentos, 
+                atendendo desde operações pontuais até projetos industriais de grande porte.
               </p>
               <p>
-                Nossa equipe é formada por profissionais altamente qualificados e treinados, prontos para 
-                atender às necessidades específicas de cada cliente, desde pequenas instalações até 
-                grandes projetos industriais.
+                Contamos com uma equipe técnica altamente qualificada, preparada para analisar cada 
+                cenário e entregar a solução correta, no local certo e no tempo certo.
               </p>
               <p>
-                Trabalhamos com as melhores marcas do mercado e mantemos um rigoroso controle de qualidade 
-                em todos os nossos processos, garantindo assim a satisfação total de nossos clientes.
+                Trabalhamos com as melhores marcas do mercado e seguimos rigorosos padrões de qualidade, 
+                assegurando desempenho, durabilidade e total satisfação dos nossos clientes.
+              </p>
+            </div>
+
+            <h3 className="text-2xl font-bold text-foreground mt-10 mb-4">Nosso Compromisso</h3>
+            <div className="space-y-4 text-muted-foreground text-lg">
+              <p>
+                Na Projemac, respeitamos a escolha do cliente ao nos confiar sua operação energética. 
+                Nosso dever é apresentar todas as opções técnicas disponíveis, garantindo uma locação 
+                assertiva, segura e adequada a cada necessidade.
+              </p>
+              <p>
+                Esse compromisso orienta cada projeto, atendimento e decisão da nossa equipe.
               </p>
             </div>
           </motion.div>
