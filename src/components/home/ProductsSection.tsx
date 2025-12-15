@@ -106,7 +106,7 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
                     className="w-full h-full object-contain p-6 group-hover:scale-110 transition-transform duration-500 relative z-0"
                   />
                   {product.power_range && (
-                    <div className="absolute top-4 right-4 bg-gradient-to-r from-accent to-accent-dark text-accent-foreground px-4 py-1.5 rounded-full text-sm font-bold shadow-accent z-20">
+                    <div className="absolute top-4 right-4 bg-accent text-accent-foreground px-4 py-1.5 rounded-full text-sm font-bold shadow-accent z-20">
                       {product.power_range}
                     </div>
                   )}
