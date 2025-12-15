@@ -66,7 +66,7 @@ const Hero = () => {
               <Button 
                 asChild 
                 size="lg" 
-                className="bg-gradient-to-r from-accent to-accent-dark text-accent-foreground hover:shadow-accent-glow font-bold text-lg px-8 h-14 shadow-accent transition-all hover:scale-105 hover:-translate-y-1"
+                className="bg-accent text-accent-foreground hover:bg-accent-light hover:shadow-accent-glow font-bold text-lg px-8 h-14 shadow-accent transition-all hover:scale-105 hover:-translate-y-1"
               >
                 <Link to="/contato">
                   Solicitar Orçamento

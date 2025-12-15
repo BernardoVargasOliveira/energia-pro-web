@@ -191,7 +191,7 @@ const Home = () => {
               >
                 <Card className="bg-white/10 backdrop-blur-sm border border-white/20 cursor-pointer h-full group hover:bg-white hover:border-accent shadow-lg hover:shadow-elevated hover:-translate-y-2 transition-all duration-300 rounded-2xl">
                   <CardContent className="p-8 text-center flex flex-col items-center justify-center min-h-[180px]">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-accent-dark flex items-center justify-center mb-4 text-primary group-hover:scale-110 group-hover:shadow-accent transition-all duration-300">
+                    <div className="w-16 h-16 rounded-2xl bg-accent flex items-center justify-center mb-4 text-primary group-hover:scale-110 group-hover:shadow-accent transition-all duration-300">
                       {getSectorIconComponent(sector.name)}
                     </div>
                     <h3 className="font-bold text-sm text-white group-hover:text-primary transition-colors">{sector.name}</h3>
@@ -277,7 +277,7 @@ const Home = () => {
             {/* Localização Card */}
             <div className="bg-gradient-card border-0 shadow-card rounded-2xl p-8 hover:shadow-card-hover hover:-translate-y-2 transition-all duration-300 group">
               <div className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-accent to-accent-dark rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <MapPin className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2">Localização</h3>
@@ -297,7 +297,7 @@ const Home = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-gradient-to-r from-accent to-accent-dark text-accent-foreground hover:shadow-accent-glow font-bold text-lg px-10 h-16 shadow-accent hover:-translate-y-1 transition-all duration-300">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent-light hover:shadow-accent-glow font-bold text-lg px-10 h-16 shadow-accent hover:-translate-y-1 transition-all duration-300">
                 <Link to="/contato">Solicitar Orçamento Agora</Link>
               </Button>
               <a 
