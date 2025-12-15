@@ -131,56 +131,8 @@ const Empresa = () => {
         </div>
       </section>
 
-      {/* Numbers Section */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <motion.h2 
-            className="text-3xl font-bold text-center text-foreground mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            PROJEMAC em Números
-          </motion.h2>
-          
-          <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto mt-10">
-            <motion.div 
-              className="bg-white rounded-2xl border border-primary/10 shadow-md px-8 py-8 flex flex-col items-center text-center transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-primary/40 hover:bg-primary/5"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
-            >
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">30+</div>
-              <p className="text-sm md:text-base text-slate-600">Anos de Experiência</p>
-            </motion.div>
-            <motion.div 
-              className="bg-white rounded-2xl border border-primary/10 shadow-md px-8 py-8 flex flex-col items-center text-center transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-primary/40 hover:bg-primary/5"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-            >
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">500+</div>
-              <p className="text-sm md:text-base text-slate-600">Clientes Atendidos</p>
-            </motion.div>
-            <motion.div 
-              className="bg-white rounded-2xl border border-primary/10 shadow-md px-8 py-8 flex flex-col items-center text-center transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-primary/40 hover:bg-primary/5"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
-            >
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">1000+</div>
-              <p className="text-sm md:text-base text-slate-600">Projetos Executados</p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* Team Section */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <motion.div 
             className="max-w-4xl mx-auto text-center"
