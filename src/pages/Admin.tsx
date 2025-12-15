@@ -90,7 +90,8 @@ const Admin = () => {
 
       setLeads(data || []);
     } catch (error) {
-      console.error("Error loading leads:", error);
+      // Log only error identifier, not full error object
+      console.error("Error ID: ERR_LOAD_LEADS");
       toast({
         title: "Erro ao carregar leads",
         description: "Por favor, tente novamente.",
