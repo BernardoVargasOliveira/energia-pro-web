@@ -36,7 +36,7 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4">
-        <nav className="flex items-center justify-between py-4">
+        <nav className="flex items-center justify-between py-2 md:py-3">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
