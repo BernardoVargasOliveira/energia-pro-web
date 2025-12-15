@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
+import logoImage from "@/assets/logo-projemac-new.png";
 
 const Footer = () => {
   return (
@@ -8,7 +9,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company info */}
           <div>
-            <h3 className="text-2xl font-bold text-accent mb-4">PROJEMAC</h3>
+            <img 
+              src={logoImage} 
+              alt="PROJEMAC Geradores de Energia" 
+              className="h-12 w-auto mb-4 brightness-0 invert"
+            />
             <p className="text-sm mb-4">
               Soluções completas em energia com grupos geradores. Locação e projetos.
             </p>
