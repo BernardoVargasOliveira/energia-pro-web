@@ -36,13 +36,13 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4">
-        <nav className="flex items-center justify-between h-24 md:h-28">
+        <nav className="flex items-center justify-between h-28 md:h-32">
           {/* Logo */}
           <Link to="/" className="flex items-center flex-shrink-0">
             <img 
               src={logoImage} 
               alt="PROJEMAC Geradores de Energia" 
-              className="h-20 md:h-24 w-auto"
+              className="h-24 md:h-28 w-auto"
             />
           </Link>
 
