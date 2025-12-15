@@ -42,7 +42,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             >
-              Soluções Completas em
+              Soluções Completas em Locação de
               <span className="block text-accent mt-2 drop-shadow-lg">Geradores de Energia</span>
             </motion.h1>
             
