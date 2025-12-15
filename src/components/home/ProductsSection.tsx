@@ -113,7 +113,7 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
                 </div>
                 
                 <CardContent className="p-6 flex-1 flex flex-col relative">
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent" />
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-accent" />
                   
                   <h3 className="text-2xl font-bold text-primary mb-4 group-hover:text-secondary transition-colors">
                     {product.category}
