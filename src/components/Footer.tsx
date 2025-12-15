@@ -12,7 +12,7 @@ const Footer = () => {
             <img 
               src={logoImage} 
               alt="PROJEMAC Geradores de Energia" 
-              className="h-12 w-auto mb-4 brightness-0 invert"
+              className="h-16 w-auto mb-4"
             />
             <p className="text-sm mb-4">
               Soluções completas em energia com grupos geradores. Locação e projetos.
