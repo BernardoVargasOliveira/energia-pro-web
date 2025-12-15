@@ -135,12 +135,26 @@ serve(async (req) => {
       );
     }
 
-    // Validação de tamanhos
-    if (nome.length > 100 || email.length > 255 || telefone.length > 20) {
+    // Validação de tamanhos (alinhada com validação client-side)
+    if (nome.length > 100 || email.length > 255 || telefone.length > 20 || telefone.length < 10) {
       return new Response(
         JSON.stringify({ 
-          error: 'Field too long',
-          message: 'Um ou mais campos excedem o tamanho permitido.'
+          error: 'Field validation error',
+          message: 'Um ou mais campos têm tamanho inválido.'
+        }),
+        { 
+          status: 400, 
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        }
+      );
+    }
+
+    // Validação de mensagem (max 1000 caracteres, alinhada com client-side)
+    if (mensagem && mensagem.length > 1000) {
+      return new Response(
+        JSON.stringify({ 
+          error: 'Message too long',
+          message: 'A mensagem não pode ter mais de 1000 caracteres.'
         }),
         { 
           status: 400, 

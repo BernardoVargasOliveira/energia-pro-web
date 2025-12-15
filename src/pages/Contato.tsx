@@ -98,7 +98,8 @@ const Contato = () => {
       formLoadTimeRef.current = Date.now(); // reseta o timestamp
       
     } catch (error) {
-      console.error("Error submitting form:", error);
+      // Log only error identifier, not full error object
+      console.error("Error ID: ERR_CONTACT_FORM");
       const errorMessage = error instanceof Error ? error.message : "Por favor, tente novamente ou entre em contato por telefone.";
       
       toast({

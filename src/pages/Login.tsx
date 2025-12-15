@@ -82,7 +82,8 @@ const Login = () => {
         description: "Redirecionando para o painel administrativo...",
       });
     } catch (error) {
-      console.error("Login error:", error);
+      // Log only error identifier, not full error object
+      console.error("Error ID: ERR_LOGIN");
       toast({
         title: "Erro inesperado",
         description: "Ocorreu um erro ao fazer login. Tente novamente.",
@@ -105,10 +106,10 @@ const Login = () => {
       return;
     }
 
-    if (password.length < 6) {
+    if (password.length < 12) {
       toast({
         title: "Erro",
-        description: "A senha deve ter pelo menos 6 caracteres",
+        description: "A senha deve ter pelo menos 12 caracteres",
         variant: "destructive",
       });
       return;
@@ -217,16 +218,16 @@ const Login = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="password-signup">Senha</Label>
+                  <Label htmlFor="password-signup">Senha (mínimo 12 caracteres)</Label>
                   <Input
                     id="password-signup"
                     type="password"
-                    placeholder="••••••••"
+                    placeholder="••••••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     disabled={isLoading}
                     required
-                    minLength={6}
+                    minLength={12}
                   />
                 </div>
                 <div className="space-y-2">
@@ -234,12 +235,12 @@ const Login = () => {
                   <Input
                     id="confirm-password"
                     type="password"
-                    placeholder="••••••••"
+                    placeholder="••••••••••••"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     disabled={isLoading}
                     required
-                    minLength={6}
+                    minLength={12}
                   />
                 </div>
                 <Button type="submit" className="w-full" disabled={isLoading}>
