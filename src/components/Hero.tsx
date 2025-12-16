@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone, Award, Zap, Users, HeadphonesIcon } from "lucide-react";
+import { ArrowRight, Phone, Award, Zap, Shield, HeadphonesIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import heroImage from "@/assets/hero-generator-enclosed.jpg";
@@ -110,11 +110,11 @@ const Hero = () => {
           <div className="bg-gradient-to-br from-accent to-accent-dark backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:-translate-y-2 hover:shadow-accent-glow transition-all duration-300 group">
             <div className="flex items-center gap-4">
               <div className="p-3 bg-primary/20 rounded-xl group-hover:bg-primary/30 transition-colors">
-                <Users className="w-8 h-8 text-primary" />
+                <Shield className="w-8 h-8 text-primary" />
               </div>
               <div>
-                <div className="text-4xl font-bold text-primary">500+</div>
-                <div className="text-primary/90 text-sm font-medium">Projetos Atendidos</div>
+                <div className="text-4xl font-bold text-primary">Alta</div>
+                <div className="text-primary/90 text-sm font-medium">Qualidade em Equipamentos</div>
               </div>
             </div>
           </div>
