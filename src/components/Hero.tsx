@@ -113,8 +113,8 @@ const Hero = () => {
                 <Shield className="w-8 h-8 text-primary" />
               </div>
               <div>
-                <div className="text-4xl font-bold text-primary">Alta</div>
-                <div className="text-primary/90 text-sm font-medium">Qualidade em Equipamentos</div>
+                <div className="text-3xl font-bold text-primary">Qualidade</div>
+                <div className="text-primary/90 text-sm font-medium">Alta Qualidade em Equipamentos</div>
               </div>
             </div>
           </div>
@@ -125,8 +125,8 @@ const Hero = () => {
                 <HeadphonesIcon className="w-8 h-8 text-white" />
               </div>
               <div>
-                <div className="text-4xl font-bold text-white">Completo</div>
-                <div className="text-white/90 text-sm font-medium">Suporte Técnico Especializado</div>
+                <div className="text-2xl font-bold text-white">Suporte Técnico</div>
+                <div className="text-white/90 text-sm font-medium">Suporte Técnico Especializado Completo</div>
               </div>
             </div>
           </div>
