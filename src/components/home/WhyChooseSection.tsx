@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Award, Users, HeadphonesIcon } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import galpaoGeradoresNovo from "@/assets/galpao-geradores-novo.jpg";
 
 const WhyChooseSection = () => {
   const differentials = [
@@ -121,6 +122,27 @@ const WhyChooseSection = () => {
             ))}
           </motion.div>
         </div>
+
+        {/* Warehouse Image */}
+        <motion.div 
+          className="mt-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <div className="relative rounded-2xl overflow-hidden shadow-elevated">
+            <img 
+              src={galpaoGeradoresNovo} 
+              alt="Galpão da PROJEMAC com geradores e caminhões" 
+              className="w-full h-[350px] object-cover"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/95 to-transparent p-6">
+              <h3 className="text-primary-foreground font-bold text-xl mb-1">Nosso Galpão de Geradores</h3>
+              <p className="text-primary-foreground/90 text-sm">Equipamentos prontos para atender sua demanda energética</p>
+            </div>
+          </div>
+        </motion.div>
         </div>
       </div>
     </section>

@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import geradoresTransporte from "@/assets/geradores-transporte.jpg";
+import frotaVeiculos from "@/assets/frota-veiculos.jpg";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
 import {
@@ -243,6 +244,31 @@ const Servicos = () => {
                   </AccordionItem>
                 </div>
               </Accordion>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Fleet Section */}
+      <section className="py-12 bg-muted">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <div className="relative rounded-lg overflow-hidden shadow-primary">
+              <img 
+                src={frotaVeiculos} 
+                alt="Frota de veículos da PROJEMAC para suporte técnico" 
+                className="w-full h-[400px] object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-secondary/95 to-transparent p-6">
+                <h3 className="text-white font-bold text-2xl mb-2">Frota Especializada</h3>
+                <p className="text-white/90">Veículos equipados para atendimento técnico rápido e eficiente</p>
+              </div>
             </div>
           </motion.div>
         </div>

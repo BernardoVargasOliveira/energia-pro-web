@@ -3,6 +3,7 @@ import { Award, Target, Eye, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
+import empresaSede from "@/assets/empresa-sede.jpg";
 
 const Empresa = () => {
   useEffect(() => {
@@ -56,6 +57,18 @@ const Empresa = () => {
               <p>
                 Esse compromisso orienta cada projeto, atendimento e decisão da nossa equipe.
               </p>
+            </div>
+
+            {/* Company Image */}
+            <div className="mt-12 rounded-2xl overflow-hidden shadow-elevated">
+              <img 
+                src={empresaSede} 
+                alt="Sede da Projemac com frota de veículos" 
+                className="w-full h-[400px] object-cover"
+              />
+              <div className="bg-primary p-4">
+                <p className="text-primary-foreground font-semibold text-center">Nossa Sede e Frota de Atendimento</p>
+              </div>
             </div>
           </motion.div>
         </div>
