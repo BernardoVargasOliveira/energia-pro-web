@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import geradorPortatil from "@/assets/gerador-portatil.png";
 import geradorMediaPotencia from "@/assets/gerador-media-potencia.png";
 import geradoresParalelo from "@/assets/geradores-paralelo.png";
-import torreIluminacao from "@/assets/torre-iluminacao.png";
+import torreIluminacao from "@/assets/torre-iluminacao-nobg.png";
 
 interface Product {
   id: string;
