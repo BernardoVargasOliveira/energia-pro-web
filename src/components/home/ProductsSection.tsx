@@ -88,12 +88,12 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Card className="group overflow-hidden border-0 shadow-card h-full flex flex-col hover:shadow-elevated hover:-translate-y-3 transition-all duration-300 rounded-2xl bg-gradient-card">
-                <div className="relative h-52 overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
-                  <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-transparent z-10" />
+                <div className="relative h-52 overflow-hidden bg-muted/30">
+                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-all duration-300 z-10" />
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-500 relative z-0"
+                    className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300 ease-in-out"
                   />
                   {product.powerRange && (
                     <div className="absolute top-3 right-3 bg-accent text-accent-foreground px-3 py-1 rounded-full text-xs font-bold shadow-accent z-20">
