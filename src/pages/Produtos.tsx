@@ -16,56 +16,60 @@ const Produtos = () => {
   
   const products = [
     {
-      category: "Geradores até 100 kVA",
-      power: "20 kVA a 100 kVA",
-      applications: ["Residências", "Pequenos comércios", "Consultórios", "Eventos pequenos"],
+      category: "Geradores Portáteis",
+      power: "6 a 12 kVA",
+      description: "Soluções compactas e práticas para aplicações leves e uso temporário.",
+      applications: ["Residências", "Pequenos comércios", "Obras leves", "Eventos de pequeno porte", "Uso emergencial"],
       features: [
-        "Compactos e silenciosos",
-        "Fácil transporte",
-        "Baixo consumo",
-        "Operação automatizada",
-        "Partida elétrica"
+        "Compactos e fáceis de transportar",
+        "Baixo consumo de combustível",
+        "Operação simples e prática",
+        "Ideal para uso temporário",
+        "Partida manual ou elétrica"
       ],
-      badge: "Ideal para pequeno porte",
+      badge: "Baixa potência",
       icon: Zap
     },
     {
-      category: "Geradores de 100 a 300 kVA",
-      power: "100 kVA a 300 kVA",
-      applications: ["Indústrias de médio porte", "Supermercados", "Condomínios", "Hotéis"],
+      category: "Geradores de Porte Médio",
+      power: "50 a 180 kVA",
+      description: "Equipamentos robustos para operações comerciais e industriais de médio porte.",
+      applications: ["Indústrias de médio porte", "Condomínios residenciais e comerciais", "Supermercados", "Hospitais de pequeno e médio porte", "Obras e canteiros industriais"],
       features: [
-        "Alta confiabilidade",
+        "Alta confiabilidade operacional",
         "Sistema de refrigeração eficiente",
         "Painel de controle digital",
         "Baixa emissão de ruído",
-        "Autonomia estendida"
+        "Operação contínua ou standby"
       ],
       badge: "Médio porte",
       icon: Gauge
     },
     {
-      category: "Geradores de 300 a 500 kVA",
-      power: "300 kVA a 500 kVA",
-      applications: ["Grandes indústrias", "Hospitais", "Shopping centers", "Data centers"],
+      category: "Geradores de Grande Porte",
+      power: "220 a 500 kVA",
+      description: "Soluções de alta performance para aplicações críticas e grandes operações.",
+      applications: ["Grandes indústrias", "Hospitais de grande porte", "Shopping centers", "Centros logísticos", "Data centers"],
       features: [
-        "Alta performance",
-        "Paralelismo disponível",
-        "Monitoramento remoto",
-        "Baixo consumo de combustível",
-        "Manutenção facilitada"
+        "Alto desempenho e robustez",
+        "Preparados para operação contínua",
+        "Possibilidade de paralelismo",
+        "Monitoramento e controle avançado",
+        "Baixo consumo específico de combustível"
       ],
       badge: "Grande porte",
       icon: Sun
     },
     {
-      category: "Geradores acima de 500 kVA",
-      power: "500 kVA a 2500+ kVA",
-      applications: ["Grandes complexos industriais", "Mineração", "Usinas", "Megaprojetos"],
+      category: "Usinas de Energia",
+      power: "Acima de 500 kVA",
+      description: "Sistemas de alta capacidade com geradores operando em paralelo.",
+      applications: ["Usinas industriais", "Mineração", "Grandes obras de infraestrutura", "Complexos industriais", "Operações críticas de grande escala"],
       features: [
-        "Potência sob demanda",
-        "Operação contínua",
-        "Sistemas redundantes",
-        "Controle supervisório",
+        "Geradores ligados em paralelo",
+        "Alta disponibilidade e redundância",
+        "Controle e supervisão automatizados",
+        "Operação contínua 24/7",
         "Máxima eficiência energética"
       ],
       badge: "Alta potência",
@@ -75,13 +79,14 @@ const Produtos = () => {
 
   const torresIluminacao = {
     category: "Torres de Iluminação",
-    description: "Torres de iluminação móveis, eficientes e autônomas, ideais para iluminar grandes áreas com segurança, economia e rapidez na instalação.",
-    applications: ["Obras noturnas", "Mineração", "Eventos", "Estacionamentos", "Operações emergenciais"],
+    description: "Iluminação eficiente e autônoma para operações noturnas.",
+    applications: ["Obras", "Eventos", "Mineração", "Pátios logísticos", "Operações noturnas"],
     features: [
-      "Iluminação LED de alta eficiência",
-      "Baixo consumo de combustível",
+      "Alta potência luminosa",
+      "Baixo consumo",
+      "Fácil transporte",
       "Operação autônoma",
-      "Fácil transporte e mobilidade"
+      "Ideal para áreas externas"
     ],
     icon: Lightbulb
   };
@@ -90,8 +95,8 @@ const Produtos = () => {
   return (
     <div className="min-h-screen">
       <PageHero 
-        title="Produtos"
-        subtitle="Grupos geradores de energia de 20 kVA a 2500+ kVA"
+        title="Soluções Completas em Geração de Energia e Iluminação"
+        subtitle="Oferecemos soluções profissionais em geração de energia e iluminação, atendendo desde aplicações portáteis até usinas de grande porte, com equipamentos modernos, confiáveis e de alto desempenho."
       />
 
       {/* Showcase Images */}
@@ -133,10 +138,10 @@ const Produtos = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <h2 className="text-3xl font-bold text-foreground mb-4">
-              Encontre a Solução Ideal em Energia e Iluminação para Sua Necessidade
+              Encontre a Solução Ideal para Sua Necessidade
             </h2>
             <p className="text-muted-foreground max-w-3xl mx-auto">
-              Trabalhamos com as melhores marcas do mercado e oferecemos soluções completas em geração de energia e iluminação para todos os portes de empresas.
+              Trabalhamos com as melhores marcas do mercado e oferecemos soluções completas para todos os portes de empresas.
             </p>
           </motion.div>
 
