@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import generatorResidencial from "@/assets/gerador-residencial.png";
-import generatorIndustrial from "@/assets/gerador-industrial.png";
+import geradorMediaPotencia from "@/assets/gerador-media-potencia.png";
 import geradoresParalelo from "@/assets/geradores-paralelo.png";
 import torreIluminacao from "@/assets/torre-iluminacao.png";
 
@@ -36,7 +36,7 @@ const homeProducts = [
     title: "Média Potência",
     powerRange: "100 kVA até 450 kVA",
     description: "Ideal para indústrias de médio porte, hospitais e condomínios.",
-    image: generatorIndustrial,
+    image: geradorMediaPotencia,
   },
   {
     id: "alta-potencia",
