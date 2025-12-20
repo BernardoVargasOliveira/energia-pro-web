@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import generatorResidencial from "@/assets/gerador-residencial.png";
+import geradorPortatil from "@/assets/gerador-portatil.png";
 import geradorMediaPotencia from "@/assets/gerador-media-potencia.png";
 import geradoresParalelo from "@/assets/geradores-paralelo.png";
 import torreIluminacao from "@/assets/torre-iluminacao.png";
@@ -29,7 +29,7 @@ const homeProducts = [
     title: "Geradores Portáteis",
     powerRange: "6 a 12 kVA",
     description: "Soluções compactas para residências, comércios e pequenas empresas.",
-    image: generatorResidencial,
+    image: geradorPortatil,
   },
   {
     id: "media-potencia",
