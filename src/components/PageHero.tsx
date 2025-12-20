@@ -7,10 +7,10 @@ interface PageHeroProps {
 
 export function PageHero({ title, subtitle }: PageHeroProps) {
   return (
-    <section className="w-full bg-gradient-primary text-white pt-40 md:pt-44 pb-12 md:pb-16">
+    <section className="w-full bg-gradient-primary text-white pt-48 md:pt-56 pb-16 md:pb-20">
       <div className="max-w-6xl mx-auto px-4 text-center">
         <motion.h1 
-          className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6"
+          className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-8"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -19,7 +19,7 @@ export function PageHero({ title, subtitle }: PageHeroProps) {
         </motion.h1>
         {subtitle && (
           <motion.p 
-            className="text-base md:text-lg text-white/85 max-w-3xl mx-auto"
+            className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
