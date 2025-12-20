@@ -83,7 +83,6 @@ const Produtos = () => {
       "Operação autônoma",
       "Fácil transporte e mobilidade"
     ],
-    badge: "Novo",
     icon: Lightbulb
   };
 
@@ -221,9 +220,6 @@ const Produtos = () => {
                       </CardDescription>
                     </div>
                   </div>
-                  <Badge className="bg-accent text-accent-foreground text-sm px-3 py-1">
-                    {torresIluminacao.badge}
-                  </Badge>
                 </div>
               </CardHeader>
               <CardContent>
