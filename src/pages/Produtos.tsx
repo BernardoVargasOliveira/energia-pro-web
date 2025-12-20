@@ -7,6 +7,7 @@ import gerador500kva from "@/assets/gerador-500kva.jpg";
 import geradoresTransporte from "@/assets/geradores-transporte.jpg";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
+import { Zap, Lightbulb, Gauge, Sun, CheckCircle2 } from "lucide-react";
 
 const Produtos = () => {
   useEffect(() => {
@@ -25,7 +26,8 @@ const Produtos = () => {
         "Operação automatizada",
         "Partida elétrica"
       ],
-      badge: "Ideal para pequeno porte"
+      badge: "Ideal para pequeno porte",
+      icon: Zap
     },
     {
       category: "Geradores de 100 a 300 kVA",
@@ -38,7 +40,8 @@ const Produtos = () => {
         "Baixa emissão de ruído",
         "Autonomia estendida"
       ],
-      badge: "Médio porte"
+      badge: "Médio porte",
+      icon: Gauge
     },
     {
       category: "Geradores de 300 a 500 kVA",
@@ -51,7 +54,8 @@ const Produtos = () => {
         "Baixo consumo de combustível",
         "Manutenção facilitada"
       ],
-      badge: "Grande porte"
+      badge: "Grande porte",
+      icon: Sun
     },
     {
       category: "Geradores acima de 500 kVA",
@@ -64,9 +68,24 @@ const Produtos = () => {
         "Controle supervisório",
         "Máxima eficiência energética"
       ],
-      badge: "Alta potência"
+      badge: "Alta potência",
+      icon: Sun
     },
   ];
+
+  const torresIluminacao = {
+    category: "Torres de Iluminação",
+    description: "Torres de iluminação móveis, eficientes e autônomas, ideais para iluminar grandes áreas com segurança, economia e rapidez na instalação.",
+    applications: ["Obras noturnas", "Mineração", "Eventos", "Estacionamentos", "Operações emergenciais"],
+    features: [
+      "Iluminação LED de alta eficiência",
+      "Baixo consumo de combustível",
+      "Operação autônoma",
+      "Fácil transporte e mobilidade"
+    ],
+    badge: "Novo",
+    icon: Lightbulb
+  };
 
 
   return (
@@ -115,62 +134,139 @@ const Produtos = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <h2 className="text-3xl font-bold text-foreground mb-4">
-              Encontre o Gerador Ideal para Sua Necessidade
+              Encontre a Solução Ideal em Energia e Iluminação para Sua Necessidade
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Trabalhamos com as melhores marcas do mercado e oferecemos soluções para todos os portes de empresas
+            <p className="text-muted-foreground max-w-3xl mx-auto">
+              Trabalhamos com as melhores marcas do mercado e oferecemos soluções completas em geração de energia e iluminação para todos os portes de empresas.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            {products.map((product, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
-              >
-                <Card className="border-2 hover:border-secondary h-full">
-                <CardHeader>
-                  <div className="flex items-start justify-between mb-2">
-                    <CardTitle className="text-2xl">{product.category}</CardTitle>
-                    <Badge variant="secondary" className="bg-accent text-accent-foreground">
-                      {product.badge}
-                    </Badge>
+            {products.map((product, index) => {
+              const IconComponent = product.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
+                >
+                  <Card className="border-2 hover:border-secondary h-full transition-all duration-300 hover:shadow-lg">
+                  <CardHeader>
+                    <div className="flex items-start justify-between mb-2">
+                      <div className="flex items-center gap-3">
+                        <div className="bg-primary/10 p-2 rounded-lg">
+                          <IconComponent className="w-6 h-6 text-primary" />
+                        </div>
+                        <CardTitle className="text-2xl">{product.category}</CardTitle>
+                      </div>
+                      <Badge variant="secondary" className="bg-accent text-accent-foreground">
+                        {product.badge}
+                      </Badge>
+                    </div>
+                    <CardDescription className="text-lg font-semibold text-secondary">
+                      Faixa de potência: {product.power}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div>
+                      <h4 className="font-semibold mb-2 text-foreground">Aplicações típicas:</h4>
+                      <ul className="space-y-1">
+                        {product.applications.map((app, idx) => (
+                          <li key={idx} className="flex items-center gap-2 text-muted-foreground">
+                            <span className="text-secondary">•</span>
+                            {app}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2 text-foreground">Características principais:</h4>
+                      <ul className="space-y-1">
+                        {product.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-start gap-2 text-muted-foreground">
+                            <CheckCircle2 className="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </CardContent>
+                </Card>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Torres de Iluminação Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mb-16"
+          >
+            <Card className="border-2 border-accent hover:border-secondary transition-all duration-300 hover:shadow-lg bg-gradient-to-br from-accent/5 to-transparent">
+              <CardHeader>
+                <div className="flex items-start justify-between mb-2">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-accent/20 p-3 rounded-lg">
+                      <Lightbulb className="w-8 h-8 text-accent" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-3xl text-primary">{torresIluminacao.category}</CardTitle>
+                      <CardDescription className="text-base mt-2">
+                        {torresIluminacao.description}
+                      </CardDescription>
+                    </div>
                   </div>
-                  <CardDescription className="text-lg font-semibold text-secondary">
-                    Faixa de potência: {product.power}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
+                  <Badge className="bg-accent text-accent-foreground text-sm px-3 py-1">
+                    {torresIluminacao.badge}
+                  </Badge>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
-                    <h4 className="font-semibold mb-2 text-foreground">Aplicações típicas:</h4>
-                    <ul className="space-y-1">
-                      {product.applications.map((app, idx) => (
+                    <h4 className="font-semibold mb-3 text-foreground flex items-center gap-2">
+                      <Zap className="w-5 h-5 text-secondary" />
+                      Aplicações:
+                    </h4>
+                    <ul className="space-y-2">
+                      {torresIluminacao.applications.map((app, idx) => (
                         <li key={idx} className="flex items-center gap-2 text-muted-foreground">
-                          <span className="text-secondary">•</span>
+                          <span className="w-2 h-2 bg-accent rounded-full" />
                           {app}
                         </li>
                       ))}
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-2 text-foreground">Características principais:</h4>
-                    <ul className="space-y-1">
-                      {product.features.map((feature, idx) => (
+                    <h4 className="font-semibold mb-3 text-foreground flex items-center gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-secondary" />
+                      Características principais:
+                    </h4>
+                    <ul className="space-y-2">
+                      {torresIluminacao.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-muted-foreground">
-                          <span className="text-secondary mt-1">✓</span>
+                          <CheckCircle2 className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
                           <span>{feature}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                </CardContent>
-              </Card>
-              </motion.div>
-            ))}
-          </div>
+                </div>
+                <div className="mt-6 pt-6 border-t">
+                  <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                    <Link to="/contato">
+                      Solicitar Orçamento
+                    </Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
 
         </div>
       </section>
@@ -259,7 +355,7 @@ const Produtos = () => {
       <section className="py-16 bg-gradient-primary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-primary-foreground mb-6">
-            Não Sabe Qual Gerador Escolher?
+            Não Sabe Qual Solução Escolher?
           </h2>
           <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
             Nossa equipe técnica pode ajudar você a dimensionar o equipamento ideal para sua necessidade

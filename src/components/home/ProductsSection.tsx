@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Lightbulb, Zap, Gauge, Sun } from "lucide-react";
 import { Link } from "react-router-dom";
 import generatorResidencial from "@/assets/gerador-residencial.png";
 import generatorIndustrial from "@/assets/gerador-industrial.png";
 import generatorAltaPotencia from "@/assets/gerador-alta-potencia.png";
+import torreIluminacao from "@/assets/torre-iluminacao.png";
 
 interface Product {
   id: string;
@@ -21,50 +22,43 @@ interface ProductsSectionProps {
   products: Product[];
 }
 
+// Cards fixos para exibição na home
+const homeProducts = [
+  {
+    id: "baixa-potencia",
+    title: "Baixa Potência",
+    powerRange: "6,5 kVA até 100 kVA",
+    description: "Soluções compactas para residências, comércios e pequenas empresas.",
+    image: generatorResidencial,
+    icon: Zap,
+  },
+  {
+    id: "media-potencia",
+    title: "Média Potência",
+    powerRange: "100 kVA até 300 kVA",
+    description: "Ideal para indústrias de médio porte, hospitais e condomínios.",
+    image: generatorIndustrial,
+    icon: Gauge,
+  },
+  {
+    id: "alta-potencia",
+    title: "Alta Potência",
+    powerRange: "300 kVA até 2500+ kVA",
+    description: "Sistemas robustos para grandes instalações e data centers.",
+    image: generatorAltaPotencia,
+    icon: Sun,
+  },
+  {
+    id: "torres-iluminacao",
+    title: "Torres de Iluminação",
+    powerRange: null,
+    description: "Iluminação eficiente e autônoma para obras, eventos e operações noturnas.",
+    image: torreIluminacao,
+    icon: Lightbulb,
+  },
+];
+
 const ProductsSection = ({ products }: ProductsSectionProps) => {
-  // Map para imagens padrão baseadas na categoria
-  const defaultImages: Record<string, string> = {
-    "até 100": generatorResidencial,
-    "100 a 300": generatorIndustrial,
-    "300 a 500": generatorAltaPotencia,
-    "acima de 500": generatorAltaPotencia,
-  };
-
-  const getProductImage = (product: Product, index: number) => {
-    if (product.image_url) return product.image_url;
-    
-    // Detecta a categoria pelas keywords
-    const category = product.category.toLowerCase();
-    
-    // Residencial/Comercial (até 100 kVA)
-    if (category.includes("residencial") || category.includes("comercial") || 
-        category.includes("até 100") || category.includes("ate 100") ||
-        category.includes("6") || category.includes("20")) {
-      return generatorResidencial;
-    }
-    
-    // Industrial (100 a 500 kVA)
-    if (category.includes("industrial") || 
-        (category.includes("100") && category.includes("500")) ||
-        category.includes("200") || category.includes("300")) {
-      return generatorIndustrial;
-    }
-    
-    // Alta Potência (500 a 4000 kVA)
-    if (category.includes("alta") || category.includes("potência") || category.includes("potencia") ||
-        category.includes("500") || category.includes("1000") || category.includes("2000") ||
-        category.includes("acima")) {
-      return generatorAltaPotencia;
-    }
-    
-    // Fallback baseado no índice para garantir variedade
-    const images = [generatorResidencial, generatorIndustrial, generatorAltaPotencia];
-    return images[index % 3];
-  };
-
-  // Pega até 3 produtos para exibir
-  const displayProducts = products.slice(0, 3);
-
   return (
     <section className="py-28 bg-gradient-surface relative overflow-hidden">
       {/* Decorative elements */}
@@ -84,65 +78,63 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
             <span className="text-gradient-primary">Produtos</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Grupos geradores de 20 kVA a 2500+ kVA para todos os tipos de aplicação
+            Grupos geradores e soluções de iluminação para todos os tipos de aplicação
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {displayProducts.map((product, index) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
-              <Card className="group overflow-hidden border-0 shadow-card h-full flex flex-col hover:shadow-elevated hover:-translate-y-3 transition-all duration-300 rounded-2xl bg-gradient-card">
-                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
-                  <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-transparent z-10" />
-                  <img
-                    src={getProductImage(product, index)}
-                    alt={`Gerador Projemac ${product.category.toLowerCase().includes('residencial') || product.category.toLowerCase().includes('até 100') || product.category.toLowerCase().includes('ate 100') ? 'para uso residencial e comercial' : product.category.toLowerCase().includes('industrial') || (product.category.toLowerCase().includes('100') && product.category.toLowerCase().includes('500')) ? 'para uso industrial' : 'de alta potência'}`}
-                    className="w-full h-full object-contain p-6 group-hover:scale-110 transition-transform duration-500 relative z-0"
-                  />
-                  {product.power_range && (
-                    <div className="absolute top-4 right-4 bg-accent text-accent-foreground px-4 py-1.5 rounded-full text-sm font-bold shadow-accent z-20">
-                      {product.power_range}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {homeProducts.map((product, index) => {
+            const IconComponent = product.icon;
+            return (
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <Card className="group overflow-hidden border-0 shadow-card h-full flex flex-col hover:shadow-elevated hover:-translate-y-3 transition-all duration-300 rounded-2xl bg-gradient-card">
+                  <div className="relative h-52 overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-transparent z-10" />
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-500 relative z-0"
+                    />
+                    {product.powerRange && (
+                      <div className="absolute top-3 right-3 bg-accent text-accent-foreground px-3 py-1 rounded-full text-xs font-bold shadow-accent z-20">
+                        {product.powerRange}
+                      </div>
+                    )}
+                    {/* Icon badge */}
+                    <div className="absolute top-3 left-3 bg-primary/90 text-primary-foreground p-2 rounded-full shadow-lg z-20">
+                      <IconComponent className="w-4 h-4" />
                     </div>
-                  )}
-                </div>
-                
-                <CardContent className="p-6 flex-1 flex flex-col relative">
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-accent" />
+                  </div>
                   
-                  <h3 className="text-2xl font-bold text-primary mb-4 group-hover:text-secondary transition-colors">
-                    {product.category}
-                  </h3>
-                  
-                  {product.applications && product.applications.length > 0 && (
-                    <div className="space-y-2 mb-6 flex-1">
-                      {product.applications.slice(0, 4).map((app, idx) => (
-                        <div key={idx} className="flex items-start gap-2 group/item">
-                          <div className="w-5 h-5 rounded-full bg-gradient-to-br from-accent to-accent-dark flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <CheckCircle2 className="w-3 h-3 text-white" />
-                          </div>
-                          <span className="text-muted-foreground text-sm group-hover/item:text-foreground transition-colors">{app}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                  <CardContent className="p-5 flex-1 flex flex-col relative">
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-accent" />
+                    
+                    <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-secondary transition-colors">
+                      {product.title}
+                    </h3>
+                    
+                    <p className="text-muted-foreground text-sm mb-4 flex-1">
+                      {product.description}
+                    </p>
 
-                  <Link 
-                    to="/produtos" 
-                    className="inline-flex items-center text-secondary hover:text-accent font-bold transition-colors group/link"
-                  >
-                    Saiba Mais
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover/link:translate-x-2 transition-transform" />
-                  </Link>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                    <Link 
+                      to="/produtos" 
+                      className="inline-flex items-center text-secondary hover:text-accent font-bold transition-colors group/link text-sm"
+                    >
+                      Saiba Mais
+                      <ArrowRight className="ml-2 w-4 h-4 group-hover/link:translate-x-2 transition-transform" />
+                    </Link>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
         </div>
 
         <motion.div
