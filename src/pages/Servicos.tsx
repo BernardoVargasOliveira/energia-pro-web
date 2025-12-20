@@ -25,7 +25,6 @@ const Servicos = () => {
       description: "Disponibilizamos grupos geradores de diversas potências para locação de curta, média e longa duração. Potência de 6 a 4000 kVA com geradores ligados em paralelo.",
       benefits: [
         "Equipamentos de última geração",
-        "Flexibilidade de prazos",
         "Manutenção inclusa",
         "Instalação e desinstalação",
         "Mobilização e desmobilização dos geradores locados",
