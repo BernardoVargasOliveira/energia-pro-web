@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, Lightbulb, Zap, Gauge, Sun } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import generatorResidencial from "@/assets/gerador-residencial.png";
 import generatorIndustrial from "@/assets/gerador-industrial.png";
@@ -27,26 +27,23 @@ const homeProducts = [
   {
     id: "baixa-potencia",
     title: "Baixa Potência",
-    powerRange: "6,5 kVA até 100 kVA",
+    powerRange: "6,5 kVA até 45 kVA",
     description: "Soluções compactas para residências, comércios e pequenas empresas.",
     image: generatorResidencial,
-    icon: Zap,
   },
   {
     id: "media-potencia",
     title: "Média Potência",
-    powerRange: "100 kVA até 300 kVA",
+    powerRange: "100 kVA até 450 kVA",
     description: "Ideal para indústrias de médio porte, hospitais e condomínios.",
     image: generatorIndustrial,
-    icon: Gauge,
   },
   {
     id: "alta-potencia",
     title: "Alta Potência",
-    powerRange: "300 kVA até 2500+ kVA",
-    description: "Sistemas robustos para grandes instalações e data centers.",
+    powerRange: "500 kVA até 4.000 kVA",
+    description: "Sistemas robustos para grandes instalações e data centers. (geradores ligados em paralelo)",
     image: generatorAltaPotencia,
-    icon: Sun,
   },
   {
     id: "torres-iluminacao",
@@ -54,7 +51,6 @@ const homeProducts = [
     powerRange: null,
     description: "Iluminação eficiente e autônoma para obras, eventos e operações noturnas.",
     image: torreIluminacao,
-    icon: Lightbulb,
   },
 ];
 
@@ -83,34 +79,28 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {homeProducts.map((product, index) => {
-            const IconComponent = product.icon;
-            return (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="group overflow-hidden border-0 shadow-card h-full flex flex-col hover:shadow-elevated hover:-translate-y-3 transition-all duration-300 rounded-2xl bg-gradient-card">
-                  <div className="relative h-52 overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
-                    <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-transparent z-10" />
-                    <img
-                      src={product.image}
-                      alt={product.title}
-                      className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-500 relative z-0"
-                    />
-                    {product.powerRange && (
-                      <div className="absolute top-3 right-3 bg-accent text-accent-foreground px-3 py-1 rounded-full text-xs font-bold shadow-accent z-20">
-                        {product.powerRange}
-                      </div>
-                    )}
-                    {/* Icon badge */}
-                    <div className="absolute top-3 left-3 bg-primary/90 text-primary-foreground p-2 rounded-full shadow-lg z-20">
-                      <IconComponent className="w-4 h-4" />
+          {homeProducts.map((product, index) => (
+            <motion.div
+              key={product.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <Card className="group overflow-hidden border-0 shadow-card h-full flex flex-col hover:shadow-elevated hover:-translate-y-3 transition-all duration-300 rounded-2xl bg-gradient-card">
+                <div className="relative h-52 overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
+                  <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-transparent z-10" />
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-500 relative z-0"
+                  />
+                  {product.powerRange && (
+                    <div className="absolute top-3 right-3 bg-accent text-accent-foreground px-3 py-1 rounded-full text-xs font-bold shadow-accent z-20">
+                      {product.powerRange}
                     </div>
-                  </div>
+                  )}
+                </div>
                   
                   <CardContent className="p-5 flex-1 flex flex-col relative">
                     <div className="absolute top-0 left-0 right-0 h-1 bg-accent" />
@@ -133,8 +123,8 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
                   </CardContent>
                 </Card>
               </motion.div>
-            );
-          })}
+            )
+          )}
         </div>
 
         <motion.div
