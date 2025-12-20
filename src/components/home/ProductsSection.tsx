@@ -26,23 +26,30 @@ interface ProductsSectionProps {
 const homeProducts = [
   {
     id: "baixa-potencia",
-    title: "Baixa Potência",
-    powerRange: "6,5 kVA até 45 kVA",
+    title: "Geradores Portáteis",
+    powerRange: "6 a 12 kVA",
     description: "Soluções compactas para residências, comércios e pequenas empresas.",
     image: generatorResidencial,
   },
   {
     id: "media-potencia",
-    title: "Média Potência",
-    powerRange: "100 kVA até 450 kVA",
+    title: "Geradores de Médio Porte",
+    powerRange: "50 a 180 kVA",
     description: "Ideal para indústrias de médio porte, hospitais e condomínios.",
     image: geradorMediaPotencia,
   },
   {
-    id: "alta-potencia",
-    title: "Alta Potência",
-    powerRange: "500 kVA até 4.000 kVA",
-    description: "Sistemas robustos para grandes instalações industriais. (geradores ligados em paralelo)",
+    id: "grande-porte",
+    title: "Geradores de Grande Porte",
+    powerRange: "220 a 500 kVA",
+    description: "Sistemas robustos para grandes instalações industriais.",
+    image: null,
+  },
+  {
+    id: "usina-energia",
+    title: "Usina de Energia",
+    powerRange: "500 a 5.000 kVA",
+    description: "Sistemas de alta capacidade com geradores ligados em paralelo.",
     image: geradoresParalelo,
   },
   {
@@ -90,11 +97,19 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
               <Card className="group overflow-hidden border-0 shadow-card h-full flex flex-col hover:shadow-elevated hover:-translate-y-3 transition-all duration-300 rounded-2xl bg-gradient-card">
                 <div className="relative h-52 overflow-hidden bg-muted/30">
                   <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-all duration-300 z-10" />
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300 ease-in-out"
-                  />
+                  {product.image ? (
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <div className="text-muted-foreground/40 text-sm text-center px-4">
+                        Imagem em breve
+                      </div>
+                    </div>
+                  )}
                   {product.powerRange && (
                     <div className="absolute top-3 right-3 bg-accent text-accent-foreground px-3 py-1 rounded-full text-xs font-bold shadow-accent z-20">
                       {product.powerRange}
