@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Award, Target, Eye, Users } from "lucide-react";
+import { Award, Target, Eye } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
@@ -144,27 +144,6 @@ const Empresa = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="max-w-4xl mx-auto text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <Users className="h-16 w-16 text-primary mx-auto mb-6" />
-            <h2 className="text-3xl font-bold text-foreground mb-6">Nossa Equipe</h2>
-            <p className="text-lg text-muted-foreground">
-              Contamos com uma equipe multidisciplinar de engenheiros, técnicos e especialistas 
-              em energia, todos comprometidos em oferecer as melhores soluções para nossos clientes. 
-              Nossa equipe passa por treinamentos constantes para estar sempre atualizada com as 
-              mais recentes tecnologias e melhores práticas do setor.
-            </p>
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 };
