@@ -95,8 +95,8 @@ const Produtos = () => {
   return (
     <div className="min-h-screen">
       <PageHero 
-        title="Soluções Completas em Geração de Energia e Iluminação"
-        subtitle="Oferecemos soluções profissionais em geração de energia e iluminação, atendendo desde aplicações portáteis até usinas de grande porte, com equipamentos modernos, confiáveis e de alto desempenho."
+        title="Produtos"
+        subtitle="Grupos geradores de energia de 6 kVA a 4000+ kVA e torres de iluminação. Soluções completas em geração de energia e iluminação, com equipamentos robustos para aplicações portáteis, industriais e grandes operações."
       />
 
       {/* Showcase Images */}
