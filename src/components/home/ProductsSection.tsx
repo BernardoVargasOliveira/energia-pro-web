@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import geradorPortatil from "@/assets/gerador-portatil.png";
 import geradorMediaPotencia from "@/assets/gerador-media-potencia.png";
+import geradorGrandePorte from "@/assets/gerador-grande-porte.png";
 import geradoresParalelo from "@/assets/geradores-paralelo.png";
 import torreIluminacao from "@/assets/torre-iluminacao-nobg.png";
 
@@ -43,7 +44,7 @@ const homeProducts = [
     title: "Geradores de Grande Porte",
     powerRange: "220 a 500 kVA",
     description: "Sistemas robustos para grandes instalações industriais.",
-    image: null,
+    image: geradorGrandePorte,
   },
   {
     id: "usina-energia",
