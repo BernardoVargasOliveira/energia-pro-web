@@ -42,7 +42,7 @@ const homeProducts = [
     id: "alta-potencia",
     title: "Alta Potência",
     powerRange: "500 kVA até 4.000 kVA",
-    description: "Sistemas robustos para grandes instalações e data centers. (geradores ligados em paralelo)",
+    description: "Sistemas robustos para grandes instalações industriais. (geradores ligados em paralelo)",
     image: generatorAltaPotencia,
   },
   {
