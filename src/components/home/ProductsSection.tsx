@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import generatorResidencial from "@/assets/gerador-residencial.png";
 import generatorIndustrial from "@/assets/gerador-industrial.png";
-import generatorAltaPotencia from "@/assets/gerador-alta-potencia.png";
+import geradoresParalelo from "@/assets/geradores-paralelo.png";
 import torreIluminacao from "@/assets/torre-iluminacao.png";
 
 interface Product {
@@ -43,7 +43,7 @@ const homeProducts = [
     title: "Alta Potência",
     powerRange: "500 kVA até 4.000 kVA",
     description: "Sistemas robustos para grandes instalações industriais. (geradores ligados em paralelo)",
-    image: generatorAltaPotencia,
+    image: geradoresParalelo,
   },
   {
     id: "torres-iluminacao",
