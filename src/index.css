@@ -117,6 +117,22 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    font-size: 14px; /* Reduced base font size for better proportions */
+  }
+
+  @media (min-width: 1024px) {
+    html {
+      font-size: 15px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    html {
+      font-size: 16px;
+    }
+  }
+
   body {
     @apply bg-background text-foreground;
   }
