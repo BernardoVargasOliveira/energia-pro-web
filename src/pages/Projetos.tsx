@@ -13,42 +13,35 @@ const Projetos = () => {
   
   const projects = [
     {
-      title: "Indústria Farmacêutica - MG",
-      sector: "Indústria",
-      challenge: "Necessidade de energia ininterrupta para processos críticos de fabricação de medicamentos que não podem sofrer qualquer tipo de interrupção.",
-      solution: "Instalação de sistema com 2 geradores de 500 kVA em paralelismo com redundância N+1 e QTA.",
-      result: "Zero tempo de parada em 3 anos de operação, com economia de 40% em custos de energia de backup."
-    },
-    {
-      title: "Shopping Center - SP",
-      sector: "Comércio",
-      challenge: "Grande demanda energética e necessidade de backup para mais de 200 lojas, praça de alimentação e sistemas de segurança.",
-      solution: "Sistema com 3 geradores de 800 kVA em configuração 2N, com transição imperceptível e operação silenciosa.",
-      result: "100% de disponibilidade durante eventos de falta de energia, mantendo todas as operações comerciais funcionando."
-    },
-    {
-      title: "Hospital Regional - RJ",
-      sector: "Saúde",
-      challenge: "Fornecimento de energia para UTI, centro cirúrgico e equipamentos médicos críticos com zero tolerância a falhas.",
-      solution: "Instalação de geradores de 1000 kVA com sistema UPS integrado e manutenção preventiva semanal.",
-      result: "Certificação de conformidade com normas hospitalares e zero incidentes relacionados à energia em 5 anos."
-    },
-    {
-      title: "Festival de Música - Vários Estados",
-      sector: "Eventos",
-      challenge: "Fornecer energia para palcos, som, iluminação e infraestrutura de um festival itinerante com 3 dias de duração.",
-      solution: "Locação de 8 geradores silenciosos de 250 kVA distribuídos estrategicamente, com equipe técnica no local.",
-      result: "Evento realizado sem nenhuma interrupção de energia, com feedback positivo de produtores e artistas."
-    },
-    {
-      title: "Condomínio Residencial de Alto Padrão - DF",
+      title: "Condomínio Residencial de Alto Padrão",
       sector: "Residencial",
       challenge: "Garantir conforto e segurança para 400 apartamentos, com áreas comuns incluindo academia, piscina e salão de festas.",
       solution: "Sistema de geração com 2 geradores de 350 kVA, acionamento automático e operação ultra-silenciosa.",
       result: "Valorização de 15% do imóvel devido à infraestrutura energética e satisfação total dos condôminos."
     },
     {
-      title: "Data Center Tier III - MG",
+      title: "Festival de Música",
+      sector: "Eventos",
+      challenge: "Fornecer energia para palcos, som, iluminação e infraestrutura de um festival itinerante com 3 dias de duração.",
+      solution: "Locação de 8 geradores silenciosos de 250 kVA distribuídos estrategicamente, com equipe técnica no local.",
+      result: "Evento realizado sem nenhuma interrupção de energia, com feedback positivo de produtores e artistas."
+    },
+    {
+      title: "Shopping Center",
+      sector: "Comércio",
+      challenge: "Grande demanda energética e necessidade de backup para mais de 200 lojas, praça de alimentação e sistemas de segurança.",
+      solution: "Sistema com 3 geradores de 800 kVA em configuração 2N, com transição imperceptível e operação silenciosa.",
+      result: "100% de disponibilidade durante eventos de falta de energia, mantendo todas as operações comerciais funcionando."
+    },
+    {
+      title: "Indústria Alimentícia",
+      sector: "Indústria",
+      challenge: "Necessidade de energia ininterrupta para processos críticos de produção e refrigeração que não podem sofrer qualquer tipo de interrupção.",
+      solution: "Instalação de sistema com 2 geradores de 500 kVA em paralelismo com redundância N+1 e QTA.",
+      result: "Zero tempo de parada em 3 anos de operação, com economia de 40% em custos de energia de backup."
+    },
+    {
+      title: "Data Center Tier III",
       sector: "Tecnologia",
       challenge: "Infraestrutura crítica para hospedagem de servidores de grandes empresas, exigindo disponibilidade de 99.982%.",
       solution: "Implementação de sistema 2N com 4 geradores de 1500 kVA, monitoramento em tempo real e manutenção preditiva.",
