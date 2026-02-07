@@ -61,6 +61,7 @@ const WhyChooseSection = () => {
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8">
               <span className="text-foreground">Por que escolher a </span>
               <span className="text-gradient-primary">PROJEMAC</span>
+              <span className="text-accent">?</span>
             </h2>
             
             <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl">
