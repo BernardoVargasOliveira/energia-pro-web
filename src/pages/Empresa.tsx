@@ -50,9 +50,11 @@ const Empresa = () => {
             <h3 className="text-2xl font-bold text-foreground mt-10 mb-4">Nosso Compromisso</h3>
             <div className="space-y-4 text-muted-foreground text-lg">
               <p>
-                Na Projemac, respeitamos a escolha do cliente ao nos confiar sua operação energética. 
-                Nosso dever é apresentar todas as opções técnicas disponíveis, garantindo uma locação 
-                assertiva, segura e adequada a cada necessidade.
+                Sabemos que a escolha do fornecedor de energia é do cliente.
+              </p>
+              <p>
+                Nosso compromisso é apresentar todas as alternativas técnicas disponíveis, garantindo 
+                uma locação segura, assertiva e adequada a cada necessidade.
               </p>
               <p>
                 Esse compromisso orienta cada projeto, atendimento e decisão da nossa equipe.
