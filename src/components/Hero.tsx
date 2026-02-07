@@ -3,9 +3,22 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Award, Zap, Shield, HeadphonesIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
+import { useRef, useState, useEffect } from "react";
 import heroImage from "@/assets/hero-stadium-generators.jpg";
 
 const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.play().catch(() => {
+        // Autoplay blocked — fallback image stays visible
+      });
+    }
+  }, []);
+
   return (
     <section 
       className="relative min-h-screen flex flex-col overflow-hidden pt-14 md:pt-16"
@@ -16,9 +29,24 @@ const Hero = () => {
         backgroundRepeat: 'no-repeat'
       }}
     >
-      {/* Premium gradient overlay with reduced opacity for better image visibility */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/55 via-primary/35 to-primary/10 z-10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent z-10" />
+      {/* Background video */}
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        onCanPlay={() => setVideoLoaded(true)}
+        className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-700 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+        style={{ pointerEvents: 'none' }}
+      >
+        <source src="/videos/hero-background.mp4" type="video/mp4" />
+      </video>
+
+      {/* Gradient overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/65 via-primary/45 to-primary/20 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent z-10" />
 
         <div className="container mx-auto px-4 py-20 relative z-20 flex-1 flex flex-col">
           <div className="w-full mb-8 flex-1 flex flex-col justify-center">
