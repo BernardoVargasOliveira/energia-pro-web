@@ -160,7 +160,7 @@ const Setores = () => {
             >
               <h3 className="text-xl font-semibold mb-3 text-foreground">Experiência Comprovada</h3>
               <p className="text-muted-foreground">
-                Anos de experiência atendendo empresas de diversos portes e segmentos.
+                30 anos de experiência atendendo empresas de diversos portes e segmentos.
               </p>
             </motion.div>
             
