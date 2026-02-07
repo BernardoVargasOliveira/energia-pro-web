@@ -4,7 +4,7 @@ import { ArrowRight, Phone, Award, Zap, Shield, HeadphonesIcon } from "lucide-re
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { useRef, useState, useEffect } from "react";
-import heroImage from "@/assets/hero-stadium-generators.jpg";
+
 
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -21,13 +21,7 @@ const Hero = () => {
 
   return (
     <section 
-      className="relative min-h-screen flex flex-col overflow-hidden pt-14 md:pt-16"
-      style={{
-        backgroundImage: `url(${heroImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
+      className="relative min-h-screen flex flex-col overflow-hidden pt-14 md:pt-16 bg-primary"
     >
       {/* Background video */}
       <video
