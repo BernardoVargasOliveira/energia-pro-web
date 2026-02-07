@@ -53,8 +53,9 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             >
-              Locação e projetos de geradores de energia para sua empresa. 
-              Atendimento em todo estado de Minas Gerais com equipe técnica especializada.
+              LOCAÇÃO MENSAL, Paradas programadas para manutenção de rede, teste de energia, backup, horário de pico e outros.
+              <br /><br />
+              No segmento de evento, a Projemac fornece geradores para Shows, Feiras, Formaturas, Festas, Eventos corporativos e outros.
             </motion.p>
 
             <motion.div 
