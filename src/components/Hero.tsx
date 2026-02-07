@@ -23,7 +23,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-20 relative z-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
           {/* Left side: Content */}
-          <div>
+          <div className="text-center flex flex-col items-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -58,7 +58,7 @@ const Hero = () => {
             </motion.p>
 
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-4 justify-center"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
