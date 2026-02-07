@@ -8,7 +8,7 @@ import heroImage from "@/assets/hero-stadium-generators.jpg";
 const Hero = () => {
   return (
     <section 
-      className="relative min-h-screen flex items-center overflow-hidden pt-14 md:pt-16"
+      className="relative min-h-screen flex flex-col overflow-hidden pt-14 md:pt-16"
       style={{
         backgroundImage: `url(${heroImage})`,
         backgroundSize: 'cover',
@@ -20,8 +20,8 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-primary/55 via-primary/35 to-primary/10 z-10" />
       <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent z-10" />
 
-      <div className="container mx-auto px-4 py-20 relative z-20">
-        <div className="w-full mb-20">
+        <div className="container mx-auto px-4 py-20 relative z-20 flex-1 flex flex-col">
+          <div className="w-full mb-8 flex-1 flex flex-col justify-center">
           <div className="flex flex-col items-center w-full">
             <motion.div
               className="self-start"
@@ -90,7 +90,7 @@ const Hero = () => {
 
         {/* Metrics cards at bottom */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-14"
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
