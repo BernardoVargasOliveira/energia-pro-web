@@ -47,15 +47,15 @@ const Hero = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-xl text-white/95 mb-10 max-w-3xl leading-relaxed text-center"
+              className="text-xl text-white/95 mb-10 max-w-3xl leading-relaxed text-center font-bold"
               style={{ textShadow: '1px 2px 8px rgba(0,0,0,0.5)' }}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             >
-              <strong>LOCAÇÃO MENSAL</strong>, Paradas programadas para manutenção de rede, teste de energia, backup, horário de pico e outros.
+              LOCAÇÃO MENSAL, Paradas programadas para manutenção de rede, teste de energia, backup, horário de pico e outros.
               <br /><br />
-              No segmento de evento, a Projemac fornece geradores para <strong>Shows, Feiras, Formaturas, Festas, Eventos corporativos</strong> e outros.
+              No segmento de evento, a Projemac fornece geradores para Shows, Feiras, Formaturas, Festas, Eventos corporativos e outros.
             </motion.p>
 
             <motion.div 
