@@ -95,8 +95,8 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <div className="bg-gradient-to-br from-primary-light to-secondary backdrop-blur-sm border border-white/20 rounded-xl p-4 hover:-translate-y-1 hover:shadow-elevated transition-all duration-300 group">
-            <div className="flex items-center gap-3">
+          <div className="bg-gradient-to-br from-primary-light to-secondary backdrop-blur-sm border border-white/20 rounded-xl p-4 hover:-translate-y-1 hover:shadow-elevated transition-all duration-300 group text-center">
+            <div className="flex flex-col items-center justify-center gap-2">
               <div className="p-2 bg-accent/20 rounded-lg group-hover:bg-accent/30 transition-colors">
                 <Zap className="w-6 h-6 text-accent" />
               </div>
@@ -107,8 +107,8 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-accent to-accent-dark border border-accent-dark/30 rounded-xl p-4 hover:-translate-y-1 hover:shadow-accent-glow transition-all duration-300 group">
-            <div className="flex items-center gap-3">
+          <div className="bg-gradient-to-br from-accent to-accent-dark border border-accent-dark/30 rounded-xl p-4 hover:-translate-y-1 hover:shadow-accent-glow transition-all duration-300 group text-center">
+            <div className="flex flex-col items-center justify-center gap-2">
               <div className="p-2 bg-primary/20 rounded-lg group-hover:bg-primary/30 transition-colors">
                 <Shield className="w-6 h-6 text-primary" />
               </div>
@@ -119,8 +119,8 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-secondary to-primary backdrop-blur-sm border border-white/20 rounded-xl p-4 hover:-translate-y-1 hover:shadow-secondary transition-all duration-300 group">
-            <div className="flex items-center gap-3">
+          <div className="bg-gradient-to-br from-secondary to-primary backdrop-blur-sm border border-white/20 rounded-xl p-4 hover:-translate-y-1 hover:shadow-secondary transition-all duration-300 group text-center">
+            <div className="flex flex-col items-center justify-center gap-2">
               <div className="p-2 bg-white/20 rounded-lg group-hover:bg-white/30 transition-colors">
                 <HeadphonesIcon className="w-6 h-6 text-white" />
               </div>
