@@ -161,7 +161,7 @@ const Projetos = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full text-primary-foreground text-2xl font-bold mb-4" style={{ backgroundColor: '#6a94c3' }}>
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary text-primary-foreground text-2xl font-bold mb-4">
                 1
               </div>
               <h3 className="text-lg font-semibold mb-2 text-foreground">Análise de Necessidades</h3>
@@ -171,7 +171,7 @@ const Projetos = () => {
             </div>
 
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full text-secondary-foreground text-2xl font-bold mb-4" style={{ backgroundColor: '#6a94c3' }}>
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary text-secondary-foreground text-2xl font-bold mb-4">
                 2
               </div>
               <h3 className="text-lg font-semibold mb-2 text-foreground">Projeto Customizado</h3>
@@ -191,7 +191,7 @@ const Projetos = () => {
             </div>
 
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full text-primary-foreground text-2xl font-bold mb-4" style={{ backgroundColor: '#6a94c3' }}>
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary text-primary-foreground text-2xl font-bold mb-4">
                 4
               </div>
               <h3 className="text-lg font-semibold mb-2 text-foreground">Suporte Contínuo</h3>

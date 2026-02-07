@@ -160,8 +160,8 @@ const Produtos = () => {
                   <CardHeader>
                     <div className="flex items-start justify-between mb-2">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-lg" style={{ backgroundColor: 'rgba(106,148,195,0.15)' }}>
-                          <IconComponent className="w-6 h-6" style={{ color: '#6a94c3' }} />
+                        <div className="bg-primary/10 p-2 rounded-lg">
+                          <IconComponent className="w-6 h-6 text-primary" />
                         </div>
                         <CardTitle className="text-2xl">{product.category}</CardTitle>
                       </div>

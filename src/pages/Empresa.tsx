@@ -85,7 +85,7 @@ const Empresa = () => {
             >
               <Card className="border-t-4 border-t-primary h-full">
               <CardContent className="p-8">
-                <div className="flex items-center justify-center w-16 h-16 rounded-full text-primary-foreground mb-4 mx-auto" style={{ backgroundColor: '#6a94c3' }}>
+                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-primary text-primary-foreground mb-4 mx-auto">
                   <Target className="h-8 w-8" />
                 </div>
                 <h3 className="text-2xl font-bold text-foreground mb-4 text-center">Missão</h3>
@@ -105,7 +105,7 @@ const Empresa = () => {
             >
               <Card className="border-t-4 border-t-secondary h-full">
               <CardContent className="p-8">
-                <div className="flex items-center justify-center w-16 h-16 rounded-full text-secondary-foreground mb-4 mx-auto" style={{ backgroundColor: '#6a94c3' }}>
+                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-secondary text-secondary-foreground mb-4 mx-auto">
                   <Eye className="h-8 w-8" />
                 </div>
                 <h3 className="text-2xl font-bold text-foreground mb-4 text-center">Visão</h3>
