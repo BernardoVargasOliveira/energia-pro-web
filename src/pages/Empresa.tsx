@@ -56,9 +56,6 @@ const Empresa = () => {
                 Nosso compromisso é apresentar todas as alternativas técnicas disponíveis, garantindo 
                 uma locação segura, assertiva e adequada a cada necessidade.
               </p>
-              <p>
-                Esse compromisso orienta cada projeto, atendimento e decisão da nossa equipe.
-              </p>
             </div>
 
             {/* Company Image */}
