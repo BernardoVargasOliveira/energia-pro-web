@@ -95,41 +95,53 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <div className="bg-gradient-to-br from-primary-light to-secondary backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:-translate-y-1 hover:shadow-elevated transition-all duration-300 group">
-            <div className="flex items-center justify-center gap-4">
-              <div className="p-2.5 bg-accent/20 rounded-lg group-hover:bg-accent/30 transition-colors">
-                <Zap className="w-6 h-6 text-accent" />
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-accent">30+</div>
-                <div className="text-white/90 text-sm font-medium">Anos de Experiência</div>
+          {[
+            {
+              bg: "bg-gradient-to-br from-primary-light to-secondary backdrop-blur-sm border-white/20",
+              icon: <Zap className="w-5 h-5 text-accent" />,
+              iconBg: "bg-accent/20 group-hover:bg-accent/30",
+              title: <span className="text-accent">30+</span>,
+              titleClass: "text-2xl font-extrabold leading-none",
+              subtitle: "Anos de Experiência",
+              subtitleClass: "text-white/80",
+              hoverShadow: "hover:shadow-elevated",
+            },
+            {
+              bg: "bg-gradient-to-br from-accent to-accent-dark border-accent-dark/30",
+              icon: <Shield className="w-5 h-5 text-primary" />,
+              iconBg: "bg-primary/20 group-hover:bg-primary/30",
+              title: <span className="text-primary">Qualidade</span>,
+              titleClass: "text-lg font-extrabold leading-none",
+              subtitle: "Alta Qualidade em Equipamentos",
+              subtitleClass: "text-primary/80",
+              hoverShadow: "hover:shadow-accent-glow",
+            },
+            {
+              bg: "bg-gradient-to-br from-secondary to-primary backdrop-blur-sm border-white/20",
+              icon: <HeadphonesIcon className="w-5 h-5 text-white" />,
+              iconBg: "bg-white/20 group-hover:bg-white/30",
+              title: <span className="text-white">Suporte Técnico</span>,
+              titleClass: "text-lg font-extrabold leading-none",
+              subtitle: "Especializado Completo",
+              subtitleClass: "text-white/80",
+              hoverShadow: "hover:shadow-secondary",
+            },
+          ].map((card, i) => (
+            <div
+              key={i}
+              className={`${card.bg} border rounded-xl px-4 py-3 hover:-translate-y-1 ${card.hoverShadow} transition-all duration-300 group`}
+            >
+              <div className="flex items-center gap-3">
+                <div className={`p-2 rounded-lg shrink-0 ${card.iconBg} transition-colors`}>
+                  {card.icon}
+                </div>
+                <div className="min-w-0">
+                  <div className={card.titleClass}>{card.title}</div>
+                  <div className={`text-xs font-medium mt-0.5 ${card.subtitleClass}`}>{card.subtitle}</div>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className="bg-gradient-to-br from-accent to-accent-dark border border-accent-dark/30 rounded-xl p-5 hover:-translate-y-1 hover:shadow-accent-glow transition-all duration-300 group">
-            <div className="flex items-center justify-center gap-4">
-              <div className="p-2.5 bg-primary/20 rounded-lg group-hover:bg-primary/30 transition-colors">
-                <Shield className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-primary">Qualidade</div>
-                <div className="text-primary/90 text-sm font-medium">Alta Qualidade em Equipamentos</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-br from-secondary to-primary backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:-translate-y-1 hover:shadow-secondary transition-all duration-300 group">
-            <div className="flex items-center justify-center gap-4">
-              <div className="p-2.5 bg-white/20 rounded-lg group-hover:bg-white/30 transition-colors">
-                <HeadphonesIcon className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <div className="text-xl font-bold text-white">Suporte Técnico</div>
-                <div className="text-white/90 text-sm font-medium">Suporte Técnico Especializado Completo</div>
-              </div>
-            </div>
-          </div>
+          ))}
         </motion.div>
       </div>
 
