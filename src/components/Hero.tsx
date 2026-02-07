@@ -107,7 +107,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-accent to-accent-dark backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:-translate-y-2 hover:shadow-accent-glow transition-all duration-300 group">
+          <div className="bg-gradient-to-br from-accent to-accent-dark border border-accent-dark/30 rounded-2xl p-6 hover:-translate-y-2 hover:shadow-accent-glow transition-all duration-300 group">
             <div className="flex items-center gap-4">
               <div className="p-3 bg-primary/20 rounded-xl group-hover:bg-primary/30 transition-colors">
                 <Shield className="w-8 h-8 text-primary" />
