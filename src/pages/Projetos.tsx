@@ -13,13 +13,6 @@ const Projetos = () => {
   
   const projects = [
     {
-      title: "Condomínio Residencial de Alto Padrão",
-      sector: "Residencial",
-      challenge: "Garantir conforto e segurança para 400 apartamentos, com áreas comuns incluindo academia, piscina e salão de festas.",
-      solution: "Sistema de geração com 2 geradores de 350 kVA, acionamento automático e operação ultra-silenciosa.",
-      result: "Valorização de 15% do imóvel devido à infraestrutura energética e satisfação total dos condôminos."
-    },
-    {
       title: "Festival de Música",
       sector: "Eventos",
       challenge: "Fornecer energia para palcos, som, iluminação e infraestrutura de um festival itinerante com 3 dias de duração.",
