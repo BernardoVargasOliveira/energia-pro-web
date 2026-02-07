@@ -106,7 +106,7 @@ const Hero = () => {
               <Button 
                 asChild 
                 size="lg" 
-                className="bg-white/10 backdrop-blur-sm border-2 border-white/40 text-white hover:bg-white hover:text-primary font-bold text-lg px-8 h-14 transition-all hover:scale-105 hover:-translate-y-1"
+                className="bg-white/10 border-2 border-white/40 text-white hover:bg-white hover:text-primary font-bold text-lg px-8 h-14 transition-all hover:scale-105 hover:-translate-y-1"
               >
                 <a href="https://wa.me/553134953004" target="_blank" rel="noopener noreferrer">
                   <Phone className="mr-2 h-5 w-5" />
@@ -126,7 +126,7 @@ const Hero = () => {
         >
           {[
             {
-              bg: "bg-gradient-to-br from-primary-light to-secondary backdrop-blur-sm border-white/20",
+              bg: "bg-gradient-to-br from-primary-light to-secondary border-white/20",
               icon: <Zap className="w-7 h-7 text-accent" />,
               iconBg: "bg-accent/20 group-hover:bg-accent/30",
               title: <span className="text-accent">30+</span>,
@@ -146,7 +146,7 @@ const Hero = () => {
               hoverShadow: "hover:shadow-accent-glow",
             },
             {
-              bg: "bg-gradient-to-br from-secondary to-primary backdrop-blur-sm border-white/20",
+              bg: "bg-gradient-to-br from-secondary to-primary border-white/20",
               icon: <HeadphonesIcon className="w-7 h-7 text-white" />,
               iconBg: "bg-white/20 group-hover:bg-white/30",
               title: <span className="text-white">Suporte Técnico</span>,
