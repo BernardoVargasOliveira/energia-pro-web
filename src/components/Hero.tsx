@@ -21,9 +21,8 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent z-10" />
 
       <div className="container mx-auto px-4 py-20 relative z-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-          {/* Left side: Content */}
-          <div className="text-center flex flex-col items-center">
+        <div className="w-full mb-20">
+          <div className="text-center flex flex-col items-center w-full">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -47,7 +46,7 @@ const Hero = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-xl text-white/95 mb-10 max-w-xl leading-relaxed"
+              className="text-xl text-white/95 mb-10 max-w-3xl leading-relaxed"
               style={{ textShadow: '1px 2px 8px rgba(0,0,0,0.5)' }}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
