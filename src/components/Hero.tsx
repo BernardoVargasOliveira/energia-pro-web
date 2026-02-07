@@ -90,7 +90,7 @@ const Hero = () => {
 
         {/* Metrics cards at bottom */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6"
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-14"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
