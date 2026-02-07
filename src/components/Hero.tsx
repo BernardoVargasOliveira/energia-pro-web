@@ -42,8 +42,8 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             >
-              Soluções Completas em Locação de
-              <span className="block text-accent mt-2 drop-shadow-lg">Geradores de Energia</span>
+              Locação de Geradores de Energia
+              <span className="block text-accent mt-4 text-4xl md:text-5xl lg:text-6xl drop-shadow-lg">Indústrias, Comércio, Serviços e Eventos</span>
             </motion.h1>
             
             <motion.p 
