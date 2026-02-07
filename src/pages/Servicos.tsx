@@ -280,7 +280,7 @@ const Servicos = () => {
             Precisa de Mais Informações?
           </h2>
           <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Nossa equipe está pronta para ajudar você a encontrar a melhor solução em geração de energia
+            Nossa equipe está pronta para apresentar a melhor solução em geração de energia
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
