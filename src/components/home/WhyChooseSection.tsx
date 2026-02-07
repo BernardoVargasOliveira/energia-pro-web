@@ -16,7 +16,7 @@ const WhyChooseSection = () => {
   const metrics = [
     {
       icon: <Award className="w-8 h-8" />,
-      value: "500+",
+      value: "5000+",
       label: "Projetos Concluídos",
       gradient: "from-accent to-accent-dark",
       textColor: "text-accent"
