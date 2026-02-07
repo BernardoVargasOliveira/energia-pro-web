@@ -44,9 +44,7 @@ const Hero = () => {
         <source src="/videos/hero-background.mp4" type="video/mp4" />
       </video>
 
-      {/* Gradient overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/65 via-primary/45 to-primary/20 z-10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent z-10" />
+      {/* No overlay — clean video */}
 
         <div className="container mx-auto px-4 py-20 relative z-20 flex-1 flex flex-col">
           <div className="w-full mb-8 flex-1 flex flex-col justify-center">
