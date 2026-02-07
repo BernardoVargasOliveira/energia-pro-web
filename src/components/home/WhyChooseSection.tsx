@@ -25,15 +25,15 @@ const WhyChooseSection = () => {
       icon: <Users className="w-8 h-8" />,
       value: "30+",
       label: "Anos no Mercado",
-      gradient: "from-secondary to-primary",
-      textColor: "text-secondary"
+      gradient: "from-[#6a94c3] to-[#6a94c3]",
+      textColor: "text-[#6a94c3]"
     },
     {
       icon: <HeadphonesIcon className="w-8 h-8" />,
       value: "100%",
       label: "Suporte Especializado",
-      gradient: "from-primary to-secondary",
-      textColor: "text-primary"
+      gradient: "from-[#6a94c3] to-[#6a94c3]",
+      textColor: "text-[#6a94c3]"
     },
   ];
 
@@ -80,7 +80,7 @@ const WhyChooseSection = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-secondary to-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ backgroundColor: '#6a94c3' }}>
                     <CheckCircle2 className="w-4 h-4 text-white" />
                   </div>
                   <span className="text-foreground font-semibold text-base group-hover:text-secondary transition-colors">{item}</span>
