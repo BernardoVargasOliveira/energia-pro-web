@@ -8,7 +8,7 @@ import heroImage from "@/assets/hero-stadium-generators.jpg";
 const Hero = () => {
   return (
     <section 
-      className="relative min-h-screen flex items-center overflow-hidden pt-36 md:pt-40"
+      className="relative min-h-screen flex items-center overflow-hidden pt-20 md:pt-24"
       style={{
         backgroundImage: `url(${heroImage})`,
         backgroundSize: 'cover',
@@ -17,8 +17,8 @@ const Hero = () => {
       }}
     >
       {/* Premium gradient overlay with reduced opacity for better image visibility */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/50 to-primary/20 z-10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/55 via-primary/35 to-primary/10 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent z-10" />
 
       <div className="container mx-auto px-4 py-20 relative z-20">
         <div className="w-full mb-20">
