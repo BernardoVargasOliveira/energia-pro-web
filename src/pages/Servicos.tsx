@@ -3,7 +3,7 @@ import { Battery, Wrench, Zap, HardHat, Headphones } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import geradoresTransporte from "@/assets/geradores-transporte.jpg";
+import equipamentosLocacao from "@/assets/equipamentos-locacao.jpg";
 import frotaVeiculos from "@/assets/frota-veiculos.jpg";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
@@ -84,7 +84,7 @@ const Servicos = () => {
           >
             <div className="relative rounded-lg overflow-hidden shadow-primary">
               <img 
-                src={geradoresTransporte} 
+                src={equipamentosLocacao} 
                 alt="Geradores PROJEMAC prontos para locação e entrega" 
                 className="w-full h-[400px] object-cover"
               />
