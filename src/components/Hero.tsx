@@ -118,9 +118,10 @@ const Hero = () => {
         >
           {[
             {
-              bg: "bg-gradient-to-br from-primary-light to-secondary border-white/20",
+              bg: "border-white/20",
+              style: { backgroundColor: '#6a94c3' },
               icon: <Zap className="w-7 h-7 text-accent" />,
-              iconBg: "bg-accent/20 group-hover:bg-accent/30",
+              iconBg: "bg-white/20 group-hover:bg-white/30",
               title: <span className="text-accent">30+</span>,
               titleClass: "text-3xl font-extrabold leading-tight",
               subtitle: "Anos de Experiência",
@@ -138,7 +139,8 @@ const Hero = () => {
               hoverShadow: "hover:shadow-accent-glow",
             },
             {
-              bg: "bg-gradient-to-br from-secondary to-primary border-white/20",
+              bg: "border-white/20",
+              style: { backgroundColor: '#6a94c3' },
               icon: <HeadphonesIcon className="w-7 h-7 text-white" />,
               iconBg: "bg-white/20 group-hover:bg-white/30",
               title: <span className="text-white">Suporte Técnico</span>,
@@ -151,6 +153,7 @@ const Hero = () => {
             <div
               key={i}
               className={`${card.bg} border rounded-xl px-5 py-4 hover:-translate-y-1 ${card.hoverShadow} transition-all duration-300 group`}
+              style={(card as any).style}
             >
               <div className="flex items-center gap-4">
                 <div className={`p-3 rounded-xl shrink-0 ${card.iconBg} transition-colors`}>
