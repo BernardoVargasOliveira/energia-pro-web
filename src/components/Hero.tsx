@@ -98,46 +98,46 @@ const Hero = () => {
           {[
             {
               bg: "bg-gradient-to-br from-primary-light to-secondary backdrop-blur-sm border-white/20",
-              icon: <Zap className="w-5 h-5 text-accent" />,
+              icon: <Zap className="w-7 h-7 text-accent" />,
               iconBg: "bg-accent/20 group-hover:bg-accent/30",
               title: <span className="text-accent">30+</span>,
-              titleClass: "text-2xl font-extrabold leading-none",
+              titleClass: "text-3xl font-extrabold leading-tight",
               subtitle: "Anos de Experiência",
-              subtitleClass: "text-white/80",
+              subtitleClass: "text-white/85",
               hoverShadow: "hover:shadow-elevated",
             },
             {
               bg: "bg-gradient-to-br from-accent to-accent-dark border-accent-dark/30",
-              icon: <Shield className="w-5 h-5 text-primary" />,
+              icon: <Shield className="w-7 h-7 text-primary" />,
               iconBg: "bg-primary/20 group-hover:bg-primary/30",
               title: <span className="text-primary">Qualidade</span>,
-              titleClass: "text-lg font-extrabold leading-none",
+              titleClass: "text-2xl font-extrabold leading-tight",
               subtitle: "Alta Qualidade em Equipamentos",
-              subtitleClass: "text-primary/80",
+              subtitleClass: "text-primary/85",
               hoverShadow: "hover:shadow-accent-glow",
             },
             {
               bg: "bg-gradient-to-br from-secondary to-primary backdrop-blur-sm border-white/20",
-              icon: <HeadphonesIcon className="w-5 h-5 text-white" />,
+              icon: <HeadphonesIcon className="w-7 h-7 text-white" />,
               iconBg: "bg-white/20 group-hover:bg-white/30",
               title: <span className="text-white">Suporte Técnico</span>,
-              titleClass: "text-lg font-extrabold leading-none",
+              titleClass: "text-2xl font-extrabold leading-tight",
               subtitle: "Especializado Completo",
-              subtitleClass: "text-white/80",
+              subtitleClass: "text-white/85",
               hoverShadow: "hover:shadow-secondary",
             },
           ].map((card, i) => (
             <div
               key={i}
-              className={`${card.bg} border rounded-xl px-4 py-3 hover:-translate-y-1 ${card.hoverShadow} transition-all duration-300 group`}
+              className={`${card.bg} border rounded-xl px-5 py-4 hover:-translate-y-1 ${card.hoverShadow} transition-all duration-300 group`}
             >
-              <div className="flex items-center gap-3">
-                <div className={`p-2 rounded-lg shrink-0 ${card.iconBg} transition-colors`}>
+              <div className="flex items-center gap-4">
+                <div className={`p-3 rounded-xl shrink-0 ${card.iconBg} transition-colors`}>
                   {card.icon}
                 </div>
                 <div className="min-w-0">
                   <div className={card.titleClass}>{card.title}</div>
-                  <div className={`text-xs font-medium mt-0.5 ${card.subtitleClass}`}>{card.subtitle}</div>
+                  <div className={`text-sm font-medium mt-1 leading-snug ${card.subtitleClass}`}>{card.subtitle}</div>
                 </div>
               </div>
             </div>
