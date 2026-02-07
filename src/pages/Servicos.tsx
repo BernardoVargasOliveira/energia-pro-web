@@ -111,7 +111,7 @@ const Servicos = () => {
               >
                 <Card className="border-2 hover:border-secondary h-full">
                 <CardHeader>
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4">
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full text-primary-foreground mb-4" style={{ backgroundColor: '#6a94c3' }}>
                     {service.icon}
                   </div>
                   <CardTitle className="text-2xl">{service.title}</CardTitle>
