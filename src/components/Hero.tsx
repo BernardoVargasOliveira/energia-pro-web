@@ -43,7 +43,7 @@ const Hero = () => {
               transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             >
               Locação de Geradores de Energia
-              <span className="block text-secondary-light mt-4 text-4xl md:text-5xl lg:text-6xl drop-shadow-lg">Indústrias, Comércio, Serviços e Eventos</span>
+              <span className="block text-white/90 mt-4 text-2xl md:text-3xl lg:text-4xl drop-shadow-lg font-medium">Indústrias, Comércio, Serviços e Eventos</span>
             </motion.h1>
             
             <motion.p 
