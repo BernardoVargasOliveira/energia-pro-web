@@ -30,11 +30,11 @@ All colors MUST be HSL.
     --secondary-light: 196 100% 55%;
     --secondary-dark: 196 100% 35%;
 
-    /* Accent: Energy Yellow (#FDB913) */
-    --accent: 43 98% 54%;
+    /* Accent: Energy Yellow (#F7D92E) */
+    --accent: 51 93% 57%;
     --accent-foreground: 196 100% 15%;
-    --accent-light: 43 98% 65%;
-    --accent-dark: 43 98% 45%;
+    --accent-light: 51 93% 67%;
+    --accent-dark: 51 93% 47%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 196 20% 45%;
@@ -51,8 +51,8 @@ All colors MUST be HSL.
     /* Premium Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(200 100% 21%), hsl(196 100% 43%));
     --gradient-primary-vertical: linear-gradient(180deg, hsl(200 100% 21%), hsl(196 100% 35%));
-    --gradient-accent: linear-gradient(135deg, hsl(43 98% 54%), hsl(43 98% 64%));
-    --gradient-accent-horizontal: linear-gradient(90deg, hsl(43 98% 50%), hsl(43 98% 58%));
+    --gradient-accent: linear-gradient(135deg, hsl(51 93% 57%), hsl(51 93% 67%));
+    --gradient-accent-horizontal: linear-gradient(90deg, hsl(51 93% 50%), hsl(51 93% 58%));
     --gradient-hero: linear-gradient(135deg, hsl(200 100% 18%) 0%, hsl(196 100% 30%) 50%, hsl(196 100% 43%) 100%);
     --gradient-premium: linear-gradient(135deg, hsl(200 100% 15%) 0%, hsl(200 100% 25%) 100%);
     --gradient-surface: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
@@ -61,8 +61,8 @@ All colors MUST be HSL.
     /* Premium Shadows */
     --shadow-primary: 0 10px 40px -10px hsl(200 100% 21% / 0.4);
     --shadow-primary-lg: 0 20px 50px -15px hsl(200 100% 21% / 0.5);
-    --shadow-accent: 0 0 30px hsl(43 98% 54% / 0.3);
-    --shadow-accent-glow: 0 0 50px hsl(43 98% 54% / 0.4);
+    --shadow-accent: 0 0 30px hsl(51 93% 57% / 0.3);
+    --shadow-accent-glow: 0 0 50px hsl(51 93% 57% / 0.4);
     --shadow-secondary: 0 10px 40px -10px hsl(196 100% 43% / 0.3);
     --shadow-card: 0 4px 20px -4px hsl(200 100% 21% / 0.1);
     --shadow-card-hover: 0 10px 40px -10px hsl(200 100% 21% / 0.2);
@@ -89,10 +89,10 @@ All colors MUST be HSL.
     --secondary-light: 196 80% 35%;
     --secondary-dark: 196 100% 15%;
 
-    --accent: 43 98% 54%;
+    --accent: 51 93% 57%;
     --accent-foreground: 196 100% 15%;
-    --accent-light: 43 98% 65%;
-    --accent-dark: 43 98% 45%;
+    --accent-light: 51 93% 67%;
+    --accent-dark: 51 93% 47%;
 
     --muted: 196 50% 15%;
     --muted-foreground: 215 20.2% 65.1%;
