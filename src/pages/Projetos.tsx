@@ -54,7 +54,7 @@ const Projetos = () => {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
             <div className="bg-white rounded-xl border border-gray-200 shadow-md p-6 md:p-8 text-center transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl hover:-translate-y-1">
-              <div className="text-primary text-4xl md:text-5xl font-bold">1000+</div>
+              <div className="text-primary text-4xl md:text-5xl font-bold">5000+</div>
               <p className="text-gray-600 text-sm md:text-base mt-2">Projetos Executados</p>
             </div>
             <div className="bg-white rounded-xl border border-gray-200 shadow-md p-6 md:p-8 text-center transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl hover:-translate-y-1">
