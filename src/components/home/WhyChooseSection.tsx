@@ -65,7 +65,7 @@ const WhyChooseSection = () => {
             </h2>
             
             <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl">
-              Somos referência em soluções de energia com anos de experiência no mercado. 
+              Somos referência em soluções de energia com 30 anos de experiência no mercado. 
               Nossa expertise garante a melhor solução para sua necessidade energética, 
               com equipamentos modernos e atendimento de excelência.
             </p>
