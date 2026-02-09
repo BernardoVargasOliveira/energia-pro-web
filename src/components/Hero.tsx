@@ -109,6 +109,9 @@ const Hero = () => {
           </div>
         </div>
 
+        {/* Spacer between CTA buttons and metrics cards */}
+        <div className="mt-8 md:mt-12" />
+
         {/* Metrics cards at bottom */}
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16"
