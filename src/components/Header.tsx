@@ -42,7 +42,7 @@ const Header = () => {
             <img 
               src={logoImage} 
               alt="PROJEMAC Geradores de Energia" 
-              className="h-[16rem] md:h-[18rem] w-auto"
+              className="h-[19rem] md:h-[21.5rem] w-auto"
             />
           </Link>
 
