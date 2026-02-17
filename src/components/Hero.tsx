@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone, Award, Zap, Shield, HeadphonesIcon } from "lucide-react";
+import { ArrowRight, Phone, Zap, Shield, HeadphonesIcon } from "lucide-react";
 import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
 import { useRef, useState, useEffect } from "react";
 
 
@@ -43,18 +42,6 @@ const Hero = () => {
         <div className="container mx-auto px-4 py-20 relative z-20 flex-1 flex flex-col">
           <div className="w-full mb-8 flex-1 flex flex-col justify-center">
           <div className="flex flex-col items-center w-full">
-            <motion.div
-              className="self-start"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <Badge className="mb-6 bg-accent text-accent-foreground border-0 hover:bg-accent-light text-sm px-5 py-2.5 shadow-accent font-bold">
-                <Award className="w-4 h-4 mr-2" />
-                Energia Confiável
-              </Badge>
-            </motion.div>
-
             <motion.h1 
               className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight text-center"
               style={{ textShadow: '2px 4px 12px rgba(0,0,0,0.5)' }}
