@@ -37,8 +37,7 @@ const Hero = () => {
         <source src="/videos/hero-background.mp4" type="video/mp4" />
       </video>
 
-      {/* Light overlay for text readability */}
-      <div className="absolute inset-0 bg-black/30 z-10" />
+      {/* No overlay — clean video */}
 
         <div className="container mx-auto px-4 py-20 relative z-20 flex-1 flex flex-col">
           <div className="w-full flex-1 flex flex-col justify-center">
