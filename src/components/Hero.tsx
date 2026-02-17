@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone, Award, Zap, Shield, HeadphonesIcon } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
 import { useRef, useState, useEffect } from "react";
 
 
@@ -38,23 +37,12 @@ const Hero = () => {
         <source src="/videos/hero-background.mp4" type="video/mp4" />
       </video>
 
-      {/* No overlay — clean video */}
+      {/* Light overlay for text readability */}
+      <div className="absolute inset-0 bg-black/30 z-10" />
 
         <div className="container mx-auto px-4 py-20 relative z-20 flex-1 flex flex-col">
-          <div className="w-full mb-8 flex-1 flex flex-col justify-center">
+          <div className="w-full flex-1 flex flex-col justify-center">
           <div className="flex flex-col items-center w-full">
-            <motion.div
-              className="self-start"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <Badge className="mb-6 bg-accent text-accent-foreground border-0 hover:bg-accent-light text-sm px-5 py-2.5 shadow-accent font-bold">
-                <Award className="w-4 h-4 mr-2" />
-                Energia Confiável
-              </Badge>
-            </motion.div>
-
             <motion.h1 
               className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight text-center"
               style={{ textShadow: '2px 4px 12px rgba(0,0,0,0.5)' }}
@@ -74,12 +62,10 @@ const Hero = () => {
               transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             >
               LOCAÇÃO MENSAL, Siderurgicas e Industrias, Obras, Paradas programadas para manutenção de rede, teste de energia, backup, horário de pico e outros.
-              <br /><br />
-              No segmento de evento, a Projemac fornece geradores para Shows, Hoteis, Feiras, Formaturas, Festas, Eventos corporativos e outros.
             </motion.p>
 
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
@@ -108,65 +94,6 @@ const Hero = () => {
             </motion.div>
           </div>
         </div>
-
-        {/* Spacer between CTA buttons and metrics cards */}
-        <div className="mt-8 md:mt-12" />
-
-        {/* Metrics cards at bottom */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          {[
-            {
-              bg: "bg-gradient-to-br from-primary-light to-secondary border-white/20",
-              icon: <Zap className="w-7 h-7 text-accent" />,
-              iconBg: "bg-accent/20 group-hover:bg-accent/30",
-              title: <span className="text-accent">30+</span>,
-              titleClass: "text-3xl font-extrabold leading-tight",
-              subtitle: "Anos de Experiência",
-              subtitleClass: "text-white/85",
-              hoverShadow: "hover:shadow-elevated",
-            },
-            {
-              bg: "bg-gradient-to-br from-accent to-accent-dark border-accent-dark/30",
-              icon: <Shield className="w-7 h-7 text-primary" />,
-              iconBg: "bg-primary/20 group-hover:bg-primary/30",
-              title: <span className="text-primary">Qualidade</span>,
-              titleClass: "text-2xl font-extrabold leading-tight",
-              subtitle: "Alta Qualidade em Equipamentos",
-              subtitleClass: "text-primary/85",
-              hoverShadow: "hover:shadow-accent-glow",
-            },
-            {
-              bg: "bg-gradient-to-br from-secondary to-primary border-white/20",
-              icon: <HeadphonesIcon className="w-7 h-7 text-white" />,
-              iconBg: "bg-white/20 group-hover:bg-white/30",
-              title: <span className="text-white">Suporte Técnico</span>,
-              titleClass: "text-2xl font-extrabold leading-tight",
-              subtitle: "Especializado Completo",
-              subtitleClass: "text-white/85",
-              hoverShadow: "hover:shadow-secondary",
-            },
-          ].map((card, i) => (
-            <div
-              key={i}
-              className={`${card.bg} border rounded-xl px-5 py-4 hover:-translate-y-1 ${card.hoverShadow} transition-all duration-300 group`}
-            >
-              <div className="flex items-center gap-4">
-                <div className={`p-3 rounded-xl shrink-0 ${card.iconBg} transition-colors`}>
-                  {card.icon}
-                </div>
-                <div className="min-w-0">
-                  <div className={card.titleClass}>{card.title}</div>
-                  <div className={`text-sm font-medium mt-1 leading-snug ${card.subtitleClass}`}>{card.subtitle}</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </motion.div>
       </div>
 
       {/* Wave separator */}
