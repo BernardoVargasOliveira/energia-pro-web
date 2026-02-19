@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import gerador500kva from "@/assets/gerador-500kva.jpg";
-import geradoresTransporte from "@/assets/geradores-transporte.jpg";
+import logisticaEntrega from "@/assets/logistica-entrega.jpeg";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
 import { Zap, Lightbulb, Gauge, Sun, CheckCircle2 } from "lucide-react";
@@ -115,7 +115,7 @@ const Produtos = () => {
             </div>
             <div className="relative rounded-lg overflow-hidden shadow-primary">
               <img 
-                src={geradoresTransporte} 
+                src={logisticaEntrega} 
                 alt="Geradores PROJEMAC em transporte" 
                 className="w-full h-[300px] object-cover"
               />
