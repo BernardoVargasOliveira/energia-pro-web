@@ -86,7 +86,7 @@ const Servicos = () => {
               <img 
                 src={equipamentosLocacao} 
                 alt="Geradores PROJEMAC prontos para locação e entrega" 
-                className="w-full h-[400px] object-contain bg-muted"
+                className="w-full h-[400px] object-cover object-[center_30%]"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/95 to-transparent p-6">
                 <h3 className="text-primary-foreground font-bold text-2xl mb-2">Equipamentos Prontos para Locação</h3>
