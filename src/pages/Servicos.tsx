@@ -264,7 +264,7 @@ const Servicos = () => {
                 alt="Frota de veículos da PROJEMAC para suporte técnico" 
                 className="w-full h-[400px] object-cover"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-secondary/95 to-transparent p-6">
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
                 <h3 className="text-white font-bold text-2xl mb-2">Frota Especializada</h3>
                 <p className="text-white/90">Veículos equipados para atendimento técnico rápido e eficiente</p>
               </div>
