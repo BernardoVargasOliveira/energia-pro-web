@@ -85,7 +85,7 @@ const Hero = () => {
                 size="lg" 
                 className="bg-white/10 border-2 border-white/40 text-white hover:bg-white hover:text-primary font-bold text-lg px-8 h-14 transition-all hover:scale-105 hover:-translate-y-1"
               >
-                <a href="https://wa.me/553134953004" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/5531995266402" target="_blank" rel="noopener noreferrer">
                   <Phone className="mr-2 h-5 w-5" />
                   Falar no WhatsApp
                 </a>

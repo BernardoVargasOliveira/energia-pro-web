@@ -301,7 +301,7 @@ const Home = () => {
                 <Link to="/contato">Solicitar Orçamento Agora</Link>
               </Button>
               <a 
-                href="https://wa.me/553134953004?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20de%20geradores." 
+                href="https://wa.me/5531995266402?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20de%20geradores." 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-10 h-16 bg-gradient-to-r from-primary to-secondary text-white hover:from-primary-light hover:to-secondary-light rounded-md font-bold text-lg transition-all duration-300 shadow-primary hover:shadow-primary-lg hover:-translate-y-1"
