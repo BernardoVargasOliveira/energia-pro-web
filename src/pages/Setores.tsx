@@ -210,7 +210,7 @@ const Setores = () => {
               Solicitar Orçamento
             </a>
             <a 
-              href="https://wa.me/553134953004" 
+              href="https://wa.me/5531995266402" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-3 bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary rounded-md font-semibold text-lg transition-colors"

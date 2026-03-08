@@ -369,7 +369,7 @@ const Produtos = () => {
               Solicitar Orçamento
             </a>
             <a 
-              href="https://wa.me/553134953004?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20de%20geradores." 
+              href="https://wa.me/5531995266402?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20de%20geradores." 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-3 bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary rounded-md font-semibold text-lg transition-colors"
