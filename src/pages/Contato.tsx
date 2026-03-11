@@ -58,29 +58,22 @@ const Contato = () => {
     setIsSubmitting(true);
 
     try {
-      // Chama a edge function que tem proteção anti-bot
-      const response = await fetch(
-        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-lead`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
-          },
-          body: JSON.stringify({
-            nome: data.nome,
-            email: data.email,
-            telefone: data.telefone,
-            empresa: data.empresa || null,
-            cidade: data.cidade || null,
-            estado: data.estado || null,
-            tipo_interesse: data.tipo_interesse,
-            mensagem: data.mensagem || null,
-            honeypot, // campo honeypot para detecção de bot
-            formLoadTime: formLoadTimeRef.current, // timestamp de quando o form foi carregado
-          }),
-        }
-      );
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nome: data.nome,
+          email: data.email,
+          telefone: data.telefone,
+          empresa: data.empresa || null,
+          cidade: data.cidade || null,
+          estado: data.estado || null,
+          tipo_interesse: data.tipo_interesse,
+          mensagem: data.mensagem || null,
+          honeypot,
+          formLoadTime: formLoadTimeRef.current,
+        }),
+      });
 
       const result = await response.json();
 
