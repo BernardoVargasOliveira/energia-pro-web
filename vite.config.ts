@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
+import { imagetools } from "vite-imagetools";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -9,10 +10,60 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  plugins: [
+    react(),
+    imagetools({
+      defaultDirectives: (url) => {
+        if (url.pathname.endsWith(".svg")) return new URLSearchParams();
+        return new URLSearchParams({ format: "webp", quality: "80", as: "url" });
+      },
+    }),
+    mode === "development" && componentTagger(),
+  ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+    },
+  },
+  build: {
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        manualChunks(id: string) {
+          if (
+            id.includes("/node_modules/react/") ||
+            id.includes("/node_modules/react-dom/") ||
+            id.includes("/node_modules/scheduler/")
+          ) {
+            return "vendor-react";
+          }
+          if (id.includes("/node_modules/react-router")) {
+            return "vendor-router";
+          }
+          if (id.includes("/node_modules/framer-motion/")) {
+            return "vendor-motion";
+          }
+          if (id.includes("/node_modules/@tanstack/")) {
+            return "vendor-query";
+          }
+          if (id.includes("/node_modules/@supabase/")) {
+            return "vendor-supabase";
+          }
+          if (
+            id.includes("/node_modules/recharts/") ||
+            id.includes("/node_modules/d3-") ||
+            id.includes("/node_modules/victory-")
+          ) {
+            return "vendor-charts";
+          }
+          if (id.includes("/node_modules/@radix-ui/")) {
+            return "vendor-ui";
+          }
+          if (id.includes("/node_modules/")) {
+            return "vendor-misc";
+          }
+        },
+      },
     },
   },
 }));

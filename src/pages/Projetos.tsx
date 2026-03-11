@@ -74,7 +74,8 @@ const Projetos = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="relative rounded-lg overflow-hidden shadow-primary">
-              <img 
+              <img
+                loading="lazy"
                 src={geradorEvento} 
                 alt="Gerador PROJEMAC em evento esportivo" 
                 className="w-full h-[400px] object-cover"

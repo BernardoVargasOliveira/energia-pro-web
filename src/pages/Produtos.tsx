@@ -104,20 +104,22 @@ const Produtos = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div className="relative rounded-lg overflow-hidden shadow-primary">
-              <img 
-                src={gerador500kva} 
-                alt="Gerador PROJEMAC de 500 kVA" 
+              <img
+                src={gerador500kva}
+                alt="Gerador PROJEMAC de 500 kVA"
                 className="w-full h-[300px] object-cover"
+                loading="lazy"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/90 to-transparent p-4">
                 <p className="text-primary-foreground font-semibold">Gerador de 500 kVA</p>
               </div>
             </div>
             <div className="relative rounded-lg overflow-hidden shadow-primary">
-              <img 
-                src={logisticaEntrega} 
-                alt="Geradores PROJEMAC em transporte" 
+              <img
+                src={logisticaEntrega}
+                alt="Geradores PROJEMAC em transporte"
                 className="w-full h-[300px] object-cover"
+                loading="lazy"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/90 to-transparent p-4">
                 <p className="text-primary-foreground font-semibold">Logística e Entrega</p>

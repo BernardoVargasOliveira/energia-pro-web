@@ -83,10 +83,11 @@ const Servicos = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <div className="relative rounded-lg overflow-hidden shadow-primary">
-              <img 
-                src={equipamentosLocacao} 
-                alt="Geradores PROJEMAC prontos para locação e entrega" 
+              <img
+                src={equipamentosLocacao}
+                alt="Geradores PROJEMAC prontos para locação e entrega"
                 className="w-full h-[400px] object-cover object-[center_30%]"
+                loading="lazy"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/95 to-transparent p-6">
                 <h3 className="text-primary-foreground font-bold text-2xl mb-2">Equipamentos Prontos para Locação</h3>
@@ -259,10 +260,11 @@ const Servicos = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <div className="relative rounded-lg overflow-hidden shadow-primary">
-              <img 
-                src={frotaVeiculos} 
-                alt="Frota de veículos da PROJEMAC para suporte técnico" 
+              <img
+                src={frotaVeiculos}
+                alt="Frota de veículos da PROJEMAC para suporte técnico"
                 className="w-full h-[400px] object-cover"
+                loading="lazy"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
                 <h3 className="text-white font-bold text-2xl mb-2">Frota Especializada</h3>

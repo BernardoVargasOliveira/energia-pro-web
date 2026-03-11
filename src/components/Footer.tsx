@@ -9,10 +9,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company info */}
           <div>
-            <img 
-              src={logoImage} 
-              alt="PROJEMAC Geradores de Energia" 
+            <img
+              src={logoImage}
+              alt="PROJEMAC Geradores de Energia"
               className="h-36 w-auto mb-4"
+              loading="lazy"
             />
             <p className="text-sm mb-4">
               Soluções completas em energia com grupos geradores. Locação e projetos.
@@ -65,8 +66,17 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} PROJEMAC Geradores. Todos os direitos reservados.</p>
+        {/* Cidades atendidas — SEO local */}
+        <div className="border-t border-primary-foreground/20 mt-8 pt-8">
+          <p className="text-xs font-semibold text-primary-foreground/50 uppercase tracking-widest text-center mb-2">
+            Aluguel de Geradores em
+          </p>
+          <p className="text-xs text-primary-foreground/40 text-center leading-relaxed max-w-3xl mx-auto">
+            Belo Horizonte · Betim · Contagem · Ribeirão das Neves · Santa Luzia · Ibirité · Sabará · Nova Lima · Vespasiano · Pedro Leopoldo · Lagoa Santa · Confins · Matozinhos · Esmeraldas · Brumadinho · Itaúna · Sete Lagoas · e toda a Região Metropolitana de BH / MG
+          </p>
+          <p className="text-center text-sm text-primary-foreground/50 mt-6">
+            &copy; {new Date().getFullYear()} PROJEMAC Geradores. Todos os direitos reservados.
+          </p>
         </div>
       </div>
     </footer>

@@ -42,6 +42,86 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
+    <!-- Performance: preload do vídeo hero -->
+    <link rel="preload" as="video" href="/videos/hero-background.mp4" type="video/mp4" />
+    <!-- Performance: dns-prefetch para conexões externas -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- JSON-LD: BreadcrumbList (homepage) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.projemac.com.br"
+        }
+      ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quais cidades a PROJEMAC atende com aluguel de geradores?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A PROJEMAC atende Belo Horizonte, Betim, Contagem, Ribeirão das Neves, Santa Luzia, Ibirité, Sabará, Nova Lima, Vespasiano, Pedro Leopoldo, Lagoa Santa, Confins, Matozinhos, Esmeraldas, Brumadinho, Itaúna, Sete Lagoas e toda a Região Metropolitana de Belo Horizonte (RMBH) em Minas Gerais."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A PROJEMAC faz entrega e instalação do gerador no local?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. A PROJEMAC realiza a entrega, instalação e configuração do grupo gerador no local do cliente, com suporte técnico especializado disponível durante todo o período da locação."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Para quais fins posso alugar um gerador com a PROJEMAC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A PROJEMAC fornece geradores para locação mensal, obras, indústrias, siderúrgicas, eventos, hospitais, condomínios, comércio, paradas programadas de manutenção, teste de energia, backup de energia e horário de pico."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quais tamanhos de geradores estão disponíveis para locação?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "O portfólio da PROJEMAC inclui geradores de 6 kVA a 5.000 kVA: geradores portáteis (6–12 kVA), médio porte (50–180 kVA), grande porte (220–500 kVA) e usinas de energia (500–5.000 kVA com grupos em paralelo), além de torres de iluminação."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como solicitar um orçamento de aluguel de gerador?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Você pode solicitar um orçamento pelo formulário no site projemac.com.br/contato, pelo WhatsApp (31) 99526-6402, por e-mail em contato@projemac.com.br ou pelo telefone (31) 3495-3004."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A PROJEMAC oferece suporte técnico durante a locação do gerador?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. A PROJEMAC disponibiliza assistência técnica especializada durante todo o período de locação, com equipe capacitada e frota de veículos equipados para atendimento rápido em BH e toda a região metropolitana."
+          }
+        }
+      ]
+    }
+    </script>
+
     <!-- JSON-LD: LocalBusiness + Service -->
     <script type="application/ld+json">
     {

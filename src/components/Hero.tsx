@@ -19,8 +19,9 @@ const Hero = () => {
   }, []);
 
   return (
-    <section 
+    <section
       className="relative min-h-screen flex flex-col overflow-hidden pt-14 md:pt-16 bg-primary"
+      aria-label="Aluguel de Geradores em BH e Região Metropolitana — PROJEMAC"
     >
       {/* Background video */}
       <video
@@ -156,7 +157,7 @@ const Hero = () => {
 
       {/* Wave separator */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" aria-hidden="true">
           <path d="M0 80L60 73.3C120 66.7 240 53.3 360 46.7C480 40 600 40 720 43.3C840 46.7 960 53.3 1080 56.7C1200 60 1320 60 1380 60L1440 60V80H1380C1320 80 1200 80 1080 80C960 80 840 80 720 80C600 80 480 80 360 80C240 80 120 80 60 80H0V80Z" fill="white"/>
         </svg>
       </div>

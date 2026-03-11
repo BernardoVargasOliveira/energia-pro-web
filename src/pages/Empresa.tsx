@@ -60,10 +60,11 @@ const Empresa = () => {
 
             {/* Company Image */}
             <div className="mt-12 rounded-2xl overflow-hidden shadow-elevated">
-              <img 
-                src={empresaSede} 
-                alt="Sede da Projemac com frota de veículos" 
+              <img
+                src={empresaSede}
+                alt="Sede da Projemac com frota de veículos"
                 className="w-full h-[400px] object-cover"
+                loading="lazy"
               />
               <div className="bg-primary p-4">
                 <p className="text-primary-foreground font-semibold text-center">Nossa Sede e Frota de Atendimento</p>

@@ -39,10 +39,12 @@ const Header = () => {
         <nav className="flex items-center justify-between h-28 md:h-32">
           {/* Logo */}
           <Link to="/" className="flex items-center flex-shrink-0">
-            <img 
-              src={logoImage} 
-              alt="PROJEMAC Geradores de Energia" 
+            <img
+              src={logoImage}
+              alt="PROJEMAC Geradores de Energia"
               className="h-[17rem] md:h-[19.5rem] w-auto"
+              loading="eager"
+              fetchPriority="high"
             />
           </Link>
 
