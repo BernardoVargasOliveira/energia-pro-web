@@ -3,6 +3,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle } from "lucide-react";
 import geradorEvento from "@/assets/gerador-evento.jpg";
+// @ts-ignore
+import geradorEventoSrcset from "@/assets/gerador-evento.jpg?w=640;1024;1251&format=webp&as=srcset";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
 
@@ -76,9 +78,13 @@ const Projetos = () => {
             <div className="relative rounded-lg overflow-hidden shadow-primary">
               <img
                 loading="lazy"
-                src={geradorEvento} 
-                alt="Gerador PROJEMAC em evento esportivo" 
+                src={geradorEvento}
+                srcSet={geradorEventoSrcset}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 896px"
+                alt="Gerador PROJEMAC em evento esportivo"
                 className="w-full h-[400px] object-cover"
+                width={1251}
+                height={938}
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/95 to-transparent p-6">
                 <h3 className="text-primary-foreground font-bold text-2xl mb-2">Energia para Grandes Eventos</h3>

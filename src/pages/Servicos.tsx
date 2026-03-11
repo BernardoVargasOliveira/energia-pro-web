@@ -5,6 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import equipamentosLocacao from "@/assets/equipamentos-locacao.jpg";
 import frotaVeiculos from "@/assets/frota-veiculos.jpg";
+// @ts-ignore
+import equipamentosLocacaoSrcset from "@/assets/equipamentos-locacao.jpg?w=640;1024;1824&format=webp&as=srcset";
+// @ts-ignore
+import frotaVeiculosSrcset from "@/assets/frota-veiculos.jpg?w=640;1024;1920&format=webp&as=srcset";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
 import {
@@ -85,9 +89,13 @@ const Servicos = () => {
             <div className="relative rounded-lg overflow-hidden shadow-primary">
               <img
                 src={equipamentosLocacao}
+                srcSet={equipamentosLocacaoSrcset}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 896px"
                 alt="Geradores PROJEMAC prontos para locação e entrega"
                 className="w-full h-[400px] object-cover object-[center_30%]"
                 loading="lazy"
+                width={1824}
+                height={1368}
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/95 to-transparent p-6">
                 <h3 className="text-primary-foreground font-bold text-2xl mb-2">Equipamentos Prontos para Locação</h3>
@@ -262,9 +270,13 @@ const Servicos = () => {
             <div className="relative rounded-lg overflow-hidden shadow-primary">
               <img
                 src={frotaVeiculos}
+                srcSet={frotaVeiculosSrcset}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 896px"
                 alt="Frota de veículos da PROJEMAC para suporte técnico"
                 className="w-full h-[400px] object-cover"
                 loading="lazy"
+                width={1920}
+                height={1276}
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
                 <h3 className="text-white font-bold text-2xl mb-2">Frota Especializada</h3>

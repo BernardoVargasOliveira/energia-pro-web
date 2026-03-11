@@ -4,6 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
 import empresaSede from "@/assets/empresa-sede.jpg";
+// @ts-ignore
+import empresaSedeSrcset from "@/assets/empresa-sede.jpg?w=640;1024;1920&format=webp&as=srcset";
 
 const Empresa = () => {
   useEffect(() => {
@@ -62,9 +64,13 @@ const Empresa = () => {
             <div className="mt-12 rounded-2xl overflow-hidden shadow-elevated">
               <img
                 src={empresaSede}
+                srcSet={empresaSedeSrcset}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 896px"
                 alt="Sede da Projemac com frota de veículos"
                 className="w-full h-[400px] object-cover"
                 loading="lazy"
+                width={1920}
+                height={1276}
               />
               <div className="bg-primary p-4">
                 <p className="text-primary-foreground font-semibold text-center">Nossa Sede e Frota de Atendimento</p>

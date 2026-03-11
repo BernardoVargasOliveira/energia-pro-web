@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { CheckCircle2, Award, Users, HeadphonesIcon } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import galpaoGeradoresNovo from "@/assets/galpao-geradores-novo.jpg";
+// @ts-ignore
+import galpaoSrcset from "@/assets/galpao-geradores-novo.jpg?w=640;900&format=webp&as=srcset";
 
 const WhyChooseSection = () => {
   const differentials = [
@@ -134,9 +136,13 @@ const WhyChooseSection = () => {
           <div className="relative rounded-2xl overflow-hidden shadow-elevated">
             <img
               src={galpaoGeradoresNovo}
+              srcSet={galpaoSrcset}
+              sizes="(max-width: 768px) 100vw, 900px"
               alt="Galpão da PROJEMAC com geradores e caminhões"
               className="w-full h-[350px] object-cover"
               loading="lazy"
+              width={900}
+              height={509}
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/95 to-transparent p-6">
               <h3 className="text-primary-foreground font-bold text-xl mb-1">Nosso Galpão de Geradores</h3>

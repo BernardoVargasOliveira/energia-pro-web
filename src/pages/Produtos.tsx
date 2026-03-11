@@ -5,6 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import gerador500kva from "@/assets/gerador-500kva.jpg";
 import logisticaEntrega from "@/assets/logistica-entrega.jpeg";
+// @ts-ignore
+import gerador500kvaSrcset from "@/assets/gerador-500kva.jpg?w=640;800&format=webp&as=srcset";
+// @ts-ignore
+import logisticaEntregaSrcset from "@/assets/logistica-entrega.jpeg?w=640;1024;1600&format=webp&as=srcset";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
 import { Zap, Lightbulb, Gauge, Sun, CheckCircle2 } from "lucide-react";
@@ -106,9 +110,13 @@ const Produtos = () => {
             <div className="relative rounded-lg overflow-hidden shadow-primary">
               <img
                 src={gerador500kva}
+                srcSet={gerador500kvaSrcset}
+                sizes="(max-width: 768px) 100vw, 50vw"
                 alt="Gerador PROJEMAC de 500 kVA"
                 className="w-full h-[300px] object-cover"
                 loading="lazy"
+                width={800}
+                height={445}
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/90 to-transparent p-4">
                 <p className="text-primary-foreground font-semibold">Gerador de 500 kVA</p>
@@ -117,9 +125,13 @@ const Produtos = () => {
             <div className="relative rounded-lg overflow-hidden shadow-primary">
               <img
                 src={logisticaEntrega}
+                srcSet={logisticaEntregaSrcset}
+                sizes="(max-width: 768px) 100vw, 50vw"
                 alt="Geradores PROJEMAC em transporte"
                 className="w-full h-[300px] object-cover"
                 loading="lazy"
+                width={1600}
+                height={1204}
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/90 to-transparent p-4">
                 <p className="text-primary-foreground font-semibold">Logística e Entrega</p>

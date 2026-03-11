@@ -105,6 +105,8 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
                       alt={product.title}
                       className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300 ease-in-out"
                       loading="lazy"
+                      width={500}
+                      height={500}
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">
@@ -164,6 +166,8 @@ const ProductsSection = ({ products }: ProductsSectionProps) => {
                       alt={product.title}
                       className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300 ease-in-out"
                       loading="lazy"
+                      width={500}
+                      height={500}
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">

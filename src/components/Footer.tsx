@@ -14,6 +14,8 @@ const Footer = () => {
               alt="PROJEMAC Geradores de Energia"
               className="h-36 w-auto mb-4"
               loading="lazy"
+              width={1024}
+              height={1024}
             />
             <p className="text-sm mb-4">
               Soluções completas em energia com grupos geradores. Locação e projetos.
