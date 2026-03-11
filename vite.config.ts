@@ -30,16 +30,8 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       output: {
         manualChunks(id: string) {
-          if (
-            id.includes("/node_modules/react/") ||
-            id.includes("/node_modules/react-dom/") ||
-            id.includes("/node_modules/scheduler/")
-          ) {
-            return "vendor-react";
-          }
-          if (id.includes("/node_modules/react-router")) {
-            return "vendor-router";
-          }
+          // React + react-dom + scheduler devem ficar JUNTOS em vendor-misc
+          // para evitar erros de inicialização (forwardRef undefined)
           if (id.includes("/node_modules/framer-motion/")) {
             return "vendor-motion";
           }
