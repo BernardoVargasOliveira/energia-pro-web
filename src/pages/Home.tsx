@@ -6,7 +6,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import Hero from "@/components/Hero";
 import ProductsSection from "@/components/home/ProductsSection";
 import WhyChooseSection from "@/components/home/WhyChooseSection";
-import { supabase } from "@/integrations/supabase/client";
 import { motion } from "framer-motion";
 
 const Home = () => {
@@ -20,13 +19,16 @@ const Home = () => {
   }, []);
 
   const loadData = async () => {
+    // Dynamic import so vendor-supabase (~166 kB) only loads after initial render
+    const { supabase } = await import("@/integrations/supabase/client");
+
     // Load services
     const { data: servicesData } = await supabase
       .from('services')
       .select('*')
       .order('order_index')
       .limit(4);
-    
+
     if (servicesData) setServices(servicesData);
 
     // Load products
@@ -35,7 +37,7 @@ const Home = () => {
       .select('*')
       .order('order_index')
       .limit(3);
-    
+
     if (productsData) setProducts(productsData);
 
     // Load sectors
@@ -44,7 +46,7 @@ const Home = () => {
       .select('*')
       .order('order_index')
       .limit(6);
-    
+
     if (sectorsData) setSectors(sectorsData);
 
     // Load content

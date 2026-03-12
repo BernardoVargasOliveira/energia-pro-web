@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => ({
     imagetools({
       defaultDirectives: (url) => {
         if (url.pathname.endsWith(".svg")) return new URLSearchParams();
-        return new URLSearchParams({ format: "webp", quality: "80", as: "url" });
+        return new URLSearchParams({ format: "webp", quality: "75", as: "url" });
       },
     }),
     mode === "development" && componentTagger(),

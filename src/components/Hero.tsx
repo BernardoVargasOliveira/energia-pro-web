@@ -11,11 +11,16 @@ const Hero = () => {
 
   useEffect(() => {
     const video = videoRef.current;
-    if (video) {
-      video.play().catch(() => {
-        // Autoplay blocked — fallback image stays visible
-      });
-    }
+    if (!video) return;
+
+    // Don't load video on mobile — saves ~300-600 kB on initial load
+    if (window.innerWidth < 768) return;
+
+    video.preload = "auto";
+    video.load();
+    video.play().catch(() => {
+      // Autoplay blocked — fallback bg-primary stays visible
+    });
   }, []);
 
   return (
@@ -30,7 +35,7 @@ const Hero = () => {
         loop
         muted
         playsInline
-        preload="auto"
+        preload="none"
         onCanPlay={() => setVideoLoaded(true)}
         className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-700 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
         style={{ pointerEvents: 'none' }}
@@ -43,23 +48,23 @@ const Hero = () => {
         <div className="container mx-auto px-4 py-20 relative z-20 flex-1 flex flex-col">
           <div className="w-full mb-8 flex-1 flex flex-col justify-center">
           <div className="flex flex-col items-center w-full">
-            <motion.h1 
+            <motion.h1
               className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight text-center"
               style={{ textShadow: '2px 4px 12px rgba(0,0,0,0.5)' }}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 1, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
             >
               Locação de Geradores de Energia
               <span className="block text-accent mt-4 text-2xl md:text-3xl lg:text-4xl drop-shadow-lg font-medium">Indústrias, Comércio, Serviços e Eventos</span>
             </motion.h1>
             
-            <motion.p 
+            <motion.p
               className="text-xl text-white/95 mb-10 max-w-3xl leading-relaxed text-center font-bold"
               style={{ textShadow: '1px 2px 8px rgba(0,0,0,0.5)' }}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 1, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             >
               Locação mensal, Siderúrgicas e Industrias, Obras, Paradas Programadas para Manutenção de Rede, Teste de Energia, Backup, Horário de Pico e outros.
             </motion.p>
