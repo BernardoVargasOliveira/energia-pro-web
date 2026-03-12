@@ -61,7 +61,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             >
-              LOCAÇÃO MENSAL, Siderurgicas e Industrias, Obras, Paradas programadas para manutenção de rede, teste de energia, backup, horário de pico e outros.
+              Locação mensal, Siderúrgicas e Industrias, Obras, Paradas Programadas para Manutenção de Rede, Teste de Energia, Backup, Horário de Pico e outros.
             </motion.p>
 
             <motion.div 
