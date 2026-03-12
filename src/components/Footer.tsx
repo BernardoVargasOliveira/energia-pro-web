@@ -70,12 +70,36 @@ const Footer = () => {
 
         {/* Cidades atendidas — SEO local */}
         <div className="border-t border-primary-foreground/20 mt-8 pt-8">
-          <p className="text-xs font-semibold text-primary-foreground/50 uppercase tracking-widest text-center mb-2">
+          <p className="text-xs font-semibold text-primary-foreground/50 uppercase tracking-widest text-center mb-3">
             Aluguel de Geradores em
           </p>
-          <p className="text-xs text-primary-foreground/40 text-center leading-relaxed max-w-3xl mx-auto">
-            Belo Horizonte · Betim · Contagem · Ribeirão das Neves · Santa Luzia · Ibirité · Sabará · Nova Lima · Vespasiano · Pedro Leopoldo · Lagoa Santa · Confins · Matozinhos · Esmeraldas · Brumadinho · Itaúna · Sete Lagoas · e toda a Região Metropolitana de BH / MG
-          </p>
+          <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 max-w-3xl mx-auto">
+            {[
+              { label: "Betim", slug: "betim" },
+              { label: "Contagem", slug: "contagem" },
+              { label: "Ribeirão das Neves", slug: "ribeirao-das-neves" },
+              { label: "Santa Luzia", slug: "santa-luzia" },
+              { label: "Ibirité", slug: "ibirite" },
+              { label: "Sabará", slug: "sabara" },
+              { label: "Nova Lima", slug: "nova-lima" },
+              { label: "Vespasiano", slug: "vespasiano" },
+              { label: "Pedro Leopoldo", slug: "pedro-leopoldo" },
+              { label: "Lagoa Santa", slug: "lagoa-santa" },
+              { label: "Matozinhos", slug: "matozinhos" },
+              { label: "Esmeraldas", slug: "esmeraldas" },
+              { label: "Brumadinho", slug: "brumadinho" },
+              { label: "Sete Lagoas", slug: "sete-lagoas" },
+            ].map(({ label, slug }) => (
+              <Link
+                key={slug}
+                to={`/geradores-${slug}`}
+                className="text-xs text-primary-foreground/40 hover:text-primary-foreground/70 transition-colors"
+              >
+                {label}
+              </Link>
+            ))}
+            <span className="text-xs text-primary-foreground/30">· e toda a Região Metropolitana de BH / MG</span>
+          </div>
           <p className="text-center text-sm text-primary-foreground/50 mt-6">
             &copy; {new Date().getFullYear()} PROJEMAC Geradores. Todos os direitos reservados.
           </p>

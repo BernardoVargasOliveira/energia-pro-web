@@ -24,6 +24,7 @@ const AdminServicos = lazy(() => import("./pages/admin/AdminServicos"));
 const AdminSetores = lazy(() => import("./pages/admin/AdminSetores"));
 const AdminProdutos = lazy(() => import("./pages/admin/AdminProdutos"));
 const AdminLeads = lazy(() => import("./pages/admin/AdminLeads"));
+const CidadePage = lazy(() => import("./pages/CidadePage"));
 
 const queryClient = new QueryClient();
 
@@ -46,6 +47,7 @@ const App = () => (
                 <Route path="/setores" element={<Setores />} />
                 <Route path="/projetos" element={<Projetos />} />
                 <Route path="/contato" element={<Contato />} />
+                <Route path="/geradores-:slug" element={<CidadePage />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/admin" element={<AdminLayout />}>
                   <Route index element={<AdminHome />} />
