@@ -256,12 +256,12 @@ const CidadePage = () => {
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) metaDesc.setAttribute("content", data.descricaoSeo);
     const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute("href", `https://www.projemac.com.br/geradores-${slug}`);
+    if (canonical) canonical.setAttribute("href", `https://www.projemac.com.br/geradores/${slug}`);
   }, [data, slug]);
 
   if (!data) return <Navigate to="/404" replace />;
 
-  const whatsappUrl = `https://wa.me/5531995266402?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20de%20geradores%20em%20${encodeURIComponent(data.cidade)}.`;
+  const whatsappUrl = "https://wa.me/5531995266402?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Projemac%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.";
 
   return (
     <div className="min-h-screen">
@@ -274,7 +274,7 @@ const CidadePage = () => {
             "@type": "LocalBusiness",
             name: `PROJEMAC Geradores — ${data.cidade}`,
             description: data.descricaoSeo,
-            url: `https://www.projemac.com.br/geradores-${slug}`,
+            url: `https://www.projemac.com.br/geradores/${slug}`,
             telephone: "+553134953004",
             email: "contato@projemac.com.br",
             address: {
@@ -467,7 +467,7 @@ const CidadePage = () => {
             {data.vizinhas.map((v) => (
               <Link
                 key={v}
-                to={`/geradores-${v}`}
+                to={`/geradores/${v}`}
                 className="inline-flex items-center gap-1 px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-foreground hover:border-primary hover:text-primary transition-colors shadow-sm"
               >
                 <MapPin className="w-3.5 h-3.5" />

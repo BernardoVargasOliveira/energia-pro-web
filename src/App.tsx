@@ -6,7 +6,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import WhatsAppButton from "./components/WhatsAppButton";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import ScrollProgress from "./components/ScrollProgress";
 
 const Home = lazy(() => import("./pages/Home"));
 const Empresa = lazy(() => import("./pages/Empresa"));
@@ -25,6 +27,7 @@ const AdminSetores = lazy(() => import("./pages/admin/AdminSetores"));
 const AdminProdutos = lazy(() => import("./pages/admin/AdminProdutos"));
 const AdminLeads = lazy(() => import("./pages/admin/AdminLeads"));
 const CidadePage = lazy(() => import("./pages/CidadePage"));
+const ProdutoPage = lazy(() => import("./pages/ProdutoPage"));
 
 const queryClient = new QueryClient();
 
@@ -32,6 +35,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <GoogleAnalytics />
+      <ScrollProgress />
       <Toaster />
       <Sonner />
       <BrowserRouter>
@@ -44,10 +48,11 @@ const App = () => (
                 <Route path="/empresa" element={<Empresa />} />
                 <Route path="/servicos" element={<Servicos />} />
                 <Route path="/produtos" element={<Produtos />} />
+                <Route path="/produtos/:slug" element={<ProdutoPage />} />
                 <Route path="/setores" element={<Setores />} />
                 <Route path="/projetos" element={<Projetos />} />
                 <Route path="/contato" element={<Contato />} />
-                <Route path="/geradores-:slug" element={<CidadePage />} />
+                <Route path="/geradores/:slug" element={<CidadePage />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/admin" element={<AdminLayout />}>
                   <Route index element={<AdminHome />} />
@@ -64,6 +69,7 @@ const App = () => (
             </Suspense>
           </main>
           <Footer />
+          <WhatsAppButton />
         </div>
       </BrowserRouter>
     </TooltipProvider>

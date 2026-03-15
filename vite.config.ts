@@ -9,6 +9,7 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    allowedHosts: 'all',
   },
   plugins: [
     react(),
@@ -50,6 +51,10 @@ export default defineConfig(({ mode }) => ({
           }
           if (id.includes("/node_modules/@radix-ui/")) {
             return "vendor-ui";
+          }
+          // Three.js in its own lazy chunk — only loaded when 3D section mounts
+          if (id.includes("/node_modules/three/")) {
+            return "vendor-three";
           }
           if (id.includes("/node_modules/")) {
             return "vendor-misc";

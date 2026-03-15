@@ -23,7 +23,7 @@ const Produtos = () => {
       category: "Geradores Portáteis",
       power: "6 a 12 kVA",
       description: "Soluções compactas e práticas para aplicações leves e uso temporário.",
-      applications: ["Residências", "Pequenos comércios", "Obras leves", "Eventos de pequeno porte", "Uso emergencial"],
+      applications: ["Residências", "Pequenos comércios", "Obras leves", "Uso emergencial"],
       features: [
         "Compactos e fáceis de transportar",
         "Baixo consumo de combustível",
@@ -38,7 +38,7 @@ const Produtos = () => {
       category: "Geradores de Porte Médio",
       power: "50 a 180 kVA",
       description: "Equipamentos robustos para operações comerciais e industriais de médio porte.",
-      applications: ["Indústrias de médio porte", "Condomínios residenciais e comerciais", "Supermercados", "Hospitais de pequeno e médio porte", "Obras e canteiros industriais"],
+      applications: ["Indústrias de médio porte", "Condomínios residenciais e comerciais", "Supermercados", "Shows, Feiras, Exposições, Eventos em geral", "Obras e canteiros industriais"],
       features: [
         "Alta confiabilidade operacional",
         "Sistema de refrigeração eficiente",
@@ -53,7 +53,7 @@ const Produtos = () => {
       category: "Geradores de Grande Porte",
       power: "220 a 500 kVA",
       description: "Soluções de alta performance para aplicações críticas e grandes operações.",
-      applications: ["Grandes indústrias", "Hospitais de grande porte", "Shopping centers", "Centros logísticos", "Data centers"],
+      applications: ["Grandes indústrias", "Shows, Feiras, Exposições, Eventos em geral", "Shopping centers", "Centros logísticos", "Data centers"],
       features: [
         "Alto desempenho e robustez",
         "Preparados para operação contínua",
@@ -170,20 +170,21 @@ const Produtos = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
                 >
-                  <Card className="border-2 hover:border-secondary h-full transition-all duration-300 hover:shadow-lg">
-                  <CardHeader>
-                    <div className="flex items-start justify-between mb-2">
+                  <Card className="bg-gradient-card border-0 shadow-card h-full group hover:shadow-elevated hover:-translate-y-2 transition-all duration-300 rounded-2xl overflow-hidden">
+                  <CardHeader className="relative pt-8">
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent" aria-hidden="true" />
+                    <div className="flex items-start justify-between mb-3">
                       <div className="flex items-center gap-3">
-                        <div className="bg-primary/10 p-2 rounded-lg">
-                          <IconComponent className="w-6 h-6 text-primary" />
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                          <IconComponent className="w-6 h-6" />
                         </div>
-                        <CardTitle className="text-2xl">{product.category}</CardTitle>
+                        <CardTitle className="text-2xl group-hover:text-secondary transition-colors duration-300">{product.category}</CardTitle>
                       </div>
-                      <Badge variant="secondary" className="bg-accent text-accent-foreground">
+                      <Badge variant="secondary" className="bg-accent text-accent-foreground font-bold rounded-full shrink-0">
                         {product.badge}
                       </Badge>
                     </div>
-                    <CardDescription className="text-lg font-semibold text-secondary">
+                    <CardDescription className="text-base font-semibold text-secondary">
                       Faixa de potência: {product.power}
                     </CardDescription>
                   </CardHeader>
@@ -193,7 +194,7 @@ const Produtos = () => {
                       <ul className="space-y-1">
                         {product.applications.map((app, idx) => (
                           <li key={idx} className="flex items-center gap-2 text-muted-foreground">
-                            <span className="text-secondary">•</span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" />
                             {app}
                           </li>
                         ))}
@@ -225,19 +226,18 @@ const Produtos = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="mb-16"
           >
-            <Card className="border-2 border-accent hover:border-secondary transition-all duration-300 hover:shadow-lg bg-gradient-to-br from-accent/5 to-transparent">
-              <CardHeader>
-                <div className="flex items-start justify-between mb-2">
-                  <div className="flex items-center gap-3">
-                    <div className="bg-accent/20 p-3 rounded-lg">
-                      <Lightbulb className="w-8 h-8 text-accent" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-3xl text-primary">{torresIluminacao.category}</CardTitle>
-                      <CardDescription className="text-base mt-2">
-                        {torresIluminacao.description}
-                      </CardDescription>
-                    </div>
+            <Card className="bg-gradient-card border-0 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 rounded-2xl overflow-hidden group">
+              <CardHeader className="relative pt-8">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent via-primary to-secondary" aria-hidden="true" />
+                <div className="flex items-start gap-4 mb-2">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent to-accent-dark flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <Lightbulb className="w-8 h-8 text-primary" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-3xl text-primary group-hover:text-secondary transition-colors duration-300">{torresIluminacao.category}</CardTitle>
+                    <CardDescription className="text-base mt-2 leading-relaxed">
+                      {torresIluminacao.description}
+                    </CardDescription>
                   </div>
                 </div>
               </CardHeader>
@@ -273,7 +273,7 @@ const Produtos = () => {
                   </div>
                 </div>
                 <div className="mt-6 pt-6 border-t">
-                  <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                  <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold transition-all duration-300 hover:shadow-accent-glow hover:-translate-y-0.5 min-h-[44px]">
                     <Link to="/contato">
                       Solicitar Orçamento
                     </Link>
@@ -306,16 +306,15 @@ const Produtos = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
             >
-              <Card>
-              <CardHeader>
+              <Card className="bg-gradient-card border-0 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 rounded-2xl overflow-hidden">
+              <CardHeader className="relative pt-7">
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary" aria-hidden="true" />
                 <CardTitle>Combustível</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-muted-foreground">
-                  <li>• Diesel</li>
-                  <li>• Gás natural</li>
-                  <li>• Biocombustível</li>
-                  <li>• Dual fuel (diesel/gás)</li>
+                  <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" />Diesel</li>
+                  <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" />Gasolina</li>
                 </ul>
                 </CardContent>
               </Card>
@@ -327,16 +326,17 @@ const Produtos = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             >
-              <Card>
-              <CardHeader>
+              <Card className="bg-gradient-card border-0 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 rounded-2xl overflow-hidden">
+              <CardHeader className="relative pt-7">
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-secondary to-accent" aria-hidden="true" />
                 <CardTitle>Tensões Disponíveis</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-muted-foreground">
-                  <li>• 127/220V monofásico</li>
-                  <li>• 220/380V trifásico</li>
-                  <li>• 127/220/380V</li>
-                  <li>• Tensões especiais sob consulta</li>
+                  <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" />110/220V monofásico</li>
+                  <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" />220/380V/440v trifásico</li>
+                  <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" />220/380V/440v</li>
+                  <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" />Tensões especiais sob consulta</li>
                 </ul>
                 </CardContent>
               </Card>
@@ -348,16 +348,17 @@ const Produtos = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
             >
-              <Card>
-              <CardHeader>
+              <Card className="bg-gradient-card border-0 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 rounded-2xl overflow-hidden">
+              <CardHeader className="relative pt-7">
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-accent to-primary" aria-hidden="true" />
                 <CardTitle>Recursos Adicionais</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-muted-foreground">
-                  <li>• QTA (Quadro de Transferência Automática)</li>
-                  <li>• Sistema de paralelismo</li>
-                  <li>• Monitoramento remoto</li>
-                  <li>• Tanques de combustível ampliados</li>
+                  <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />QTA (Quadro de Transferência Automática)</li>
+                  <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />Sistema de paralelismo</li>
+                  <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />Monitoramento remoto</li>
+                  <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />Tanques de combustível com bacias de contenção</li>
                 </ul>
                 </CardContent>
               </Card>
@@ -376,17 +377,17 @@ const Produtos = () => {
             Nossa equipe técnica pode ajudar você a dimensionar o equipamento ideal para sua necessidade
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
+            <a
               href="/contato"
-              className="inline-flex items-center justify-center px-8 py-3 bg-accent text-accent-foreground hover:bg-accent/90 rounded-md font-semibold text-lg transition-colors shadow-accent"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[44px] bg-accent text-accent-foreground hover:bg-accent/90 rounded-full font-semibold text-lg transition-all duration-300 shadow-accent hover:shadow-accent-glow hover:-translate-y-0.5"
             >
               Solicitar Orçamento
             </a>
-            <a 
-              href="https://wa.me/5531995266402?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20de%20geradores." 
-              target="_blank" 
+            <a
+              href="https://wa.me/5531995266402?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Projemac%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+              target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-3 bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary rounded-md font-semibold text-lg transition-colors"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[44px] bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary rounded-full font-semibold text-lg transition-all duration-300 hover:-translate-y-0.5"
             >
               Falar no WhatsApp
             </a>

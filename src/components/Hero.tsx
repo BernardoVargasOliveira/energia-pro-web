@@ -1,13 +1,83 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone, Zap, Shield, HeadphonesIcon } from "lucide-react";
+import { ArrowRight, Phone, Zap, Shield, HeadphonesIcon, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
 
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
+
+  // ── Particle network canvas ──────────────────────────────────────────
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+    window.addEventListener("resize", resize, { passive: true });
+
+    type Particle = { x: number; y: number; vx: number; vy: number; r: number };
+    const particles: Particle[] = Array.from({ length: 60 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.45,
+      vy: (Math.random() - 0.5) * 0.45,
+      r: Math.random() * 1.8 + 0.4,
+    }));
+
+    const MAX_DIST = 130;
+    let rafId: number;
+
+    const draw = () => {
+      rafId = requestAnimationFrame(draw);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (const p of particles) {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(247, 217, 46, 0.55)"; // accent yellow
+        ctx.fill();
+      }
+
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < MAX_DIST) {
+            const alpha = (1 - dist / MAX_DIST) * 0.28;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(0, 160, 220, ${alpha})`; // secondary cyan
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+    };
+    draw();
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -25,6 +95,7 @@ const Hero = () => {
 
   return (
     <section
+      data-hero
       className="relative min-h-screen flex flex-col overflow-hidden pt-14 md:pt-16 bg-primary"
       aria-label="Aluguel de Geradores em BH e Região Metropolitana — PROJEMAC"
     >
@@ -37,61 +108,88 @@ const Hero = () => {
         playsInline
         preload="none"
         onCanPlay={() => setVideoLoaded(true)}
-        className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-700 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
-        style={{ pointerEvents: 'none' }}
+        className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-700 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
+        style={{ pointerEvents: "none" }}
       >
         <source src="/videos/hero-background.mp4" type="video/mp4" />
       </video>
 
-      {/* No overlay — clean video */}
+      {/* Gradient overlay — legibilidade do texto + profundidade visual */}
+      <div
+        className="absolute inset-0 z-10 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(0,73,109,0.75) 0%, rgba(0,73,109,0.35) 45%, rgba(0,73,109,0.70) 100%)",
+        }}
+        aria-hidden="true"
+      />
 
-        <div className="container mx-auto px-4 py-20 relative z-20 flex-1 flex flex-col">
-          <div className="w-full mb-8 flex-1 flex flex-col justify-center">
+      {/* Particle network — floats above gradient, below content */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full pointer-events-none"
+        style={{ zIndex: 15 }}
+        aria-hidden="true"
+      />
+
+      <div className="container mx-auto px-4 py-20 relative z-20 flex-1 flex flex-col">
+        <div className="w-full mb-8 flex-1 flex flex-col justify-center">
           <div className="flex flex-col items-center w-full">
+            {/* Decorative line */}
+            <motion.div
+              className="w-12 h-0.5 bg-accent mb-8"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              aria-hidden="true"
+            />
+
             <motion.h1
-              className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight text-center"
-              style={{ textShadow: '2px 4px 12px rgba(0,0,0,0.5)' }}
-              initial={{ opacity: 1, y: 20 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight text-center"
+              style={{ textShadow: "2px 4px 12px rgba(0,0,0,0.5)" }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
             >
               Locação de Geradores de Energia
-              <span className="block text-accent mt-4 text-2xl md:text-3xl lg:text-4xl drop-shadow-lg font-medium">Indústrias, Comércio, Serviços e Eventos</span>
+              <span className="block text-accent mt-4 text-xl sm:text-2xl md:text-3xl lg:text-4xl drop-shadow-lg font-medium">
+                Indústrias, Comércio, Serviços e Eventos
+              </span>
             </motion.h1>
-            
+
             <motion.p
-              className="text-xl text-white/95 mb-10 max-w-3xl leading-relaxed text-center font-bold"
-              style={{ textShadow: '1px 2px 8px rgba(0,0,0,0.5)' }}
-              initial={{ opacity: 1, y: 15 }}
+              className="text-base sm:text-lg md:text-xl text-white/95 mb-10 max-w-3xl leading-relaxed text-center font-bold"
+              style={{ textShadow: "1px 2px 8px rgba(0,0,0,0.5)" }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+              transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
             >
-              Locação mensal, Siderúrgicas e Industrias, Obras, Paradas Programadas para Manutenção de Rede, Teste de Energia, Backup, Horário de Pico e outros.
+              Atendemos indústrias, siderúrgicas, obras, eventos e comércios em todo o estado de Minas Gerais. Soluções sob medida para cada necessidade energética.
             </motion.p>
 
-            <motion.div 
+            <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center"
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
             >
-              <Button 
-                asChild 
-                size="lg" 
-                className="bg-accent text-accent-foreground hover:bg-accent-light hover:shadow-accent-glow font-bold text-lg px-8 h-14 shadow-accent transition-all hover:scale-105 hover:-translate-y-1"
+              <Button
+                asChild
+                size="lg"
+                className="bg-accent text-accent-foreground hover:bg-accent/90 hover:shadow-accent-glow font-bold text-base sm:text-lg px-6 sm:px-8 h-12 sm:h-14 min-h-[44px] shadow-accent transition-all duration-300 hover:-translate-y-1 rounded-full"
               >
                 <Link to="/contato">
                   Solicitar Orçamento
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              
-              <Button 
-                asChild 
-                size="lg" 
-                className="bg-white/10 border-2 border-white/40 text-white hover:bg-white hover:text-primary font-bold text-lg px-8 h-14 transition-all hover:scale-105 hover:-translate-y-1"
+
+              <Button
+                asChild
+                size="lg"
+                className="bg-white/10 border-2 border-white/40 text-white hover:bg-white hover:text-primary font-bold text-base sm:text-lg px-6 sm:px-8 h-12 sm:h-14 min-h-[44px] transition-all duration-300 hover:-translate-y-1 rounded-full"
               >
-                <a href="https://wa.me/5531995266402" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/5531995266402?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Projemac%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer">
                   <Phone className="mr-2 h-5 w-5" />
                   Falar no WhatsApp
                 </a>
@@ -100,15 +198,15 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Spacer between CTA buttons and metrics cards */}
+        {/* Spacer */}
         <div className="mt-8 md:mt-12" />
 
-        {/* Metrics cards at bottom */}
-        <motion.div 
+        {/* Metrics cards */}
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.45 }}
         >
           {[
             {
@@ -152,7 +250,9 @@ const Hero = () => {
                 </div>
                 <div className="min-w-0">
                   <div className={card.titleClass}>{card.title}</div>
-                  <div className={`text-sm font-medium mt-1 leading-snug ${card.subtitleClass}`}>{card.subtitle}</div>
+                  <div className={`text-sm font-medium mt-1 leading-snug ${card.subtitleClass}`}>
+                    {card.subtitle}
+                  </div>
                 </div>
               </div>
             </div>
@@ -160,10 +260,25 @@ const Hero = () => {
         </motion.div>
       </div>
 
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 cursor-pointer"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+        aria-hidden="true"
+      >
+        <span className="text-white/50 text-xs font-medium tracking-[0.2em] uppercase">Scroll</span>
+        <ChevronDown className="w-5 h-5 text-white/50 animate-bounce" />
+      </motion.div>
+
       {/* Wave separator */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" aria-hidden="true">
-          <path d="M0 80L60 73.3C120 66.7 240 53.3 360 46.7C480 40 600 40 720 43.3C840 46.7 960 53.3 1080 56.7C1200 60 1320 60 1380 60L1440 60V80H1380C1320 80 1200 80 1080 80C960 80 840 80 720 80C600 80 480 80 360 80C240 80 120 80 60 80H0V80Z" fill="white"/>
+          <path
+            d="M0 80L60 73.3C120 66.7 240 53.3 360 46.7C480 40 600 40 720 43.3C840 46.7 960 53.3 1080 56.7C1200 60 1320 60 1380 60L1440 60V80H1380C1320 80 1200 80 1080 80C960 80 840 80 720 80C600 80 480 80 360 80C240 80 120 80 60 80H0V80Z"
+            fill="white"
+          />
         </svg>
       </div>
     </section>

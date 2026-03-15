@@ -9,6 +9,7 @@ interface PageHeroProps {
 export function PageHero({ title, subtitle }: PageHeroProps) {
   return (
     <section
+      data-hero
       className="w-full bg-gradient-primary text-white pt-48 md:pt-56 pb-12 md:pb-16"
       aria-labelledby="page-hero-title"
     >

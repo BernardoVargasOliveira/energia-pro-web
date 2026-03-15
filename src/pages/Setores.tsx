@@ -34,8 +34,8 @@ const Setores = () => {
     },
     {
       icon: <Hospital className="h-12 w-12" />,
-      title: "Hospitais e Clínicas",
-      description: "Energia ininterrupta é vital para salvar vidas. Fornecemos sistemas com altíssima confiabilidade para o setor de saúde.",
+      title: "Clínicas",
+      description: "Energia ininterrupta. Fornecemos sistemas com altíssima confiabilidade para o setor de saúde.",
       needs: [
         "Zero tempo de interrupção",
         "Sistemas com redundância",
@@ -111,20 +111,23 @@ const Setores = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
               >
-                <Card className="border-2 hover:border-secondary h-full">
-                <CardHeader>
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4">
+                <Card className="bg-gradient-card border-0 shadow-card h-full group hover:shadow-elevated hover:-translate-y-2 transition-all duration-300 rounded-2xl overflow-hidden">
+                <CardHeader className="relative pt-8">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent" aria-hidden="true" />
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-secondary text-primary-foreground mb-4 group-hover:scale-110 group-hover:shadow-secondary transition-all duration-300">
                     {sector.icon}
                   </div>
-                  <CardTitle className="text-2xl mb-3">{sector.title}</CardTitle>
-                  <p className="text-muted-foreground">{sector.description}</p>
+                  <CardTitle className="text-2xl mb-3 group-hover:text-secondary transition-colors duration-300">{sector.title}</CardTitle>
+                  <p className="text-muted-foreground leading-relaxed">{sector.description}</p>
                 </CardHeader>
                 <CardContent>
                   <h4 className="font-semibold mb-3 text-foreground">Necessidades principais:</h4>
                   <ul className="space-y-2">
                     {sector.needs.map((need, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-muted-foreground">
-                        <span className="text-secondary mt-1">✓</span>
+                        <div className="w-5 h-5 rounded-full bg-gradient-to-br from-secondary to-primary flex items-center justify-center shrink-0 mt-0.5">
+                          <span className="text-white text-[10px] font-bold">✓</span>
+                        </div>
                         <span>{need}</span>
                       </li>
                     ))}
@@ -152,7 +155,7 @@ const Setores = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             <motion.div 
-              className="bg-card p-6 rounded-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:border hover:border-primary/20"
+              className="bg-gradient-card p-6 rounded-2xl shadow-card transition-all duration-300 hover:shadow-elevated hover:-translate-y-1"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -165,7 +168,7 @@ const Setores = () => {
             </motion.div>
             
             <motion.div 
-              className="bg-card p-6 rounded-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:border hover:border-primary/20"
+              className="bg-gradient-card p-6 rounded-2xl shadow-card transition-all duration-300 hover:shadow-elevated hover:-translate-y-1"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -178,7 +181,7 @@ const Setores = () => {
             </motion.div>
             
             <motion.div 
-              className="bg-card p-6 rounded-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:border hover:border-primary/20"
+              className="bg-gradient-card p-6 rounded-2xl shadow-card transition-all duration-300 hover:shadow-elevated hover:-translate-y-1"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -186,7 +189,7 @@ const Setores = () => {
             >
               <h3 className="text-xl font-semibold mb-3 text-foreground">Suporte Especializado</h3>
               <p className="text-muted-foreground">
-                Equipe técnica com conhecimento profundo das particularidades de cada segmento.
+                Equipe técnica especializada, com acompanhamento de Responsável Técnico e Engenheiro eletricista.
               </p>
             </motion.div>
           </div>
@@ -203,17 +206,17 @@ const Setores = () => {
             Fale com nossos especialistas e descubra a melhor solução para seu negócio
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
+            <a
               href="/contato"
-              className="inline-flex items-center justify-center px-8 py-3 bg-accent text-accent-foreground hover:bg-accent/90 rounded-md font-semibold text-lg transition-colors shadow-accent"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[44px] bg-accent text-accent-foreground hover:bg-accent/90 rounded-full font-semibold text-lg transition-all duration-300 shadow-accent hover:shadow-accent-glow hover:-translate-y-0.5"
             >
               Solicitar Orçamento
             </a>
-            <a 
-              href="https://wa.me/5531995266402" 
-              target="_blank" 
+            <a
+              href="https://wa.me/5531995266402?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Projemac%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+              target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-3 bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary rounded-md font-semibold text-lg transition-colors"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[44px] bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary rounded-full font-semibold text-lg transition-all duration-300 hover:-translate-y-0.5"
             >
               Falar no WhatsApp
             </a>

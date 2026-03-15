@@ -35,13 +35,6 @@ const Projetos = () => {
       solution: "Instalação de sistema com 2 geradores de 500 kVA em paralelismo com redundância N+1 e QTA.",
       result: "Zero tempo de parada em 3 anos de operação, com economia de 40% em custos de energia de backup."
     },
-    {
-      title: "Data Center Tier III",
-      sector: "Tecnologia",
-      challenge: "Infraestrutura crítica para hospedagem de servidores de grandes empresas, exigindo disponibilidade de 99.982%.",
-      solution: "Implementação de sistema 2N com 4 geradores de 1500 kVA, monitoramento em tempo real e manutenção preditiva.",
-      result: "Certificação Tier III mantida, com uptime de 99.99% e SLA cumprido em todos os contratos de clientes."
-    },
   ];
 
   return (
@@ -220,17 +213,17 @@ const Projetos = () => {
             Vamos conversar sobre seu projeto e desenvolver a melhor solução para você
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
+            <a
               href="/contato"
-              className="inline-flex items-center justify-center px-8 py-3 bg-accent text-accent-foreground hover:bg-accent/90 rounded-md font-semibold text-lg transition-colors shadow-accent"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[44px] bg-accent text-accent-foreground hover:bg-accent/90 rounded-full font-semibold text-lg transition-all duration-300 shadow-accent hover:shadow-accent-glow hover:-translate-y-0.5"
             >
               Iniciar Meu Projeto
             </a>
-            <a 
-              href="https://wa.me/5531995266402?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20de%20geradores." 
-              target="_blank" 
+            <a
+              href="https://wa.me/5531995266402?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Projemac%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+              target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-3 bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary rounded-md font-semibold text-lg transition-colors"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[44px] bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary rounded-full font-semibold text-lg transition-all duration-300 hover:-translate-y-0.5"
             >
               Falar no WhatsApp
             </a>

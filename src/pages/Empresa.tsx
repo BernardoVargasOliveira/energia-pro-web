@@ -52,11 +52,10 @@ const Empresa = () => {
             <h3 className="text-2xl font-bold text-foreground mt-10 mb-4">Nosso Compromisso</h3>
             <div className="space-y-4 text-muted-foreground text-lg">
               <p>
-                Sabemos que a escolha do fornecedor de energia é do cliente.
+                Reconhecemos que a escolha do fornecedor de energia é uma decisão do cliente.
               </p>
               <p>
-                Nosso compromisso é apresentar todas as alternativas técnicas disponíveis, garantindo 
-                uma locação segura, assertiva e adequada a cada necessidade.
+                E o nosso compromisso, é apresentar todas as alternativas técnicas disponíveis, garantindo uma locação segura, assertiva e adequada a cada projeto.
               </p>
             </div>
 

@@ -21,6 +21,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        display: ['Barlow Condensed', 'ui-sans-serif', 'sans-serif'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -113,6 +117,10 @@ export default {
           "50%": { backgroundPosition: "100% 50%" },
           "100%": { backgroundPosition: "0% 50%" },
         },
+        "pulse-wpp": {
+          "0%, 100%": { boxShadow: "0 0 0 0 rgba(37,211,102,0.5)" },
+          "50%": { boxShadow: "0 0 0 10px rgba(37,211,102,0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -121,6 +129,7 @@ export default {
         "shimmer": "shimmer 2s linear infinite",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         "gradient-shift": "gradient-shift 3s ease infinite",
+        "pulse-wpp": "pulse-wpp 2s ease-in-out infinite",
       },
     },
   },

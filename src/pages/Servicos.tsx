@@ -26,7 +26,7 @@ const Servicos = () => {
     {
       icon: <Battery className="h-12 w-12" />,
       title: "Locação de Grupos Geradores",
-      description: "Disponibilizamos grupos geradores de diversas potências para locação de curta, média e longa duração. Potência de 6 a 4000 kVA com geradores ligados em paralelo.",
+      description: "Disponibilizamos grupos geradores de diversas potências para locação de curta, média e longa duração. Potência de 6 a 4000 kVAs com geradores ligados em paralelo.",
       benefits: [
         "Equipamentos de última geração",
         "Manutenção inclusa",
@@ -118,20 +118,23 @@ const Servicos = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
               >
-                <Card className="border-2 hover:border-secondary h-full">
-                <CardHeader>
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-primary-foreground mb-4">
+                <Card className="bg-gradient-card border-0 shadow-card h-full group hover:shadow-elevated hover:-translate-y-2 transition-all duration-300 rounded-2xl overflow-hidden">
+                <CardHeader className="relative pt-8">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent" aria-hidden="true" />
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-secondary text-primary-foreground mb-4 group-hover:scale-110 group-hover:shadow-secondary transition-all duration-300">
                     {service.icon}
                   </div>
-                  <CardTitle className="text-2xl">{service.title}</CardTitle>
-                  <CardDescription className="text-base">{service.description}</CardDescription>
+                  <CardTitle className="text-2xl group-hover:text-secondary transition-colors duration-300">{service.title}</CardTitle>
+                  <CardDescription className="text-base leading-relaxed">{service.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <h4 className="font-semibold mb-3 text-foreground">Principais benefícios:</h4>
                   <ul className="space-y-2">
                     {service.benefits.map((benefit, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-muted-foreground">
-                        <span className="text-secondary mt-1">✓</span>
+                        <div className="w-5 h-5 rounded-full bg-gradient-to-br from-secondary to-primary flex items-center justify-center shrink-0 mt-0.5">
+                          <span className="text-white text-[10px] font-bold">✓</span>
+                        </div>
                         <span>{benefit}</span>
                       </li>
                     ))}
@@ -170,9 +173,7 @@ const Servicos = () => {
                       </span>
                     </AccordionTrigger>
                     <AccordionContent className="pb-4 text-xs md:text-sm text-slate-600 leading-relaxed">
-                      Oferecemos locação de curta, média e longa duração, com flexibilidade total para atender suas necessidades. 
-                      Os prazos podem variar desde locações diárias para eventos até contratos de meses ou anos para projetos industriais. 
-                      Nossa equipe trabalha com você para definir o prazo ideal.
+                      Oferecemos locação de curta, média e longa duração, com flexibilidade total para atender suas necessidades. Os prazos podem variar desde locações diárias para eventos e paradas de energia até contratos mensais e prazos indeterminados. Nossa equipe trabalha para manter o equipamento em perfeitas condições de funcionamento durante todo o periodo da locação.
                     </AccordionContent>
                   </AccordionItem>
                 </div>
@@ -215,9 +216,7 @@ const Servicos = () => {
                       </span>
                     </AccordionTrigger>
                     <AccordionContent className="pb-4 text-xs md:text-sm text-slate-600 leading-relaxed">
-                      Disponibilizamos grupos geradores de 6 a 4000 kVA, com possibilidade de ligação em paralelo para 
-                      potências ainda maiores. Nossos equipamentos são de última geração e atendem desde pequenos estabelecimentos 
-                      comerciais até grandes complexos industriais.
+                      Disponibilizamos grupos geradores de 6 a 4000 kVAs, com possibilidade de ligação em paralelo para potências ainda maiores. Nossos equipamentos são de última geração e atendem desde pequenos estabelecimentos comerciais até grandes complexos industriais.
                     </AccordionContent>
                   </AccordionItem>
                 </div>
@@ -297,17 +296,17 @@ const Servicos = () => {
             Nossa equipe está pronta para apresentar a melhor solução em geração de energia
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
+            <a
               href="/contato"
-              className="inline-flex items-center justify-center px-8 py-3 bg-accent text-accent-foreground hover:bg-accent/90 rounded-md font-semibold text-lg transition-colors shadow-accent"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[44px] bg-accent text-accent-foreground hover:bg-accent/90 rounded-full font-semibold text-lg transition-all duration-300 shadow-accent hover:shadow-accent-glow hover:-translate-y-0.5"
             >
               Solicitar Orçamento
             </a>
-            <a 
-              href="https://wa.me/5531995266402?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20de%20geradores." 
-              target="_blank" 
+            <a
+              href="https://wa.me/5531995266402?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Projemac%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+              target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-3 bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary rounded-md font-semibold text-lg transition-colors"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[44px] bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary rounded-full font-semibold text-lg transition-all duration-300 hover:-translate-y-0.5"
             >
               Falar no WhatsApp
             </a>

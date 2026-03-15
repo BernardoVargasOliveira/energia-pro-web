@@ -177,7 +177,7 @@ const Contato = () => {
                   Prefere conversar pelo WhatsApp? Estamos disponíveis!
                 </p>
                 <Button asChild className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/90">
-                  <a href="https://wa.me/5531995266402" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/5531995266402?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Projemac%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer">
                     Iniciar Conversa no WhatsApp
                   </a>
                 </Button>
