@@ -24,8 +24,12 @@ const Hero = () => {
     resize();
     window.addEventListener("resize", resize, { passive: true });
 
+    // Reduce particle count on mobile (O(n²) line pairs: 60→1770, 35→595)
+    const isMobile = window.innerWidth < 768;
+    const PARTICLE_COUNT = isMobile ? 35 : 60;
+
     type Particle = { x: number; y: number; vx: number; vy: number; r: number };
-    const particles: Particle[] = Array.from({ length: 60 }, () => ({
+    const particles: Particle[] = Array.from({ length: PARTICLE_COUNT }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       vx: (Math.random() - 0.5) * 0.45,
@@ -36,8 +40,18 @@ const Hero = () => {
     const MAX_DIST = 130;
     let rafId: number;
 
+    // Pause drawing when Hero is scrolled out of view
+    let heroVisible = true;
+    const heroSection = canvas.closest("section");
+    const heroObserver = new IntersectionObserver(
+      ([entry]) => { heroVisible = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    if (heroSection) heroObserver.observe(heroSection);
+
     const draw = () => {
       rafId = requestAnimationFrame(draw);
+      if (!heroVisible || document.visibilityState === "hidden") return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       for (const p of particles) {
@@ -75,6 +89,7 @@ const Hero = () => {
 
     return () => {
       cancelAnimationFrame(rafId);
+      heroObserver.disconnect();
       window.removeEventListener("resize", resize);
     };
   }, []);

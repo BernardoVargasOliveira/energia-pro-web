@@ -80,8 +80,8 @@ const Header = () => {
                 >
                   {item.label}
                   <span
-                    className={`absolute -bottom-0.5 left-0 h-0.5 bg-accent transition-all duration-300 ease-in-out ${
-                      location.pathname === item.href ? "w-full" : "w-0 group-hover:w-full"
+                    className={`absolute -bottom-0.5 left-0 w-full h-0.5 bg-accent transition-transform duration-300 ease-in-out origin-left ${
+                      location.pathname === item.href ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                     }`}
                   />
                 </Link>

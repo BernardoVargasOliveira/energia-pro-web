@@ -83,7 +83,7 @@ const ProductCard = memo(({ product, index }: ProductCardProps) => (
   >
     <Link
       to={`/produtos/${product.id}`}
-      className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-elevated hover:-translate-y-2 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary"
+      className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-elevated hover:-translate-y-2 transition-[transform,box-shadow] duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary"
       aria-label={`${product.title} — Ver detalhes`}
     >
       {/* Image area — ~60% da altura do card */}

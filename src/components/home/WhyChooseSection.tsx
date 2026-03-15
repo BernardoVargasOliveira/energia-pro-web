@@ -115,7 +115,7 @@ const WhyChooseSection = () => {
                   transition={{ duration: 0.5, delay: 0.1 * index }}
                   className={index === 2 ? "sm:col-span-2" : ""}
                 >
-                  <Card className="p-8 text-center shadow-card hover:shadow-elevated hover:-translate-y-2 transition-all duration-300 border-0 h-full bg-gradient-card rounded-2xl group overflow-hidden relative">
+                  <Card className="p-8 text-center shadow-card hover:shadow-elevated hover:-translate-y-2 transition-[transform,box-shadow] duration-300 border-0 h-full bg-gradient-card rounded-2xl group overflow-hidden relative">
                     <div
                       className={`absolute inset-0 bg-gradient-to-br ${metric.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
                       aria-hidden="true"

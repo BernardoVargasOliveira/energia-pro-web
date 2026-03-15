@@ -323,10 +323,10 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
               >
-                <Card className="bg-gradient-card border-0 shadow-card h-full group hover:shadow-elevated hover:-translate-y-3 transition-all duration-300 rounded-2xl overflow-hidden">
+                <Card className="bg-gradient-card border-0 shadow-card h-full group hover:shadow-elevated hover:-translate-y-3 transition-[transform,box-shadow] duration-300 rounded-2xl overflow-hidden">
                   <CardContent className="p-8 text-center relative">
                     <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent" />
-                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-secondary text-white mb-6 group-hover:scale-110 group-hover:shadow-secondary transition-all duration-300">
+                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-secondary text-white mb-6 group-hover:scale-110 group-hover:shadow-secondary transition-[transform,box-shadow] duration-300">
                       {getIconComponent(service.icon)}
                     </div>
                     <h3 className="text-2xl font-bold mb-3 text-primary group-hover:text-secondary transition-colors">
@@ -479,7 +479,7 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
-                <Card className="bg-white/10 backdrop-blur-sm border border-white/20 cursor-pointer h-full group hover:bg-white hover:border-accent shadow-lg hover:shadow-elevated hover:-translate-y-2 transition-all duration-300 rounded-2xl">
+                <Card className="bg-white/10 backdrop-blur-sm border border-white/20 cursor-pointer h-full group hover:bg-white hover:border-accent shadow-lg hover:shadow-elevated hover:-translate-y-2 transition-[transform,box-shadow,background-color,border-color] duration-300 rounded-2xl">
                   <CardContent className="p-8 text-center flex flex-col items-center justify-center min-h-[180px]">
                     <div className="w-16 h-16 rounded-2xl bg-accent flex items-center justify-center mb-4 text-primary group-hover:scale-110 group-hover:shadow-accent transition-all duration-300">
                       {getSectorIconComponent(sector.name)}
@@ -549,7 +549,7 @@ const Home = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {/* Telefone */}
-            <div className="bg-gradient-card border-0 shadow-card rounded-2xl p-8 hover:shadow-elevated hover:-translate-y-2 transition-all duration-300 group">
+            <div className="bg-gradient-card border-0 shadow-card rounded-2xl p-8 hover:shadow-elevated hover:-translate-y-2 transition-[transform,box-shadow] duration-300 group">
               <div className="flex flex-col items-center text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Phone className="w-8 h-8 text-white" />
@@ -565,7 +565,7 @@ const Home = () => {
             </div>
 
             {/* E-mail */}
-            <div className="bg-gradient-card border-0 shadow-card rounded-2xl p-8 hover:shadow-elevated hover:-translate-y-2 transition-all duration-300 group">
+            <div className="bg-gradient-card border-0 shadow-card rounded-2xl p-8 hover:shadow-elevated hover:-translate-y-2 transition-[transform,box-shadow] duration-300 group">
               <div className="flex flex-col items-center text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-secondary to-primary rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Mail className="w-8 h-8 text-white" />
@@ -581,7 +581,7 @@ const Home = () => {
             </div>
 
             {/* Localização */}
-            <div className="bg-gradient-card border-0 shadow-card rounded-2xl p-8 hover:shadow-elevated hover:-translate-y-2 transition-all duration-300 group">
+            <div className="bg-gradient-card border-0 shadow-card rounded-2xl p-8 hover:shadow-elevated hover:-translate-y-2 transition-[transform,box-shadow] duration-300 group">
               <div className="flex flex-col items-center text-center">
                 <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <MapPin className="w-8 h-8 text-primary" />

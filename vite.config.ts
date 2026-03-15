@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => ({
     imagetools({
       defaultDirectives: (url) => {
         if (url.pathname.endsWith(".svg")) return new URLSearchParams();
-        return new URLSearchParams({ format: "webp", quality: "75", as: "url" });
+        return new URLSearchParams({ format: "webp", quality: "60", as: "url" });
       },
     }),
     mode === "development" && componentTagger(),
@@ -26,7 +26,14 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // Remove console.log and debugger from production build
+  esbuild: {
+    drop: ["console", "debugger"],
+  },
   build: {
+    target: "esnext",
+    minify: "esbuild",
+    cssMinify: true,
     chunkSizeWarningLimit: 600,
     rollupOptions: {
       output: {

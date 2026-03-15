@@ -431,6 +431,15 @@ const ThreeGeneratorSection = () => {
     // rAF-deferred call: guarantees layout is painted before we read dimensions
     const rafInit = requestAnimationFrame(() => handleResize());
 
+    /* ── Visibility: skip rendering when section is off-screen ── */
+    let isVisible = false;
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => { isVisible = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    const sectionEl = sectionRef.current;
+    if (sectionEl) visibilityObserver.observe(sectionEl);
+
     /* ── Animation loop ── */
     let time = 3.5;  // start at a 3/4 angle
     let rafId: number;
@@ -445,6 +454,7 @@ const ThreeGeneratorSection = () => {
 
     const animate = () => {
       rafId = requestAnimationFrame(animate);
+      if (!isVisible || document.visibilityState === "hidden") return;
       time += 0.007;
 
       const progress = getScrollProgress();
@@ -532,6 +542,7 @@ const ThreeGeneratorSection = () => {
       cancelAnimationFrame(rafId);
       cancelAnimationFrame(rafInit);
       resizeObserver.disconnect();
+      visibilityObserver.disconnect();
       window.removeEventListener("resize", handleResize);
       renderer.dispose();
     };
@@ -575,6 +586,8 @@ const ThreeGeneratorSection = () => {
                 alt="Gerador de grande porte PROJEMAC"
                 className="w-full max-w-lg object-contain drop-shadow-2xl"
                 loading="lazy"
+                width={800}
+                height={600}
               />
             </div>
           </div>

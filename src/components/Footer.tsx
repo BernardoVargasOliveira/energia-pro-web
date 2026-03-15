@@ -89,7 +89,7 @@ const Footer = () => {
                     className="text-white/45 hover:text-white transition-colors duration-200 flex items-center gap-3 group"
                   >
                     <span
-                      className="w-0 h-px bg-accent group-hover:w-4 transition-all duration-300 inline-block"
+                      className="w-4 h-px bg-accent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 inline-block"
                       aria-hidden="true"
                     />
                     {label}
