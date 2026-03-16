@@ -4,10 +4,10 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import geradorPortatil from "@/assets/gerador-portatil.png";
-import geradorMediaPotencia from "@/assets/gerador-media-potencia.png";
-import geradorGrandePorte from "@/assets/gerador-grande-porte.png";
+import geradorMediaPotencia from "@/assets/gerador-medio-porte-projemac.png";
+import geradorGrandePorte from "@/assets/gerador-grande-porte-projemac.png";
 import geradoresParalelo from "@/assets/geradores-paralelo.png";
-import usinaEnergiaCard from "@/assets/usina-energia-card.jpeg";
+import usinaEnergiaCard from "@/assets/usinas-de-energia.png";
 import torreIluminacao from "@/assets/torre-iluminacao-nobg.png";
 
 interface Product {
