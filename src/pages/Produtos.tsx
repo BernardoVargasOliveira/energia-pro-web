@@ -11,7 +11,7 @@ import gerador500kvaSrcset from "@/assets/gerador-500kva.jpg?w=640;800&format=we
 import logisticaEntregaSrcset from "@/assets/logistica-entrega.jpeg?w=640;1024;1600&format=webp&as=srcset";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
-import { Zap, Lightbulb, Gauge, Sun, CheckCircle2 } from "lucide-react";
+import { Zap, Lightbulb, Gauge, Sun, CheckCircle2, ArrowRight } from "lucide-react";
 
 const Produtos = () => {
   useEffect(() => {
@@ -32,7 +32,8 @@ const Produtos = () => {
         "Partida manual ou elétrica"
       ],
       badge: "Baixa potência",
-      icon: Zap
+      icon: Zap,
+      slug: "geradores-portateis"
     },
     {
       category: "Geradores de Porte Médio",
@@ -47,7 +48,8 @@ const Produtos = () => {
         "Operação contínua ou standby"
       ],
       badge: "Médio porte",
-      icon: Gauge
+      icon: Gauge,
+      slug: "geradores-medio-porte"
     },
     {
       category: "Geradores de Grande Porte",
@@ -62,7 +64,8 @@ const Produtos = () => {
         "Baixo consumo específico de combustível"
       ],
       badge: "Grande porte",
-      icon: Sun
+      icon: Sun,
+      slug: "geradores-grande-porte"
     },
     {
       category: "Usinas de Energia",
@@ -77,7 +80,8 @@ const Produtos = () => {
         "Máxima eficiência energética"
       ],
       badge: "Alta potência",
-      icon: Sun
+      icon: Sun,
+      slug: "usina-energia"
     },
   ];
 
@@ -170,7 +174,8 @@ const Produtos = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
                 >
-                  <Card className="bg-gradient-card border-0 shadow-card h-full group hover:shadow-elevated hover:-translate-y-2 transition-all duration-300 rounded-2xl overflow-hidden">
+                  <Link to={`/produtos/${product.slug}`} className="block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-2xl">
+                  <Card className="bg-gradient-card border-0 shadow-card h-full group hover:shadow-elevated hover:-translate-y-2 transition-all duration-300 rounded-2xl overflow-hidden cursor-pointer">
                   <CardHeader className="relative pt-8">
                     <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent" aria-hidden="true" />
                     <div className="flex items-start justify-between mb-3">
@@ -211,8 +216,15 @@ const Produtos = () => {
                         ))}
                       </ul>
                     </div>
+                    <div className="pt-2 border-t border-border/50">
+                      <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-foreground/60 group-hover:text-secondary transition-colors duration-300 pt-2">
+                        Saiba mais
+                        <ArrowRight className="w-4 h-4 translate-x-0 group-hover:translate-x-2 transition-transform duration-300" />
+                      </span>
+                    </div>
                   </CardContent>
                 </Card>
+                  </Link>
                 </motion.div>
               );
             })}
@@ -226,7 +238,8 @@ const Produtos = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="mb-16"
           >
-            <Card className="bg-gradient-card border-0 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 rounded-2xl overflow-hidden group">
+            <Link to="/produtos/torres-iluminacao" className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-2xl">
+            <Card className="bg-gradient-card border-0 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 rounded-2xl overflow-hidden group cursor-pointer">
               <CardHeader className="relative pt-8">
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent via-primary to-secondary" aria-hidden="true" />
                 <div className="flex items-start gap-4 mb-2">
@@ -272,15 +285,20 @@ const Produtos = () => {
                     </ul>
                   </div>
                 </div>
-                <div className="mt-6 pt-6 border-t">
+                <div className="mt-6 pt-6 border-t flex items-center justify-between">
                   <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold transition-all duration-300 hover:shadow-accent-glow hover:-translate-y-0.5 min-h-[44px]">
-                    <Link to="/contato">
+                    <Link to="/contato" onClick={(e) => e.stopPropagation()}>
                       Solicitar Orçamento
                     </Link>
                   </Button>
+                  <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-foreground/60 group-hover:text-secondary transition-colors duration-300">
+                    Saiba mais
+                    <ArrowRight className="w-4 h-4 translate-x-0 group-hover:translate-x-2 transition-transform duration-300" />
+                  </span>
                 </div>
               </CardContent>
             </Card>
+            </Link>
           </motion.div>
 
         </div>
