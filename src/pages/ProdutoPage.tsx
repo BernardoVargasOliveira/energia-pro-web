@@ -74,14 +74,14 @@ const produtos: Record<string, ProdutoData> = {
     potencia: "50 a 180 kVA",
     descricaoCurta: "Equipamentos robustos para operações comerciais e industriais de médio porte.",
     descricaoLonga:
-      "Os geradores de médio porte da PROJEMAC entregam alta confiabilidade para operações que exigem energia estável e contínua. Com potências entre 50 e 180 kVA, são amplamente utilizados em indústrias de médio porte, condomínios, hospitais, supermercados e canteiros de obras. Equipados com painel de controle digital e sistema de refrigeração eficiente, garantem desempenho superior mesmo em operações prolongadas. Instalação e comissionamento realizados por engenheiro eletricista com ART.",
+      "Os geradores de médio porte da PROJEMAC entregam alta confiabilidade para operações que exigem energia estável e contínua. Com potências entre 50 e 180 kVA, são amplamente utilizados em indústrias de médio porte, condomínios, clínicas, supermercados e canteiros de obras. Equipados com painel de controle digital e sistema de refrigeração eficiente, garantem desempenho superior mesmo em operações prolongadas. Instalação e comissionamento realizados por engenheiro eletricista com ART.",
     imagem: gerador180kva,
     imagemAlt: "Gerador de médio porte 180 kVA aberto mostrando motor diesel - Projemac",
     aplicacoes: [
       "Indústrias de médio porte",
       "Condomínios residenciais e comerciais",
       "Supermercados",
-      "Hospitais de pequeno e médio porte",
+      "Clínicas de pequeno e médio porte",
       "Obras e canteiros industriais",
       "Centros de distribuição",
     ],
@@ -117,7 +117,7 @@ const produtos: Record<string, ProdutoData> = {
     imagemAlt: "Gerador de grande porte 500 kVA com carenagem aberta - Projemac",
     aplicacoes: [
       "Grandes indústrias",
-      "Hospitais de grande porte",
+      "Shows, feiras, exposições, eventos em geral",
       "Shopping centers",
       "Centros logísticos",
       "Data centers",
