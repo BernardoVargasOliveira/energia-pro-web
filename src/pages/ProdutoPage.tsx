@@ -273,7 +273,7 @@ const ProdutoPage = () => {
                 "@type": "Organization",
                 name: "PROJEMAC Geradores",
                 telephone: "+553134953004",
-                email: "contato@projemac.com.br",
+                email: "comercial@projemac.com.br",
               },
             },
           }),

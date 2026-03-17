@@ -572,10 +572,10 @@ const Home = () => {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2">E-mail</h3>
                 <a
-                  href="mailto:contato@projemac.com.br"
+                  href="mailto:comercial@projemac.com.br"
                   className="text-secondary hover:text-accent font-semibold transition-colors break-all"
                 >
-                  contato@projemac.com.br
+                  comercial@projemac.com.br
                 </a>
               </div>
             </div>

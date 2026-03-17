@@ -276,7 +276,7 @@ const CidadePage = () => {
             description: data.descricaoSeo,
             url: `https://www.projemac.com.br/geradores/${slug}`,
             telephone: "+553134953004",
-            email: "contato@projemac.com.br",
+            email: "comercial@projemac.com.br",
             address: {
               "@type": "PostalAddress",
               addressLocality: "Belo Horizonte",

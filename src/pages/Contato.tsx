@@ -140,8 +140,8 @@ const Contato = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                    <a href="mailto:contato@projemac.com.br" className="text-muted-foreground hover:text-secondary transition-colors">
-                      contato@projemac.com.br
+                    <a href="mailto:comercial@projemac.com.br" className="text-muted-foreground hover:text-secondary transition-colors">
+                      comercial@projemac.com.br
                     </a>
                   </div>
                 </div>

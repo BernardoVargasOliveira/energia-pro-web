@@ -147,10 +147,10 @@ const Footer = () => {
                 <div>
                   <p className="text-white/30 text-[11px] mb-0.5">E-mail</p>
                   <a
-                    href="mailto:contato@projemac.com.br"
+                    href="mailto:comercial@projemac.com.br"
                     className="text-white/75 hover:text-accent transition-colors font-medium break-all"
                   >
-                    contato@projemac.com.br
+                    comercial@projemac.com.br
                   </a>
                 </div>
               </li>
