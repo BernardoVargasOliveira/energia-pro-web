@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
+import { useMetaEvents } from "@/hooks/useMetaEvents";
 import { PageHero } from "@/components/PageHero";
 
 const formSchema = z.object({
@@ -27,6 +28,7 @@ type FormData = z.infer<typeof formSchema>;
 const Contato = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { fireLead } = useMetaEvents();
   
   // Timestamp de quando o formulário foi carregado (proteção anti-bot)
   const formLoadTimeRef = useRef<number>(Date.now());
@@ -85,6 +87,8 @@ const Contato = () => {
         title: "Mensagem enviada com sucesso!",
         description: result.message || "Em breve entraremos em contato com você.",
       });
+
+      fireLead();
 
       form.reset();
       setHoneypot(""); // limpa o honeypot

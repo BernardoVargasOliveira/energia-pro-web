@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import ScrollProgress from "./components/ScrollProgress";
+import MetaPixel from "./components/MetaPixel";
 
 const Home = lazy(() => import("./pages/Home"));
 const Empresa = lazy(() => import("./pages/Empresa"));
@@ -39,6 +40,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <MetaPixel />
         <div className="flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow">
