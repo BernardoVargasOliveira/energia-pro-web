@@ -88,6 +88,9 @@ const Contato = () => {
         description: result.message || "Em breve entraremos em contato com você.",
       });
 
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "lead_form" });
+
       fireLead();
 
       form.reset();
