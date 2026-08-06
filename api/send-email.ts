@@ -142,7 +142,7 @@ export default async function handler(req: any, res: any) {
   try {
     await resend.emails.send({
       from: 'send@projemac.com.br',
-      to: 'contatoprojemac@gmail.com',
+      to: 'comercial@projemac.com.br',
       replyTo: email,
       subject: `[Orçamento] ${nome} — ${TIPO_INTERESSE_MAP[tipo_interesse] ?? tipo_interesse}`,
       html: buildEmailHtml({ nome, email, telefone, empresa, cidade, estado, tipo_interesse, mensagem }),
