@@ -8,6 +8,60 @@ const TIPO_INTERESSE_MAP: Record<string, string> = {
   outros: 'Outros',
 };
 
+const RD_CONVERSION_IDENTIFIER = 'formulario-orcamento-site';
+const RD_TIMEOUT_MS = 5000;
+
+// Registra o lead no RD Station via API de Conversões.
+// Best-effort: qualquer falha aqui é logada e propagada para o chamador,
+// que a ignora para não afetar a resposta do envio de email.
+async function sendRdStationConversion(data: {
+  nome: string;
+  email: string;
+  telefone?: string | null;
+  mensagem?: string | null;
+}): Promise<void> {
+  const apiKey = process.env.RD_STATION_API_KEY;
+  if (!apiKey) {
+    console.warn('RD_STATION_API_KEY não configurada — conversão do RD Station ignorada.');
+    return;
+  }
+
+  const payload: Record<string, string> = {
+    conversion_identifier: RD_CONVERSION_IDENTIFIER,
+    email: data.email,
+  };
+  if (data.nome) payload.name = data.nome;
+  if (data.telefone) payload.mobile_phone = data.telefone;
+  if (data.mensagem) payload.cf_mensagem = data.mensagem;
+
+  // Timeout curto para não segurar a resposta do endpoint.
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), RD_TIMEOUT_MS);
+
+  try {
+    const response = await fetch(
+      `https://api.rd.services/platform/conversions?api_key=${encodeURIComponent(apiKey)}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          event_type: 'CONVERSION',
+          event_family: 'CDP',
+          payload,
+        }),
+        signal: controller.signal,
+      }
+    );
+
+    if (!response.ok) {
+      const detail = await response.text();
+      console.error('RD Station conversion error:', response.status, detail);
+    }
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 function buildEmailHtml(data: {
   nome: string;
   email: string;
@@ -147,6 +201,13 @@ export default async function handler(req: any, res: any) {
       subject: `[Orçamento] ${nome} — ${TIPO_INTERESSE_MAP[tipo_interesse] ?? tipo_interesse}`,
       html: buildEmailHtml({ nome, email, telefone, empresa, cidade, estado, tipo_interesse, mensagem }),
     });
+
+    // O email é prioritário; o RD Station é best-effort e nunca altera a resposta.
+    try {
+      await sendRdStationConversion({ nome, email, telefone, mensagem });
+    } catch (rdError) {
+      console.error('RD Station conversion failed:', rdError);
+    }
 
     return res.status(200).json({ message: 'Mensagem enviada com sucesso! Em breve entraremos em contato.' });
   } catch (error) {
