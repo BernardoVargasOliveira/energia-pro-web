@@ -3,9 +3,14 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const TIPO_INTERESSE_MAP: Record<string, string> = {
-  locacao: 'Locação de Geradores',
+  eventos: 'Locação para Eventos',
+  emergencia: 'Emergência / Parada de Energia',
+  locacao_periodica: 'Locação Mensal, Quinzenal ou Semanal',
   projeto: 'Projeto de Instalação',
   outros: 'Outros',
+  // Valor descontinuado do select: mantido para submits vindos de abas
+  // abertas com a versão anterior do site.
+  locacao: 'Locação de Geradores',
 };
 
 const RD_CONVERSION_IDENTIFIER = 'formulario-orcamento-site';

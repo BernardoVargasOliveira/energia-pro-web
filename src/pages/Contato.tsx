@@ -339,7 +339,9 @@ const Contato = () => {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="locacao">Locação de Geradores</SelectItem>
+                            <SelectItem value="eventos">Locação para Eventos</SelectItem>
+                            <SelectItem value="emergencia">Emergência / Parada de Energia</SelectItem>
+                            <SelectItem value="locacao_periodica">Locação Mensal, Quinzenal ou Semanal</SelectItem>
                             <SelectItem value="projeto">Projeto de Instalação</SelectItem>
                             <SelectItem value="outros">Outros</SelectItem>
                           </SelectContent>
