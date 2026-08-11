@@ -23,6 +23,7 @@ async function sendRdStationConversion(data: {
   estado?: string | null;
   tipo_interesse?: string | null;
   mensagem?: string | null;
+  traffic_source?: string | null;
 }): Promise<void> {
   const apiKey = process.env.RD_STATION_API_KEY;
   if (!apiKey) {
@@ -43,6 +44,8 @@ async function sendRdStationConversion(data: {
     payload.cf_tipo_de_interesse = TIPO_INTERESSE_MAP[data.tipo_interesse] ?? data.tipo_interesse;
   }
   if (data.mensagem) payload.cf_mensagem = data.mensagem;
+  // Origem do tráfego lida do cookie __trf.src no client.
+  if (data.traffic_source) payload.traffic_source = data.traffic_source;
 
   // Timeout curto para não segurar a resposta do endpoint.
   const controller = new AbortController();
@@ -184,6 +187,7 @@ export default async function handler(req: any, res: any) {
     estado,
     tipo_interesse,
     mensagem,
+    traffic_source,
     honeypot,
     formLoadTime,
   } = req.body ?? {};
@@ -223,6 +227,7 @@ export default async function handler(req: any, res: any) {
         estado,
         tipo_interesse,
         mensagem,
+        traffic_source,
       });
     } catch (rdError) {
       console.error('RD Station conversion failed:', rdError);

@@ -25,6 +25,30 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
+const TRF_SRC_COOKIE = "__trf.src=";
+
+// Lê o cookie __trf.src, gravado pelo script de monitoramento do RD Station
+// com a origem do tráfego do visitante. Retorna null quando o cookie não
+// existe (visitante que recusou cookies, por exemplo).
+const getTrafficSource = (): string | null => {
+  const entry = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith(TRF_SRC_COOKIE));
+
+  if (!entry) return null;
+
+  // O valor é base64 e pode conter "=", então corta pelo nome em vez de split("=").
+  const value = entry.slice(TRF_SRC_COOKIE.length);
+  if (!value) return null;
+
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    // Valor malformado não deve quebrar o envio: manda cru.
+    return value;
+  }
+};
+
 const Contato = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -72,6 +96,7 @@ const Contato = () => {
           estado: data.estado || null,
           tipo_interesse: data.tipo_interesse,
           mensagem: data.mensagem || null,
+          traffic_source: getTrafficSource(),
           honeypot,
           formLoadTime: formLoadTimeRef.current,
         }),
