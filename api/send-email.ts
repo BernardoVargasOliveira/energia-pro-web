@@ -18,6 +18,10 @@ async function sendRdStationConversion(data: {
   nome: string;
   email: string;
   telefone?: string | null;
+  empresa?: string | null;
+  cidade?: string | null;
+  estado?: string | null;
+  tipo_interesse?: string | null;
   mensagem?: string | null;
 }): Promise<void> {
   const apiKey = process.env.RD_STATION_API_KEY;
@@ -32,6 +36,12 @@ async function sendRdStationConversion(data: {
   };
   if (data.nome) payload.name = data.nome;
   if (data.telefone) payload.mobile_phone = data.telefone;
+  if (data.empresa) payload.company_name = data.empresa;
+  if (data.cidade) payload.city = data.cidade;
+  if (data.estado) payload.state = data.estado;
+  if (data.tipo_interesse) {
+    payload.cf_tipo_de_interesse = TIPO_INTERESSE_MAP[data.tipo_interesse] ?? data.tipo_interesse;
+  }
   if (data.mensagem) payload.cf_mensagem = data.mensagem;
 
   // Timeout curto para não segurar a resposta do endpoint.
@@ -204,7 +214,16 @@ export default async function handler(req: any, res: any) {
 
     // O email é prioritário; o RD Station é best-effort e nunca altera a resposta.
     try {
-      await sendRdStationConversion({ nome, email, telefone, mensagem });
+      await sendRdStationConversion({
+        nome,
+        email,
+        telefone,
+        empresa,
+        cidade,
+        estado,
+        tipo_interesse,
+        mensagem,
+      });
     } catch (rdError) {
       console.error('RD Station conversion failed:', rdError);
     }
