@@ -281,7 +281,7 @@ const ProdutoPage = () => {
       />
 
       {/* ── Hero ───────────────────────────────────────────── */}
-      <section className="relative h-[300px] md:h-[500px] overflow-hidden">
+      <section className="relative h-[300px] md:h-[500px] lg:h-[450px] overflow-hidden">
         <img
           src={data.imagem}
           alt={data.imagemAlt}

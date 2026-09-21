@@ -41,7 +41,7 @@ const Hero = () => {
   return (
     <section
       data-hero
-      className="relative min-h-[85vh] lg:min-h-[90vh] flex flex-col overflow-hidden pt-14 md:pt-16 bg-primary"
+      className="relative min-h-[85vh] lg:min-h-[75vh] flex flex-col overflow-hidden pt-14 md:pt-16 bg-primary"
       aria-label="Aluguel de Geradores em BH e Região Metropolitana — PROJEMAC"
     >
       {/* Background media — vídeo rotativo da operação (4 cenas) ou poster estático */}
@@ -101,7 +101,7 @@ const Hero = () => {
       />
 
       <div className="container mx-auto px-4 py-20 relative z-20 flex-1 flex flex-col justify-center">
-        <div className="w-full md:max-w-[55%] flex flex-col items-center md:items-start text-center md:text-left">
+        <div className="w-full md:max-w-[55%] min-[1400px]:max-w-[64%] flex flex-col items-center md:items-start text-center md:text-left">
           {/* Decorative line */}
           <motion.div
             className="w-12 h-0.5 bg-accent mb-8 origin-center md:origin-left"

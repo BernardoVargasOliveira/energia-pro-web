@@ -66,7 +66,7 @@ const Empresa = () => {
                 srcSet={empresaSedeSrcset}
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 896px"
                 alt="Sede da Projemac com frota de veículos"
-                className="w-full h-[400px] object-cover"
+                className="w-full h-[400px] lg:h-[360px] object-cover"
                 loading="lazy"
                 width={1920}
                 height={1276}

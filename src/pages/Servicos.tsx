@@ -92,7 +92,7 @@ const Servicos = () => {
                 srcSet={equipamentosLocacaoSrcset}
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 896px"
                 alt="Geradores PROJEMAC prontos para locação e entrega"
-                className="w-full h-[400px] object-cover object-[center_30%]"
+                className="w-full h-[400px] lg:h-[360px] object-cover object-[center_30%]"
                 loading="lazy"
                 width={1824}
                 height={1368}
@@ -272,7 +272,7 @@ const Servicos = () => {
                 srcSet={frotaVeiculosSrcset}
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 896px"
                 alt="Frota de veículos da PROJEMAC para suporte técnico"
-                className="w-full h-[400px] object-cover"
+                className="w-full h-[400px] lg:h-[360px] object-cover"
                 loading="lazy"
                 width={1920}
                 height={1276}

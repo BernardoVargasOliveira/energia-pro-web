@@ -473,14 +473,14 @@ const Home = () => {
             {sectors.map((sector, index) => (
               <motion.div
                 key={sector.id}
-                className="w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[180px]"
+                className="w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[162px]"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
                 <Card className="bg-white/10 backdrop-blur-sm border border-white/20 cursor-pointer h-full group hover:bg-white hover:border-accent shadow-lg hover:shadow-elevated hover:-translate-y-2 transition-[transform,box-shadow,background-color,border-color] duration-300 rounded-2xl">
-                  <CardContent className="p-8 text-center flex flex-col items-center justify-center min-h-[180px]">
+                  <CardContent className="p-8 text-center flex flex-col items-center justify-center min-h-[180px] lg:min-h-[162px]">
                     <div className="w-16 h-16 rounded-2xl bg-accent flex items-center justify-center mb-4 text-primary group-hover:scale-110 group-hover:shadow-accent transition-all duration-300">
                       {getSectorIconComponent(sector.name)}
                     </div>

@@ -149,7 +149,7 @@ const WhyChooseSection = () => {
                 srcSet={galpaoSrcset}
                 sizes="(max-width: 768px) 100vw, 900px"
                 alt="Galpão da PROJEMAC com geradores e caminhões"
-                className="w-full h-[350px] object-cover transition-transform duration-700 group-hover:scale-105 will-change-transform"
+                className="w-full h-[350px] lg:h-[315px] object-cover transition-transform duration-700 group-hover:scale-105 will-change-transform"
                 loading="lazy"
                 width={900}
                 height={509}

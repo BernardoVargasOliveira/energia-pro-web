@@ -117,19 +117,16 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  /* Mobile: mantém a base de 14px já usada no site */
   html {
-    font-size: 14px; /* Reduced base font size for better proportions */
+    font-size: 14px;
   }
 
+  /* Desktop (>= 1024px): 90% da base do navegador (14.4px) —
+     mesmo efeito visual do zoom de 90%. Tudo que está em rem encolhe junto. */
   @media (min-width: 1024px) {
     html {
-      font-size: 15px;
-    }
-  }
-
-  @media (min-width: 1280px) {
-    html {
-      font-size: 16px;
+      font-size: 90%;
     }
   }
 
@@ -140,6 +137,16 @@ All colors MUST be HSL.
 
   html {
     scroll-behavior: smooth;
+  }
+
+  /* iOS dá zoom ao focar um campo com fonte < 16px. Como a base mobile é 14px,
+     fixamos 16px nos campos abaixo de 1024px. Não altera o layout. */
+  @media (max-width: 1023px) {
+    input,
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
   }
 
   /* Barlow Condensed for all headings — premium/industrial look */
