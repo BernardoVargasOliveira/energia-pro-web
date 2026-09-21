@@ -86,7 +86,7 @@ const Hero = () => {
         className="absolute inset-0 z-10 pointer-events-none hidden md:block"
         style={{
           background:
-            "linear-gradient(to right, rgba(0,56,77,0.85) 0%, rgba(0,56,77,0.82) 30%, rgba(0,56,77,0.05) 60%, rgba(0,56,77,0.05) 100%)",
+            "linear-gradient(to right, rgba(0,56,77,0.85) 0%, rgba(0,56,77,0.82) 38%, rgba(0,56,77,0.05) 66%, rgba(0,56,77,0.05) 100%)",
         }}
         aria-hidden="true"
       />
@@ -100,11 +100,11 @@ const Hero = () => {
         aria-hidden="true"
       />
 
-      <div className="container mx-auto px-4 py-20 relative z-20 flex-1 flex flex-col justify-center">
-        <div className="w-full md:max-w-[55%] min-[1400px]:max-w-[64%] flex flex-col items-center md:items-start text-center md:text-left">
+      <div className="container mx-auto px-4 py-20 lg:pt-6 relative z-20 flex-1 flex flex-col justify-center">
+        <div className="w-full md:max-w-[55%] flex flex-col items-center md:items-start text-center md:text-left">
           {/* Decorative line */}
           <motion.div
-            className="w-12 h-0.5 bg-accent mb-8 origin-center md:origin-left"
+            className="w-12 h-0.5 bg-accent mb-8 lg:mb-[clamp(1.25rem,4.8vh,68px)] origin-center md:origin-left"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -112,20 +112,20 @@ const Hero = () => {
           />
 
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight lg:text-[clamp(3.25rem,min(8.4vh,6vw),85px)] lg:leading-[1.08] lg:max-w-[9.2em] lg:mb-[clamp(1rem,4.8vh,68px)]"
             style={{ textShadow: "2px 4px 12px rgba(0,0,0,0.5)" }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
             Locação de Geradores de Energia
-            <span className="block text-accent mt-4 text-xl sm:text-2xl md:text-3xl lg:text-4xl drop-shadow-lg font-medium">
+            <span className="block text-accent mt-4 text-xl sm:text-2xl md:text-3xl drop-shadow-lg font-medium lg:text-[clamp(1.5rem,min(4.8vh,3.5vw),47px)] lg:leading-[1.15] lg:mt-[clamp(0.5rem,2.4vh,34px)]">
               Indústrias, Comércio, Serviços e Eventos
             </span>
           </motion.h1>
 
           <motion.p
-            className="text-base sm:text-lg md:text-xl text-white/95 mb-10 max-w-3xl leading-relaxed font-bold"
+            className="text-base sm:text-lg md:text-xl text-white/95 mb-10 max-w-3xl leading-relaxed font-bold lg:text-[clamp(1.0625rem,3.15vh,38px)] lg:leading-[1.6] lg:mb-[clamp(1.25rem,5vh,72px)]"
             style={{ textShadow: "1px 2px 8px rgba(0,0,0,0.5)" }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -143,7 +143,7 @@ const Hero = () => {
             <Button
               asChild
               size="lg"
-              className="bg-accent text-accent-foreground hover:bg-accent/90 hover:shadow-accent-glow font-bold text-base sm:text-lg px-6 sm:px-8 h-12 sm:h-14 min-h-[44px] shadow-accent transition-all duration-300 hover:-translate-y-1 rounded-full"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 hover:shadow-accent-glow font-bold text-base sm:text-lg lg:text-[clamp(1rem,min(2.2vh,1.8vw),22px)] px-6 sm:px-8 h-12 sm:h-14 lg:h-[clamp(3.25rem,7vh,84px)] min-h-[44px] shadow-accent transition-all duration-300 hover:-translate-y-1 rounded-full"
             >
               <Link to="/contato">
                 Solicitar Orçamento
@@ -154,7 +154,7 @@ const Hero = () => {
             <Button
               asChild
               size="lg"
-              className="bg-white/10 border-2 border-white/40 text-white hover:bg-white hover:text-primary font-bold text-base sm:text-lg px-6 sm:px-8 h-12 sm:h-14 min-h-[44px] transition-all duration-300 hover:-translate-y-1 rounded-full"
+              className="bg-white/10 border-2 border-white/40 text-white hover:bg-white hover:text-primary font-bold text-base sm:text-lg lg:text-[clamp(1rem,min(2.2vh,1.8vw),22px)] px-6 sm:px-8 h-12 sm:h-14 lg:h-[clamp(3.25rem,7vh,84px)] min-h-[44px] transition-all duration-300 hover:-translate-y-1 rounded-full"
             >
               <a href="https://wa.me/5531995266402?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Projemac%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer">
                 <Phone className="mr-2 h-5 w-5" />
