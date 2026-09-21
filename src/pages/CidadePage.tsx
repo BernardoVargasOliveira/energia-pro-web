@@ -27,7 +27,7 @@ const cidades: Record<string, CityData> = {
       "Eventos, feiras e convenções empresariais",
     ],
     descricaoSeo:
-      "Aluguel de geradores em Betim MG. A PROJEMAC atende indústrias automotivas, refinaria e obras em Betim com grupos geradores de 6 a 4000 kVA. Instalação e suporte 24h inclusos.",
+      "Aluguel de geradores em Betim MG. A PROJEMAC atende indústrias automotivas, refinaria e obras em Betim com grupos geradores de 6 a 4000 kVA. Entrega técnica e suporte inclusos.",
     vizinhas: ["contagem", "ibirite", "brumadinho"],
   },
   contagem: {
@@ -43,7 +43,7 @@ const cidades: Record<string, CityData> = {
       "Hospitais, clínicas e unidades de saúde",
     ],
     descricaoSeo:
-      "Aluguel de geradores em Contagem MG. A PROJEMAC oferece locação de grupos geradores para indústrias, comércios e obras em Contagem. Atendimento 24h com instalação inclusa.",
+      "Aluguel de geradores em Contagem MG. A PROJEMAC oferece locação de grupos geradores para indústrias, comércios e obras em Contagem. Entrega técnica e suporte inclusos.",
     vizinhas: ["betim", "ibirite", "sabara"],
   },
   "santa-luzia": {
@@ -123,7 +123,7 @@ const cidades: Record<string, CityData> = {
       "Obras e empreendimentos imobiliários premium",
     ],
     descricaoSeo:
-      "Aluguel de geradores em Nova Lima MG. A PROJEMAC fornece grupos geradores para mineradoras, condomínios e data centers em Nova Lima. Atendimento 24h.",
+      "Aluguel de geradores em Nova Lima MG. A PROJEMAC fornece grupos geradores para mineradoras, condomínios e data centers em Nova Lima. Entrega técnica e suporte inclusos.",
     vizinhas: ["sabara", "brumadinho", "contagem"],
   },
   vespasiano: {
@@ -171,7 +171,7 @@ const cidades: Record<string, CityData> = {
       "Hospitais, clínicas e unidades de saúde",
     ],
     descricaoSeo:
-      "Aluguel de geradores em Sete Lagoas MG. A PROJEMAC atende siderúrgicas, indústrias e eventos em Sete Lagoas com grupos geradores robustos. Atendimento 24h.",
+      "Aluguel de geradores em Sete Lagoas MG. A PROJEMAC atende siderúrgicas, indústrias e eventos em Sete Lagoas com grupos geradores robustos. Entrega técnica e suporte inclusos.",
     vizinhas: ["pedro-leopoldo", "matozinhos", "esmeraldas"],
   },
   esmeraldas: {
@@ -415,7 +415,7 @@ const CidadePage = () => {
                 <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center mx-auto mb-4">
                   <Shield className="w-7 h-7 text-accent" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">Suporte 24h</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">Suporte técnico</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   Manutenção preventiva e suporte técnico durante todo o período
                   da locação em {data.cidade} e região.

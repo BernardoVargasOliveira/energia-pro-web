@@ -102,7 +102,7 @@ const produtos: Record<string, ProdutoData> = {
       "Monitoramento de parâmetros em tempo real",
     ],
     descricaoSeo:
-      "Locação de geradores de médio porte de 50 a 180 kVA em BH e MG. PROJEMAC atende indústrias, condomínios e hospitais com grupos geradores confiáveis. Suporte técnico 24h.",
+      "Locação de geradores de médio porte de 50 a 180 kVA em BH e MG. PROJEMAC atende indústrias, condomínios e hospitais com grupos geradores confiáveis. Suporte técnico durante a locação.",
     outros: ["geradores-portateis", "geradores-grande-porte", "usina-energia", "torres-iluminacao"],
   },
 
@@ -140,7 +140,7 @@ const produtos: Record<string, ProdutoData> = {
       "Tanque ampliado disponível",
     ],
     descricaoSeo:
-      "Locação de geradores de grande porte de 220 a 500 kVA em MG. PROJEMAC fornece grupos geradores para indústrias, hospitais e data centers. Instalação profissional e suporte 24h.",
+      "Locação de geradores de grande porte de 220 a 500 kVA em MG. PROJEMAC fornece grupos geradores para indústrias, hospitais e data centers. Entrega técnica e suporte durante a locação.",
     outros: ["geradores-portateis", "geradores-medio-porte", "usina-energia", "torres-iluminacao"],
   },
 
