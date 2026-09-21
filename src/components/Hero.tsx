@@ -41,7 +41,7 @@ const Hero = () => {
   return (
     <section
       data-hero
-      className="relative min-h-[85vh] lg:min-h-[75vh] flex flex-col overflow-hidden pt-14 md:pt-16 bg-primary"
+      className="relative min-h-[85vh] lg:min-h-[100svh] flex flex-col overflow-hidden pt-14 md:pt-16 lg:pt-32 bg-primary"
       aria-label="Aluguel de Geradores em BH e Região Metropolitana — PROJEMAC"
     >
       {/* Background media — vídeo rotativo da operação (4 cenas) ou poster estático */}
